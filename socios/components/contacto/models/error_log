@@ -1,0 +1,4 @@
+[23-Mar-2024 20:40:38 America/Santiago] PHP Fatal error:  __autoload() is no longer supported, use spl_autoload_register() instead in /home2/ramuchcl/public_html/socios/includes/PHPMailer2/PHPMailerAutoload.php on line 45
+[23-Mar-2024 20:42:16 America/Santiago] PHP Fatal error:  __autoload() is no longer supported, use spl_autoload_register() instead in /home2/ramuchcl/public_html/socios/includes/PHPMailer2/PHPMailerAutoload.php on line 45
+[23-Mar-2024 20:43:09 America/Santiago] PHP Fatal error:  __autoload() is no longer supported, use spl_autoload_register() instead in /home2/ramuchcl/public_html/socios/includes/PHPMailer2/PHPMailerAutoload.php on line 45
+[26-Mar-2024 16:52:54 America/Santiago] PHP Fatal error:  __autoload() is no longer supported, use spl_autoload_register() instead in /home2/ramuchcl/public_html/socios/includes/PHPMailer2/PHPMailerAutoload.php on line 45

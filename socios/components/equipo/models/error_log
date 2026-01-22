@@ -1,0 +1,65 @@
+[15-Nov-2025 21:00:58 America/Chicago] PHP Warning:  Undefined array key "company_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 14
+[15-Nov-2025 21:00:58 America/Chicago] PHP Warning:  Undefined array key "usuario_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 15
+[15-Nov-2025 21:00:58 America/Chicago] PHP Warning:  Undefined array key "company_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 14
+[15-Nov-2025 21:00:58 America/Chicago] PHP Warning:  Undefined array key "usuario_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 15
+[15-Nov-2025 21:00:58 America/Chicago] PHP Warning:  Undefined array key "company_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 14
+[15-Nov-2025 21:00:58 America/Chicago] PHP Warning:  Undefined array key "usuario_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 15
+[15-Nov-2025 21:01:02 America/Chicago] PHP Warning:  Undefined array key "company_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 14
+[15-Nov-2025 21:01:02 America/Chicago] PHP Warning:  Undefined array key "usuario_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 15
+[15-Nov-2025 21:01:03 America/Chicago] PHP Warning:  Undefined array key "company_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 14
+[15-Nov-2025 21:01:03 America/Chicago] PHP Warning:  Undefined array key "usuario_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 15
+[15-Nov-2025 21:07:10 America/Chicago] PHP Warning:  Undefined array key "company_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 14
+[15-Nov-2025 21:07:10 America/Chicago] PHP Warning:  Undefined array key "usuario_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 15
+[15-Nov-2025 21:07:10 America/Chicago] PHP Warning:  Undefined array key "company_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 14
+[15-Nov-2025 21:07:10 America/Chicago] PHP Warning:  Undefined array key "usuario_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 15
+[15-Nov-2025 21:07:11 America/Chicago] PHP Warning:  Undefined array key "company_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 14
+[15-Nov-2025 21:07:11 America/Chicago] PHP Warning:  Undefined array key "usuario_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 15
+[15-Nov-2025 21:07:11 America/Chicago] PHP Warning:  Undefined array key "company_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 14
+[15-Nov-2025 21:07:11 America/Chicago] PHP Warning:  Undefined array key "usuario_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 15
+[15-Nov-2025 21:07:25 America/Chicago] PHP Warning:  Undefined array key "company_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 14
+[15-Nov-2025 21:07:25 America/Chicago] PHP Warning:  Undefined array key "usuario_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 15
+[17-Nov-2025 14:42:46 America/Chicago] PHP Warning:  Undefined array key "company_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/solicitar_equipo.php on line 7
+[17-Nov-2025 14:42:46 America/Chicago] PHP Warning:  Undefined array key "usuario_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/solicitar_equipo.php on line 8
+[17-Nov-2025 14:42:46 America/Chicago] PHP Warning:  Undefined array key "usuario_nombre" in /home2/ramuchcl/public_html/socios/components/equipo/models/solicitar_equipo.php on line 9
+[17-Nov-2025 14:42:46 America/Chicago] PHP Warning:  Undefined array key "usuario_email" in /home2/ramuchcl/public_html/socios/components/equipo/models/solicitar_equipo.php on line 10
+[17-Nov-2025 14:43:35 America/Chicago] PHP Warning:  Attempt to read property "nombre_usuario" on null in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 59
+[17-Nov-2025 14:43:35 America/Chicago] PHP Warning:  Attempt to read property "nombre_usuario" on null in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 59
+[17-Nov-2025 14:43:35 America/Chicago] PHP Warning:  Attempt to read property "nombre_usuario" on null in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 59
+[17-Nov-2025 14:43:36 America/Chicago] PHP Warning:  Attempt to read property "nombre_usuario" on null in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 59
+[17-Nov-2025 14:43:36 America/Chicago] PHP Warning:  Attempt to read property "nombre_usuario" on null in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 59
+[17-Nov-2025 14:43:36 America/Chicago] PHP Warning:  Attempt to read property "nombre_usuario" on null in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 59
+[17-Nov-2025 14:46:50 America/Chicago] PHP Warning:  Attempt to read property "nombre_usuario" on null in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 59
+[17-Nov-2025 14:46:50 America/Chicago] PHP Warning:  Attempt to read property "nombre_usuario" on null in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 59
+[17-Nov-2025 14:46:50 America/Chicago] PHP Warning:  Attempt to read property "nombre_usuario" on null in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 59
+[17-Nov-2025 14:46:51 America/Chicago] PHP Warning:  Attempt to read property "nombre_usuario" on null in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 59
+[17-Nov-2025 14:46:51 America/Chicago] PHP Warning:  Attempt to read property "nombre_usuario" on null in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 59
+[17-Nov-2025 14:46:51 America/Chicago] PHP Warning:  Attempt to read property "nombre_usuario" on null in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 59
+[22-Dec-2025 12:42:30 America/Chicago] PHP Warning:  Undefined array key "company_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 14
+[22-Dec-2025 12:42:30 America/Chicago] PHP Warning:  Undefined array key "usuario_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 15
+[22-Dec-2025 12:42:31 America/Chicago] PHP Warning:  Undefined array key "company_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 14
+[22-Dec-2025 12:42:31 America/Chicago] PHP Warning:  Undefined array key "usuario_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 15
+[22-Dec-2025 12:42:31 America/Chicago] PHP Warning:  Undefined array key "company_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 14
+[22-Dec-2025 12:42:31 America/Chicago] PHP Warning:  Undefined array key "usuario_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 15
+[22-Dec-2025 12:42:31 America/Chicago] PHP Warning:  Undefined array key "company_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 14
+[22-Dec-2025 12:42:31 America/Chicago] PHP Warning:  Undefined array key "usuario_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 15
+[28-Dec-2025 15:40:20 America/Chicago] PHP Warning:  Undefined array key "company_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 14
+[28-Dec-2025 15:40:20 America/Chicago] PHP Warning:  Undefined array key "usuario_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 15
+[28-Dec-2025 15:40:20 America/Chicago] PHP Warning:  Undefined array key "company_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 14
+[28-Dec-2025 15:40:20 America/Chicago] PHP Warning:  Undefined array key "usuario_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 15
+[28-Dec-2025 15:40:22 America/Chicago] PHP Warning:  Undefined array key "company_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 14
+[28-Dec-2025 15:40:22 America/Chicago] PHP Warning:  Undefined array key "usuario_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 15
+[28-Dec-2025 15:40:25 America/Chicago] PHP Warning:  Undefined array key "company_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 14
+[28-Dec-2025 15:40:25 America/Chicago] PHP Warning:  Undefined array key "usuario_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 15
+[28-Dec-2025 15:40:25 America/Chicago] PHP Warning:  Undefined array key "company_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 14
+[28-Dec-2025 15:40:25 America/Chicago] PHP Warning:  Undefined array key "usuario_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 15
+[28-Dec-2025 15:40:26 America/Chicago] PHP Warning:  Undefined array key "company_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 14
+[28-Dec-2025 15:40:26 America/Chicago] PHP Warning:  Undefined array key "usuario_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 15
+[08-Jan-2026 13:53:31 America/Chicago] PHP Warning:  Undefined array key "company_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 14
+[08-Jan-2026 13:53:31 America/Chicago] PHP Warning:  Undefined array key "usuario_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 15
+[14-Jan-2026 14:02:45 America/Chicago] PHP Warning:  Undefined array key "company_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/solicitar_equipo.php on line 7
+[14-Jan-2026 14:02:45 America/Chicago] PHP Warning:  Undefined array key "usuario_id" in /home2/ramuchcl/public_html/socios/components/equipo/models/solicitar_equipo.php on line 8
+[14-Jan-2026 14:02:45 America/Chicago] PHP Warning:  Undefined array key "usuario_nombre" in /home2/ramuchcl/public_html/socios/components/equipo/models/solicitar_equipo.php on line 9
+[14-Jan-2026 14:02:45 America/Chicago] PHP Warning:  Undefined array key "usuario_email" in /home2/ramuchcl/public_html/socios/components/equipo/models/solicitar_equipo.php on line 10
+[14-Jan-2026 14:02:59 America/Chicago] PHP Warning:  Attempt to read property "nombre_usuario" on null in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 59
+[14-Jan-2026 14:03:00 America/Chicago] PHP Warning:  Attempt to read property "nombre_usuario" on null in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 59
+[14-Jan-2026 14:03:00 America/Chicago] PHP Warning:  Attempt to read property "nombre_usuario" on null in /home2/ramuchcl/public_html/socios/components/equipo/models/equipo_list_procesa.php on line 59

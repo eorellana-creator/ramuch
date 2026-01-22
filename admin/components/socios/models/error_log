@@ -1,0 +1,459 @@
+[17-Jul-2025 11:43:43 America/Chicago] sql: SELECT u.id_usuario, u.nombre_usuario, u.email, p.tipo_inscripcion, p.fono, p.rut, u.referencia, u.fecha_registro
+            FROM usuario AS u 
+            LEFT JOIN perfil AS p ON u.id_usuario = p.id_usuario 
+            WHERE u.web_matricula_pagada = 'Si' AND 
+            p.tipo_inscripcion IN ('1','2','3','6','7','8')
+[21-Jul-2025 08:00:26 America/Chicago] PHP Warning:  Undefined variable $rut in /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php on line 11
+[21-Jul-2025 08:00:26 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/admin/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php(11): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/funciones.php on line 106
+[23-Jul-2025 07:24:14 America/Chicago] sql: SELECT u.id_usuario, u.nombre_usuario, u.email, p.tipo_inscripcion, p.fono, p.rut, u.referencia, u.fecha_registro
+            FROM usuario AS u 
+            LEFT JOIN perfil AS p ON u.id_usuario = p.id_usuario 
+            WHERE u.web_matricula_pagada = 'Si' AND 
+            p.tipo_inscripcion IN ('1','2','3') AND EXISTS (
+            SELECT 1 
+            FROM deudas d 
+            WHERE d.id_usuario_deuda = u.id_usuario 
+              AND d.fecha BETWEEN '2025-01-01' AND '2025-07-23' 
+              AND d.estado = 'activa'
+        )
+[23-Jul-2025 07:24:18 America/Chicago] sql: SELECT u.id_usuario, u.nombre_usuario, u.email, p.tipo_inscripcion, p.fono, p.rut, u.referencia, u.fecha_registro
+            FROM usuario AS u 
+            LEFT JOIN perfil AS p ON u.id_usuario = p.id_usuario 
+            WHERE u.web_matricula_pagada = 'Si' AND 
+            p.tipo_inscripcion IN ('1','2','3')
+[07-Aug-2025 10:32:37 America/Chicago] sql: SELECT u.id_usuario, u.nombre_usuario, u.email, p.tipo_inscripcion, p.fono, p.rut, u.referencia, u.fecha_registro
+            FROM usuario AS u 
+            LEFT JOIN perfil AS p ON u.id_usuario = p.id_usuario 
+            WHERE u.web_matricula_pagada = 'Si' AND 
+            p.tipo_inscripcion IN ('1','2','3')
+[20-Aug-2025 10:05:45 America/Chicago] sql: SELECT u.id_usuario, u.nombre_usuario, u.email, p.tipo_inscripcion, p.fono, p.rut, u.referencia, u.fecha_registro
+            FROM usuario AS u 
+            LEFT JOIN perfil AS p ON u.id_usuario = p.id_usuario 
+            WHERE u.web_matricula_pagada = 'Si' AND 
+            p.tipo_inscripcion IN ('1','3') AND EXISTS (
+            SELECT 1 
+            FROM deudas d 
+            WHERE d.id_usuario_deuda = u.id_usuario 
+              AND d.fecha BETWEEN '2024-01-20' AND '2025-08-20' 
+              AND d.estado = 'activa'
+        )
+[20-Aug-2025 10:09:36 America/Chicago] sql: SELECT u.id_usuario, u.nombre_usuario, u.email, p.tipo_inscripcion, p.fono, p.rut, u.referencia, u.fecha_registro
+            FROM usuario AS u 
+            LEFT JOIN perfil AS p ON u.id_usuario = p.id_usuario 
+            WHERE u.web_matricula_pagada = 'Si' AND 
+            p.tipo_inscripcion IN ('1','3') AND EXISTS (
+            SELECT 1 
+            FROM deudas d 
+            WHERE d.id_usuario_deuda = u.id_usuario 
+              AND d.fecha BETWEEN '2024-01-20' AND '2025-07-31' 
+              AND d.estado = 'activa'
+        )
+[21-Aug-2025 14:06:16 America/Chicago] sql: SELECT u.id_usuario, u.nombre_usuario, u.email, p.tipo_inscripcion, p.fono, p.rut, u.referencia, u.fecha_registro
+            FROM usuario AS u 
+            LEFT JOIN perfil AS p ON u.id_usuario = p.id_usuario 
+            WHERE u.web_matricula_pagada = 'Si' AND 
+            p.tipo_inscripcion IN ('1','8') AND EXISTS (
+            SELECT 1 
+            FROM deudas d 
+            WHERE d.id_usuario_deuda = u.id_usuario 
+              AND d.fecha BETWEEN '2024-01-01' AND '2025-07-31' 
+              AND d.estado = 'activa'
+        )
+[21-Aug-2025 16:14:15 America/Chicago] sql: SELECT u.id_usuario, u.nombre_usuario, u.email, p.tipo_inscripcion, p.fono, p.rut, u.referencia, u.fecha_registro
+            FROM usuario AS u 
+            LEFT JOIN perfil AS p ON u.id_usuario = p.id_usuario 
+            WHERE u.web_matricula_pagada = 'Si' AND 
+            p.tipo_inscripcion IN ('1','3')
+[21-Aug-2025 16:16:07 America/Chicago] sql: SELECT u.id_usuario, u.nombre_usuario, u.email, p.tipo_inscripcion, p.fono, p.rut, u.referencia, u.fecha_registro
+            FROM usuario AS u 
+            LEFT JOIN perfil AS p ON u.id_usuario = p.id_usuario 
+            WHERE u.web_matricula_pagada = 'Si' AND 
+            p.tipo_inscripcion IN ('1','2','3')
+[21-Aug-2025 21:27:44 America/Chicago] sql: SELECT u.id_usuario, u.nombre_usuario, u.email, p.tipo_inscripcion, p.fono, p.rut, u.referencia, u.fecha_registro
+            FROM usuario AS u 
+            LEFT JOIN perfil AS p ON u.id_usuario = p.id_usuario 
+            WHERE u.web_matricula_pagada = 'Si' AND 
+            p.tipo_inscripcion IN ('1','2','3') AND EXISTS (
+            SELECT 1 
+            FROM deudas d 
+            WHERE d.id_usuario_deuda = u.id_usuario 
+              AND d.fecha BETWEEN '2023-01-01' AND '2025-08-21' 
+              AND d.estado = 'activa'
+        )
+[21-Aug-2025 21:29:14 America/Chicago] sql: SELECT u.id_usuario, u.nombre_usuario, u.email, p.tipo_inscripcion, p.fono, p.rut, u.referencia, u.fecha_registro
+            FROM usuario AS u 
+            LEFT JOIN perfil AS p ON u.id_usuario = p.id_usuario 
+            WHERE u.web_matricula_pagada = 'Si' AND 
+            p.tipo_inscripcion IN ('1','2','3')
+[27-Aug-2025 17:08:38 America/Chicago] sql: SELECT u.id_usuario, u.nombre_usuario, u.email, p.tipo_inscripcion, p.fono, p.rut, u.referencia, u.fecha_registro
+            FROM usuario AS u 
+            LEFT JOIN perfil AS p ON u.id_usuario = p.id_usuario 
+            WHERE u.web_matricula_pagada = 'Si' AND 
+            p.tipo_inscripcion IN ('1','2','3')
+[28-Aug-2025 12:12:37 America/Chicago] sql: SELECT u.id_usuario, u.nombre_usuario, u.email, p.tipo_inscripcion, p.fono, p.rut, u.referencia, u.fecha_registro
+            FROM usuario AS u 
+            LEFT JOIN perfil AS p ON u.id_usuario = p.id_usuario 
+            WHERE u.web_matricula_pagada = 'Si' AND 
+            p.tipo_inscripcion IN ('1','2','3')
+[29-Aug-2025 09:25:18 America/Chicago] PHP Warning:  Undefined variable $nombre in /home2/ramuchcl/public_html/admin/components/socios/models/actualiza_inscripcion.php on line 34
+[29-Aug-2025 09:25:18 America/Chicago] PHP Warning:  Undefined variable $token_nuevo in /home2/ramuchcl/public_html/admin/components/socios/models/actualiza_inscripcion.php on line 34
+[01-Sep-2025 07:24:20 America/Chicago] sql: SELECT u.id_usuario, u.nombre_usuario, u.email, p.tipo_inscripcion, p.fono, p.rut, u.referencia, u.fecha_registro
+            FROM usuario AS u 
+            LEFT JOIN perfil AS p ON u.id_usuario = p.id_usuario 
+            WHERE u.web_matricula_pagada = 'Si' AND 
+            p.tipo_inscripcion IN ('1','2','3')
+[04-Sep-2025 17:05:40 America/Chicago] sql: SELECT u.id_usuario, u.nombre_usuario, u.email, p.tipo_inscripcion, p.fono, p.rut, u.referencia, u.fecha_registro
+            FROM usuario AS u 
+            LEFT JOIN perfil AS p ON u.id_usuario = p.id_usuario 
+            WHERE u.web_matricula_pagada = 'Si' AND 
+            p.tipo_inscripcion IN ('1','3')
+[05-Sep-2025 15:33:40 America/Chicago] sql: SELECT u.id_usuario, u.nombre_usuario, u.email, p.tipo_inscripcion, p.fono, p.rut, u.referencia, u.fecha_registro
+            FROM usuario AS u 
+            LEFT JOIN perfil AS p ON u.id_usuario = p.id_usuario 
+            WHERE u.web_matricula_pagada = 'Si' AND 
+            p.tipo_inscripcion IN ('1','3') AND EXISTS (
+            SELECT 1 
+            FROM deudas d 
+            WHERE d.id_usuario_deuda = u.id_usuario 
+              AND d.fecha BETWEEN '2025-06-02' AND '2025-09-05' 
+              AND d.estado = 'activa'
+        )
+[25-Sep-2025 09:26:39 America/Chicago] PHP Warning:  Undefined variable $rut in /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php on line 11
+[25-Sep-2025 09:26:39 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/admin/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php(11): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/funciones.php on line 106
+[02-Oct-2025 08:28:09 America/Chicago] sql: SELECT u.id_usuario, u.nombre_usuario, u.email, p.tipo_inscripcion, p.fono, p.rut, u.referencia, u.fecha_registro
+            FROM usuario AS u 
+            LEFT JOIN perfil AS p ON u.id_usuario = p.id_usuario 
+            WHERE u.web_matricula_pagada = 'Si' AND 
+            p.tipo_inscripcion IN ('1','2','3')
+[06-Oct-2025 05:43:51 America/Chicago] PHP Warning:  Undefined variable $rut in /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php on line 11
+[06-Oct-2025 05:43:51 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/admin/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php(11): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/funciones.php on line 106
+[06-Oct-2025 05:44:02 America/Chicago] PHP Warning:  Undefined variable $rut in /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php on line 11
+[06-Oct-2025 05:44:02 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/admin/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php(11): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/funciones.php on line 106
+[06-Oct-2025 05:57:22 America/Chicago] PHP Warning:  Undefined variable $rut in /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php on line 11
+[06-Oct-2025 05:57:22 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/admin/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php(11): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/funciones.php on line 106
+[13-Oct-2025 16:17:11 America/Chicago] PHP Warning:  Undefined variable $rut in /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php on line 11
+[13-Oct-2025 16:17:11 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/admin/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php(11): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/funciones.php on line 106
+[15-Oct-2025 21:02:29 America/Chicago] PHP Warning:  Undefined variable $rut in /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php on line 11
+[15-Oct-2025 21:02:29 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/admin/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php(11): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/funciones.php on line 106
+[15-Oct-2025 21:06:38 America/Chicago] PHP Warning:  Undefined variable $rut in /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php on line 11
+[15-Oct-2025 21:06:38 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/admin/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php(11): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/funciones.php on line 106
+[20-Oct-2025 18:55:51 America/Chicago] sql: SELECT u.id_usuario, u.nombre_usuario, u.email, p.tipo_inscripcion, p.fono, p.rut, u.referencia, u.fecha_registro
+            FROM usuario AS u 
+            LEFT JOIN perfil AS p ON u.id_usuario = p.id_usuario 
+            WHERE u.web_matricula_pagada = 'Si' AND 
+            p.tipo_inscripcion IN ('1','2','3')
+[20-Oct-2025 20:08:17 America/Chicago] PHP Warning:  Undefined variable $rut in /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php on line 11
+[20-Oct-2025 20:08:17 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/admin/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php(11): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/funciones.php on line 106
+[23-Oct-2025 11:19:09 America/Chicago] sql: SELECT u.id_usuario, u.nombre_usuario, u.email, p.tipo_inscripcion, p.fono, p.rut, u.referencia, u.fecha_registro
+            FROM usuario AS u 
+            LEFT JOIN perfil AS p ON u.id_usuario = p.id_usuario 
+            WHERE u.web_matricula_pagada = 'Si' AND 
+            p.tipo_inscripcion IN ('1','2','3','6','7','8')
+[27-Oct-2025 11:35:57 America/Chicago] PHP Warning:  Undefined variable $nombre in /home2/ramuchcl/public_html/admin/components/socios/models/actualiza_inscripcion.php on line 34
+[27-Oct-2025 11:35:57 America/Chicago] PHP Warning:  Undefined variable $token_nuevo in /home2/ramuchcl/public_html/admin/components/socios/models/actualiza_inscripcion.php on line 34
+[27-Oct-2025 11:37:31 America/Chicago] PHP Warning:  Undefined variable $nombre in /home2/ramuchcl/public_html/admin/components/socios/models/actualiza_inscripcion.php on line 34
+[27-Oct-2025 11:37:31 America/Chicago] PHP Warning:  Undefined variable $token_nuevo in /home2/ramuchcl/public_html/admin/components/socios/models/actualiza_inscripcion.php on line 34
+[27-Oct-2025 19:10:33 America/Chicago] sql: SELECT u.id_usuario, u.nombre_usuario, u.email, p.tipo_inscripcion, p.fono, p.rut, u.referencia, u.fecha_registro
+            FROM usuario AS u 
+            LEFT JOIN perfil AS p ON u.id_usuario = p.id_usuario 
+            WHERE u.web_matricula_pagada = 'Si' AND 
+            p.tipo_inscripcion IN ('1','2','3')
+[26-Nov-2025 18:06:41 America/Chicago] sql: SELECT u.id_usuario, u.nombre_usuario, u.email, p.tipo_inscripcion, p.fono, p.rut, u.referencia, u.fecha_registro
+            FROM usuario AS u 
+            LEFT JOIN perfil AS p ON u.id_usuario = p.id_usuario 
+            WHERE u.web_matricula_pagada = 'Si' AND 
+            p.tipo_inscripcion IN ('1','2','3')
+[10-Dec-2025 17:18:41 America/Chicago] sql: SELECT u.id_usuario, u.nombre_usuario, u.email, p.tipo_inscripcion, p.fono, p.rut, u.referencia, u.fecha_registro
+            FROM usuario AS u 
+            LEFT JOIN perfil AS p ON u.id_usuario = p.id_usuario 
+            WHERE u.web_matricula_pagada = 'Si' AND 
+            p.tipo_inscripcion IN ('1','2','3') AND EXISTS (
+            SELECT 1 
+            FROM deudas d 
+            WHERE d.id_usuario_deuda = u.id_usuario 
+              AND d.fecha BETWEEN '2024-01-01' AND '2025-12-10' 
+              AND d.estado = 'activa'
+        )
+[10-Dec-2025 18:24:58 America/Chicago] sql: SELECT u.id_usuario, u.nombre_usuario, u.email, p.tipo_inscripcion, p.fono, p.rut, u.referencia, u.fecha_registro
+            FROM usuario AS u 
+            LEFT JOIN perfil AS p ON u.id_usuario = p.id_usuario 
+            WHERE u.web_matricula_pagada = 'Si' AND 
+            p.tipo_inscripcion IN ('2')
+[10-Dec-2025 18:25:12 America/Chicago] sql: SELECT u.id_usuario, u.nombre_usuario, u.email, p.tipo_inscripcion, p.fono, p.rut, u.referencia, u.fecha_registro
+            FROM usuario AS u 
+            LEFT JOIN perfil AS p ON u.id_usuario = p.id_usuario 
+            WHERE u.web_matricula_pagada = 'Si' AND 
+            p.tipo_inscripcion IN ('2')
+[10-Dec-2025 18:25:21 America/Chicago] sql: SELECT u.id_usuario, u.nombre_usuario, u.email, p.tipo_inscripcion, p.fono, p.rut, u.referencia, u.fecha_registro
+            FROM usuario AS u 
+            LEFT JOIN perfil AS p ON u.id_usuario = p.id_usuario 
+            WHERE u.web_matricula_pagada = 'Si' AND 
+            p.tipo_inscripcion IN ('2') AND NOT EXISTS (
+            SELECT 1 
+            FROM deudas d 
+            WHERE d.id_usuario_deuda = u.id_usuario 
+              AND d.fecha BETWEEN '2024-01-01' AND '2025-12-10' 
+              AND d.estado = 'activa'
+        )
+[10-Dec-2025 18:25:25 America/Chicago] sql: SELECT u.id_usuario, u.nombre_usuario, u.email, p.tipo_inscripcion, p.fono, p.rut, u.referencia, u.fecha_registro
+            FROM usuario AS u 
+            LEFT JOIN perfil AS p ON u.id_usuario = p.id_usuario 
+            WHERE u.web_matricula_pagada = 'Si' AND 
+            p.tipo_inscripcion IN ('2') AND NOT EXISTS (
+            SELECT 1 
+            FROM deudas d 
+            WHERE d.id_usuario_deuda = u.id_usuario 
+              AND d.fecha BETWEEN '2024-01-01' AND '2025-12-10' 
+              AND d.estado = 'activa'
+        )
+[10-Dec-2025 18:34:42 America/Chicago] sql: SELECT u.id_usuario, u.nombre_usuario, u.email, p.tipo_inscripcion, p.fono, p.rut, u.referencia, u.fecha_registro
+            FROM usuario AS u 
+            LEFT JOIN perfil AS p ON u.id_usuario = p.id_usuario 
+            WHERE u.web_matricula_pagada = 'Si' AND 
+            p.tipo_inscripcion IN ('1','2','3')
+[10-Dec-2025 18:39:23 America/Chicago] sql: SELECT u.id_usuario, u.nombre_usuario, u.email, p.tipo_inscripcion, p.fono, p.rut, u.referencia, u.fecha_registro
+            FROM usuario AS u 
+            LEFT JOIN perfil AS p ON u.id_usuario = p.id_usuario 
+            WHERE u.web_matricula_pagada = 'Si' AND 
+            p.tipo_inscripcion IN ('1','2','3')
+[12-Jan-2026 17:23:27 America/Chicago] PHP Warning:  Undefined variable $rut in /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php on line 11
+[12-Jan-2026 17:23:27 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/admin/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php(11): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/funciones.php on line 106
+[12-Jan-2026 17:23:36 America/Chicago] PHP Warning:  Undefined variable $rut in /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php on line 11
+[12-Jan-2026 17:23:36 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/admin/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php(11): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/funciones.php on line 106
+[12-Jan-2026 17:38:41 America/Chicago] PHP Warning:  Undefined variable $rut in /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php on line 11
+[12-Jan-2026 17:38:41 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/admin/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php(11): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/funciones.php on line 106
+[12-Jan-2026 17:38:46 America/Chicago] PHP Warning:  Undefined variable $rut in /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php on line 11
+[12-Jan-2026 17:38:46 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/admin/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php(11): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/funciones.php on line 106
+[12-Jan-2026 17:42:35 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/admin/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/admin/components/socios/models/rut_existe.php(11): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/funciones.php on line 106
+[12-Jan-2026 18:16:07 America/Chicago] PHP Warning:  Attempt to read property "id_usuario" on null in /home2/ramuchcl/public_html/admin/components/socios/models/rut_existe.php on line 23
+[12-Jan-2026 18:16:14 America/Chicago] PHP Warning:  Attempt to read property "id_usuario" on null in /home2/ramuchcl/public_html/admin/components/socios/models/rut_existe.php on line 23
+[12-Jan-2026 18:16:23 America/Chicago] PHP Warning:  Attempt to read property "id_usuario" on null in /home2/ramuchcl/public_html/admin/components/socios/models/rut_existe.php on line 23
+[12-Jan-2026 18:16:28 America/Chicago] PHP Warning:  Attempt to read property "id_usuario" on null in /home2/ramuchcl/public_html/admin/components/socios/models/rut_existe.php on line 23
+[12-Jan-2026 18:16:39 America/Chicago] PHP Warning:  Attempt to read property "id_usuario" on null in /home2/ramuchcl/public_html/admin/components/socios/models/rut_existe.php on line 23
+[12-Jan-2026 18:16:57 America/Chicago] PHP Warning:  Attempt to read property "id_usuario" on null in /home2/ramuchcl/public_html/admin/components/socios/models/rut_existe.php on line 23
+[12-Jan-2026 18:17:15 America/Chicago] PHP Warning:  Attempt to read property "id_usuario" on null in /home2/ramuchcl/public_html/admin/components/socios/models/rut_existe.php on line 23
+[12-Jan-2026 18:17:27 America/Chicago] PHP Warning:  Attempt to read property "id_usuario" on null in /home2/ramuchcl/public_html/admin/components/socios/models/rut_existe.php on line 23
+[12-Jan-2026 18:17:31 America/Chicago] PHP Warning:  Attempt to read property "id_usuario" on null in /home2/ramuchcl/public_html/admin/components/socios/models/rut_existe.php on line 23
+[12-Jan-2026 18:30:56 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/admin/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/admin/components/socios/models/rut_existe.php(11): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/funciones.php on line 106
+[12-Jan-2026 18:31:37 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/admin/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/admin/components/socios/models/rut_existe.php(11): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/funciones.php on line 106
+[12-Jan-2026 18:31:44 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/admin/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/admin/components/socios/models/rut_existe.php(11): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/funciones.php on line 106
+[12-Jan-2026 18:33:51 America/Chicago] PHP Warning:  Attempt to read property "id_usuario" on null in /home2/ramuchcl/public_html/admin/components/socios/models/rut_existe.php on line 23
+[12-Jan-2026 18:33:59 America/Chicago] PHP Warning:  Attempt to read property "id_usuario" on null in /home2/ramuchcl/public_html/admin/components/socios/models/rut_existe.php on line 23
+[12-Jan-2026 18:34:08 America/Chicago] PHP Warning:  Undefined array key "company_id" in /home2/ramuchcl/public_html/admin/components/socios/models/insert_update.php on line 8
+[12-Jan-2026 18:34:08 America/Chicago] PHP Warning:  Undefined array key "usuario_id" in /home2/ramuchcl/public_html/admin/components/socios/models/insert_update.php on line 9
+[12-Jan-2026 18:34:40 America/Chicago] PHP Warning:  Attempt to read property "nombre" on null in /home2/ramuchcl/public_html/admin/components/socios/models/socios_list_procesa.php on line 257
+[12-Jan-2026 18:38:24 America/Chicago] PHP Warning:  Undefined variable $rut in /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php on line 11
+[12-Jan-2026 18:38:24 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/admin/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php(11): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/funciones.php on line 106
+[12-Jan-2026 18:38:49 America/Chicago] PHP Warning:  Undefined variable $rut in /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php on line 11
+[12-Jan-2026 18:38:49 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/admin/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php(11): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/funciones.php on line 106
+[12-Jan-2026 18:38:55 America/Chicago] PHP Warning:  Undefined variable $rut in /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php on line 11
+[12-Jan-2026 18:38:55 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/admin/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php(11): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/funciones.php on line 106
+[12-Jan-2026 18:39:06 America/Chicago] PHP Warning:  Attempt to read property "id_usuario" on null in /home2/ramuchcl/public_html/admin/components/socios/models/rut_existe.php on line 23
+[12-Jan-2026 18:40:38 America/Chicago] PHP Warning:  Undefined variable $rut in /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php on line 11
+[12-Jan-2026 18:40:38 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/admin/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php(11): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/funciones.php on line 106
+[12-Jan-2026 18:40:43 America/Chicago] PHP Warning:  Undefined variable $rut in /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php on line 11
+[12-Jan-2026 18:40:43 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/admin/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php(11): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/funciones.php on line 106
+[12-Jan-2026 18:41:03 America/Chicago] PHP Warning:  Attempt to read property "id_usuario" on null in /home2/ramuchcl/public_html/admin/components/socios/models/rut_existe.php on line 23
+[12-Jan-2026 18:43:53 America/Chicago] PHP Warning:  Undefined variable $rut in /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php on line 11
+[12-Jan-2026 18:43:53 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/admin/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php(11): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/funciones.php on line 106
+[12-Jan-2026 18:44:14 America/Chicago] PHP Warning:  Undefined variable $rut in /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php on line 11
+[12-Jan-2026 18:44:14 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/admin/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php(11): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/funciones.php on line 106
+[12-Jan-2026 18:44:25 America/Chicago] PHP Warning:  Attempt to read property "id_usuario" on null in /home2/ramuchcl/public_html/admin/components/socios/models/rut_existe.php on line 23
+[12-Jan-2026 18:44:45 America/Chicago] PHP Warning:  Undefined variable $rut in /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php on line 11
+[12-Jan-2026 18:44:45 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/admin/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php(11): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/funciones.php on line 106
+[12-Jan-2026 18:45:03 America/Chicago] PHP Warning:  Undefined variable $rut in /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php on line 11
+[12-Jan-2026 18:45:03 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/admin/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php(11): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/funciones.php on line 106
+[12-Jan-2026 18:45:13 America/Chicago] PHP Warning:  Attempt to read property "id_usuario" on null in /home2/ramuchcl/public_html/admin/components/socios/models/rut_existe.php on line 23
+[12-Jan-2026 18:47:21 America/Chicago] PHP Warning:  Undefined variable $rut in /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php on line 11
+[12-Jan-2026 18:47:21 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/admin/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php(11): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/funciones.php on line 106
+[12-Jan-2026 18:47:33 America/Chicago] PHP Warning:  Undefined variable $rut in /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php on line 11
+[12-Jan-2026 18:47:33 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/admin/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php(11): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/funciones.php on line 106
+[12-Jan-2026 19:10:22 America/Chicago] PHP Warning:  Undefined variable $rut in /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php on line 11
+[12-Jan-2026 19:10:22 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/admin/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php(11): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/funciones.php on line 106
+[12-Jan-2026 19:10:29 America/Chicago] PHP Warning:  Attempt to read property "id_usuario" on null in /home2/ramuchcl/public_html/admin/components/socios/models/rut_existe.php on line 23
+[12-Jan-2026 19:12:04 America/Chicago] PHP Warning:  Undefined variable $rut in /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php on line 11
+[12-Jan-2026 19:12:04 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/admin/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php(11): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/funciones.php on line 106
+[12-Jan-2026 19:12:16 America/Chicago] PHP Warning:  Attempt to read property "id_usuario" on null in /home2/ramuchcl/public_html/admin/components/socios/models/rut_existe.php on line 23
+[12-Jan-2026 19:12:26 America/Chicago] PHP Warning:  Attempt to read property "id_usuario" on null in /home2/ramuchcl/public_html/admin/components/socios/models/rut_existe.php on line 23
+[12-Jan-2026 19:12:34 America/Chicago] PHP Warning:  Attempt to read property "id_usuario" on null in /home2/ramuchcl/public_html/admin/components/socios/models/rut_existe.php on line 23
+[12-Jan-2026 19:13:52 America/Chicago] PHP Warning:  Undefined variable $rut in /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php on line 11
+[12-Jan-2026 19:13:52 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/admin/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php(11): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/funciones.php on line 106
+[12-Jan-2026 19:13:59 America/Chicago] PHP Warning:  Attempt to read property "id_usuario" on null in /home2/ramuchcl/public_html/admin/components/socios/models/rut_existe.php on line 23
+[12-Jan-2026 19:14:06 America/Chicago] PHP Warning:  Attempt to read property "id_usuario" on null in /home2/ramuchcl/public_html/admin/components/socios/models/rut_existe.php on line 23
+[12-Jan-2026 19:14:15 America/Chicago] PHP Warning:  Attempt to read property "id_usuario" on null in /home2/ramuchcl/public_html/admin/components/socios/models/rut_existe.php on line 23
+[12-Jan-2026 19:22:33 America/Chicago] PHP Warning:  Undefined variable $rut in /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php on line 11
+[12-Jan-2026 19:22:33 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/admin/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/admin/components/socios/models/mail_existe.php(11): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/funciones.php on line 106
+[12-Jan-2026 19:22:46 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/admin/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/funciones.php(106): number_format('1 soci', 0, '', '.')
+#1 /home2/ramuchcl/public_html/admin/components/socios/models/rut_existe.php(11): formatea_rut('1 soci')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/funciones.php on line 106
+[12-Jan-2026 19:22:52 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/admin/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/admin/components/socios/models/rut_existe.php(11): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/funciones.php on line 106
+[12-Jan-2026 19:24:41 America/Chicago] PHP Warning:  Attempt to read property "id_usuario" on null in /home2/ramuchcl/public_html/admin/components/socios/models/rut_existe.php on line 23
+[12-Jan-2026 19:24:47 America/Chicago] PHP Warning:  Attempt to read property "id_usuario" on null in /home2/ramuchcl/public_html/admin/components/socios/models/rut_existe.php on line 23

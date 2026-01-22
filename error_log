@@ -1,0 +1,89 @@
+[27-Feb-2025 04:13:28 UTC] Error de evento de reprogramación de cron para el gancho: action_scheduler_run_queue. Código de error: could_not_set. Mensaje de error: No se ha podido guardar la lista de eventos del cron.. Datos: {"schedule":"every_minute","args":["WP Cron"],"interval":60}
+[03-Mar-2025 13:59:56 America/Chicago] PHP Fatal error:  Uncaught Error: Undefined constant "ABSPATH" in /home2/ramuchcl/public_html/wp-settings.php:33
+Stack trace:
+#0 {main}
+  thrown in /home2/ramuchcl/public_html/wp-settings.php on line 33
+[03-Mar-2025 14:02:50 America/Chicago] PHP Fatal error:  Uncaught Error: Undefined constant "ABSPATH" in /home2/ramuchcl/public_html/wp-settings.php:33
+Stack trace:
+#0 {main}
+  thrown in /home2/ramuchcl/public_html/wp-settings.php on line 33
+[07-Mar-2025 21:39:52 UTC] PHP Warning:  Undefined array key "path" in /home2/ramuchcl/public_html/wp-includes/canonical.php on line 731
+[15-Apr-2025 19:10:41 UTC] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in /home2/ramuchcl/public_html/wp-includes/class-wp-image-editor-imagick.php on line 470
+[15-Apr-2025 19:11:33 UTC] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in /home2/ramuchcl/public_html/wp-includes/class-wp-image-editor-imagick.php on line 470
+[16-Apr-2025 23:30:04 UTC] WordPress database error Deadlock found when trying to get lock; try restarting transaction for query INSERT INTO `ramuch_options` (`option_name`, `option_value`, `autoload`) VALUES ('_site_transient_timeout_wp_theme_files_patterns-7615cc916d82d4222913a349a57b3d3b', '1744848004', 'off') ON DUPLICATE KEY UPDATE `option_name` = VALUES(`option_name`), `option_value` = VALUES(`option_value`), `autoload` = VALUES(`autoload`) made by require('wp-blog-header.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), WP_Hook->do_action, WP_Hook->apply_filters, _register_theme_block_patterns, WP_Theme->get_block_patterns, WP_Theme->set_pattern_cache, set_site_transient, add_site_option, add_network_option, add_option
+[24-Apr-2025 18:47:22 America/Chicago] PHP Fatal error:  Uncaught Error: Undefined constant "ABSPATH" in /home2/ramuchcl/public_html/wp-settings.php:34
+Stack trace:
+#0 {main}
+  thrown in /home2/ramuchcl/public_html/wp-settings.php on line 34
+[02-May-2025 00:54:02 UTC] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in /home2/ramuchcl/public_html/wp-includes/class-wp-image-editor-imagick.php on line 480
+[02-May-2025 01:27:29 UTC] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in /home2/ramuchcl/public_html/wp-includes/class-wp-image-editor-imagick.php on line 480
+[07-May-2025 10:53:18 UTC] Error de evento de reprogramación de cron para el gancho: action_scheduler_run_queue. Código de error: could_not_set. Mensaje de error: No se ha podido guardar la lista de eventos del cron.. Datos: {"schedule":"every_minute","args":["WP Cron"],"interval":60}
+[30-May-2025 18:56:41 UTC] WordPress database error Deadlock found when trying to get lock; try restarting transaction for query INSERT INTO `ramuch_options` (`option_name`, `option_value`, `autoload`) VALUES ('_site_transient_timeout_wp_theme_files_patterns-7615cc916d82d4222913a349a57b3d3b', '1748633201', 'off') ON DUPLICATE KEY UPDATE `option_name` = VALUES(`option_name`), `option_value` = VALUES(`option_value`), `autoload` = VALUES(`autoload`) made by require('wp-blog-header.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), WP_Hook->do_action, WP_Hook->apply_filters, _register_theme_block_patterns, WP_Theme->get_block_patterns, WP_Theme->set_pattern_cache, set_site_transient, update_site_option, update_network_option, add_network_option, add_option
+[30-May-2025 18:56:41 UTC] WordPress database error Deadlock found when trying to get lock; try restarting transaction for query INSERT INTO `ramuch_options` (`option_name`, `option_value`, `autoload`) VALUES ('_site_transient_timeout_wp_theme_files_patterns-7615cc916d82d4222913a349a57b3d3b', '1748633201', 'off') ON DUPLICATE KEY UPDATE `option_name` = VALUES(`option_name`), `option_value` = VALUES(`option_value`), `autoload` = VALUES(`autoload`) made by require('wp-blog-header.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), WP_Hook->do_action, WP_Hook->apply_filters, _register_theme_block_patterns, WP_Theme->get_block_patterns, WP_Theme->set_pattern_cache, set_site_transient, add_site_option, add_network_option, add_option
+[19-Jun-2025 14:15:07 America/Chicago] PHP Fatal error:  Uncaught Error: Undefined constant "ABSPATH" in /home2/ramuchcl/public_html/wp-settings.php:34
+Stack trace:
+#0 {main}
+  thrown in /home2/ramuchcl/public_html/wp-settings.php on line 34
+[19-Jun-2025 14:25:32 America/Chicago] PHP Fatal error:  Uncaught Error: Undefined constant "ABSPATH" in /home2/ramuchcl/public_html/wp-settings.php:34
+Stack trace:
+#0 {main}
+  thrown in /home2/ramuchcl/public_html/wp-settings.php on line 34
+[20-Jun-2025 19:10:12 America/Chicago] PHP Fatal error:  Uncaught Error: Undefined constant "ABSPATH" in /home2/ramuchcl/public_html/wp-settings.php:34
+Stack trace:
+#0 {main}
+  thrown in /home2/ramuchcl/public_html/wp-settings.php on line 34
+[23-Jun-2025 17:36:00 America/Chicago] PHP Fatal error:  Uncaught Error: Undefined constant "ABSPATH" in /home2/ramuchcl/public_html/wp-settings.php:34
+Stack trace:
+#0 {main}
+  thrown in /home2/ramuchcl/public_html/wp-settings.php on line 34
+[23-Jun-2025 21:50:05 America/Chicago] PHP Fatal error:  Uncaught Error: Undefined constant "ABSPATH" in /home2/ramuchcl/public_html/wp-settings.php:34
+Stack trace:
+#0 {main}
+  thrown in /home2/ramuchcl/public_html/wp-settings.php on line 34
+[23-Jun-2025 21:50:05 America/Chicago] PHP Fatal error:  Uncaught Error: Undefined constant "ABSPATH" in /home2/ramuchcl/public_html/wp-settings.php:34
+Stack trace:
+#0 {main}
+  thrown in /home2/ramuchcl/public_html/wp-settings.php on line 34
+[25-Jun-2025 01:16:47 America/Chicago] PHP Fatal error:  Uncaught Error: Undefined constant "ABSPATH" in /home2/ramuchcl/public_html/wp-settings.php:34
+Stack trace:
+#0 {main}
+  thrown in /home2/ramuchcl/public_html/wp-settings.php on line 34
+[25-Jun-2025 01:16:51 America/Chicago] PHP Fatal error:  Uncaught Error: Undefined constant "ABSPATH" in /home2/ramuchcl/public_html/wp-settings.php:34
+Stack trace:
+#0 {main}
+  thrown in /home2/ramuchcl/public_html/wp-settings.php on line 34
+[25-Jun-2025 06:43:15 America/Chicago] PHP Fatal error:  Uncaught Error: Undefined constant "ABSPATH" in /home2/ramuchcl/public_html/wp-settings.php:34
+Stack trace:
+#0 {main}
+  thrown in /home2/ramuchcl/public_html/wp-settings.php on line 34
+[25-Jun-2025 07:35:07 America/Chicago] PHP Fatal error:  Uncaught Error: Undefined constant "ABSPATH" in /home2/ramuchcl/public_html/wp-settings.php:34
+Stack trace:
+#0 {main}
+  thrown in /home2/ramuchcl/public_html/wp-settings.php on line 34
+[25-Jun-2025 13:26:40 America/Chicago] PHP Fatal error:  Uncaught Error: Undefined constant "ABSPATH" in /home2/ramuchcl/public_html/wp-settings.php:34
+Stack trace:
+#0 {main}
+  thrown in /home2/ramuchcl/public_html/wp-settings.php on line 34
+[25-Jun-2025 13:30:30 America/Chicago] PHP Fatal error:  Uncaught Error: Undefined constant "ABSPATH" in /home2/ramuchcl/public_html/wp-settings.php:34
+Stack trace:
+#0 {main}
+  thrown in /home2/ramuchcl/public_html/wp-settings.php on line 34
+[01-Jul-2025 04:18:45 UTC] Error de evento de reprogramación de cron para el gancho: action_scheduler_run_queue. Código de error: could_not_set. Mensaje de error: No se ha podido guardar la lista de eventos del cron.. Datos: {"schedule":"every_minute","args":["WP Cron"],"interval":60}
+[02-Jul-2025 03:24:04 UTC] Error de evento de reprogramación de cron para el gancho: action_scheduler_run_queue. Código de error: could_not_set. Mensaje de error: No se ha podido guardar la lista de eventos del cron.. Datos: {"schedule":"every_minute","args":["WP Cron"],"interval":60}
+[05-Jul-2025 14:40:44 America/Chicago] PHP Fatal error:  Uncaught Error: Undefined constant "ABSPATH" in /home2/ramuchcl/public_html/wp-settings.php:34
+Stack trace:
+#0 {main}
+  thrown in /home2/ramuchcl/public_html/wp-settings.php on line 34
+[07-Jul-2025 02:14:38 America/Chicago] PHP Fatal error:  Uncaught Error: Undefined constant "ABSPATH" in /home2/ramuchcl/public_html/wp-settings.php:34
+Stack trace:
+#0 {main}
+  thrown in /home2/ramuchcl/public_html/wp-settings.php on line 34
+[07-Jul-2025 02:15:27 America/Chicago] PHP Fatal error:  Uncaught Error: Undefined constant "ABSPATH" in /home2/ramuchcl/public_html/wp-settings.php:34
+Stack trace:
+#0 {main}
+  thrown in /home2/ramuchcl/public_html/wp-settings.php on line 34
+[01-Aug-2025 12:52:28 UTC] WordPress database error Deadlock found when trying to get lock; try restarting transaction for query DELETE FROM `ramuch_options` WHERE `option_name` = '_site_transient_timeout_wp_theme_files_patterns-7615cc916d82d4222913a349a57b3d3b' made by require('wp-blog-header.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), WP_Hook->do_action, WP_Hook->apply_filters, _register_theme_block_patterns, WP_Theme->get_block_patterns, WP_Theme->get_pattern_cache, get_site_transient, delete_site_option, delete_network_option, delete_option
+[02-Aug-2025 15:07:24 UTC] WordPress database error Deadlock found when trying to get lock; try restarting transaction for query DELETE FROM `ramuch_options` WHERE `option_name` = '_site_transient_timeout_wp_theme_files_patterns-7615cc916d82d4222913a349a57b3d3b' made by require('wp-blog-header.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), WP_Hook->do_action, WP_Hook->apply_filters, _register_theme_block_patterns, WP_Theme->get_block_patterns, WP_Theme->get_pattern_cache, get_site_transient, delete_site_option, delete_network_option, delete_option
+[14-Aug-2025 14:09:47 UTC] PHP Warning:  Undefined array key "user_ID" in /home2/ramuchcl/public_html/wp-content/plugins/advanced-google-recaptcha/libs/functions.php on line 412
+[27-Oct-2025 20:51:37 UTC] WordPress database error Deadlock found when trying to get lock; try restarting transaction for query DELETE FROM `ramuch_options` WHERE `option_name` = '_site_transient_timeout_wp_theme_files_patterns-7615cc916d82d4222913a349a57b3d3b' made by require('wp-blog-header.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), WP_Hook->do_action, WP_Hook->apply_filters, _register_theme_block_patterns, WP_Theme->get_block_patterns, WP_Theme->get_pattern_cache, get_site_transient, delete_site_option, delete_network_option, delete_option
+[15-Jan-2026 15:15:59 UTC] Error de evento de reprogramación de cron para el gancho: action_scheduler_run_queue. Código de error: could_not_set. Mensaje de error: No se ha podido guardar la lista de eventos del cron.. Datos: {"schedule":"every_minute","args":["WP Cron"],"interval":60}

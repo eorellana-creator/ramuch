@@ -1,0 +1,166 @@
+[10-Mar-2024 21:55:40 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[10-Mar-2024 21:55:40 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[10-Mar-2024 21:55:40 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[10-Mar-2024 21:55:40 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[10-Mar-2024 21:55:40 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[10-Mar-2024 21:55:40 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[10-Mar-2024 21:55:40 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[10-Mar-2024 21:55:40 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[10-Mar-2024 21:55:40 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[10-Mar-2024 21:55:40 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[10-Mar-2024 21:55:40 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[10-Mar-2024 21:55:40 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[10-Mar-2024 21:55:40 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[10-Mar-2024 21:55:40 America/Chicago] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home2/ramuchcl/public_html/admin/components/egresos/models/egresos_list_procesa.php:13
+Stack trace:
+#0 {main}
+  thrown in /home2/ramuchcl/public_html/admin/components/egresos/models/egresos_list_procesa.php on line 13
+[11-Mar-2024 15:53:01 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 15:53:01 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 15:53:01 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 15:53:01 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 15:53:01 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 15:53:01 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 15:53:01 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 15:53:01 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 15:53:01 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 15:53:01 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 15:53:01 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 15:53:01 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 15:53:01 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 15:53:01 America/Chicago] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home2/ramuchcl/public_html/admin/components/egresos/models/egresos_list_procesa.php:13
+Stack trace:
+#0 {main}
+  thrown in /home2/ramuchcl/public_html/admin/components/egresos/models/egresos_list_procesa.php on line 13
+[11-Mar-2024 15:53:23 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 15:53:23 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 15:53:23 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 15:53:23 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 15:53:23 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 15:53:23 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 15:53:23 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 15:53:23 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 15:53:23 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 15:53:23 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 15:53:23 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 15:53:23 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 15:53:23 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 15:53:23 America/Chicago] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home2/ramuchcl/public_html/admin/components/egresos/models/egresos_list_procesa.php:13
+Stack trace:
+#0 {main}
+  thrown in /home2/ramuchcl/public_html/admin/components/egresos/models/egresos_list_procesa.php on line 13
+[11-Mar-2024 15:58:30 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 15:58:30 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 15:58:30 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 15:58:30 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 15:58:30 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 15:58:30 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 15:58:30 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 15:58:30 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 15:58:30 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 15:58:30 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 15:58:30 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 15:58:30 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 15:58:30 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 15:58:30 America/Chicago] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home2/ramuchcl/public_html/admin/components/egresos/models/egresos_list_procesa.php:13
+Stack trace:
+#0 {main}
+  thrown in /home2/ramuchcl/public_html/admin/components/egresos/models/egresos_list_procesa.php on line 13
+[11-Mar-2024 16:18:01 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 in /home2/ramuchcl/public_html/admin/includes/conexionMysql.php:39
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/conexionMysql.php(39): mysqli_query(Object(mysqli), 'SELECT * FROM c...')
+#1 /home2/ramuchcl/public_html/admin/components/egresos/models/egresos_list_procesa.php(48): mysql->query('SELECT * FROM c...')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/conexionMysql.php on line 39
+[11-Mar-2024 16:18:04 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 in /home2/ramuchcl/public_html/admin/includes/conexionMysql.php:39
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/conexionMysql.php(39): mysqli_query(Object(mysqli), 'SELECT * FROM c...')
+#1 /home2/ramuchcl/public_html/admin/components/egresos/models/egresos_list_procesa.php(48): mysql->query('SELECT * FROM c...')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/conexionMysql.php on line 39
+[11-Mar-2024 16:18:05 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 in /home2/ramuchcl/public_html/admin/includes/conexionMysql.php:39
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/conexionMysql.php(39): mysqli_query(Object(mysqli), 'SELECT * FROM c...')
+#1 /home2/ramuchcl/public_html/admin/components/egresos/models/egresos_list_procesa.php(48): mysql->query('SELECT * FROM c...')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/conexionMysql.php on line 39
+[11-Mar-2024 16:18:05 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 in /home2/ramuchcl/public_html/admin/includes/conexionMysql.php:39
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/conexionMysql.php(39): mysqli_query(Object(mysqli), 'SELECT * FROM c...')
+#1 /home2/ramuchcl/public_html/admin/components/egresos/models/egresos_list_procesa.php(48): mysql->query('SELECT * FROM c...')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/conexionMysql.php on line 39
+[11-Mar-2024 16:18:05 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 in /home2/ramuchcl/public_html/admin/includes/conexionMysql.php:39
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/conexionMysql.php(39): mysqli_query(Object(mysqli), 'SELECT * FROM c...')
+#1 /home2/ramuchcl/public_html/admin/components/egresos/models/egresos_list_procesa.php(48): mysql->query('SELECT * FROM c...')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/conexionMysql.php on line 39
+[11-Mar-2024 16:18:13 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 16:18:13 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 16:18:13 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 16:18:13 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 16:18:13 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 16:18:13 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 16:18:13 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 16:18:13 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 16:18:13 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 16:18:13 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 16:18:13 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 16:18:13 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 16:18:13 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 16:18:13 America/Chicago] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home2/ramuchcl/public_html/admin/components/egresos/models/egresos_list_procesa.php:13
+Stack trace:
+#0 {main}
+  thrown in /home2/ramuchcl/public_html/admin/components/egresos/models/egresos_list_procesa.php on line 13
+[11-Mar-2024 16:23:11 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 16:23:11 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 16:23:11 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 16:23:11 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 16:23:11 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 16:23:11 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 16:23:11 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 16:23:11 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 16:23:11 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 16:23:11 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 16:23:11 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 16:23:11 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 16:23:11 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[11-Mar-2024 16:23:11 America/Chicago] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home2/ramuchcl/public_html/admin/components/egresos/models/egresos_list_procesa.php:13
+Stack trace:
+#0 {main}
+  thrown in /home2/ramuchcl/public_html/admin/components/egresos/models/egresos_list_procesa.php on line 13
+[13-Mar-2024 18:21:18 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[13-Mar-2024 18:21:18 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[13-Mar-2024 18:21:18 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[13-Mar-2024 18:21:18 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[13-Mar-2024 18:21:18 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[13-Mar-2024 18:21:18 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[13-Mar-2024 18:21:18 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[13-Mar-2024 18:21:18 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[13-Mar-2024 18:21:18 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[13-Mar-2024 18:21:18 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[13-Mar-2024 18:21:18 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[13-Mar-2024 18:21:18 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[13-Mar-2024 18:21:18 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[13-Mar-2024 18:21:18 America/Chicago] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home2/ramuchcl/public_html/admin/components/egresos/models/egresos_list_procesa.php:13
+Stack trace:
+#0 {main}
+  thrown in /home2/ramuchcl/public_html/admin/components/egresos/models/egresos_list_procesa.php on line 13
+[13-Mar-2024 18:21:27 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[13-Mar-2024 18:21:27 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[13-Mar-2024 18:21:27 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[13-Mar-2024 18:21:27 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[13-Mar-2024 18:21:27 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[13-Mar-2024 18:21:27 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[13-Mar-2024 18:21:27 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[13-Mar-2024 18:21:27 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[13-Mar-2024 18:21:27 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[13-Mar-2024 18:21:27 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[13-Mar-2024 18:21:27 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[13-Mar-2024 18:21:27 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[13-Mar-2024 18:21:27 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[13-Mar-2024 18:21:27 America/Chicago] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home2/ramuchcl/public_html/admin/components/egresos/models/egresos_list_procesa.php:13
+Stack trace:
+#0 {main}
+  thrown in /home2/ramuchcl/public_html/admin/components/egresos/models/egresos_list_procesa.php on line 13

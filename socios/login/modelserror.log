@@ -1,0 +1,29 @@
+[20-Feb-2025 15:14:05 America/Chicago] PHP Fatal error:  Uncaught TypeError: mysqli_fetch_object(): Argument #1 ($result) must be of type mysqli_result, string given in /home2/ramuchcl/public_html/socios/includes/conexionMysql.php:43
+Stack trace:
+#0 /home2/ramuchcl/public_html/socios/includes/conexionMysql.php(43): mysqli_fetch_object('\n        SELECT...')
+#1 /home2/ramuchcl/public_html/socios/login/models/login.php(52): mysql->f_obj('\n        SELECT...')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/socios/includes/conexionMysql.php on line 43
+[20-Feb-2025 15:15:51 America/Chicago] PHP Fatal error:  Uncaught TypeError: mysqli_fetch_object(): Argument #1 ($result) must be of type mysqli_result, string given in /home2/ramuchcl/public_html/socios/includes/conexionMysql.php:43
+Stack trace:
+#0 /home2/ramuchcl/public_html/socios/includes/conexionMysql.php(43): mysqli_fetch_object('\n        SELECT...')
+#1 /home2/ramuchcl/public_html/socios/login/models/login.php(52): mysql->f_obj('\n        SELECT...')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/socios/includes/conexionMysql.php on line 43
+[20-Feb-2025 15:30:35 America/Chicago] PHP Warning:  Undefined variable $sql2 in /home2/ramuchcl/public_html/socios/login/models/login.php on line 46
+[20-Feb-2025 15:31:55 America/Chicago] PHP Fatal error:  Uncaught Error: Object of class mysqli_result could not be converted to string in /home2/ramuchcl/public_html/socios/login/models/login.php:46
+Stack trace:
+#0 {main}
+  thrown in /home2/ramuchcl/public_html/socios/login/models/login.php on line 46
+[20-Feb-2025 15:32:14 America/Chicago] PHP Fatal error:  Uncaught Error: Object of class mysqli_result could not be converted to string in /home2/ramuchcl/public_html/socios/login/models/login.php:46
+Stack trace:
+#0 {main}
+  thrown in /home2/ramuchcl/public_html/socios/login/models/login.php on line 46
+[20-Feb-2025 15:35:52 America/Chicago] PHP Fatal error:  Uncaught Error: Object of class mysqli_result could not be converted to string in /home2/ramuchcl/public_html/socios/login/models/login.php:49
+Stack trace:
+#0 {main}
+  thrown in /home2/ramuchcl/public_html/socios/login/models/login.php on line 49
+[20-Feb-2025 15:42:20 America/Chicago] PHP Fatal error:  Uncaught Error: Object of class mysqli_result could not be converted to string in /home2/ramuchcl/public_html/socios/login/models/login.php:51
+Stack trace:
+#0 {main}
+  thrown in /home2/ramuchcl/public_html/socios/login/models/login.php on line 51

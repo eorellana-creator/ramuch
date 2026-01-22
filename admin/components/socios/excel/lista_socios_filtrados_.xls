@@ -1,0 +1,16 @@
+<html lang='es'>
+                        <head><meta charset='UTF-8'></head>
+                        <body>
+                            <table>
+                                <tr style='background-color:#313131; color:#ffffff;padding:4px;'>
+                    <td>ID</td>
+                    <td>Nombre</td>
+                    <td>Rut</td>
+                    <td>Teléfono</td>
+                    <td>Email</td>
+                    <td>Tipo de Inscripción</td>
+                </tr>
+                                
+                            </table>
+                        </body>
+                     </html>

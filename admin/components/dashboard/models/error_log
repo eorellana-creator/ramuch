@@ -1,0 +1,26 @@
+[04-Aug-2025 20:16:06 America/Chicago] PHP Warning:  Undefined variable $config in /home2/ramuchcl/public_html/admin/components/dashboard/models/upload.php on line 13
+[04-Aug-2025 20:16:06 America/Chicago] PHP Warning:  Attempt to read property "zona_horaria" on null in /home2/ramuchcl/public_html/admin/components/dashboard/models/upload.php on line 13
+[04-Aug-2025 20:16:06 America/Chicago] PHP Warning:  Undefined variable $stmt in /home2/ramuchcl/public_html/admin/components/dashboard/models/upload.php on line 117
+[04-Aug-2025 20:16:06 America/Chicago] PHP Warning:  Attempt to read property "insert_id" on null in /home2/ramuchcl/public_html/admin/components/dashboard/models/upload.php on line 117
+[28-Aug-2025 07:44:56 America/Chicago] PHP Warning:  Undefined variable $config in /home2/ramuchcl/public_html/admin/components/dashboard/models/upload.php on line 13
+[28-Aug-2025 07:44:56 America/Chicago] PHP Warning:  Attempt to read property "zona_horaria" on null in /home2/ramuchcl/public_html/admin/components/dashboard/models/upload.php on line 13
+[28-Aug-2025 07:44:56 America/Chicago] PHP Warning:  Undefined variable $stmt in /home2/ramuchcl/public_html/admin/components/dashboard/models/upload.php on line 117
+[28-Aug-2025 07:44:56 America/Chicago] PHP Warning:  Attempt to read property "insert_id" on null in /home2/ramuchcl/public_html/admin/components/dashboard/models/upload.php on line 117
+[20-Oct-2025 18:52:08 America/Chicago] PHP Warning:  Undefined variable $config in /home2/ramuchcl/public_html/admin/components/dashboard/models/upload.php on line 13
+[20-Oct-2025 18:52:08 America/Chicago] PHP Warning:  Attempt to read property "zona_horaria" on null in /home2/ramuchcl/public_html/admin/components/dashboard/models/upload.php on line 13
+[20-Oct-2025 18:53:01 America/Chicago] PHP Warning:  Undefined variable $config in /home2/ramuchcl/public_html/admin/components/dashboard/models/upload.php on line 13
+[20-Oct-2025 18:53:01 America/Chicago] PHP Warning:  Attempt to read property "zona_horaria" on null in /home2/ramuchcl/public_html/admin/components/dashboard/models/upload.php on line 13
+[20-Oct-2025 18:53:55 America/Chicago] PHP Warning:  Undefined variable $config in /home2/ramuchcl/public_html/admin/components/dashboard/models/upload.php on line 13
+[20-Oct-2025 18:53:55 America/Chicago] PHP Warning:  Attempt to read property "zona_horaria" on null in /home2/ramuchcl/public_html/admin/components/dashboard/models/upload.php on line 13
+[22-Oct-2025 10:50:03 America/Chicago] PHP Warning:  Undefined variable $config in /home2/ramuchcl/public_html/admin/components/dashboard/models/upload.php on line 13
+[22-Oct-2025 10:50:03 America/Chicago] PHP Warning:  Attempt to read property "zona_horaria" on null in /home2/ramuchcl/public_html/admin/components/dashboard/models/upload.php on line 13
+[22-Oct-2025 10:50:03 America/Chicago] PHP Warning:  Undefined variable $stmt in /home2/ramuchcl/public_html/admin/components/dashboard/models/upload.php on line 117
+[22-Oct-2025 10:50:03 America/Chicago] PHP Warning:  Attempt to read property "insert_id" on null in /home2/ramuchcl/public_html/admin/components/dashboard/models/upload.php on line 117
+[24-Oct-2025 13:35:15 America/Chicago] PHP Warning:  Undefined variable $config in /home2/ramuchcl/public_html/admin/components/dashboard/models/upload.php on line 13
+[24-Oct-2025 13:35:15 America/Chicago] PHP Warning:  Attempt to read property "zona_horaria" on null in /home2/ramuchcl/public_html/admin/components/dashboard/models/upload.php on line 13
+[24-Oct-2025 13:35:15 America/Chicago] PHP Warning:  Undefined variable $stmt in /home2/ramuchcl/public_html/admin/components/dashboard/models/upload.php on line 117
+[24-Oct-2025 13:35:15 America/Chicago] PHP Warning:  Attempt to read property "insert_id" on null in /home2/ramuchcl/public_html/admin/components/dashboard/models/upload.php on line 117
+[24-Oct-2025 13:36:47 America/Chicago] PHP Warning:  Undefined variable $config in /home2/ramuchcl/public_html/admin/components/dashboard/models/upload.php on line 13
+[24-Oct-2025 13:36:47 America/Chicago] PHP Warning:  Attempt to read property "zona_horaria" on null in /home2/ramuchcl/public_html/admin/components/dashboard/models/upload.php on line 13
+[24-Oct-2025 13:36:47 America/Chicago] PHP Warning:  Undefined variable $stmt in /home2/ramuchcl/public_html/admin/components/dashboard/models/upload.php on line 117
+[24-Oct-2025 13:36:47 America/Chicago] PHP Warning:  Attempt to read property "insert_id" on null in /home2/ramuchcl/public_html/admin/components/dashboard/models/upload.php on line 117

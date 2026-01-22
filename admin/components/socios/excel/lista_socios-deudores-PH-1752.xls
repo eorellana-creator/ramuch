@@ -1,0 +1,581 @@
+<html lang='es'>
+                        <head><meta charset='UTF-8'></head>
+                        <body>
+                            <table>
+                                <tr style='background-color:#313131; color:#ffffff;padding:4px;'>
+                    <td>ID</td>
+                    <td>Nombre</td>
+                    <td>Rut</td>
+                    <td>Teléfono</td>
+                    <td>Email</td>
+                    <td>Tipo de Inscripción</td>
+                    <td>Referencia</td>
+                    <td>Fecha de Registro</td>
+                    <td>Deuda</td>
+                    <td>Cantidad de cuotas</td>
+                </tr>
+                                <tr>
+                        <td>1626</td>
+                        <td>Francisco Carrasco Valderrama</td>
+                        <td>13.233.861-2</td>
+                        <td>+56993422199</td>
+                        <td>fjcv556@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2000-01-01</td>
+                        <td>214.000</td>
+                        <td>17</td>
+                      </tr><tr>
+                        <td>1629</td>
+                        <td>Tamara Rivera Carmona</td>
+                        <td>13.871.666-k</td>
+                        <td></td>
+                        <td>trivariana@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2000-01-01</td>
+                        <td>70.000</td>
+                        <td>5</td>
+                      </tr><tr>
+                        <td>1637</td>
+                        <td>Carmen Nabalón Villagra</td>
+                        <td>15.636.608-0</td>
+                        <td>+56956173047</td>
+                        <td>esdla02@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2017-03-30</td>
+                        <td>76.000</td>
+                        <td>6</td>
+                      </tr><tr>
+                        <td>1642</td>
+                        <td>Christian Ponce García</td>
+                        <td>15.781.754-K</td>
+                        <td>+56957787206</td>
+                        <td>cponceg9@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2000-01-01</td>
+                        <td>214.000</td>
+                        <td>17</td>
+                      </tr><tr>
+                        <td>1730</td>
+                        <td>Ariel Alvestegui Seelenfreund</td>
+                        <td>18.120.835-K</td>
+                        <td>+56942196041</td>
+                        <td>Ariel.alvestegui@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2016-03-01</td>
+                        <td>56.000</td>
+                        <td>4</td>
+                      </tr><tr>
+                        <td>1742</td>
+                        <td>Rodrigo Carvajal Acosta</td>
+                        <td>18.274.540-5</td>
+                        <td>+56994534539</td>
+                        <td>rodcarvajalacosta@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2000-01-01</td>
+                        <td>70.000</td>
+                        <td>5</td>
+                      </tr><tr>
+                        <td>1764</td>
+                        <td>Juan Pablo Cajigal Germain</td>
+                        <td>18.749.078-2</td>
+                        <td></td>
+                        <td>juanpablo.cajigal.g@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2000-01-01</td>
+                        <td>80.000</td>
+                        <td>6</td>
+                      </tr><tr>
+                        <td>1812</td>
+                        <td>Ignacio Andrés Núñez Hidalgo</td>
+                        <td>17.404.680-8</td>
+                        <td>+5633996657</td>
+                        <td>ignanh@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2000-01-01</td>
+                        <td>238.000</td>
+                        <td>17</td>
+                      </tr><tr>
+                        <td>1883</td>
+                        <td>CARLOS POZO OLIVARES </td>
+                        <td>14.273.504-0 </td>
+                        <td>+56999977386</td>
+                        <td>carlospozo@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2019-09-02</td>
+                        <td>70.000</td>
+                        <td>5</td>
+                      </tr><tr>
+                        <td>1894</td>
+                        <td>Diego Valenzuela Rodríguez</td>
+                        <td>19.811.033-7</td>
+                        <td>+56962074076</td>
+                        <td>diego.valenzuela98@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2000-01-01</td>
+                        <td>70.000</td>
+                        <td>5</td>
+                      </tr><tr>
+                        <td>1903</td>
+                        <td>Antonio Andrés Olivares Contreras</td>
+                        <td>18.732.264-2</td>
+                        <td>+56981764702</td>
+                        <td>antonio.olivares@derecho.uchile.cl</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2020-03-08</td>
+                        <td>214.000</td>
+                        <td>17</td>
+                      </tr><tr>
+                        <td>1912</td>
+                        <td>JoséMiguel Díaz Poblete</td>
+                        <td>13.477.786-9</td>
+                        <td>+56971382329</td>
+                        <td>jm.diazp@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2000-01-01</td>
+                        <td>12.000</td>
+                        <td>1</td>
+                      </tr><tr>
+                        <td>1955</td>
+                        <td>Valentina Villar Abarzúa </td>
+                        <td>18.879.322-3</td>
+                        <td>+56997217310</td>
+                        <td>Valevillara@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2000-01-01</td>
+                        <td>214.000</td>
+                        <td>17</td>
+                      </tr><tr>
+                        <td>1976</td>
+                        <td>José Pablo Lladser Urzúa</td>
+                        <td>17.700.419-7</td>
+                        <td>975886441</td>
+                        <td>jose.lladser@uchile.cl</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2000-01-01</td>
+                        <td>70.000</td>
+                        <td>5</td>
+                      </tr><tr>
+                        <td>1987</td>
+                        <td>Katherine Ismenia Fuentes Gonzalez </td>
+                        <td>18.096.571-8</td>
+                        <td>+56990346998</td>
+                        <td>katherineisfg@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2000-01-01</td>
+                        <td>118.000</td>
+                        <td>9</td>
+                      </tr><tr>
+                        <td>2097</td>
+                        <td>Cristian Alfonso Salazar Fredes</td>
+                        <td>16.740.205-4</td>
+                        <td>936532910</td>
+                        <td>crisalazarfredes27@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2022-08-24</td>
+                        <td>214.000</td>
+                        <td>17</td>
+                      </tr><tr>
+                        <td>2108</td>
+                        <td>Gonzalo Felipe Díaz Rivas</td>
+                        <td>18.595.418-8</td>
+                        <td>982571735</td>
+                        <td>gonzalo.diaz72@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2022-10-29</td>
+                        <td>214.000</td>
+                        <td>17</td>
+                      </tr><tr>
+                        <td>2109</td>
+                        <td>Constanza Anette Álvarez Herrera</td>
+                        <td>17.132.179-4</td>
+                        <td>+56961256005</td>
+                        <td>constanza.alvarezh@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2022-11-06</td>
+                        <td>214.000</td>
+                        <td>17</td>
+                      </tr><tr>
+                        <td>2125</td>
+                        <td>Martina Toledo</td>
+                        <td>19.332.010-4</td>
+                        <td>986614810</td>
+                        <td>martinatr29@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2023-02-16</td>
+                        <td>154.000</td>
+                        <td>12</td>
+                      </tr><tr>
+                        <td>2132</td>
+                        <td>Michael Jerez</td>
+                        <td>18.216.964-1</td>
+                        <td>+56995597358</td>
+                        <td>mjerezj@fen.uchile.cl</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2023-03-09</td>
+                        <td>70.000</td>
+                        <td>5</td>
+                      </tr><tr>
+                        <td>2145</td>
+                        <td>Ignacio Campusano Cárdenas</td>
+                        <td>18.409.242-5</td>
+                        <td>+56977069785</td>
+                        <td>icampusac@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2023-04-21</td>
+                        <td>70.000</td>
+                        <td>5</td>
+                      </tr><tr>
+                        <td>2148</td>
+                        <td>Luis Alberto Sánchez Lizana</td>
+                        <td>16.131.553-2</td>
+                        <td>932545122</td>
+                        <td>luis.sanchez.lizana@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2023-04-27</td>
+                        <td>214.000</td>
+                        <td>17</td>
+                      </tr><tr>
+                        <td>2149</td>
+                        <td>Alejandro Rodríguez</td>
+                        <td>27.810.137-1</td>
+                        <td></td>
+                        <td>rdguezochoa89@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2023-04-27</td>
+                        <td>70.000</td>
+                        <td>5</td>
+                      </tr><tr>
+                        <td>2153</td>
+                        <td>Claudia Andrea Valdebenito Pérez</td>
+                        <td>157.965.787-8</td>
+                        <td>99386573</td>
+                        <td>cvaldebenitop@hotmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2023-06-19</td>
+                        <td>94.000</td>
+                        <td>7</td>
+                      </tr><tr>
+                        <td>2155</td>
+                        <td>Daniela Fernanda Bauzá Bustos</td>
+                        <td>16.673.680-3</td>
+                        <td>56972139750</td>
+                        <td>daniela.bauza@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2023-06-23</td>
+                        <td>286.000</td>
+                        <td>23</td>
+                      </tr><tr>
+                        <td>2157</td>
+                        <td>Karen Andrea Sepúlveda Contreras</td>
+                        <td>13.672.097-K</td>
+                        <td>992010551</td>
+                        <td>karensepulvedac@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2023-08-02</td>
+                        <td>70.000</td>
+                        <td>5</td>
+                      </tr><tr>
+                        <td>2158</td>
+                        <td>María José Bocaz Marín</td>
+                        <td>18.569.696-0</td>
+                        <td>951034187</td>
+                        <td>mjbocazm@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2023-08-30</td>
+                        <td>262.000</td>
+                        <td>21</td>
+                      </tr><tr>
+                        <td>2169</td>
+                        <td>José Arturo Villarreal</td>
+                        <td>26.603.417-2</td>
+                        <td>986515995</td>
+                        <td>jarturovillarreal@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2024-01-07</td>
+                        <td>42.000</td>
+                        <td>3</td>
+                      </tr><tr>
+                        <td>2171</td>
+                        <td>Joaquín Patricio Valenzuela Jara</td>
+                        <td>19.400.853-8</td>
+                        <td>978866408</td>
+                        <td>joaquinvalenzuelajara@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2024-01-15</td>
+                        <td>70.000</td>
+                        <td>5</td>
+                      </tr><tr>
+                        <td>2172</td>
+                        <td>Estefanía Camus Contreras</td>
+                        <td>16.103.141-0</td>
+                        <td>+56993501332</td>
+                        <td>estefaniacamus@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2024-01-16</td>
+                        <td>214.000</td>
+                        <td>17</td>
+                      </tr><tr>
+                        <td>2179</td>
+                        <td>Rodrigo Javier Uribe Paredes</td>
+                        <td>21.284.539-6</td>
+                        <td>932015409</td>
+                        <td>rodrigouribeep@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2024-02-02</td>
+                        <td>224.000</td>
+                        <td>16</td>
+                      </tr><tr>
+                        <td>2180</td>
+                        <td>antonio silva</td>
+                        <td>19.637.692-5</td>
+                        <td>+56968367307</td>
+                        <td>aisilva2@uc.cl</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2024-02-02</td>
+                        <td>70.000</td>
+                        <td>5</td>
+                      </tr><tr>
+                        <td>2185</td>
+                        <td>Katherine Angélica Riquelme Mora</td>
+                        <td>17.887.400-4</td>
+                        <td>983166943</td>
+                        <td>kriquelme109@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2024-02-14</td>
+                        <td>94.000</td>
+                        <td>7</td>
+                      </tr><tr>
+                        <td>2189</td>
+                        <td>Valentina Elisa Muñoz Madrid</td>
+                        <td>19.309.425-2</td>
+                        <td>+56963727849</td>
+                        <td>valentinamunoz19@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2024-02-27</td>
+                        <td>190.000</td>
+                        <td>15</td>
+                      </tr><tr>
+                        <td>2192</td>
+                        <td>Ivone Senaida Chihuaillan Vera</td>
+                        <td>16.925.824-4</td>
+                        <td>942414365</td>
+                        <td>ivone.chihuaillan@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2024-03-03</td>
+                        <td>28.000</td>
+                        <td>2</td>
+                      </tr><tr>
+                        <td>2195</td>
+                        <td>Mario Adolfo Arredondo Briner</td>
+                        <td>16.941.527-7</td>
+                        <td>+56977470121</td>
+                        <td>marioarredondob@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2024-03-06</td>
+                        <td>253.000</td>
+                        <td>15</td>
+                      </tr><tr>
+                        <td>2196</td>
+                        <td>Pablo bernard maltes</td>
+                        <td>9.274.706-9</td>
+                        <td>+56954299911</td>
+                        <td>pa.bernardm@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2024-03-07</td>
+                        <td>190.000</td>
+                        <td>15</td>
+                      </tr><tr>
+                        <td>2197</td>
+                        <td>Angel Leiva Ortega</td>
+                        <td>20.326.850-5</td>
+                        <td>951145245</td>
+                        <td>angel.ortega.leiva@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2024-03-09</td>
+                        <td>70.000</td>
+                        <td>5</td>
+                      </tr><tr>
+                        <td>2198</td>
+                        <td>Carolina Estefania Sáez Salazar</td>
+                        <td>17.734.247-5</td>
+                        <td>934620864</td>
+                        <td>carolinaesaezs@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2024-03-13</td>
+                        <td>118.000</td>
+                        <td>9</td>
+                      </tr><tr>
+                        <td>2201</td>
+                        <td>Lorena Camus Olivares</td>
+                        <td>18.956.367-1</td>
+                        <td>56992248215</td>
+                        <td>lorena.camus@ug.uchile.cl</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2024-03-20</td>
+                        <td>178.000</td>
+                        <td>14</td>
+                      </tr><tr>
+                        <td>2202</td>
+                        <td>Pablo Andrés Herrera Espinoza</td>
+                        <td>10.387.389-4</td>
+                        <td>56968124624</td>
+                        <td>pabloherreraespinoza@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2024-03-21</td>
+                        <td>178.000</td>
+                        <td>14</td>
+                      </tr><tr>
+                        <td>2223</td>
+                        <td>Juan David Chaima Cisternas</td>
+                        <td>19.281.147-3</td>
+                        <td>988151976</td>
+                        <td>chaima.juan@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2024-05-14</td>
+                        <td>70.000</td>
+                        <td>5</td>
+                      </tr><tr>
+                        <td>2226</td>
+                        <td>Florencia Olavarria</td>
+                        <td>17.603.226-K</td>
+                        <td>966427835</td>
+                        <td>f.olavarria12@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2024-06-26</td>
+                        <td>130.000</td>
+                        <td>10</td>
+                      </tr><tr>
+                        <td>2229</td>
+                        <td>Ivan luis gutierrez ardiles</td>
+                        <td>19.025.167-5</td>
+                        <td>941524551</td>
+                        <td>ivangutierrezardiles@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2024-07-16</td>
+                        <td>130.000</td>
+                        <td>10</td>
+                      </tr><tr>
+                        <td>2231</td>
+                        <td>Macarena Mellado Sánchez</td>
+                        <td>0-0</td>
+                        <td>+56993085802</td>
+                        <td>maca.melladosanchez@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2024-08-26</td>
+                        <td>118.000</td>
+                        <td>9</td>
+                      </tr><tr>
+                        <td>2234</td>
+                        <td>José Manuel Sánchez Piazza</td>
+                        <td>16.575.893-5</td>
+                        <td>935273312</td>
+                        <td>sanchez.piazza.jm@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2024-09-03</td>
+                        <td>56.000</td>
+                        <td>4</td>
+                      </tr><tr>
+                        <td>2250</td>
+                        <td>FERNANDA NATALIA BRAVO PAVEZ</td>
+                        <td>16.609.816-5</td>
+                        <td>993259683</td>
+                        <td>ftbravo@uc.cl</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2024-10-16</td>
+                        <td>94.000</td>
+                        <td>7</td>
+                      </tr><tr>
+                        <td>2263</td>
+                        <td>Natalia Neira</td>
+                        <td>17.908.090-7</td>
+                        <td>992769985</td>
+                        <td>natalianeirasilva@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2025-02-09</td>
+                        <td>56.000</td>
+                        <td>4</td>
+                      </tr><tr>
+                        <td>2266</td>
+                        <td>Jaime Santander</td>
+                        <td>20.071.529-2</td>
+                        <td>965883013</td>
+                        <td>jaimetomassantander@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2025-02-15</td>
+                        <td>42.000</td>
+                        <td>3</td>
+                      </tr><tr>
+                        <td>2271</td>
+                        <td>diego ignacio silva salinas</td>
+                        <td>17.023.918-0</td>
+                        <td>+56982558806</td>
+                        <td>diego.ignacio.silva@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2025-02-22</td>
+                        <td>42.000</td>
+                        <td>3</td>
+                      </tr><tr>
+                        <td>2273</td>
+                        <td>Víctor Arnaldo Lara Gutiérrez</td>
+                        <td>16.817.330-K</td>
+                        <td>952414023</td>
+                        <td>victor.lara@uchile.cl</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                        <td>2025-02-23</td>
+                        <td>42.000</td>
+                        <td>3</td>
+                      </tr>
+                            </table>
+                        </body>
+                     </html>

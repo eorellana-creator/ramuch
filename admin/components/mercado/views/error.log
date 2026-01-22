@@ -1,0 +1,144 @@
+[06-Feb-2025 15:07:26 America/Chicago] Token recibido en confirmacion.php: 8F7F009D041E36DDD955F1B2B5B7F372F447732C
+[06-Feb-2025 15:07:26 America/Chicago] Respuesta de Flow en confirmacion.php: Array
+(
+    [flowOrder] => 127346649
+    [commerceOrder] => ORD1738875458
+    [requestDate] => 2025-02-06 17:57:39
+    [status] => 2
+    [subject] => Pago Mercado Ramuch
+    [currency] => CLP
+    [amount] => 500
+    [payer] => eorellana@gmail.com
+    [optional] => Array
+        (
+            [rut] => 12.570.328-3
+            [token] => 0b24a8d3565230af1a9dcc9e4d02fc6a
+            [usuario] => Erik Orellana Pizarro
+            [id_user] => 1624
+            [token_carrito] => 2d52174cccb05950472b01d3a364681b
+        )
+
+    [pending_info] => Array
+        (
+            [media] => 
+            [date] => 
+        )
+
+    [paymentData] => Array
+        (
+            [date] => 2025-02-06 18:07:25
+            [media] => Webpay
+            [conversionDate] => 
+            [conversionRate] => 
+            [amount] => 500.00
+            [currency] => CLP
+            [fee] => 16.00
+            [balance] => 481
+            [transferDate] => 2025-02-07 00:00:00
+            [taxes] => 3
+        )
+
+    [merchantId] => 
+)
+
+[06-Feb-2025 15:07:26 America/Chicago] Venta confirmada: ID 22, Token 8F7F009D041E36DDD955F1B2B5B7F372F447732C
+[06-Feb-2025 15:07:42 America/Chicago] sql de ventas: mysqli_result Object
+(
+    [current_field] => 0
+    [field_count] => 5
+    [lengths] => 
+    [num_rows] => 16
+    [type] => 0
+)
+
+[06-Feb-2025 15:07:42 America/Chicago] las ventas: Array
+(
+)
+
+[25-Jul-2025 10:15:02 America/Chicago] sql de ventas: mysqli_result Object
+(
+    [current_field] => 0
+    [field_count] => 5
+    [lengths] => 
+    [num_rows] => 1
+    [type] => 0
+)
+
+[25-Jul-2025 10:15:02 America/Chicago] las ventas: Array
+(
+)
+
+[25-Jul-2025 10:30:02 America/Chicago] sql de ventas: mysqli_result Object
+(
+    [current_field] => 0
+    [field_count] => 5
+    [lengths] => 
+    [num_rows] => 1
+    [type] => 0
+)
+
+[25-Jul-2025 10:30:02 America/Chicago] las ventas: Array
+(
+)
+
+[25-Jul-2025 11:12:10 America/Chicago] PHP Warning:  Attempt to read property "nombre_usuario" on null in /home2/ramuchcl/public_html/admin/components/mercado/views/procesar_pago.php on line 50
+[25-Jul-2025 11:12:10 America/Chicago] PHP Warning:  Attempt to read property "token" on null in /home2/ramuchcl/public_html/admin/components/mercado/views/procesar_pago.php on line 51
+[25-Jul-2025 11:12:10 America/Chicago] PHP Warning:  Attempt to read property "email" on null in /home2/ramuchcl/public_html/admin/components/mercado/views/procesar_pago.php on line 52
+[25-Jul-2025 11:12:10 America/Chicago] PHP Warning:  Attempt to read property "rut" on null in /home2/ramuchcl/public_html/admin/components/mercado/views/procesar_pago.php on line 56
+[25-Jul-2025 11:12:10 America/Chicago] Error al crear la orden en Flow: Array
+(
+    [code] => 1620
+    [message] => The userEmail:  is not valid.
+)
+
+[25-Jul-2025 11:12:10 America/Chicago] Excepción capturada: Error al crear la orden en Flow: Array
+(
+    [code] => 1620
+    [message] => The userEmail:  is not valid.
+)
+
+[25-Jul-2025 11:12:10 America/Chicago] PHP Warning:  Attempt to read property "nombre_usuario" on null in /home2/ramuchcl/public_html/admin/components/mercado/views/procesar_pago.php on line 50
+[25-Jul-2025 11:12:10 America/Chicago] PHP Warning:  Attempt to read property "token" on null in /home2/ramuchcl/public_html/admin/components/mercado/views/procesar_pago.php on line 51
+[25-Jul-2025 11:12:10 America/Chicago] PHP Warning:  Attempt to read property "email" on null in /home2/ramuchcl/public_html/admin/components/mercado/views/procesar_pago.php on line 52
+[25-Jul-2025 11:12:10 America/Chicago] PHP Warning:  Attempt to read property "rut" on null in /home2/ramuchcl/public_html/admin/components/mercado/views/procesar_pago.php on line 56
+[25-Jul-2025 11:12:10 America/Chicago] Error al crear la orden en Flow: Array
+(
+    [code] => 1620
+    [message] => The userEmail:  is not valid.
+)
+
+[25-Jul-2025 11:12:10 America/Chicago] Excepción capturada: Error al crear la orden en Flow: Array
+(
+    [code] => 1620
+    [message] => The userEmail:  is not valid.
+)
+
+[25-Jul-2025 11:12:10 America/Chicago] PHP Warning:  Attempt to read property "nombre_usuario" on null in /home2/ramuchcl/public_html/admin/components/mercado/views/procesar_pago.php on line 50
+[25-Jul-2025 11:12:10 America/Chicago] PHP Warning:  Attempt to read property "token" on null in /home2/ramuchcl/public_html/admin/components/mercado/views/procesar_pago.php on line 51
+[25-Jul-2025 11:12:10 America/Chicago] PHP Warning:  Attempt to read property "email" on null in /home2/ramuchcl/public_html/admin/components/mercado/views/procesar_pago.php on line 52
+[25-Jul-2025 11:12:10 America/Chicago] PHP Warning:  Attempt to read property "rut" on null in /home2/ramuchcl/public_html/admin/components/mercado/views/procesar_pago.php on line 56
+[25-Jul-2025 11:12:10 America/Chicago] Error al crear la orden en Flow: Array
+(
+    [code] => 1620
+    [message] => The userEmail:  is not valid.
+)
+
+[25-Jul-2025 11:12:10 America/Chicago] Excepción capturada: Error al crear la orden en Flow: Array
+(
+    [code] => 1620
+    [message] => The userEmail:  is not valid.
+)
+
+[30-Jul-2025 14:43:01 America/Chicago] sql de ventas: mysqli_result Object
+(
+    [current_field] => 0
+    [field_count] => 5
+    [lengths] => 
+    [num_rows] => 1
+    [type] => 0
+)
+
+[30-Jul-2025 14:43:01 America/Chicago] las ventas: Array
+(
+)
+

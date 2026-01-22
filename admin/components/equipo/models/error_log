@@ -1,0 +1,2027 @@
+[11-Nov-2025 19:30:00 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => d50032c926f19d6ddb2def2764f21920
+)
+
+[11-Nov-2025 19:30:00 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => d50032c926f19d6ddb2def2764f21920
+    [debug] => true
+)
+
+[11-Nov-2025 19:30:00 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = 'd50032c926f19d6ddb2def2764f21920' 
+            LIMIT 1
+[11-Nov-2025 19:30:00 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = 'd50032c926f19d6ddb2def2764f21920' 
+            LIMIT 1
+[11-Nov-2025 19:30:00 America/Chicago] Mostrando datos de PRIMERA extensión para token: d50032c926f19d6ddb2def2764f21920
+[11-Nov-2025 19:30:00 America/Chicago] Mostrando datos de PRIMERA extensión para token: d50032c926f19d6ddb2def2764f21920
+[11-Nov-2025 19:30:07 America/Chicago] === DEBUG PROCESAR_EXTENSION ===
+[11-Nov-2025 19:30:07 America/Chicago] POST data: Array
+(
+    [token] => d50032c926f19d6ddb2def2764f21920
+    [accion] => aprobar
+    [motivo] => 
+    [fecha_extension] => 2025-11-19
+    [aplicar_a_todos] => 0
+)
+
+[11-Nov-2025 19:30:07 America/Chicago] Token: d50032c926f19d6ddb2def2764f21920
+[11-Nov-2025 19:30:07 America/Chicago] Acción: aprobar
+[11-Nov-2025 19:30:07 America/Chicago] Motivo: 
+[11-Nov-2025 19:30:07 America/Chicago] Fecha extension: 2025-11-19
+[11-Nov-2025 19:30:07 America/Chicago] Aplicar a todos: 0
+[11-Nov-2025 19:30:38 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 8d0a1628d79e63a2ea68b74b929c9bfc
+)
+
+[11-Nov-2025 19:30:38 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '8d0a1628d79e63a2ea68b74b929c9bfc' 
+            LIMIT 1
+[11-Nov-2025 19:30:38 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 8d0a1628d79e63a2ea68b74b929c9bfc
+    [debug] => true
+)
+
+[11-Nov-2025 19:30:38 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '8d0a1628d79e63a2ea68b74b929c9bfc' 
+            LIMIT 1
+[11-Nov-2025 19:30:38 America/Chicago] Mostrando datos de PRIMERA extensión para token: 8d0a1628d79e63a2ea68b74b929c9bfc
+[11-Nov-2025 19:30:38 America/Chicago] Mostrando datos de PRIMERA extensión para token: 8d0a1628d79e63a2ea68b74b929c9bfc
+[11-Nov-2025 19:30:41 America/Chicago] === DEBUG PROCESAR_EXTENSION ===
+[11-Nov-2025 19:30:41 America/Chicago] POST data: Array
+(
+    [token] => 8d0a1628d79e63a2ea68b74b929c9bfc
+    [accion] => aprobar
+    [motivo] => 
+    [fecha_extension] => 2025-11-19
+    [aplicar_a_todos] => 0
+)
+
+[11-Nov-2025 19:30:41 America/Chicago] Token: 8d0a1628d79e63a2ea68b74b929c9bfc
+[11-Nov-2025 19:30:41 America/Chicago] Acción: aprobar
+[11-Nov-2025 19:30:41 America/Chicago] Motivo: 
+[11-Nov-2025 19:30:41 America/Chicago] Fecha extension: 2025-11-19
+[11-Nov-2025 19:30:41 America/Chicago] Aplicar a todos: 0
+[11-Nov-2025 19:31:07 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => b0455d86528443276a79cc1bf1fc536e
+)
+
+[11-Nov-2025 19:31:07 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = 'b0455d86528443276a79cc1bf1fc536e' 
+            LIMIT 1
+[11-Nov-2025 19:31:07 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => b0455d86528443276a79cc1bf1fc536e
+    [debug] => true
+)
+
+[11-Nov-2025 19:31:07 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = 'b0455d86528443276a79cc1bf1fc536e' 
+            LIMIT 1
+[11-Nov-2025 19:31:07 America/Chicago] Mostrando datos de PRIMERA extensión para token: b0455d86528443276a79cc1bf1fc536e
+[11-Nov-2025 19:31:07 America/Chicago] Mostrando datos de PRIMERA extensión para token: b0455d86528443276a79cc1bf1fc536e
+[11-Nov-2025 19:31:10 America/Chicago] === DEBUG PROCESAR_EXTENSION ===
+[11-Nov-2025 19:31:10 America/Chicago] POST data: Array
+(
+    [token] => b0455d86528443276a79cc1bf1fc536e
+    [accion] => aprobar
+    [motivo] => 
+    [fecha_extension] => 2025-11-19
+    [aplicar_a_todos] => 0
+)
+
+[11-Nov-2025 19:31:10 America/Chicago] Token: b0455d86528443276a79cc1bf1fc536e
+[11-Nov-2025 19:31:10 America/Chicago] Acción: aprobar
+[11-Nov-2025 19:31:10 America/Chicago] Motivo: 
+[11-Nov-2025 19:31:10 America/Chicago] Fecha extension: 2025-11-19
+[11-Nov-2025 19:31:10 America/Chicago] Aplicar a todos: 0
+[11-Nov-2025 19:31:55 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 44e1123b3041eb2b346af9859dbaed5d
+    [debug] => true
+)
+
+[11-Nov-2025 19:31:55 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 44e1123b3041eb2b346af9859dbaed5d
+)
+
+[11-Nov-2025 19:31:55 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '44e1123b3041eb2b346af9859dbaed5d' 
+            LIMIT 1
+[11-Nov-2025 19:31:55 America/Chicago] Mostrando datos de PRIMERA extensión para token: 44e1123b3041eb2b346af9859dbaed5d
+[11-Nov-2025 19:31:55 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '44e1123b3041eb2b346af9859dbaed5d' 
+            LIMIT 1
+[11-Nov-2025 19:31:55 America/Chicago] Mostrando datos de PRIMERA extensión para token: 44e1123b3041eb2b346af9859dbaed5d
+[11-Nov-2025 19:31:57 America/Chicago] === DEBUG PROCESAR_EXTENSION ===
+[11-Nov-2025 19:31:57 America/Chicago] POST data: Array
+(
+    [token] => 44e1123b3041eb2b346af9859dbaed5d
+    [accion] => aprobar
+    [motivo] => 
+    [fecha_extension] => 2025-11-19
+    [aplicar_a_todos] => 0
+)
+
+[11-Nov-2025 19:31:57 America/Chicago] Token: 44e1123b3041eb2b346af9859dbaed5d
+[11-Nov-2025 19:31:57 America/Chicago] Acción: aprobar
+[11-Nov-2025 19:31:57 America/Chicago] Motivo: 
+[11-Nov-2025 19:31:57 America/Chicago] Fecha extension: 2025-11-19
+[11-Nov-2025 19:31:57 America/Chicago] Aplicar a todos: 0
+[11-Nov-2025 19:32:14 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 43f6a58deaf04626bbc868ad65149ecc
+    [debug] => true
+)
+
+[11-Nov-2025 19:32:14 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 43f6a58deaf04626bbc868ad65149ecc
+)
+
+[11-Nov-2025 19:32:14 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '43f6a58deaf04626bbc868ad65149ecc' 
+            LIMIT 1
+[11-Nov-2025 19:32:14 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '43f6a58deaf04626bbc868ad65149ecc' 
+            LIMIT 1
+[11-Nov-2025 19:32:14 America/Chicago] Mostrando datos de PRIMERA extensión para token: 43f6a58deaf04626bbc868ad65149ecc
+[11-Nov-2025 19:32:14 America/Chicago] Mostrando datos de PRIMERA extensión para token: 43f6a58deaf04626bbc868ad65149ecc
+[11-Nov-2025 19:32:17 America/Chicago] === DEBUG PROCESAR_EXTENSION ===
+[11-Nov-2025 19:32:17 America/Chicago] POST data: Array
+(
+    [token] => 43f6a58deaf04626bbc868ad65149ecc
+    [accion] => aprobar
+    [motivo] => 
+    [fecha_extension] => 2025-11-19
+    [aplicar_a_todos] => 0
+)
+
+[11-Nov-2025 19:32:17 America/Chicago] Token: 43f6a58deaf04626bbc868ad65149ecc
+[11-Nov-2025 19:32:17 America/Chicago] Acción: aprobar
+[11-Nov-2025 19:32:17 America/Chicago] Motivo: 
+[11-Nov-2025 19:32:17 America/Chicago] Fecha extension: 2025-11-19
+[11-Nov-2025 19:32:17 America/Chicago] Aplicar a todos: 0
+[11-Nov-2025 20:21:56 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => dbe92d8a8c178f069d57fe04556bccfc
+)
+
+[11-Nov-2025 20:21:56 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = 'dbe92d8a8c178f069d57fe04556bccfc' 
+            LIMIT 1
+[11-Nov-2025 20:21:56 America/Chicago] Mostrando datos de PRIMERA extensión para token: dbe92d8a8c178f069d57fe04556bccfc
+[11-Nov-2025 20:21:56 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => dbe92d8a8c178f069d57fe04556bccfc
+    [debug] => true
+)
+
+[11-Nov-2025 20:21:56 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = 'dbe92d8a8c178f069d57fe04556bccfc' 
+            LIMIT 1
+[11-Nov-2025 20:21:56 America/Chicago] Mostrando datos de PRIMERA extensión para token: dbe92d8a8c178f069d57fe04556bccfc
+[11-Nov-2025 20:21:58 America/Chicago] === DEBUG PROCESAR_EXTENSION ===
+[11-Nov-2025 20:21:58 America/Chicago] POST data: Array
+(
+    [token] => dbe92d8a8c178f069d57fe04556bccfc
+    [accion] => aprobar
+    [motivo] => 
+    [fecha_extension] => 2025-11-19
+    [aplicar_a_todos] => 0
+)
+
+[11-Nov-2025 20:21:58 America/Chicago] Token: dbe92d8a8c178f069d57fe04556bccfc
+[11-Nov-2025 20:21:58 America/Chicago] Acción: aprobar
+[11-Nov-2025 20:21:58 America/Chicago] Motivo: 
+[11-Nov-2025 20:21:58 America/Chicago] Fecha extension: 2025-11-19
+[11-Nov-2025 20:21:58 America/Chicago] Aplicar a todos: 0
+[11-Nov-2025 20:22:19 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 23cfa52f00c61a7f5649b828ee167d20
+    [debug] => true
+)
+
+[11-Nov-2025 20:22:19 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '23cfa52f00c61a7f5649b828ee167d20' 
+            LIMIT 1
+[11-Nov-2025 20:22:19 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 23cfa52f00c61a7f5649b828ee167d20
+)
+
+[11-Nov-2025 20:22:19 America/Chicago] Mostrando datos de PRIMERA extensión para token: 23cfa52f00c61a7f5649b828ee167d20
+[11-Nov-2025 20:22:19 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '23cfa52f00c61a7f5649b828ee167d20' 
+            LIMIT 1
+[11-Nov-2025 20:22:19 America/Chicago] Mostrando datos de PRIMERA extensión para token: 23cfa52f00c61a7f5649b828ee167d20
+[11-Nov-2025 20:22:21 America/Chicago] === DEBUG PROCESAR_EXTENSION ===
+[11-Nov-2025 20:22:21 America/Chicago] POST data: Array
+(
+    [token] => 23cfa52f00c61a7f5649b828ee167d20
+    [accion] => aprobar
+    [motivo] => 
+    [fecha_extension] => 2025-11-19
+    [aplicar_a_todos] => 0
+)
+
+[11-Nov-2025 20:22:21 America/Chicago] Token: 23cfa52f00c61a7f5649b828ee167d20
+[11-Nov-2025 20:22:21 America/Chicago] Acción: aprobar
+[11-Nov-2025 20:22:21 America/Chicago] Motivo: 
+[11-Nov-2025 20:22:21 America/Chicago] Fecha extension: 2025-11-19
+[11-Nov-2025 20:22:21 America/Chicago] Aplicar a todos: 0
+[11-Nov-2025 20:22:35 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 5ded15a4e49c0c089e198d88b6f7effe
+)
+
+[11-Nov-2025 20:22:35 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '5ded15a4e49c0c089e198d88b6f7effe' 
+            LIMIT 1
+[11-Nov-2025 20:22:35 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 5ded15a4e49c0c089e198d88b6f7effe
+    [debug] => true
+)
+
+[11-Nov-2025 20:22:35 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '5ded15a4e49c0c089e198d88b6f7effe' 
+            LIMIT 1
+[11-Nov-2025 20:22:35 America/Chicago] Mostrando datos de PRIMERA extensión para token: 5ded15a4e49c0c089e198d88b6f7effe
+[11-Nov-2025 20:22:35 America/Chicago] Mostrando datos de PRIMERA extensión para token: 5ded15a4e49c0c089e198d88b6f7effe
+[11-Nov-2025 20:22:37 America/Chicago] === DEBUG PROCESAR_EXTENSION ===
+[11-Nov-2025 20:22:37 America/Chicago] POST data: Array
+(
+    [token] => 5ded15a4e49c0c089e198d88b6f7effe
+    [accion] => aprobar
+    [motivo] => 
+    [fecha_extension] => 2025-11-19
+    [aplicar_a_todos] => 0
+)
+
+[11-Nov-2025 20:22:37 America/Chicago] Token: 5ded15a4e49c0c089e198d88b6f7effe
+[11-Nov-2025 20:22:37 America/Chicago] Acción: aprobar
+[11-Nov-2025 20:22:37 America/Chicago] Motivo: 
+[11-Nov-2025 20:22:37 America/Chicago] Fecha extension: 2025-11-19
+[11-Nov-2025 20:22:37 America/Chicago] Aplicar a todos: 0
+[11-Nov-2025 20:22:53 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 871ebb836e7458388900da8b8cbee896
+)
+
+[11-Nov-2025 20:22:53 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 871ebb836e7458388900da8b8cbee896
+    [debug] => true
+)
+
+[11-Nov-2025 20:22:53 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '871ebb836e7458388900da8b8cbee896' 
+            LIMIT 1
+[11-Nov-2025 20:22:53 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '871ebb836e7458388900da8b8cbee896' 
+            LIMIT 1
+[11-Nov-2025 20:22:53 America/Chicago] Mostrando datos de PRIMERA extensión para token: 871ebb836e7458388900da8b8cbee896
+[11-Nov-2025 20:22:53 America/Chicago] Mostrando datos de PRIMERA extensión para token: 871ebb836e7458388900da8b8cbee896
+[11-Nov-2025 20:22:56 America/Chicago] === DEBUG PROCESAR_EXTENSION ===
+[11-Nov-2025 20:22:56 America/Chicago] POST data: Array
+(
+    [token] => 871ebb836e7458388900da8b8cbee896
+    [accion] => aprobar
+    [motivo] => 
+    [fecha_extension] => 2025-11-19
+    [aplicar_a_todos] => 0
+)
+
+[11-Nov-2025 20:22:56 America/Chicago] Token: 871ebb836e7458388900da8b8cbee896
+[11-Nov-2025 20:22:56 America/Chicago] Acción: aprobar
+[11-Nov-2025 20:22:56 America/Chicago] Motivo: 
+[11-Nov-2025 20:22:56 America/Chicago] Fecha extension: 2025-11-19
+[11-Nov-2025 20:22:56 America/Chicago] Aplicar a todos: 0
+[11-Nov-2025 20:23:11 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => e93385e4116b940e3f3d9ec29668bb0c
+    [debug] => true
+)
+
+[11-Nov-2025 20:23:11 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = 'e93385e4116b940e3f3d9ec29668bb0c' 
+            LIMIT 1
+[11-Nov-2025 20:23:11 America/Chicago] Mostrando datos de PRIMERA extensión para token: e93385e4116b940e3f3d9ec29668bb0c
+[11-Nov-2025 20:23:11 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => e93385e4116b940e3f3d9ec29668bb0c
+)
+
+[11-Nov-2025 20:23:11 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = 'e93385e4116b940e3f3d9ec29668bb0c' 
+            LIMIT 1
+[11-Nov-2025 20:23:11 America/Chicago] Mostrando datos de PRIMERA extensión para token: e93385e4116b940e3f3d9ec29668bb0c
+[11-Nov-2025 20:23:13 America/Chicago] === DEBUG PROCESAR_EXTENSION ===
+[11-Nov-2025 20:23:13 America/Chicago] POST data: Array
+(
+    [token] => e93385e4116b940e3f3d9ec29668bb0c
+    [accion] => aprobar
+    [motivo] => 
+    [fecha_extension] => 2025-11-19
+    [aplicar_a_todos] => 0
+)
+
+[11-Nov-2025 20:23:13 America/Chicago] Token: e93385e4116b940e3f3d9ec29668bb0c
+[11-Nov-2025 20:23:13 America/Chicago] Acción: aprobar
+[11-Nov-2025 20:23:13 America/Chicago] Motivo: 
+[11-Nov-2025 20:23:13 America/Chicago] Fecha extension: 2025-11-19
+[11-Nov-2025 20:23:13 America/Chicago] Aplicar a todos: 0
+[11-Nov-2025 20:23:32 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 57112f0fcb839c7bda3e6009776019ef
+    [debug] => true
+)
+
+[11-Nov-2025 20:23:32 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '57112f0fcb839c7bda3e6009776019ef' 
+            LIMIT 1
+[11-Nov-2025 20:23:32 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 57112f0fcb839c7bda3e6009776019ef
+)
+
+[11-Nov-2025 20:23:32 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '57112f0fcb839c7bda3e6009776019ef' 
+            LIMIT 1
+[11-Nov-2025 20:23:32 America/Chicago] Mostrando datos de PRIMERA extensión para token: 57112f0fcb839c7bda3e6009776019ef
+[11-Nov-2025 20:23:32 America/Chicago] Mostrando datos de PRIMERA extensión para token: 57112f0fcb839c7bda3e6009776019ef
+[11-Nov-2025 20:23:34 America/Chicago] === DEBUG PROCESAR_EXTENSION ===
+[11-Nov-2025 20:23:34 America/Chicago] POST data: Array
+(
+    [token] => 57112f0fcb839c7bda3e6009776019ef
+    [accion] => aprobar
+    [motivo] => 
+    [fecha_extension] => 2025-11-19
+    [aplicar_a_todos] => 0
+)
+
+[11-Nov-2025 20:23:34 America/Chicago] Token: 57112f0fcb839c7bda3e6009776019ef
+[11-Nov-2025 20:23:34 America/Chicago] Acción: aprobar
+[11-Nov-2025 20:23:34 America/Chicago] Motivo: 
+[11-Nov-2025 20:23:34 America/Chicago] Fecha extension: 2025-11-19
+[11-Nov-2025 20:23:34 America/Chicago] Aplicar a todos: 0
+[11-Nov-2025 20:23:47 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 1d65cff6971f6c467716cf1f76275468
+)
+
+[11-Nov-2025 20:23:47 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '1d65cff6971f6c467716cf1f76275468' 
+            LIMIT 1
+[11-Nov-2025 20:23:47 America/Chicago] Mostrando datos de PRIMERA extensión para token: 1d65cff6971f6c467716cf1f76275468
+[11-Nov-2025 20:23:47 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 1d65cff6971f6c467716cf1f76275468
+    [debug] => true
+)
+
+[11-Nov-2025 20:23:47 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '1d65cff6971f6c467716cf1f76275468' 
+            LIMIT 1
+[11-Nov-2025 20:23:47 America/Chicago] Mostrando datos de PRIMERA extensión para token: 1d65cff6971f6c467716cf1f76275468
+[11-Nov-2025 20:23:49 America/Chicago] === DEBUG PROCESAR_EXTENSION ===
+[11-Nov-2025 20:23:49 America/Chicago] POST data: Array
+(
+    [token] => 1d65cff6971f6c467716cf1f76275468
+    [accion] => aprobar
+    [motivo] => 
+    [fecha_extension] => 2025-11-19
+    [aplicar_a_todos] => 0
+)
+
+[11-Nov-2025 20:23:49 America/Chicago] Token: 1d65cff6971f6c467716cf1f76275468
+[11-Nov-2025 20:23:49 America/Chicago] Acción: aprobar
+[11-Nov-2025 20:23:49 America/Chicago] Motivo: 
+[11-Nov-2025 20:23:49 America/Chicago] Fecha extension: 2025-11-19
+[11-Nov-2025 20:23:49 America/Chicago] Aplicar a todos: 0
+[11-Nov-2025 20:24:18 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 66972e3e75e977d7e88c1c1818cb7f64
+)
+
+[11-Nov-2025 20:24:18 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '66972e3e75e977d7e88c1c1818cb7f64' 
+            LIMIT 1
+[11-Nov-2025 20:24:18 America/Chicago] Mostrando datos de PRIMERA extensión para token: 66972e3e75e977d7e88c1c1818cb7f64
+[11-Nov-2025 20:24:18 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 66972e3e75e977d7e88c1c1818cb7f64
+    [debug] => true
+)
+
+[11-Nov-2025 20:24:18 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '66972e3e75e977d7e88c1c1818cb7f64' 
+            LIMIT 1
+[11-Nov-2025 20:24:18 America/Chicago] Mostrando datos de PRIMERA extensión para token: 66972e3e75e977d7e88c1c1818cb7f64
+[11-Nov-2025 20:24:19 America/Chicago] === DEBUG PROCESAR_EXTENSION ===
+[11-Nov-2025 20:24:19 America/Chicago] POST data: Array
+(
+    [token] => 66972e3e75e977d7e88c1c1818cb7f64
+    [accion] => aprobar
+    [motivo] => 
+    [fecha_extension] => 2025-11-19
+    [aplicar_a_todos] => 0
+)
+
+[11-Nov-2025 20:24:19 America/Chicago] Token: 66972e3e75e977d7e88c1c1818cb7f64
+[11-Nov-2025 20:24:19 America/Chicago] Acción: aprobar
+[11-Nov-2025 20:24:19 America/Chicago] Motivo: 
+[11-Nov-2025 20:24:19 America/Chicago] Fecha extension: 2025-11-19
+[11-Nov-2025 20:24:19 America/Chicago] Aplicar a todos: 0
+[19-Nov-2025 18:25:51 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => a3844197873170c507923f2f9b73aa87
+)
+
+[19-Nov-2025 18:25:51 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = 'a3844197873170c507923f2f9b73aa87' 
+            LIMIT 1
+[19-Nov-2025 18:25:51 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => a3844197873170c507923f2f9b73aa87
+    [debug] => true
+)
+
+[19-Nov-2025 18:25:51 America/Chicago] Mostrando datos de PRIMERA extensión para token: a3844197873170c507923f2f9b73aa87
+[19-Nov-2025 18:25:51 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = 'a3844197873170c507923f2f9b73aa87' 
+            LIMIT 1
+[19-Nov-2025 18:25:51 America/Chicago] Mostrando datos de PRIMERA extensión para token: a3844197873170c507923f2f9b73aa87
+[26-Nov-2025 15:57:22 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => aacf46891ad34ff1003301707e6caf51
+)
+
+[26-Nov-2025 15:57:22 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = 'aacf46891ad34ff1003301707e6caf51' 
+            LIMIT 1
+[26-Nov-2025 15:57:22 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => aacf46891ad34ff1003301707e6caf51
+    [debug] => true
+)
+
+[26-Nov-2025 15:57:22 America/Chicago] Mostrando datos de PRIMERA extensión para token: aacf46891ad34ff1003301707e6caf51
+[26-Nov-2025 15:57:22 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = 'aacf46891ad34ff1003301707e6caf51' 
+            LIMIT 1
+[26-Nov-2025 15:57:22 America/Chicago] Mostrando datos de PRIMERA extensión para token: aacf46891ad34ff1003301707e6caf51
+[26-Nov-2025 15:57:33 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => aacf46891ad34ff1003301707e6caf51
+)
+
+[26-Nov-2025 15:57:33 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = 'aacf46891ad34ff1003301707e6caf51' 
+            LIMIT 1
+[26-Nov-2025 15:57:33 America/Chicago] Mostrando datos de PRIMERA extensión para token: aacf46891ad34ff1003301707e6caf51
+[26-Nov-2025 15:57:33 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => aacf46891ad34ff1003301707e6caf51
+    [debug] => true
+)
+
+[26-Nov-2025 15:57:33 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = 'aacf46891ad34ff1003301707e6caf51' 
+            LIMIT 1
+[26-Nov-2025 15:57:33 America/Chicago] Mostrando datos de PRIMERA extensión para token: aacf46891ad34ff1003301707e6caf51
+[26-Nov-2025 15:57:47 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => aacf46891ad34ff1003301707e6caf51
+)
+
+[26-Nov-2025 15:57:47 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => aacf46891ad34ff1003301707e6caf51
+    [debug] => true
+)
+
+[26-Nov-2025 15:57:47 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = 'aacf46891ad34ff1003301707e6caf51' 
+            LIMIT 1
+[26-Nov-2025 15:57:47 America/Chicago] Mostrando datos de PRIMERA extensión para token: aacf46891ad34ff1003301707e6caf51
+[26-Nov-2025 15:57:47 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = 'aacf46891ad34ff1003301707e6caf51' 
+            LIMIT 1
+[26-Nov-2025 15:57:47 America/Chicago] Mostrando datos de PRIMERA extensión para token: aacf46891ad34ff1003301707e6caf51
+[26-Nov-2025 15:57:54 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => c3f7c52e7865427535f1eb9d05142b5d
+    [debug] => true
+)
+
+[26-Nov-2025 15:57:54 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = 'c3f7c52e7865427535f1eb9d05142b5d' 
+            LIMIT 1
+[26-Nov-2025 15:57:54 America/Chicago] Mostrando datos de PRIMERA extensión para token: c3f7c52e7865427535f1eb9d05142b5d
+[26-Nov-2025 15:57:54 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => c3f7c52e7865427535f1eb9d05142b5d
+)
+
+[26-Nov-2025 15:57:54 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = 'c3f7c52e7865427535f1eb9d05142b5d' 
+            LIMIT 1
+[26-Nov-2025 15:57:54 America/Chicago] Mostrando datos de PRIMERA extensión para token: c3f7c52e7865427535f1eb9d05142b5d
+[26-Nov-2025 15:57:57 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => aacf46891ad34ff1003301707e6caf51
+    [debug] => true
+)
+
+[26-Nov-2025 15:57:57 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = 'aacf46891ad34ff1003301707e6caf51' 
+            LIMIT 1
+[26-Nov-2025 15:57:57 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => aacf46891ad34ff1003301707e6caf51
+)
+
+[26-Nov-2025 15:57:57 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = 'aacf46891ad34ff1003301707e6caf51' 
+            LIMIT 1
+[26-Nov-2025 15:57:57 America/Chicago] Mostrando datos de PRIMERA extensión para token: aacf46891ad34ff1003301707e6caf51
+[26-Nov-2025 15:57:57 America/Chicago] Mostrando datos de PRIMERA extensión para token: aacf46891ad34ff1003301707e6caf51
+[26-Nov-2025 15:58:01 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 7fee16d6720a2940bbd14e491b901b77
+    [debug] => true
+)
+
+[26-Nov-2025 15:58:01 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 7fee16d6720a2940bbd14e491b901b77
+)
+
+[26-Nov-2025 15:58:01 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '7fee16d6720a2940bbd14e491b901b77' 
+            LIMIT 1
+[26-Nov-2025 15:58:01 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '7fee16d6720a2940bbd14e491b901b77' 
+            LIMIT 1
+[26-Nov-2025 15:58:01 America/Chicago] Mostrando datos de PRIMERA extensión para token: 7fee16d6720a2940bbd14e491b901b77
+[26-Nov-2025 15:58:01 America/Chicago] Mostrando datos de PRIMERA extensión para token: 7fee16d6720a2940bbd14e491b901b77
+[26-Nov-2025 15:58:09 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 8fa872a7c805b38cc13ff00584b46c70
+    [debug] => true
+)
+
+[26-Nov-2025 15:58:09 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '8fa872a7c805b38cc13ff00584b46c70' 
+            LIMIT 1
+[26-Nov-2025 15:58:09 America/Chicago] Mostrando datos de PRIMERA extensión para token: 8fa872a7c805b38cc13ff00584b46c70
+[26-Nov-2025 15:58:09 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 8fa872a7c805b38cc13ff00584b46c70
+)
+
+[26-Nov-2025 15:58:09 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '8fa872a7c805b38cc13ff00584b46c70' 
+            LIMIT 1
+[26-Nov-2025 15:58:09 America/Chicago] Mostrando datos de PRIMERA extensión para token: 8fa872a7c805b38cc13ff00584b46c70
+[26-Nov-2025 15:58:14 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 250fe3698a90fd1c8f05cf43dc16f764
+)
+
+[26-Nov-2025 15:58:14 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '250fe3698a90fd1c8f05cf43dc16f764' 
+            LIMIT 1
+[26-Nov-2025 15:58:14 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 250fe3698a90fd1c8f05cf43dc16f764
+    [debug] => true
+)
+
+[26-Nov-2025 15:58:14 America/Chicago] Mostrando datos de PRIMERA extensión para token: 250fe3698a90fd1c8f05cf43dc16f764
+[26-Nov-2025 15:58:14 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '250fe3698a90fd1c8f05cf43dc16f764' 
+            LIMIT 1
+[26-Nov-2025 15:58:14 America/Chicago] Mostrando datos de PRIMERA extensión para token: 250fe3698a90fd1c8f05cf43dc16f764
+[26-Nov-2025 15:58:18 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 250fe3698a90fd1c8f05cf43dc16f764
+    [debug] => true
+)
+
+[26-Nov-2025 15:58:18 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '250fe3698a90fd1c8f05cf43dc16f764' 
+            LIMIT 1
+[26-Nov-2025 15:58:18 America/Chicago] Mostrando datos de PRIMERA extensión para token: 250fe3698a90fd1c8f05cf43dc16f764
+[26-Nov-2025 15:58:18 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 250fe3698a90fd1c8f05cf43dc16f764
+)
+
+[26-Nov-2025 15:58:18 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '250fe3698a90fd1c8f05cf43dc16f764' 
+            LIMIT 1
+[26-Nov-2025 15:58:18 America/Chicago] Mostrando datos de PRIMERA extensión para token: 250fe3698a90fd1c8f05cf43dc16f764
+[26-Nov-2025 16:21:47 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 2d515d0a8e7d7c575a863a31577bb868
+    [debug] => true
+)
+
+[26-Nov-2025 16:21:47 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '2d515d0a8e7d7c575a863a31577bb868' 
+            LIMIT 1
+[26-Nov-2025 16:21:47 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 2d515d0a8e7d7c575a863a31577bb868
+)
+
+[26-Nov-2025 16:21:47 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '2d515d0a8e7d7c575a863a31577bb868' 
+            LIMIT 1
+[26-Nov-2025 16:21:47 America/Chicago] Mostrando datos de PRIMERA extensión para token: 2d515d0a8e7d7c575a863a31577bb868
+[26-Nov-2025 16:21:47 America/Chicago] Mostrando datos de PRIMERA extensión para token: 2d515d0a8e7d7c575a863a31577bb868
+[26-Nov-2025 16:22:02 America/Chicago] === DEBUG PROCESAR_EXTENSION ===
+[26-Nov-2025 16:22:02 America/Chicago] POST data: Array
+(
+    [token] => 2d515d0a8e7d7c575a863a31577bb868
+    [accion] => aprobar
+    [motivo] => 
+    [fecha_extension] => 2025-12-03
+    [aplicar_a_todos] => 1
+)
+
+[26-Nov-2025 16:22:02 America/Chicago] Token: 2d515d0a8e7d7c575a863a31577bb868
+[26-Nov-2025 16:22:02 America/Chicago] Acción: aprobar
+[26-Nov-2025 16:22:02 America/Chicago] Motivo: 
+[26-Nov-2025 16:22:02 America/Chicago] Fecha extension: 2025-12-03
+[26-Nov-2025 16:22:02 America/Chicago] Aplicar a todos: 1
+[10-Dec-2025 08:20:53 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 1f553e1171d6999cdddb5112e3e9dedb
+)
+
+[10-Dec-2025 08:20:53 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 1f553e1171d6999cdddb5112e3e9dedb
+    [debug] => true
+)
+
+[10-Dec-2025 08:20:53 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '1f553e1171d6999cdddb5112e3e9dedb' 
+            LIMIT 1
+[10-Dec-2025 08:20:53 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '1f553e1171d6999cdddb5112e3e9dedb' 
+            LIMIT 1
+[10-Dec-2025 08:20:53 America/Chicago] Mostrando datos de PRIMERA extensión para token: 1f553e1171d6999cdddb5112e3e9dedb
+[10-Dec-2025 08:20:53 America/Chicago] Mostrando datos de PRIMERA extensión para token: 1f553e1171d6999cdddb5112e3e9dedb
+[10-Dec-2025 08:21:02 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 1f553e1171d6999cdddb5112e3e9dedb
+)
+
+[10-Dec-2025 08:21:02 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '1f553e1171d6999cdddb5112e3e9dedb' 
+            LIMIT 1
+[10-Dec-2025 08:21:02 America/Chicago] Mostrando datos de PRIMERA extensión para token: 1f553e1171d6999cdddb5112e3e9dedb
+[10-Dec-2025 08:21:02 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 1f553e1171d6999cdddb5112e3e9dedb
+    [debug] => true
+)
+
+[10-Dec-2025 08:21:02 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '1f553e1171d6999cdddb5112e3e9dedb' 
+            LIMIT 1
+[10-Dec-2025 08:21:02 America/Chicago] Mostrando datos de PRIMERA extensión para token: 1f553e1171d6999cdddb5112e3e9dedb
+[10-Dec-2025 08:21:05 America/Chicago] === DEBUG PROCESAR_EXTENSION ===
+[10-Dec-2025 08:21:05 America/Chicago] POST data: Array
+(
+    [token] => 1f553e1171d6999cdddb5112e3e9dedb
+    [accion] => aprobar
+    [motivo] => 
+    [fecha_extension] => 2025-12-17
+    [aplicar_a_todos] => 0
+)
+
+[10-Dec-2025 08:21:05 America/Chicago] Token: 1f553e1171d6999cdddb5112e3e9dedb
+[10-Dec-2025 08:21:05 America/Chicago] Acción: aprobar
+[10-Dec-2025 08:21:05 America/Chicago] Motivo: 
+[10-Dec-2025 08:21:05 America/Chicago] Fecha extension: 2025-12-17
+[10-Dec-2025 08:21:05 America/Chicago] Aplicar a todos: 0
+[10-Dec-2025 08:21:13 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 696cacadb3743f662af469e8056af7f2
+    [debug] => true
+)
+
+[10-Dec-2025 08:21:13 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '696cacadb3743f662af469e8056af7f2' 
+            LIMIT 1
+[10-Dec-2025 08:21:13 America/Chicago] Mostrando datos de PRIMERA extensión para token: 696cacadb3743f662af469e8056af7f2
+[10-Dec-2025 08:21:13 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 696cacadb3743f662af469e8056af7f2
+)
+
+[10-Dec-2025 08:21:13 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '696cacadb3743f662af469e8056af7f2' 
+            LIMIT 1
+[10-Dec-2025 08:21:13 America/Chicago] Mostrando datos de PRIMERA extensión para token: 696cacadb3743f662af469e8056af7f2
+[10-Dec-2025 08:21:16 America/Chicago] === DEBUG PROCESAR_EXTENSION ===
+[10-Dec-2025 08:21:16 America/Chicago] POST data: Array
+(
+    [token] => 696cacadb3743f662af469e8056af7f2
+    [accion] => aprobar
+    [motivo] => 
+    [fecha_extension] => 2025-12-17
+    [aplicar_a_todos] => 0
+)
+
+[10-Dec-2025 08:21:16 America/Chicago] Token: 696cacadb3743f662af469e8056af7f2
+[10-Dec-2025 08:21:16 America/Chicago] Acción: aprobar
+[10-Dec-2025 08:21:16 America/Chicago] Motivo: 
+[10-Dec-2025 08:21:16 America/Chicago] Fecha extension: 2025-12-17
+[10-Dec-2025 08:21:16 America/Chicago] Aplicar a todos: 0
+[10-Dec-2025 08:21:24 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => d80448c90c3a39db60e0d0a69fc4b7a6
+)
+
+[10-Dec-2025 08:21:24 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = 'd80448c90c3a39db60e0d0a69fc4b7a6' 
+            LIMIT 1
+[10-Dec-2025 08:21:24 America/Chicago] Mostrando datos de PRIMERA extensión para token: d80448c90c3a39db60e0d0a69fc4b7a6
+[10-Dec-2025 08:21:25 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => d80448c90c3a39db60e0d0a69fc4b7a6
+    [debug] => true
+)
+
+[10-Dec-2025 08:21:25 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = 'd80448c90c3a39db60e0d0a69fc4b7a6' 
+            LIMIT 1
+[10-Dec-2025 08:21:25 America/Chicago] Mostrando datos de PRIMERA extensión para token: d80448c90c3a39db60e0d0a69fc4b7a6
+[10-Dec-2025 08:21:28 America/Chicago] === DEBUG PROCESAR_EXTENSION ===
+[10-Dec-2025 08:21:28 America/Chicago] POST data: Array
+(
+    [token] => d80448c90c3a39db60e0d0a69fc4b7a6
+    [accion] => aprobar
+    [motivo] => 
+    [fecha_extension] => 2025-12-17
+    [aplicar_a_todos] => 0
+)
+
+[10-Dec-2025 08:21:28 America/Chicago] Token: d80448c90c3a39db60e0d0a69fc4b7a6
+[10-Dec-2025 08:21:28 America/Chicago] Acción: aprobar
+[10-Dec-2025 08:21:28 America/Chicago] Motivo: 
+[10-Dec-2025 08:21:28 America/Chicago] Fecha extension: 2025-12-17
+[10-Dec-2025 08:21:28 America/Chicago] Aplicar a todos: 0
+[17-Dec-2025 07:52:05 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => ffddebc73b3e68e77f6a2a376486bd45
+    [debug] => true
+)
+
+[17-Dec-2025 07:52:05 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => ffddebc73b3e68e77f6a2a376486bd45
+)
+
+[17-Dec-2025 07:52:05 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = 'ffddebc73b3e68e77f6a2a376486bd45' 
+            LIMIT 1
+[17-Dec-2025 07:52:05 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = 'ffddebc73b3e68e77f6a2a376486bd45' 
+            LIMIT 1
+[17-Dec-2025 07:52:05 America/Chicago] Mostrando datos de PRIMERA extensión para token: ffddebc73b3e68e77f6a2a376486bd45
+[17-Dec-2025 07:52:05 America/Chicago] Mostrando datos de PRIMERA extensión para token: ffddebc73b3e68e77f6a2a376486bd45
+[17-Dec-2025 07:52:52 America/Chicago] === DEBUG PROCESAR_EXTENSION ===
+[17-Dec-2025 07:52:52 America/Chicago] POST data: Array
+(
+    [token] => ffddebc73b3e68e77f6a2a376486bd45
+    [accion] => rechazar
+    [motivo] => Por favor, pedir nuevamente extensión, pero hasta el miércoles 24 de diciembre.
+    [fecha_extension] => 2025-12-31
+    [aplicar_a_todos] => 1
+)
+
+[17-Dec-2025 07:52:52 America/Chicago] Token: ffddebc73b3e68e77f6a2a376486bd45
+[17-Dec-2025 07:52:52 America/Chicago] Acción: rechazar
+[17-Dec-2025 07:52:52 America/Chicago] Motivo: Por favor, pedir nuevamente extensión, pero hasta el miércoles 24 de diciembre.
+[17-Dec-2025 07:52:52 America/Chicago] Fecha extension: 2025-12-31
+[17-Dec-2025 07:52:52 America/Chicago] Aplicar a todos: 1
+[17-Dec-2025 20:39:04 America/Santiago] Error en devolución: Préstamo no encontrado: 3788
+[22-Dec-2025 17:04:34 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 4258927055165672f6e04d3ee6b34058
+)
+
+[22-Dec-2025 17:04:34 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 4258927055165672f6e04d3ee6b34058
+    [debug] => true
+)
+
+[22-Dec-2025 17:04:34 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '4258927055165672f6e04d3ee6b34058' 
+            LIMIT 1
+[22-Dec-2025 17:04:34 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '4258927055165672f6e04d3ee6b34058' 
+            LIMIT 1
+[22-Dec-2025 17:04:34 America/Chicago] Mostrando datos de PRIMERA extensión para token: 4258927055165672f6e04d3ee6b34058
+[22-Dec-2025 17:04:34 America/Chicago] Mostrando datos de PRIMERA extensión para token: 4258927055165672f6e04d3ee6b34058
+[22-Dec-2025 17:05:02 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 4258927055165672f6e04d3ee6b34058
+)
+
+[22-Dec-2025 17:05:02 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '4258927055165672f6e04d3ee6b34058' 
+            LIMIT 1
+[22-Dec-2025 17:05:02 America/Chicago] Mostrando datos de PRIMERA extensión para token: 4258927055165672f6e04d3ee6b34058
+[22-Dec-2025 17:05:02 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 4258927055165672f6e04d3ee6b34058
+    [debug] => true
+)
+
+[22-Dec-2025 17:05:02 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '4258927055165672f6e04d3ee6b34058' 
+            LIMIT 1
+[22-Dec-2025 17:05:02 America/Chicago] Mostrando datos de PRIMERA extensión para token: 4258927055165672f6e04d3ee6b34058
+[22-Dec-2025 17:05:31 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 4258927055165672f6e04d3ee6b34058
+)
+
+[22-Dec-2025 17:05:31 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 4258927055165672f6e04d3ee6b34058
+    [debug] => true
+)
+
+[22-Dec-2025 17:05:31 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '4258927055165672f6e04d3ee6b34058' 
+            LIMIT 1
+[22-Dec-2025 17:05:31 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '4258927055165672f6e04d3ee6b34058' 
+            LIMIT 1
+[22-Dec-2025 17:05:31 America/Chicago] Mostrando datos de PRIMERA extensión para token: 4258927055165672f6e04d3ee6b34058
+[22-Dec-2025 17:05:31 America/Chicago] Mostrando datos de PRIMERA extensión para token: 4258927055165672f6e04d3ee6b34058
+[22-Dec-2025 17:05:38 America/Chicago] === DEBUG PROCESAR_EXTENSION ===
+[22-Dec-2025 17:05:38 America/Chicago] POST data: Array
+(
+    [token] => 4258927055165672f6e04d3ee6b34058
+    [accion] => aprobar
+    [motivo] => 
+    [fecha_extension] => 2026-01-07
+    [aplicar_a_todos] => 1
+)
+
+[22-Dec-2025 17:05:38 America/Chicago] Token: 4258927055165672f6e04d3ee6b34058
+[22-Dec-2025 17:05:38 America/Chicago] Acción: aprobar
+[22-Dec-2025 17:05:38 America/Chicago] Motivo: 
+[22-Dec-2025 17:05:38 America/Chicago] Fecha extension: 2026-01-07
+[22-Dec-2025 17:05:38 America/Chicago] Aplicar a todos: 1
+[22-Dec-2025 17:06:08 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 9128b8a6e85e402897d314137da1fc1f
+    [debug] => true
+)
+
+[22-Dec-2025 17:06:08 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 9128b8a6e85e402897d314137da1fc1f
+)
+
+[22-Dec-2025 17:06:08 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '9128b8a6e85e402897d314137da1fc1f' 
+            LIMIT 1
+[22-Dec-2025 17:06:08 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '9128b8a6e85e402897d314137da1fc1f' 
+            LIMIT 1
+[22-Dec-2025 17:06:08 America/Chicago] Mostrando datos de PRIMERA extensión para token: 9128b8a6e85e402897d314137da1fc1f
+[22-Dec-2025 17:06:08 America/Chicago] Mostrando datos de PRIMERA extensión para token: 9128b8a6e85e402897d314137da1fc1f
+[22-Dec-2025 17:06:15 America/Chicago] === DEBUG PROCESAR_EXTENSION ===
+[22-Dec-2025 17:06:15 America/Chicago] POST data: Array
+(
+    [token] => 9128b8a6e85e402897d314137da1fc1f
+    [accion] => aprobar
+    [motivo] => 
+    [fecha_extension] => 2026-01-07
+    [aplicar_a_todos] => 1
+)
+
+[22-Dec-2025 17:06:15 America/Chicago] Token: 9128b8a6e85e402897d314137da1fc1f
+[22-Dec-2025 17:06:15 America/Chicago] Acción: aprobar
+[22-Dec-2025 17:06:15 America/Chicago] Motivo: 
+[22-Dec-2025 17:06:15 America/Chicago] Fecha extension: 2026-01-07
+[22-Dec-2025 17:06:15 America/Chicago] Aplicar a todos: 1
+[06-Jan-2026 06:16:59 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 4258927055165672f6e04d3ee6b34058
+)
+
+[06-Jan-2026 06:16:59 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 4258927055165672f6e04d3ee6b34058
+    [debug] => true
+)
+
+[06-Jan-2026 06:16:59 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '4258927055165672f6e04d3ee6b34058' 
+            LIMIT 1
+[06-Jan-2026 06:16:59 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '4258927055165672f6e04d3ee6b34058' 
+            LIMIT 1
+[06-Jan-2026 06:16:59 America/Chicago] Mostrando datos de SEGUNDA extensión para token: 4258927055165672f6e04d3ee6b34058
+[06-Jan-2026 06:16:59 America/Chicago] Mostrando datos de SEGUNDA extensión para token: 4258927055165672f6e04d3ee6b34058
+[06-Jan-2026 06:17:11 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 4258927055165672f6e04d3ee6b34058
+)
+
+[06-Jan-2026 06:17:11 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 4258927055165672f6e04d3ee6b34058
+    [debug] => true
+)
+
+[06-Jan-2026 06:17:11 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '4258927055165672f6e04d3ee6b34058' 
+            LIMIT 1
+[06-Jan-2026 06:17:11 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '4258927055165672f6e04d3ee6b34058' 
+            LIMIT 1
+[06-Jan-2026 06:17:11 America/Chicago] Mostrando datos de SEGUNDA extensión para token: 4258927055165672f6e04d3ee6b34058
+[06-Jan-2026 06:17:11 America/Chicago] Mostrando datos de SEGUNDA extensión para token: 4258927055165672f6e04d3ee6b34058
+[06-Jan-2026 06:17:23 America/Chicago] === DEBUG PROCESAR_EXTENSION ===
+[06-Jan-2026 06:17:23 America/Chicago] POST data: Array
+(
+    [token] => 4258927055165672f6e04d3ee6b34058
+    [accion] => aprobar
+    [motivo] => 
+    [fecha_extension] => 2026-01-14
+    [aplicar_a_todos] => 1
+)
+
+[06-Jan-2026 06:17:23 America/Chicago] Token: 4258927055165672f6e04d3ee6b34058
+[06-Jan-2026 06:17:23 America/Chicago] Acción: aprobar
+[06-Jan-2026 06:17:23 America/Chicago] Motivo: 
+[06-Jan-2026 06:17:23 America/Chicago] Fecha extension: 2026-01-14
+[06-Jan-2026 06:17:23 America/Chicago] Aplicar a todos: 1
+[06-Jan-2026 06:18:06 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 1455223777fafa16093b5e00c8e1e4a1
+)
+
+[06-Jan-2026 06:18:06 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 1455223777fafa16093b5e00c8e1e4a1
+    [debug] => true
+)
+
+[06-Jan-2026 06:18:06 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '1455223777fafa16093b5e00c8e1e4a1' 
+            LIMIT 1
+[06-Jan-2026 06:18:06 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '1455223777fafa16093b5e00c8e1e4a1' 
+            LIMIT 1
+[06-Jan-2026 06:18:06 America/Chicago] Mostrando datos de PRIMERA extensión para token: 1455223777fafa16093b5e00c8e1e4a1
+[06-Jan-2026 06:18:06 America/Chicago] Mostrando datos de PRIMERA extensión para token: 1455223777fafa16093b5e00c8e1e4a1
+[06-Jan-2026 06:18:11 America/Chicago] === DEBUG PROCESAR_EXTENSION ===
+[06-Jan-2026 06:18:11 America/Chicago] POST data: Array
+(
+    [token] => 1455223777fafa16093b5e00c8e1e4a1
+    [accion] => aprobar
+    [motivo] => 
+    [fecha_extension] => 2026-01-14
+    [aplicar_a_todos] => 1
+)
+
+[06-Jan-2026 06:18:11 America/Chicago] Token: 1455223777fafa16093b5e00c8e1e4a1
+[06-Jan-2026 06:18:11 America/Chicago] Acción: aprobar
+[06-Jan-2026 06:18:11 America/Chicago] Motivo: 
+[06-Jan-2026 06:18:11 America/Chicago] Fecha extension: 2026-01-14
+[06-Jan-2026 06:18:11 America/Chicago] Aplicar a todos: 1
+[07-Jan-2026 19:24:14 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 7726a5e493ec21cf66b50d98add6d5fa
+    [debug] => true
+)
+
+[07-Jan-2026 19:24:14 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '7726a5e493ec21cf66b50d98add6d5fa' 
+            LIMIT 1
+[07-Jan-2026 19:24:14 America/Chicago] Mostrando datos de SEGUNDA extensión para token: 7726a5e493ec21cf66b50d98add6d5fa
+[07-Jan-2026 19:24:14 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 7726a5e493ec21cf66b50d98add6d5fa
+)
+
+[07-Jan-2026 19:24:14 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '7726a5e493ec21cf66b50d98add6d5fa' 
+            LIMIT 1
+[07-Jan-2026 19:24:14 America/Chicago] Mostrando datos de SEGUNDA extensión para token: 7726a5e493ec21cf66b50d98add6d5fa
+[07-Jan-2026 19:24:20 America/Chicago] === DEBUG PROCESAR_EXTENSION ===
+[07-Jan-2026 19:24:20 America/Chicago] POST data: Array
+(
+    [token] => 7726a5e493ec21cf66b50d98add6d5fa
+    [accion] => aprobar
+    [motivo] => 
+    [fecha_extension] => 2026-01-14
+    [aplicar_a_todos] => 0
+)
+
+[07-Jan-2026 19:24:20 America/Chicago] Token: 7726a5e493ec21cf66b50d98add6d5fa
+[07-Jan-2026 19:24:20 America/Chicago] Acción: aprobar
+[07-Jan-2026 19:24:20 America/Chicago] Motivo: 
+[07-Jan-2026 19:24:20 America/Chicago] Fecha extension: 2026-01-14
+[07-Jan-2026 19:24:20 America/Chicago] Aplicar a todos: 0
+[07-Jan-2026 19:24:46 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 32b829032b4115b05d8bb1c02ccd234f
+    [debug] => true
+)
+
+[07-Jan-2026 19:24:46 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '32b829032b4115b05d8bb1c02ccd234f' 
+            LIMIT 1
+[07-Jan-2026 19:24:46 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 32b829032b4115b05d8bb1c02ccd234f
+)
+
+[07-Jan-2026 19:24:46 America/Chicago] Mostrando datos de SEGUNDA extensión para token: 32b829032b4115b05d8bb1c02ccd234f
+[07-Jan-2026 19:24:46 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '32b829032b4115b05d8bb1c02ccd234f' 
+            LIMIT 1
+[07-Jan-2026 19:24:46 America/Chicago] Mostrando datos de SEGUNDA extensión para token: 32b829032b4115b05d8bb1c02ccd234f
+[07-Jan-2026 19:24:54 America/Chicago] === DEBUG PROCESAR_EXTENSION ===
+[07-Jan-2026 19:24:54 America/Chicago] POST data: Array
+(
+    [token] => 32b829032b4115b05d8bb1c02ccd234f
+    [accion] => aprobar
+    [motivo] => 
+    [fecha_extension] => 2026-01-14
+    [aplicar_a_todos] => 0
+)
+
+[07-Jan-2026 19:24:54 America/Chicago] Token: 32b829032b4115b05d8bb1c02ccd234f
+[07-Jan-2026 19:24:54 America/Chicago] Acción: aprobar
+[07-Jan-2026 19:24:54 America/Chicago] Motivo: 
+[07-Jan-2026 19:24:54 America/Chicago] Fecha extension: 2026-01-14
+[07-Jan-2026 19:24:54 America/Chicago] Aplicar a todos: 0
+[14-Jan-2026 07:32:45 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 7c116679bc9c0da47ccba00fe370d804
+    [debug] => true
+)
+
+[14-Jan-2026 07:32:45 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 7c116679bc9c0da47ccba00fe370d804
+)
+
+[14-Jan-2026 07:32:45 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '7c116679bc9c0da47ccba00fe370d804' 
+            LIMIT 1
+[14-Jan-2026 07:32:45 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '7c116679bc9c0da47ccba00fe370d804' 
+            LIMIT 1
+[14-Jan-2026 07:32:45 America/Chicago] Mostrando datos de PRIMERA extensión para token: 7c116679bc9c0da47ccba00fe370d804
+[14-Jan-2026 07:32:45 America/Chicago] Mostrando datos de PRIMERA extensión para token: 7c116679bc9c0da47ccba00fe370d804
+[14-Jan-2026 07:32:53 America/Chicago] === DEBUG PROCESAR_EXTENSION ===
+[14-Jan-2026 07:32:53 America/Chicago] POST data: Array
+(
+    [token] => 7c116679bc9c0da47ccba00fe370d804
+    [accion] => aprobar
+    [motivo] => 
+    [fecha_extension] => 2026-01-21
+    [aplicar_a_todos] => 0
+)
+
+[14-Jan-2026 07:32:53 America/Chicago] Token: 7c116679bc9c0da47ccba00fe370d804
+[14-Jan-2026 07:32:53 America/Chicago] Acción: aprobar
+[14-Jan-2026 07:32:53 America/Chicago] Motivo: 
+[14-Jan-2026 07:32:53 America/Chicago] Fecha extension: 2026-01-21
+[14-Jan-2026 07:32:53 America/Chicago] Aplicar a todos: 0
+[14-Jan-2026 08:30:00 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 29685e6be5824171077ada075c8eb63e
+    [debug] => true
+)
+
+[14-Jan-2026 08:30:00 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '29685e6be5824171077ada075c8eb63e' 
+            LIMIT 1
+[14-Jan-2026 08:30:00 America/Chicago] Mostrando datos de PRIMERA extensión para token: 29685e6be5824171077ada075c8eb63e
+[14-Jan-2026 08:30:00 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 29685e6be5824171077ada075c8eb63e
+)
+
+[14-Jan-2026 08:30:00 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '29685e6be5824171077ada075c8eb63e' 
+            LIMIT 1
+[14-Jan-2026 08:30:00 America/Chicago] Mostrando datos de PRIMERA extensión para token: 29685e6be5824171077ada075c8eb63e
+[14-Jan-2026 08:30:02 America/Chicago] === DEBUG PROCESAR_EXTENSION ===
+[14-Jan-2026 08:30:02 America/Chicago] POST data: Array
+(
+    [token] => 29685e6be5824171077ada075c8eb63e
+    [accion] => aprobar
+    [motivo] => 
+    [fecha_extension] => 2026-01-21
+    [aplicar_a_todos] => 0
+)
+
+[14-Jan-2026 08:30:02 America/Chicago] Token: 29685e6be5824171077ada075c8eb63e
+[14-Jan-2026 08:30:02 America/Chicago] Acción: aprobar
+[14-Jan-2026 08:30:02 America/Chicago] Motivo: 
+[14-Jan-2026 08:30:02 America/Chicago] Fecha extension: 2026-01-21
+[14-Jan-2026 08:30:02 America/Chicago] Aplicar a todos: 0
+[15-Jan-2026 07:23:44 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 5baf87aead0c0a1c64acbc56dd180a31
+)
+
+[15-Jan-2026 07:23:44 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 5baf87aead0c0a1c64acbc56dd180a31
+    [debug] => true
+)
+
+[15-Jan-2026 07:23:44 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '5baf87aead0c0a1c64acbc56dd180a31' 
+            LIMIT 1
+[15-Jan-2026 07:23:44 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '5baf87aead0c0a1c64acbc56dd180a31' 
+            LIMIT 1
+[15-Jan-2026 07:23:44 America/Chicago] Mostrando datos de PRIMERA extensión para token: 5baf87aead0c0a1c64acbc56dd180a31
+[15-Jan-2026 07:23:44 America/Chicago] Mostrando datos de PRIMERA extensión para token: 5baf87aead0c0a1c64acbc56dd180a31
+[15-Jan-2026 07:23:47 America/Chicago] === DEBUG PROCESAR_EXTENSION ===
+[15-Jan-2026 07:23:47 America/Chicago] POST data: Array
+(
+    [token] => 5baf87aead0c0a1c64acbc56dd180a31
+    [accion] => aprobar
+    [motivo] => 
+    [fecha_extension] => 2026-01-21
+    [aplicar_a_todos] => 0
+)
+
+[15-Jan-2026 07:23:47 America/Chicago] Token: 5baf87aead0c0a1c64acbc56dd180a31
+[15-Jan-2026 07:23:47 America/Chicago] Acción: aprobar
+[15-Jan-2026 07:23:47 America/Chicago] Motivo: 
+[15-Jan-2026 07:23:47 America/Chicago] Fecha extension: 2026-01-21
+[15-Jan-2026 07:23:47 America/Chicago] Aplicar a todos: 0
+[16-Jan-2026 07:09:37 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 539981ad8a9cbea500c3a33e450633e9
+    [debug] => true
+)
+
+[16-Jan-2026 07:09:37 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 539981ad8a9cbea500c3a33e450633e9
+)
+
+[16-Jan-2026 07:09:37 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '539981ad8a9cbea500c3a33e450633e9' 
+            LIMIT 1
+[16-Jan-2026 07:09:37 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '539981ad8a9cbea500c3a33e450633e9' 
+            LIMIT 1
+[16-Jan-2026 07:09:37 America/Chicago] Mostrando datos de PRIMERA extensión para token: 539981ad8a9cbea500c3a33e450633e9
+[16-Jan-2026 07:09:37 America/Chicago] Mostrando datos de PRIMERA extensión para token: 539981ad8a9cbea500c3a33e450633e9
+[16-Jan-2026 07:09:39 America/Chicago] === DEBUG PROCESAR_EXTENSION ===
+[16-Jan-2026 07:09:39 America/Chicago] POST data: Array
+(
+    [token] => 539981ad8a9cbea500c3a33e450633e9
+    [accion] => aprobar
+    [motivo] => 
+    [fecha_extension] => 2026-01-21
+    [aplicar_a_todos] => 0
+)
+
+[16-Jan-2026 07:09:39 America/Chicago] Token: 539981ad8a9cbea500c3a33e450633e9
+[16-Jan-2026 07:09:39 America/Chicago] Acción: aprobar
+[16-Jan-2026 07:09:39 America/Chicago] Motivo: 
+[16-Jan-2026 07:09:39 America/Chicago] Fecha extension: 2026-01-21
+[16-Jan-2026 07:09:39 America/Chicago] Aplicar a todos: 0
+[20-Jan-2026 07:44:40 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => ae773ed66e5c0c05fd4689eb089dc93a
+)
+
+[20-Jan-2026 07:44:40 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = 'ae773ed66e5c0c05fd4689eb089dc93a' 
+            LIMIT 1
+[20-Jan-2026 07:44:40 America/Chicago] Mostrando datos de PRIMERA extensión para token: ae773ed66e5c0c05fd4689eb089dc93a
+[20-Jan-2026 07:44:40 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => ae773ed66e5c0c05fd4689eb089dc93a
+    [debug] => true
+)
+
+[20-Jan-2026 07:44:40 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = 'ae773ed66e5c0c05fd4689eb089dc93a' 
+            LIMIT 1
+[20-Jan-2026 07:44:40 America/Chicago] Mostrando datos de PRIMERA extensión para token: ae773ed66e5c0c05fd4689eb089dc93a
+[20-Jan-2026 07:44:46 America/Chicago] === DEBUG PROCESAR_EXTENSION ===
+[20-Jan-2026 07:44:46 America/Chicago] POST data: Array
+(
+    [token] => ae773ed66e5c0c05fd4689eb089dc93a
+    [accion] => aprobar
+    [motivo] => 
+    [fecha_extension] => 2026-01-28
+    [aplicar_a_todos] => 0
+)
+
+[20-Jan-2026 07:44:46 America/Chicago] Token: ae773ed66e5c0c05fd4689eb089dc93a
+[20-Jan-2026 07:44:46 America/Chicago] Acción: aprobar
+[20-Jan-2026 07:44:46 America/Chicago] Motivo: 
+[20-Jan-2026 07:44:46 America/Chicago] Fecha extension: 2026-01-28
+[20-Jan-2026 07:44:46 America/Chicago] Aplicar a todos: 0
+[21-Jan-2026 07:27:20 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => e9575e5e1b6abfb1eb3c6d01fd69226e
+    [debug] => true
+)
+
+[21-Jan-2026 07:27:20 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = 'e9575e5e1b6abfb1eb3c6d01fd69226e' 
+            LIMIT 1
+[21-Jan-2026 07:27:20 America/Chicago] Mostrando datos de PRIMERA extensión para token: e9575e5e1b6abfb1eb3c6d01fd69226e
+[21-Jan-2026 07:27:20 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => e9575e5e1b6abfb1eb3c6d01fd69226e
+)
+
+[21-Jan-2026 07:27:20 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = 'e9575e5e1b6abfb1eb3c6d01fd69226e' 
+            LIMIT 1
+[21-Jan-2026 07:27:20 America/Chicago] Mostrando datos de PRIMERA extensión para token: e9575e5e1b6abfb1eb3c6d01fd69226e
+[21-Jan-2026 07:27:33 America/Chicago] === DEBUG PROCESAR_EXTENSION ===
+[21-Jan-2026 07:27:33 America/Chicago] POST data: Array
+(
+    [token] => e9575e5e1b6abfb1eb3c6d01fd69226e
+    [accion] => aprobar
+    [motivo] => 
+    [fecha_extension] => 2026-01-28
+    [aplicar_a_todos] => 1
+)
+
+[21-Jan-2026 07:27:33 America/Chicago] Token: e9575e5e1b6abfb1eb3c6d01fd69226e
+[21-Jan-2026 07:27:33 America/Chicago] Acción: aprobar
+[21-Jan-2026 07:27:33 America/Chicago] Motivo: 
+[21-Jan-2026 07:27:33 America/Chicago] Fecha extension: 2026-01-28
+[21-Jan-2026 07:27:33 America/Chicago] Aplicar a todos: 1
+[21-Jan-2026 16:59:28 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 7c116679bc9c0da47ccba00fe370d804
+)
+
+[21-Jan-2026 16:59:28 America/Chicago] Solicitud recibida con estos parámetros: Array
+(
+    [token] => 7c116679bc9c0da47ccba00fe370d804
+    [debug] => true
+)
+
+[21-Jan-2026 16:59:28 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '7c116679bc9c0da47ccba00fe370d804' 
+            LIMIT 1
+[21-Jan-2026 16:59:28 America/Chicago] Consulta SQL ejecutada: SELECT 
+                fecha_propuesta_extension,
+                estado_extension,
+                fecha_propuesta_extension2,
+                estado_extension2,
+                motivo_extension2,
+                id_equipo,
+                id_usuario_prestamo
+            FROM equipo_prestamo 
+            WHERE token = '7c116679bc9c0da47ccba00fe370d804' 
+            LIMIT 1
+[21-Jan-2026 16:59:28 America/Chicago] Mostrando datos de SEGUNDA extensión para token: 7c116679bc9c0da47ccba00fe370d804
+[21-Jan-2026 16:59:28 America/Chicago] Mostrando datos de SEGUNDA extensión para token: 7c116679bc9c0da47ccba00fe370d804
+[21-Jan-2026 20:39:10 America/Santiago] PHP Warning:  Undefined array key "usuario_id" in /home2/ramuchcl/public_html/admin/components/equipo/models/devolver_equipo.php on line 45

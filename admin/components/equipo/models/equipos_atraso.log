@@ -1,0 +1,14 @@
+[2026-01-21 16:58:40] [INFO] Iniciando consulta de equipos con atraso - Usuario: 2006
+[2026-01-21 16:58:40] [INFO] Fechas recibidas - Inicio: 2025-12-22, Fin: 2026-01-21
+[2026-01-21 16:58:40] [INFO] Ejecutando consulta SQL: 
+        SELECT 
+            ep.id_equipo,
+            e.nombre,
+            e.id_unico,
+            e.prestado_a_nombre,
+            ep.fecha_debe_devolver,
+            ep.fecha_devolucion_efectiva,
+...
+[2026-01-21 16:58:40] [INFO] Procesando resultados de la consulta
+[2026-01-21 16:58:40] [INFO] Consulta completada - Registros encontrados: 20
+[2026-01-21 16:58:40] [INFO] Proceso finalizado

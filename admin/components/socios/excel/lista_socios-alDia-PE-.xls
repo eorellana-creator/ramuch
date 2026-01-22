@@ -1,0 +1,177 @@
+<html lang='es'>
+                        <head><meta charset='UTF-8'></head>
+                        <body>
+                            <table>
+                                <tr style='background-color:#313131; color:#ffffff;padding:4px;'>
+                    <td>ID</td>
+                    <td>Nombre</td>
+                    <td>Rut</td>
+                    <td>Teléfono</td>
+                    <td>Email</td>
+                    <td>Tipo de Inscripción</td>
+                </tr>
+                                <tr>
+                        <td>1627</td>
+                        <td>Alejandro Sanchez</td>
+                        <td>13.507.694-5</td>
+                        <td></td>
+                        <td>alsanche@ing.uchile.cl</td>
+                        <td>Profesional</td>
+                      </tr><tr>
+                        <td>1793</td>
+                        <td>Carmen Sanhueza Navarro</td>
+                        <td>6.951.435-9</td>
+                        <td></td>
+                        <td>carmensanhuezanavarro@gmail.com</td>
+                        <td>Estudiante</td>
+                      </tr><tr>
+                        <td>1837</td>
+                        <td>Pablo Zani</td>
+                        <td>26.175.863-6</td>
+                        <td>+56930211912</td>
+                        <td>pablozani@hotmail.com</td>
+                        <td>Profesional</td>
+                      </tr><tr>
+                        <td>1875</td>
+                        <td>Daniela Valenzuela</td>
+                        <td>19.740.934-7</td>
+                        <td></td>
+                        <td>dani.val0407@gmail.com</td>
+                        <td>Estudiante</td>
+                      </tr><tr>
+                        <td>1988</td>
+                        <td>Luis Retamal</td>
+                        <td>20.657.830-0</td>
+                        <td></td>
+                        <td>luis15.reta@gmail.com</td>
+                        <td>Profesional</td>
+                      </tr><tr>
+                        <td>1994</td>
+                        <td>Nicolas elias campillay horta</td>
+                        <td>17.919.328-0</td>
+                        <td>+56988088419</td>
+                        <td>ataco.7@gmail.com</td>
+                        <td>Profesional</td>
+                      </tr><tr>
+                        <td>2103</td>
+                        <td>Nicolás Silva</td>
+                        <td>16.742.287-K</td>
+                        <td>+56972454417</td>
+                        <td>nicosilva.tech@gmail.com</td>
+                        <td>Profesional</td>
+                      </tr><tr>
+                        <td>2129</td>
+                        <td>Constanza Lorena Torres Alvarez</td>
+                        <td>18.467.355-K</td>
+                        <td>998278240</td>
+                        <td>cl.torresalvarez@gmail.com</td>
+                        <td>Profesional</td>
+                      </tr><tr>
+                        <td>2138</td>
+                        <td>Ricardo Gómez Santibáñez</td>
+                        <td>10.473.568-1</td>
+                        <td>+56944748566</td>
+                        <td>trainertelec@gmail.com</td>
+                        <td>Profesional</td>
+                      </tr><tr>
+                        <td>2146</td>
+                        <td>José Alejandro Patricio Parra Espinosa</td>
+                        <td>16.279.467-1</td>
+                        <td>982572406</td>
+                        <td>josealejandropatricio@gmail.com</td>
+                        <td>Profesional</td>
+                      </tr><tr>
+                        <td>2150</td>
+                        <td>Debora Allison Caceres Diaz</td>
+                        <td>18.222.974-1</td>
+                        <td>999482777</td>
+                        <td>deb.caceres@gmail.com</td>
+                        <td>Profesional</td>
+                      </tr><tr>
+                        <td>2183</td>
+                        <td>Eduardo König Rojas</td>
+                        <td>18.311.006-3</td>
+                        <td>+56988845859</td>
+                        <td>eduardo.konig@derecho.uchile.cl</td>
+                        <td>Profesional</td>
+                      </tr><tr>
+                        <td>2193</td>
+                        <td>Nicolas Ignacio Castillo Tapia</td>
+                        <td>20.398.851-6</td>
+                        <td>+56953150970</td>
+                        <td>nicolas.tapia.c@ug.uchile.cl</td>
+                        <td>Estudiante</td>
+                      </tr><tr>
+                        <td>2204</td>
+                        <td>Claudio Andrés Ávila Mercado</td>
+                        <td>18.475.306-5</td>
+                        <td>+56981820999</td>
+                        <td>claudioavilamercado@gmail.com</td>
+                        <td>Profesional</td>
+                      </tr><tr>
+                        <td>2206</td>
+                        <td>Matias Bustamante Gomez</td>
+                        <td>17.060.209-9</td>
+                        <td></td>
+                        <td>matias.bustamante.g@gmail.com</td>
+                        <td>Profesional</td>
+                      </tr><tr>
+                        <td>2227</td>
+                        <td>Alexis Guzmán Rojas</td>
+                        <td>16.746.628-1</td>
+                        <td>+56993266704</td>
+                        <td>aleguzmanrojas@gmail.com</td>
+                        <td>Profesional</td>
+                      </tr><tr>
+                        <td>2228</td>
+                        <td>Juan Carlos Lyner Bravo</td>
+                        <td>16.960.758-3</td>
+                        <td>983129274</td>
+                        <td>jclynerb@gmail.com</td>
+                        <td>Profesional</td>
+                      </tr><tr>
+                        <td>2233</td>
+                        <td>Trinidad de la Barra Rosmanich</td>
+                        <td>19.688.869-1</td>
+                        <td>965091457</td>
+                        <td>trini_delabarra@hotmail.com</td>
+                        <td>Estudiante</td>
+                      </tr><tr>
+                        <td>2258</td>
+                        <td>Fabiola Elizabeth Mella Prado</td>
+                        <td>12.844.888-8</td>
+                        <td>942253421</td>
+                        <td>fabimellapr@gmail.com</td>
+                        <td>Profesional</td>
+                      </tr><tr>
+                        <td>2261</td>
+                        <td>Benjamin Carrasco</td>
+                        <td>21.725.810-3</td>
+                        <td>976168136</td>
+                        <td>benjacarrasco.gf@gmail.com</td>
+                        <td>Estudiante</td>
+                      </tr><tr>
+                        <td>2262</td>
+                        <td>Tomas Carlos Lespai Guzman</td>
+                        <td>22.014.693-6</td>
+                        <td>+56933272533</td>
+                        <td>tomaslespaigz@gmail.com</td>
+                        <td>Estudiante</td>
+                      </tr><tr>
+                        <td>2270</td>
+                        <td>Ronald David Astorga Salazar</td>
+                        <td>14.170.644-6</td>
+                        <td>965934992</td>
+                        <td>david.astorga14.13@gmail.com</td>
+                        <td>Profesional</td>
+                      </tr><tr>
+                        <td>2275</td>
+                        <td>Sofia Amanda Alarcon Schumacher</td>
+                        <td>18.668.313-7</td>
+                        <td>966448197</td>
+                        <td>sofiaalarco@gmail.com</td>
+                        <td>Profesional</td>
+                      </tr>
+                            </table>
+                        </body>
+                     </html>

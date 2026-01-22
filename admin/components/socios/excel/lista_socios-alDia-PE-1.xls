@@ -1,0 +1,329 @@
+<html lang='es'>
+                        <head><meta charset='UTF-8'></head>
+                        <body>
+                            <table>
+                                <tr style='background-color:#313131; color:#ffffff;padding:4px;'>
+                    <td>ID</td>
+                    <td>Nombre</td>
+                    <td>Rut</td>
+                    <td>Teléfono</td>
+                    <td>Email</td>
+                    <td>Tipo de Inscripción</td>
+                    <td>Referencia/td>
+                </tr>
+                                <tr>
+                        <td>1627</td>
+                        <td>Alejandro Sanchez</td>
+                        <td>13.507.694-5</td>
+                        <td></td>
+                        <td>alsanche@ing.uchile.cl</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                      </tr><tr>
+                        <td>1725</td>
+                        <td>Felipe Ortega Silva</td>
+                        <td>18.019.666-8</td>
+                        <td>+56952511700</td>
+                        <td>felipe.ortega.silva@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                      </tr><tr>
+                        <td>1752</td>
+                        <td>Sebastian Mejias Castillo</td>
+                        <td>18.465.169-6</td>
+                        <td></td>
+                        <td>smejias@fen.uchile.cl</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                      </tr><tr>
+                        <td>1793</td>
+                        <td>Carmen Sanhueza Navarro</td>
+                        <td>6.951.435-9</td>
+                        <td></td>
+                        <td>carmensanhuezanavarro@gmail.com</td>
+                        <td>Estudiante</td>
+                        <td>desconocido</td>
+                      </tr><tr>
+                        <td>1794</td>
+                        <td>Arturo Alvestegui Proboste</td>
+                        <td>7.200.031-5</td>
+                        <td></td>
+                        <td>aalvestegui@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                      </tr><tr>
+                        <td>1837</td>
+                        <td>Pablo Zani</td>
+                        <td>26.175.863-6</td>
+                        <td>+56930211912</td>
+                        <td>pablozani@hotmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                      </tr><tr>
+                        <td>1859</td>
+                        <td>Manuel Fonseca</td>
+                        <td>18.211.122-8</td>
+                        <td>+56958592117</td>
+                        <td>manuelfonseca.cr@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                      </tr><tr>
+                        <td>1912</td>
+                        <td>JoséMiguel Díaz Poblete</td>
+                        <td>13.477.786-9</td>
+                        <td>+56971382329</td>
+                        <td>jm.diazp@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                      </tr><tr>
+                        <td>1924</td>
+                        <td>Carolina Sepúlveda Cuevas</td>
+                        <td>19.643.905-6</td>
+                        <td>+56944154446</td>
+                        <td>caropaz.sc@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                      </tr><tr>
+                        <td>1978</td>
+                        <td>Leandro Pasten Gonzalez</td>
+                        <td>17.026.741-9</td>
+                        <td>+56943401808</td>
+                        <td>leandrospg88@gmail.com</td>
+                        <td>Estudiante</td>
+                        <td>desconocido</td>
+                      </tr><tr>
+                        <td>1988</td>
+                        <td>Luis Retamal</td>
+                        <td>20.657.830-0</td>
+                        <td></td>
+                        <td>luis15.reta@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                      </tr><tr>
+                        <td>1994</td>
+                        <td>Nicolas elias campillay horta</td>
+                        <td>17.919.328-0</td>
+                        <td>+56988088419</td>
+                        <td>ataco.7@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                      </tr><tr>
+                        <td>2001</td>
+                        <td>Belén Jorquera Rojas</td>
+                        <td>19.644.954-k</td>
+                        <td>+56967224030</td>
+                        <td>bjorqrar@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                      </tr><tr>
+                        <td>2006</td>
+                        <td>Francisca Aguilera Banchero</td>
+                        <td>18.637.260-3</td>
+                        <td>+56985913347</td>
+                        <td>Franiaguilera@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                      </tr><tr>
+                        <td>2103</td>
+                        <td>Nicolás Silva</td>
+                        <td>16.742.287-K</td>
+                        <td>+56972454417</td>
+                        <td>nicosilva.tech@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                      </tr><tr>
+                        <td>2129</td>
+                        <td>Constanza Lorena Torres Alvarez</td>
+                        <td>18.467.355-K</td>
+                        <td>998278240</td>
+                        <td>cl.torresalvarez@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                      </tr><tr>
+                        <td>2138</td>
+                        <td>Ricardo Gómez Santibáñez</td>
+                        <td>10.473.568-1</td>
+                        <td>+56944748566</td>
+                        <td>trainertelec@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                      </tr><tr>
+                        <td>2141</td>
+                        <td>Daniela Castillo Cortés</td>
+                        <td>19.388.258-7</td>
+                        <td>990471790</td>
+                        <td>danielacstilloc@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                      </tr><tr>
+                        <td>2142</td>
+                        <td>Daniela Rebeca Rojas Barahona</td>
+                        <td>17.728.368-1</td>
+                        <td>944842023</td>
+                        <td>danny.rojas.b@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                      </tr><tr>
+                        <td>2143</td>
+                        <td>Agnetha Torres</td>
+                        <td>19.135.463-K</td>
+                        <td>+56996448018</td>
+                        <td>atorresc@fen.uchile.cl</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                      </tr><tr>
+                        <td>2144</td>
+                        <td>José Miguel Guerra Villalobos</td>
+                        <td>16.503.086-9</td>
+                        <td>975675170</td>
+                        <td>jmgv.on@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                      </tr><tr>
+                        <td>2146</td>
+                        <td>José Alejandro Patricio Parra Espinosa</td>
+                        <td>16.279.467-1</td>
+                        <td>982572406</td>
+                        <td>josealejandropatricio@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                      </tr><tr>
+                        <td>2150</td>
+                        <td>Debora Allison Caceres Diaz</td>
+                        <td>18.222.974-1</td>
+                        <td>999482777</td>
+                        <td>deb.caceres@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                      </tr><tr>
+                        <td>2181</td>
+                        <td>Marcelo Pablo Tapia Veliz</td>
+                        <td>18.150.996-1</td>
+                        <td>+56966591216</td>
+                        <td>marcelopablo.t@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                      </tr><tr>
+                        <td>2183</td>
+                        <td>Eduardo König Rojas</td>
+                        <td>18.311.006-3</td>
+                        <td>+56988845859</td>
+                        <td>eduardo.konig@derecho.uchile.cl</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                      </tr><tr>
+                        <td>2188</td>
+                        <td>Rocío Gómez</td>
+                        <td>15.930.088-9</td>
+                        <td>940128562</td>
+                        <td>rocio.v.gomez.r@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                      </tr><tr>
+                        <td>2204</td>
+                        <td>Claudio Andrés Ávila Mercado</td>
+                        <td>18.475.306-5</td>
+                        <td>+56981820999</td>
+                        <td>claudioavilamercado@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                      </tr><tr>
+                        <td>2206</td>
+                        <td>Matias Bustamante Gomez</td>
+                        <td>17.060.209-9</td>
+                        <td></td>
+                        <td>matias.bustamante.g@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                      </tr><tr>
+                        <td>2207</td>
+                        <td>Pablo Kogan</td>
+                        <td>14.651.763-3</td>
+                        <td>+56 9 5116 0397</td>
+                        <td>pkoganm@yahoo.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                      </tr><tr>
+                        <td>2227</td>
+                        <td>Alexis Guzmán Rojas</td>
+                        <td>16.746.628-1</td>
+                        <td>+56993266704</td>
+                        <td>aleguzmanrojas@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                      </tr><tr>
+                        <td>2228</td>
+                        <td>Juan Carlos Lyner Bravo</td>
+                        <td>16.960.758-3</td>
+                        <td>983129274</td>
+                        <td>jclynerb@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                      </tr><tr>
+                        <td>2249</td>
+                        <td>Eduardo Antonio Vásquez Carbonell</td>
+                        <td>19.649.255-0</td>
+                        <td>+56997946205</td>
+                        <td>eduardo.vasquez@ug.uchile.cl</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                      </tr><tr>
+                        <td>2258</td>
+                        <td>Fabiola Elizabeth Mella Prado</td>
+                        <td>12.844.888-8</td>
+                        <td>942253421</td>
+                        <td>fabimellapr@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                      </tr><tr>
+                        <td>2261</td>
+                        <td>Benjamin Carrasco</td>
+                        <td>21.725.810-3</td>
+                        <td>976168136</td>
+                        <td>benjacarrasco.gf@gmail.com</td>
+                        <td>Estudiante</td>
+                        <td>desconocido</td>
+                      </tr><tr>
+                        <td>2262</td>
+                        <td>Tomas Carlos Lespai Guzman</td>
+                        <td>22.014.693-6</td>
+                        <td>+56933272533</td>
+                        <td>tomaslespaigz@gmail.com</td>
+                        <td>Estudiante</td>
+                        <td>desconocido</td>
+                      </tr><tr>
+                        <td>2265</td>
+                        <td>Dannette Guiñez</td>
+                        <td>16.367.289-8</td>
+                        <td>990790524</td>
+                        <td>dannette.vania@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                      </tr><tr>
+                        <td>2270</td>
+                        <td>Ronald David Astorga Salazar</td>
+                        <td>14.170.644-6</td>
+                        <td>965934992</td>
+                        <td>david.astorga14.13@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                      </tr><tr>
+                        <td>2279</td>
+                        <td>Sebastián Patricio Jerez Domínguez</td>
+                        <td>19.881.444-K</td>
+                        <td>+56935418981</td>
+                        <td>sebastian22jerez@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                      </tr><tr>
+                        <td>2296</td>
+                        <td>Melisa monte</td>
+                        <td>28.734.892-4</td>
+                        <td>56928787985</td>
+                        <td>melisa.monte.mm@gmail.com</td>
+                        <td>Profesional</td>
+                        <td>desconocido</td>
+                      </tr>
+                            </table>
+                        </body>
+                     </html>

@@ -1,0 +1,100 @@
+[14-Mar-2024 19:45:22 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[14-Mar-2024 19:45:22 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[14-Mar-2024 19:45:22 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[14-Mar-2024 19:45:22 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[14-Mar-2024 19:45:22 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[14-Mar-2024 19:45:22 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[14-Mar-2024 19:45:22 America/Chicago] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home2/ramuchcl/public_html/admin/components/user/models/user_list_procesa.php:13
+Stack trace:
+#0 {main}
+  thrown in /home2/ramuchcl/public_html/admin/components/user/models/user_list_procesa.php on line 13
+[03-Apr-2024 12:41:57 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'orden' in 'order clause' in /home2/ramuchcl/public_html/admin/includes/conexionMysql.php:39
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/conexionMysql.php(39): mysqli_query(Object(mysqli), 'SELECT * from u...')
+#1 /home2/ramuchcl/public_html/admin/components/user/models/user_list_procesa.php(48): mysql->query('SELECT * from u...')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/conexionMysql.php on line 39
+[03-Apr-2024 12:42:00 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'orden' in 'order clause' in /home2/ramuchcl/public_html/admin/includes/conexionMysql.php:39
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/conexionMysql.php(39): mysqli_query(Object(mysqli), 'SELECT * from u...')
+#1 /home2/ramuchcl/public_html/admin/components/user/models/user_list_procesa.php(48): mysql->query('SELECT * from u...')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/conexionMysql.php on line 39
+[03-Apr-2024 12:42:02 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'orden' in 'order clause' in /home2/ramuchcl/public_html/admin/includes/conexionMysql.php:39
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/conexionMysql.php(39): mysqli_query(Object(mysqli), 'SELECT * from u...')
+#1 /home2/ramuchcl/public_html/admin/components/user/models/user_list_procesa.php(48): mysql->query('SELECT * from u...')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/conexionMysql.php on line 39
+[03-Apr-2024 12:42:04 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'orden' in 'order clause' in /home2/ramuchcl/public_html/admin/includes/conexionMysql.php:39
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/conexionMysql.php(39): mysqli_query(Object(mysqli), 'SELECT * from u...')
+#1 /home2/ramuchcl/public_html/admin/components/user/models/user_list_procesa.php(48): mysql->query('SELECT * from u...')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/conexionMysql.php on line 39
+[03-Apr-2024 12:42:07 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'orden' in 'order clause' in /home2/ramuchcl/public_html/admin/includes/conexionMysql.php:39
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/conexionMysql.php(39): mysqli_query(Object(mysqli), 'SELECT * from u...')
+#1 /home2/ramuchcl/public_html/admin/components/user/models/user_list_procesa.php(48): mysql->query('SELECT * from u...')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/conexionMysql.php on line 39
+[03-Apr-2024 12:42:08 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'orden' in 'order clause' in /home2/ramuchcl/public_html/admin/includes/conexionMysql.php:39
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/conexionMysql.php(39): mysqli_query(Object(mysqli), 'SELECT * from u...')
+#1 /home2/ramuchcl/public_html/admin/components/user/models/user_list_procesa.php(48): mysql->query('SELECT * from u...')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/conexionMysql.php on line 39
+[04-Apr-2024 13:18:36 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'orden' in 'order clause' in /home2/ramuchcl/public_html/admin/includes/conexionMysql.php:39
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/conexionMysql.php(39): mysqli_query(Object(mysqli), 'SELECT * from u...')
+#1 /home2/ramuchcl/public_html/admin/components/user/models/user_list_procesa.php(48): mysql->query('SELECT * from u...')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/conexionMysql.php on line 39
+[04-Apr-2024 13:18:39 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'orden' in 'order clause' in /home2/ramuchcl/public_html/admin/includes/conexionMysql.php:39
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/conexionMysql.php(39): mysqli_query(Object(mysqli), 'SELECT * from u...')
+#1 /home2/ramuchcl/public_html/admin/components/user/models/user_list_procesa.php(48): mysql->query('SELECT * from u...')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/conexionMysql.php on line 39
+[04-Apr-2024 13:18:46 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'orden' in 'order clause' in /home2/ramuchcl/public_html/admin/includes/conexionMysql.php:39
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/conexionMysql.php(39): mysqli_query(Object(mysqli), 'SELECT * from u...')
+#1 /home2/ramuchcl/public_html/admin/components/user/models/user_list_procesa.php(48): mysql->query('SELECT * from u...')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/conexionMysql.php on line 39
+[29-Aug-2024 08:56:53 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'orden' in 'order clause' in /home2/ramuchcl/public_html/admin/includes/conexionMysql.php:39
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/conexionMysql.php(39): mysqli_query(Object(mysqli), 'SELECT * from u...')
+#1 /home2/ramuchcl/public_html/admin/components/user/models/user_list_procesa.php(48): mysql->query('SELECT * from u...')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/conexionMysql.php on line 39
+[29-Aug-2024 08:56:56 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'orden' in 'order clause' in /home2/ramuchcl/public_html/admin/includes/conexionMysql.php:39
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/conexionMysql.php(39): mysqli_query(Object(mysqli), 'SELECT * from u...')
+#1 /home2/ramuchcl/public_html/admin/components/user/models/user_list_procesa.php(48): mysql->query('SELECT * from u...')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/conexionMysql.php on line 39
+[29-Aug-2024 08:56:58 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'orden' in 'order clause' in /home2/ramuchcl/public_html/admin/includes/conexionMysql.php:39
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/conexionMysql.php(39): mysqli_query(Object(mysqli), 'SELECT * from u...')
+#1 /home2/ramuchcl/public_html/admin/components/user/models/user_list_procesa.php(48): mysql->query('SELECT * from u...')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/conexionMysql.php on line 39
+[29-Aug-2024 08:56:58 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'orden' in 'order clause' in /home2/ramuchcl/public_html/admin/includes/conexionMysql.php:39
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/conexionMysql.php(39): mysqli_query(Object(mysqli), 'SELECT * from u...')
+#1 /home2/ramuchcl/public_html/admin/components/user/models/user_list_procesa.php(48): mysql->query('SELECT * from u...')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/conexionMysql.php on line 39
+[29-Aug-2024 08:56:58 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'orden' in 'order clause' in /home2/ramuchcl/public_html/admin/includes/conexionMysql.php:39
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/conexionMysql.php(39): mysqli_query(Object(mysqli), 'SELECT * from u...')
+#1 /home2/ramuchcl/public_html/admin/components/user/models/user_list_procesa.php(48): mysql->query('SELECT * from u...')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/conexionMysql.php on line 39
+[29-Aug-2024 08:57:09 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'orden' in 'order clause' in /home2/ramuchcl/public_html/admin/includes/conexionMysql.php:39
+Stack trace:
+#0 /home2/ramuchcl/public_html/admin/includes/conexionMysql.php(39): mysqli_query(Object(mysqli), 'SELECT * from u...')
+#1 /home2/ramuchcl/public_html/admin/components/user/models/user_list_procesa.php(48): mysql->query('SELECT * from u...')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/admin/includes/conexionMysql.php on line 39

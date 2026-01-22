@@ -1,0 +1,24 @@
+[14-Mar-2024 19:35:16 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[14-Mar-2024 19:35:16 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[14-Mar-2024 19:35:16 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[14-Mar-2024 19:35:16 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[14-Mar-2024 19:35:16 America/Chicago] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home2/ramuchcl/public_html/admin/components/rol/models/rol_list_procesa.php:11
+Stack trace:
+#0 {main}
+  thrown in /home2/ramuchcl/public_html/admin/components/rol/models/rol_list_procesa.php on line 11
+[14-Mar-2024 19:35:47 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[14-Mar-2024 19:35:47 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[14-Mar-2024 19:35:47 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[14-Mar-2024 19:35:47 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[14-Mar-2024 19:35:47 America/Chicago] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home2/ramuchcl/public_html/admin/components/rol/models/rol_list_procesa.php:11
+Stack trace:
+#0 {main}
+  thrown in /home2/ramuchcl/public_html/admin/components/rol/models/rol_list_procesa.php on line 11
+[14-Mar-2024 19:44:13 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[14-Mar-2024 19:44:13 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[14-Mar-2024 19:44:13 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[14-Mar-2024 19:44:13 America/Chicago] PHP Warning:  Array to string conversion in /home2/ramuchcl/public_html/admin/includes/sql_inyection.php on line 8
+[14-Mar-2024 19:44:13 America/Chicago] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home2/ramuchcl/public_html/admin/components/rol/models/rol_list_procesa.php:11
+Stack trace:
+#0 {main}
+  thrown in /home2/ramuchcl/public_html/admin/components/rol/models/rol_list_procesa.php on line 11

@@ -1,0 +1,1020 @@
+[14-May-2025 14:46:40 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[15-May-2025 21:38:31 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[16-May-2025 07:07:30 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[16-May-2025 11:03:48 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[16-May-2025 14:27:56 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[01-Jun-2025 19:20:01 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[02-Jun-2025 12:11:26 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[02-Jun-2025 12:11:37 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[03-Jun-2025 14:21:53 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[06-Jun-2025 04:29:19 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[09-Jun-2025 09:02:51 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[12-Jun-2025 22:09:22 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[19-Jun-2025 09:55:40 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[19-Jun-2025 09:57:24 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[19-Jun-2025 09:57:51 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[19-Jun-2025 09:58:16 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[19-Jun-2025 09:58:18 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[21-Jun-2025 09:52:46 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[21-Jun-2025 15:01:16 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[22-Jun-2025 09:34:51 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[24-Jun-2025 22:43:32 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[30-Jun-2025 20:35:07 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[30-Jun-2025 20:36:26 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[04-Jul-2025 22:44:32 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[09-Jul-2025 11:26:54 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[17-Jul-2025 20:42:09 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[22-Jul-2025 10:22:31 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[24-Jul-2025 10:59:54 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[27-Jul-2025 15:40:00 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[28-Jul-2025 17:22:57 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[29-Jul-2025 14:47:31 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[02-Aug-2025 18:54:41 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[04-Aug-2025 13:31:30 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[05-Aug-2025 20:05:19 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[11-Aug-2025 20:52:52 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[12-Aug-2025 13:07:16 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Aug-2025 13:08:10 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[16-Aug-2025 07:50:24 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[16-Aug-2025 07:51:15 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[19-Aug-2025 20:28:04 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[21-Aug-2025 18:46:04 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[03-Sep-2025 08:58:15 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[09-Sep-2025 14:11:49 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[09-Sep-2025 18:59:47 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[15-Sep-2025 10:51:45 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[15-Sep-2025 19:46:59 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[25-Sep-2025 08:20:59 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[25-Sep-2025 08:22:26 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[25-Sep-2025 12:54:24 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[28-Sep-2025 18:32:18 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[29-Sep-2025 07:57:58 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[29-Sep-2025 11:35:48 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[29-Sep-2025 16:20:48 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[30-Sep-2025 11:27:53 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[02-Oct-2025 12:24:12 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[04-Oct-2025 10:51:19 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[07-Oct-2025 07:30:29 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[13-Oct-2025 07:34:14 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[14-Oct-2025 13:15:36 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[15-Oct-2025 13:09:49 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[19-Oct-2025 18:49:09 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[27-Oct-2025 19:24:21 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[29-Oct-2025 09:19:38 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[31-Oct-2025 08:46:40 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[31-Oct-2025 12:58:01 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[01-Nov-2025 18:58:11 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[01-Nov-2025 18:58:32 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[01-Nov-2025 20:00:18 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[01-Nov-2025 20:00:31 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[01-Nov-2025 20:00:58 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[01-Nov-2025 20:01:07 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[01-Nov-2025 20:01:15 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[01-Nov-2025 20:03:12 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[01-Nov-2025 20:03:24 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[01-Nov-2025 20:03:30 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[01-Nov-2025 20:03:47 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[01-Nov-2025 20:04:02 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[01-Nov-2025 20:04:06 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[01-Nov-2025 20:04:10 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[01-Nov-2025 20:04:15 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[01-Nov-2025 20:04:39 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[01-Nov-2025 20:06:14 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[01-Nov-2025 20:06:47 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[01-Nov-2025 20:06:51 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[01-Nov-2025 20:06:55 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[01-Nov-2025 20:07:03 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[01-Nov-2025 20:12:57 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[01-Nov-2025 20:13:26 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[01-Nov-2025 20:42:27 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[01-Nov-2025 20:47:26 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[01-Nov-2025 20:59:18 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[01-Nov-2025 20:59:37 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[01-Nov-2025 20:59:49 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[01-Nov-2025 21:57:19 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[01-Nov-2025 21:57:44 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[01-Nov-2025 22:06:56 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[01-Nov-2025 22:07:04 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[01-Nov-2025 22:07:19 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[01-Nov-2025 22:09:40 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[01-Nov-2025 22:10:27 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[01-Nov-2025 22:10:29 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[01-Nov-2025 22:10:56 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[01-Nov-2025 22:11:18 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[01-Nov-2025 22:11:43 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[01-Nov-2025 22:11:46 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[04-Nov-2025 05:32:18 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[15-Nov-2025 11:00:13 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[18-Nov-2025 04:22:48 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[25-Nov-2025 12:01:31 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[28-Nov-2025 07:42:32 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[15-Dec-2025 14:22:59 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[15-Dec-2025 14:23:42 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[15-Dec-2025 14:24:41 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[15-Dec-2025 14:24:58 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[15-Dec-2025 16:19:19 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[15-Dec-2025 16:19:25 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[21-Dec-2025 03:47:50 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[21-Dec-2025 03:47:50 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/envia.php(46): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[21-Dec-2025 03:47:55 America/Chicago] PHP Warning:  Undefined array key "g-recaptcha-response" in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 9
+[21-Dec-2025 03:54:32 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[21-Dec-2025 04:47:03 America/Chicago] PHP Warning:  Undefined array key "g-recaptcha-response" in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 9
+[21-Dec-2025 04:47:03 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[21-Dec-2025 04:47:03 America/Chicago] PHP Warning:  Undefined array key "rut" in /home2/ramuchcl/public_html/registro/rut_existe.php on line 6
+[21-Dec-2025 04:47:03 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[21-Dec-2025 04:47:03 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[21-Dec-2025 04:47:03 America/Chicago] PHP Warning:  Undefined array key "email" in /home2/ramuchcl/public_html/registro/mail_existe.php on line 6
+[21-Dec-2025 04:47:03 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[21-Dec-2025 04:47:03 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/envia.php(46): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[21-Dec-2025 04:47:03 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[21-Dec-2025 04:47:03 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/envia.php(46): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[01-Jan-2026 21:36:43 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[02-Jan-2026 14:03:56 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[05-Jan-2026 06:45:23 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[07-Jan-2026 14:38:49 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[09-Jan-2026 07:09:36 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[12-Jan-2026 14:56:00 America/Chicago] PHP Warning:  Undefined array key "g-recaptcha-response" in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 9
+[12-Jan-2026 14:56:00 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[12-Jan-2026 14:56:00 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/envia.php(46): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 14:56:50 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 14:57:44 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:00:07 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:04:18 America/Chicago] PHP Warning:  Undefined array key "g-recaptcha-response" in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 9
+[12-Jan-2026 15:04:20 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[12-Jan-2026 15:04:20 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/envia.php(46): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:04:24 America/Chicago] PHP Warning:  Undefined array key "g-recaptcha-response" in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 9
+[12-Jan-2026 15:04:27 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[12-Jan-2026 15:04:27 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/envia.php(46): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:04:28 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[12-Jan-2026 15:04:28 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/envia.php(46): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:04:29 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[12-Jan-2026 15:04:29 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/envia.php(46): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:04:29 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[12-Jan-2026 15:04:29 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/envia.php(46): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:04:30 America/Chicago] PHP Warning:  Undefined array key "g-recaptcha-response" in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 9
+[12-Jan-2026 15:04:31 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[12-Jan-2026 15:04:31 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/envia.php(46): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:04:33 America/Chicago] PHP Warning:  Undefined array key "g-recaptcha-response" in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 9
+[12-Jan-2026 15:04:33 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[12-Jan-2026 15:04:33 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/envia.php(46): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:04:34 America/Chicago] PHP Warning:  Undefined array key "g-recaptcha-response" in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 9
+[12-Jan-2026 15:04:35 America/Chicago] PHP Warning:  Undefined array key "g-recaptcha-response" in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 9
+[12-Jan-2026 15:04:36 America/Chicago] PHP Warning:  Undefined array key "g-recaptcha-response" in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 9
+[12-Jan-2026 15:04:37 America/Chicago] PHP Warning:  Undefined array key "g-recaptcha-response" in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 9
+[12-Jan-2026 15:04:39 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[12-Jan-2026 15:04:39 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/envia.php(46): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:04:42 America/Chicago] PHP Warning:  Undefined array key "g-recaptcha-response" in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 9
+[12-Jan-2026 15:04:47 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[12-Jan-2026 15:04:47 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/envia.php(46): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:04:50 America/Chicago] PHP Warning:  Undefined array key "g-recaptcha-response" in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 9
+[12-Jan-2026 15:04:53 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[12-Jan-2026 15:04:53 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/envia.php(46): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:04:57 America/Chicago] PHP Warning:  Undefined array key "g-recaptcha-response" in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 9
+[12-Jan-2026 15:05:00 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[12-Jan-2026 15:05:00 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/envia.php(46): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:05:03 America/Chicago] PHP Warning:  Undefined array key "g-recaptcha-response" in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 9
+[12-Jan-2026 15:05:06 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[12-Jan-2026 15:05:06 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/envia.php(46): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:05:09 America/Chicago] PHP Warning:  Undefined array key "g-recaptcha-response" in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 9
+[12-Jan-2026 15:05:12 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[12-Jan-2026 15:05:12 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/envia.php(46): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:05:15 America/Chicago] PHP Warning:  Undefined array key "g-recaptcha-response" in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 9
+[12-Jan-2026 15:05:18 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[12-Jan-2026 15:05:18 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/envia.php(46): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:05:25 America/Chicago] PHP Warning:  Undefined array key "g-recaptcha-response" in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 9
+[12-Jan-2026 15:05:28 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[12-Jan-2026 15:05:28 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/envia.php(46): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:05:32 America/Chicago] PHP Warning:  Undefined array key "g-recaptcha-response" in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 9
+[12-Jan-2026 15:05:35 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[12-Jan-2026 15:05:35 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/envia.php(46): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:05:40 America/Chicago] PHP Warning:  Undefined array key "g-recaptcha-response" in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 9
+[12-Jan-2026 15:05:43 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[12-Jan-2026 15:05:43 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/envia.php(46): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:05:44 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[12-Jan-2026 15:05:44 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/envia.php(46): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:05:46 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[12-Jan-2026 15:05:46 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/envia.php(46): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:05:48 America/Chicago] PHP Warning:  Undefined array key "g-recaptcha-response" in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 9
+[12-Jan-2026 15:05:48 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[12-Jan-2026 15:05:48 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/envia.php(46): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:05:49 America/Chicago] PHP Warning:  Undefined array key "g-recaptcha-response" in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 9
+[12-Jan-2026 15:05:52 America/Chicago] PHP Warning:  Undefined array key "g-recaptcha-response" in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 9
+[12-Jan-2026 15:05:54 America/Chicago] PHP Warning:  Undefined array key "g-recaptcha-response" in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 9
+[12-Jan-2026 15:05:57 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:06:03 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:06:05 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('1 OR 2+3943941=...', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('1 OR 2+3943941=...')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:06:06 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('1 OR 2+5695691=...', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('1 OR 2+5695691=...')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:06:08 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('1  OR 2+8758751...', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('1  OR 2+8758751...')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:06:09 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('1  OR 2+1191191...', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('1  OR 2+1191191...')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:06:11 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('1  OR 2+2582581...', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('1  OR 2+2582581...')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:06:44 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('1; waitfor dela...', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('1; waitfor dela...')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:06:51 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('1); waitfor del...', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('1); waitfor del...')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:06:56 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('1 waitfor delay...', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('1 waitfor delay...')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:07:01 America/Chicago] PHP Warning:  file_get_contents(https://www.google.com/recaptcha/api/siteverify?secret=6LfEwTkqAAAAAGbm8VFwAxJXBGWFQ5bj3Al_aqUl&amp;response=-1 OR 2+526-526-1=0+0+0+1 -- ): Failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 18
+[12-Jan-2026 15:07:01 America/Chicago] PHP Warning:  Attempt to read property "success" on null in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 22
+[12-Jan-2026 15:07:03 America/Chicago] PHP Warning:  file_get_contents(https://www.google.com/recaptcha/api/siteverify?secret=6LfEwTkqAAAAAGbm8VFwAxJXBGWFQ5bj3Al_aqUl&amp;response=-1 OR 2+196-196-1=0+0+0+1): Failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 18
+[12-Jan-2026 15:07:03 America/Chicago] PHP Warning:  Attempt to read property "success" on null in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 22
+[12-Jan-2026 15:07:03 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('nVB3i6KA ; wait...', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('nVB3i6KA ; wait...')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:07:04 America/Chicago] PHP Warning:  file_get_contents(https://www.google.com/recaptcha/api/siteverify?secret=6LfEwTkqAAAAAGbm8VFwAxJXBGWFQ5bj3Al_aqUl&amp;response=-1' OR 2+478-478-1=0+0+0+1 -- ): Failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 18
+[12-Jan-2026 15:07:04 America/Chicago] PHP Warning:  Attempt to read property "success" on null in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 22
+[12-Jan-2026 15:07:05 America/Chicago] PHP Warning:  file_get_contents(https://www.google.com/recaptcha/api/siteverify?secret=6LfEwTkqAAAAAGbm8VFwAxJXBGWFQ5bj3Al_aqUl&amp;response=-1' OR 2+543-543-1=0+0+0+1 or 'kUdyWLEA'='): Failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 18
+[12-Jan-2026 15:07:05 America/Chicago] PHP Warning:  Attempt to read property "success" on null in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 22
+[12-Jan-2026 15:07:08 America/Chicago] PHP Warning:  file_get_contents(https://www.google.com/recaptcha/api/siteverify?secret=6LfEwTkqAAAAAGbm8VFwAxJXBGWFQ5bj3Al_aqUl&amp;response=-1&quot; OR 2+880-880-1=0+0+0+1 -- ): Failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 18
+[12-Jan-2026 15:07:08 America/Chicago] PHP Warning:  Attempt to read property "success" on null in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 22
+[12-Jan-2026 15:07:40 America/Chicago] PHP Warning:  file_get_contents(https://www.google.com/recaptcha/api/siteverify?secret=6LfEwTkqAAAAAGbm8VFwAxJXBGWFQ5bj3Al_aqUl&amp;response=1 waitfor delay '0:0:15' -- ): Failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 18
+[12-Jan-2026 15:07:40 America/Chicago] PHP Warning:  Attempt to read property "success" on null in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 22
+[12-Jan-2026 15:08:02 America/Chicago] PHP Warning:  file_get_contents(https://www.google.com/recaptcha/api/siteverify?secret=6LfEwTkqAAAAAGbm8VFwAxJXBGWFQ5bj3Al_aqUl&amp;response=2zklNWv5'; waitfor delay '0:0:15' -- ): Failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 18
+[12-Jan-2026 15:08:02 America/Chicago] PHP Warning:  Attempt to read property "success" on null in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 22
+[12-Jan-2026 15:08:15 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('@@PgRx', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('@@PgRx')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:08:15 America/Chicago] PHP Warning:  file_get_contents(https://www.google.com/recaptcha/api/siteverify?secret=6LfEwTkqAAAAAGbm8VFwAxJXBGWFQ5bj3Al_aqUl&amp;response=FDPfzivy' OR 720=(SELECT 720 FROM PG_SLEEP(15))--): Failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 18
+[12-Jan-2026 15:08:15 America/Chicago] PHP Warning:  Attempt to read property "success" on null in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 22
+[12-Jan-2026 15:08:22 America/Chicago] PHP Warning:  file_get_contents(https://www.google.com/recaptcha/api/siteverify?secret=6LfEwTkqAAAAAGbm8VFwAxJXBGWFQ5bj3Al_aqUl&amp;response=nky4qkTy') OR 75=(SELECT 75 FROM PG_SLEEP(15))--): Failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 18
+[12-Jan-2026 15:08:22 America/Chicago] PHP Warning:  Attempt to read property "success" on null in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 22
+[12-Jan-2026 15:08:22 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:08:28 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:08:28 America/Chicago] PHP Warning:  file_get_contents(https://www.google.com/recaptcha/api/siteverify?secret=6LfEwTkqAAAAAGbm8VFwAxJXBGWFQ5bj3Al_aqUl&amp;response=DqjcDflG')) OR 13=(SELECT 13 FROM PG_SLEEP(15))--): Failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 18
+[12-Jan-2026 15:08:28 America/Chicago] PHP Warning:  Attempt to read property "success" on null in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 22
+[12-Jan-2026 15:08:29 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:08:30 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:08:34 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:08:35 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:08:36 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:08:38 America/Chicago] PHP Fatal error:  Uncaught ValueError: file_get_contents(): Argument #1 ($filename) must not contain any null bytes in /home2/ramuchcl/public_html/registro/verificar_captcha.php:18
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/verificar_captcha.php(18): file_get_contents('https://www.goo...')
+#1 {main}
+  thrown in /home2/ramuchcl/public_html/registro/verificar_captcha.php on line 18
+[12-Jan-2026 15:08:42 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:08:50 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:08:56 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:09:04 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:09:12 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:09:17 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:09:24 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:09:28 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:09:32 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:09:37 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:09:38 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:09:39 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:09:41 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:11:58 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:12:27 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:13:46 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:24:36 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:26:31 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:26:34 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:26:35 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('1 OR 2+2702701=...', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('1 OR 2+2702701=...')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:26:35 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('1 OR 2+2162161=...', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('1 OR 2+2162161=...')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:26:36 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('1  OR 2+6746741...', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('1  OR 2+6746741...')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:26:37 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('1  OR 2+6756751...', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('1  OR 2+6756751...')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:26:39 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('1  OR 2+8188181...', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('1  OR 2+8188181...')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:27:06 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('1; waitfor dela...', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('1; waitfor dela...')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:27:13 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('1); waitfor del...', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('1); waitfor del...')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:27:19 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('1 waitfor delay...', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('1 waitfor delay...')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:27:24 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('G5HteKB8 ; wait...', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('G5HteKB8 ; wait...')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:28:01 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('@@FKsd', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('@@FKsd')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:28:31 America/Chicago] PHP Warning:  Undefined array key "rut" in /home2/ramuchcl/public_html/registro/rut_existe.php on line 6
+[12-Jan-2026 15:28:31 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:28:31 America/Chicago] PHP Warning:  Undefined array key "email" in /home2/ramuchcl/public_html/registro/mail_existe.php on line 6
+[12-Jan-2026 15:28:54 America/Chicago] PHP Warning:  Undefined array key "rut" in /home2/ramuchcl/public_html/registro/rut_existe.php on line 6
+[12-Jan-2026 15:28:54 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:28:57 America/Chicago] PHP Warning:  Undefined array key "rut" in /home2/ramuchcl/public_html/registro/rut_existe.php on line 6
+[12-Jan-2026 15:28:57 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:28:58 America/Chicago] PHP Warning:  Undefined array key "email" in /home2/ramuchcl/public_html/registro/mail_existe.php on line 6
+[12-Jan-2026 15:29:00 America/Chicago] PHP Warning:  Undefined array key "email" in /home2/ramuchcl/public_html/registro/mail_existe.php on line 6
+[12-Jan-2026 15:29:27 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[12-Jan-2026 15:29:27 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/envia.php(46): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:29:28 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21
+[12-Jan-2026 15:29:28 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/envia.php(46): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:29:42 America/Chicago] PHP Warning:  Undefined array key "email" in /home2/ramuchcl/public_html/registro/mail_existe.php on line 6
+[12-Jan-2026 15:29:50 America/Chicago] PHP Warning:  Undefined array key "email" in /home2/ramuchcl/public_html/registro/mail_existe.php on line 6
+[12-Jan-2026 15:29:54 America/Chicago] PHP Warning:  Undefined array key "rut" in /home2/ramuchcl/public_html/registro/rut_existe.php on line 6
+[12-Jan-2026 15:29:54 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[12-Jan-2026 15:29:57 America/Chicago] PHP Warning:  Undefined array key "rut" in /home2/ramuchcl/public_html/registro/rut_existe.php on line 6
+[12-Jan-2026 15:29:57 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/ramuchcl/public_html/registro/includes/funciones.php:106
+Stack trace:
+#0 /home2/ramuchcl/public_html/registro/includes/funciones.php(106): number_format('', 0, '', '.')
+#1 /home2/ramuchcl/public_html/registro/rut_existe.php(9): formatea_rut('')
+#2 {main}
+  thrown in /home2/ramuchcl/public_html/registro/includes/funciones.php on line 106
+[21-Jan-2026 15:35:45 America/Chicago] PHP Warning:  Undefined array key "recaptchaToken" in /home2/ramuchcl/public_html/registro/envia.php on line 21

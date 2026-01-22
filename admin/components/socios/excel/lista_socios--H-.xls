@@ -1,0 +1,97 @@
+<html lang='es'>
+                        <head><meta charset='UTF-8'></head>
+                        <body>
+                            <table>
+                                <tr style='background-color:#313131; color:#ffffff;padding:4px;'>
+                    <td>ID</td>
+                    <td>Nombre</td>
+                    <td>Rut</td>
+                    <td>Teléfono</td>
+                    <td>Email</td>
+                    <td>Tipo de Inscripción</td>
+                    <td>Referencia</td>
+                    <td>Fecha de Registro</td>
+                    <td>Deuda</td>
+                    <td>Cantidad de cuotas</td>
+                </tr>
+                                <tr>
+                        <td>1623</td>
+                        <td>Erick Vasquez </td>
+                        <td>12.247.459-3</td>
+                        <td>+56978636126</td>
+                        <td>evas1972@gmail.com</td>
+                        <td>Honorario</td>
+                        <td>desconocido</td>
+                        <td>2000-01-01</td>
+                        <td>0</td>
+                        <td>0</td>
+                      </tr><tr>
+                        <td>1791</td>
+                        <td>Luis Latorre </td>
+                        <td>4.816.118-9</td>
+                        <td></td>
+                        <td>llatorre654@gmail.com</td>
+                        <td>Honorario</td>
+                        <td>desconocido</td>
+                        <td>2000-01-01</td>
+                        <td>0</td>
+                        <td>0</td>
+                      </tr><tr>
+                        <td>1792</td>
+                        <td>Rodrigo Soto Rojas</td>
+                        <td>6.343.034-k</td>
+                        <td></td>
+                        <td>tiltilsoto@gmail.com</td>
+                        <td>Honorario</td>
+                        <td>desconocido</td>
+                        <td>2000-01-01</td>
+                        <td>0</td>
+                        <td>0</td>
+                      </tr><tr>
+                        <td>1795</td>
+                        <td>Paulina Ramonda </td>
+                        <td>8.312.137-8</td>
+                        <td></td>
+                        <td>pauramonda@gmail.com</td>
+                        <td>Honorario</td>
+                        <td>desconocido</td>
+                        <td>2000-01-01</td>
+                        <td>0</td>
+                        <td>0</td>
+                      </tr><tr>
+                        <td>1797</td>
+                        <td>Waleska Lovera </td>
+                        <td>9.766.002-6</td>
+                        <td>+56992981042</td>
+                        <td>wale.lovera@gmail.com</td>
+                        <td>Honorario</td>
+                        <td>desconocido</td>
+                        <td>2002-03-05</td>
+                        <td>0</td>
+                        <td>0</td>
+                      </tr><tr>
+                        <td>2162</td>
+                        <td>Equipo Ramuch</td>
+                        <td>1-9</td>
+                        <td></td>
+                        <td>equipo@ramuch.cl</td>
+                        <td>Honorario</td>
+                        <td>desconocido</td>
+                        <td>2023-10-01</td>
+                        <td>0</td>
+                        <td>0</td>
+                      </tr><tr>
+                        <td>1</td>
+                        <td>Admin</td>
+                        <td>2-7</td>
+                        <td></td>
+                        <td>eorellana@warez.cl</td>
+                        <td>Honorario</td>
+                        <td>desconocido</td>
+                        <td>2023-03-15</td>
+                        <td>0</td>
+                        <td>0</td>
+                      </tr>
+                            </table>
+                        </body>
+                     </html>

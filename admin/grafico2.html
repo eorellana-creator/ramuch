@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo Lightweight Charts - 100 Velas Japonesas</title>
+    <!-- Usar una versión específica de lightweight-charts -->
+    <script src="https://unpkg.com/lightweight-charts@3.8.0/dist/lightweight-charts.standalone.production.js"></script>
+    <style>
+        #chart {
+            width: 100%; /* Ancho del gráfico */
+            height: 600px; /* Altura del gráfico */
+        }
+    </style>
+</head>
+<body>
+    <div id="chart"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Crear el contenedor del gráfico
+            const chart = LightweightCharts.createChart(document.getElementById('chart'), {
+                width: 1200, // Ancho aumentado
+                height: 600, // Altura aumentada
+                layout: {
+                    backgroundColor: '#ffffff',
+                    textColor: '#333',
+                },
+                grid: {
+                    vertLines: {
+                        color: '#eee',
+                    },
+                    horzLines: {
+                        color: '#eee',
+                    },
+                },
+                crosshair: {
+                    mode: LightweightCharts.CrosshairMode.Normal,
+                },
+                priceScale: {
+                    borderColor: '#cccccc',
+                },
+                timeScale: {
+                    borderColor: '#cccccc',
+                    timeVisible: true,
+                    secondsVisible: false,
+                },
+            });
+
+            // Crear una serie de velas japonesas
+            const candleSeries = chart.addCandlestickSeries({
+                upColor: '#26a69a', // Color para velas alcistas
+                downColor: '#ef5350', // Color para velas bajistas
+                borderDownColor: '#ef5350',
+                borderUpColor: '#26a69a',
+                wickDownColor: '#888',
+                wickUpColor: '#888',
+            });
+
+            // Función para generar datos aleatorios de 100 velas
+            function generateRandomCandles(count) {
+                const candles = [];
+                let lastPrice = 100; // Precio inicial
+
+                for (let i = 0; i < count; i++) {
+                    const open = lastPrice;
+                    const high = open + Math.random() * 10; // Máximo
+                    const low = open - Math.random() * 10; // Mínimo
+                    const close = low + Math.random() * (high - low); // Cierre
+                    lastPrice = close;
+
+                    candles.push({
+                        time: `2023-10-${String(i + 1).padStart(2, '0')}`, // Fecha ficticia
+                        open: parseFloat(open.toFixed(2)),
+                        high: parseFloat(high.toFixed(2)),
+                        low: parseFloat(low.toFixed(2)),
+                        close: parseFloat(close.toFixed(2)),
+                    });
+                }
+
+                return candles;
+            }
+
+            // Generar 100 velas
+            const candleData = generateRandomCandles(10);
+            console.log(candleData); // Verifica los datos generados
+
+            // Añadir los datos al gráfico
+            candleSeries.setData(candleData);
+
+            // Ajustar la escala de tiempo para que todas las velas sean visibles
+            chart.timeScale().fitContent();
+        });
+    </script>
+</body>
+</html>
