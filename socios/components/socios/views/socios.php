@@ -1,5 +1,39 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<div class="card">
+
+<script>
+// Agrega scroll horizontal a todo el body en móviles
+if (window.innerWidth <= 768) {
+    document.body.style.overflowX = 'auto';
+    document.body.style.minWidth = '1000px';
+}
+</script>
+
+<style>
+/* HABILITAR SCROLL HORIZONTAL EN TODO EL CONTENIDO */
+@media (max-width: 768px) {
+    html, body {
+        overflow-x: auto !important;
+        max-width: 100vw !important;
+    }
+    
+    .card-body {
+        min-width: 1000px !important;
+    }
+    
+    /* Asegurar que los contenedores no limiten el ancho */
+    .container, .container-fluid {
+        min-width: 1000px !important;
+        overflow-x: visible !important;
+    }
+    
+    /* Permitir que la pestaña se expanda */
+    .tab-content, .tab-pane {
+        min-width: 1000px !important;
+    }
+}
+</style>
+
+<div class="card" style="overflow-x: auto; min-width: 1000px;">
     <div class="card-header">
         <i class="fas fa-user"></i> Socio Ramuch <?php echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>". @$result5->nombre . "</strong>";?>
     </div>
@@ -345,36 +379,52 @@
                     </div>
                 </div>
 
-                <!-- Historial de Préstamos Tab -->
+                <!-- Historial de Préstamos Tab - CON SCROLL HORIZONTAL SIMPLE -->
                 <div class="tab-pane fade" id="nav-prestamo" role="tabpanel" aria-labelledby="nav-prestamo-tab">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <i class="fa fa-align-justify"></i> Historial de Préstamos <a href="index.php?component=equipo&view=equipo_list"><button type="button" class="btn btn-primary">Pedir equipo-></button></a>
-                                        <!-- Botón para ver listado de atrasos -->
-                                        <button type="button" class="btn btn-warning" style="margin-left: 10px;" onclick="cargarAtrasos()">
+                                        <i class="fa fa-align-justify"></i> Historial de Préstamos 
+                                        <a href="index.php?component=equipo&view=equipo_list">
+                                            <button type="button" class="btn btn-primary btn-sm">Pedir equipo</button>
+                                        </a>
+                                        <button type="button" class="btn btn-warning btn-sm ml-2" onclick="cargarAtrasos()">
                                             Ver listado de atrasos
                                         </button>
                                     </div>
-                                    <div class="card-body">
-                                        <table id="tablaprestamos" class="display" style="width:100%">
-                                            <thead>
-                                                <tr>
-                                                    <th></th>
-                                                    <th>Equipo</th>
-                                                    <th>Fecha Préstamo</th>
-                                                    <th>Fecha compromiso devolución</th>
-                                                    <th>Fecha efectiva de devolución</th>
-                                                    <th>Responsables</th>
-                                                    <th>Observación</th>
-                                                    <th>Estado de la devolución</th>
-                                                    <th>Estado Solicitud</th>
-                                                </tr>
-                                            </thead>
-                                            <?php echo $datos_prestamo;?>
-                                        </table>
+                                    <div class="card-body p-0"> <!-- Sin padding -->
+                                        <!-- CONTENEDOR CON SCROLL HORIZONTAL -->
+                                        <div class="table-responsive" style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
+                                            <table id="tablaprestamos" class="table mb-0" style="width:100%; min-width: 1000px;">
+                                                <thead class="thead-light">
+                                                    <tr>
+                                                        <th></th>
+                                                        <th>Equipo</th>
+                                                        <th>Fecha Préstamo</th>
+                                                        <th>Fecha compromiso devolución</th>
+                                                        <th>Fecha efectiva de devolución</th>
+                                                        <th>Responsables</th>
+                                                        <th>Observación</th>
+                                                        <th>Estado de la devolución</th>
+                                                        <th>Estado Solicitud</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php echo $datos_prestamo;?>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!-- FIN CONTENEDOR CON SCROLL -->
+                                        
+                                        <!-- Nota para móviles (opcional) -->
+                                        <div class="alert alert-info d-md-none m-3">
+                                            <small>
+                                                <i class="fas fa-mobile-alt mr-2"></i>
+                                                <strong>Nota:</strong> Desliza horizontalmente para ver todas las columnas.
+                                            </small>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
