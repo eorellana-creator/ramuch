@@ -1196,6 +1196,12 @@ class PHPMailer
      */
     public function send()
     {
+        $hostActual = strtolower(preg_replace('/:\d+$/', '', $_SERVER['HTTP_HOST'] ?? ''));
+        if ($hostActual === 'staging.ramuch.cl') {
+            error_log('STAGING: correo bloqueado para evitar envíos reales');
+            return true;
+        }
+
         try {
             if (!$this->preSend()) {
                 return false;
