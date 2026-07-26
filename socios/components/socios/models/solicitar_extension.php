@@ -42,6 +42,29 @@ if (empty($nuevaFecha) || empty($motivo)) {
 $mysql = new mysql;
 $mysql->connect();
 
+$id_usuario_sesion = (int)($_SESSION['usuario_id'] ?? 0);
+if ($id_usuario_sesion <= 0 && !empty($_SESSION['usuario_token'])) {
+    $token_usuario = str_replace("'", "''", $_SESSION['usuario_token']);
+    $resultadoUsuario = $mysql->query("SELECT id_usuario FROM usuario WHERE token='$token_usuario' LIMIT 1");
+    $usuarioSesion = $mysql->f_obj($resultadoUsuario);
+    $id_usuario_sesion = (int)($usuarioSesion->id_usuario ?? 0);
+}
+
+$fechaObjeto = DateTime::createFromFormat('!Y-m-d', $nuevaFecha);
+$fechaValida = $fechaObjeto && $fechaObjeto->format('Y-m-d') === $nuevaFecha;
+
+if ($id_usuario_sesion <= 0) {
+    http_response_code(401);
+    echo json_encode(['success' => false, 'mensaje' => 'Sesión no válida']);
+    exit;
+}
+
+if (!in_array((string)$tipo_extension, ['1', '2'], true) || !$fechaValida || $nuevaFecha < date('Y-m-d')) {
+    http_response_code(400);
+    echo json_encode(['success' => false, 'mensaje' => 'Tipo de extensión o fecha no válida']);
+    exit;
+}
+
 $exitosos = 0;
 $fallidos = 0;
 $errores = [];
@@ -49,13 +72,21 @@ $equipos_procesados = [];
 
 foreach ($tokens as $token) {
     try {
+        if (!preg_match('/^[a-zA-Z0-9]{32}$/', $token)) {
+            throw new Exception('Token de préstamo no válido');
+        }
+
         error_log("🔄 Procesando token: $token");
+        $mysql->query("START TRANSACTION");
         
         // Obtener datos del préstamo
         $sql = "SELECT ep.*, e.nombre as nombre_equipo, e.id_unico 
                 FROM equipo_prestamo ep 
                 INNER JOIN equipo e ON ep.id_equipo = e.id_equipo 
-                WHERE ep.token = '$token' AND ep.estado = 'prestado'";
+                WHERE ep.token = '$token'
+                AND ep.id_usuario_prestamo = '$id_usuario_sesion'
+                AND ep.estado = 'prestado'
+                FOR UPDATE";
         $result = $mysql->query($sql);
         
         if (!$result) {
@@ -85,6 +116,9 @@ foreach ($tokens as $token) {
             if ($prestamo->estado_extension == 'aprobada') {
                 throw new Exception('Ya tiene una extensión aprobada');
             }
+            if ($nuevaFecha <= $prestamo->fecha_debe_devolver) {
+                throw new Exception('La primera extensión debe ser posterior a la fecha vigente de devolución');
+            }
             
             $nuevoContador = $prestamo->extensiones_solicitadas + 1;
             $sqlUpdate = "UPDATE equipo_prestamo SET
@@ -105,6 +139,9 @@ foreach ($tokens as $token) {
             if ($prestamo->estado_extension2 == 'aprobada') {
                 throw new Exception('Ya tiene segunda extensión aprobada');
             }
+            if (empty($prestamo->fecha_propuesta_extension) || $nuevaFecha <= $prestamo->fecha_propuesta_extension) {
+                throw new Exception('La segunda extensión debe ser posterior a la primera');
+            }
             
             $nuevoContador = $prestamo->extensiones_solicitadas + 1;
             $sqlUpdate = "UPDATE equipo_prestamo SET
@@ -123,6 +160,7 @@ foreach ($tokens as $token) {
             throw new Exception('Error al actualizar');
         }
 
+        $mysql->query("COMMIT");
         $exitosos++;
         $equipos_procesados[] = [
             'nombre' => $prestamo->nombre_equipo,
@@ -132,6 +170,7 @@ foreach ($tokens as $token) {
         error_log("✅ Éxito para: {$prestamo->nombre_equipo}");
 
     } catch (Exception $e) {
+        $mysql->query("ROLLBACK");
         $fallidos++;
         $errores[] = $e->getMessage();
         error_log("❌ Error: " . $e->getMessage());

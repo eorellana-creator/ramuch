@@ -67,6 +67,15 @@ if ($accion === 'aprobar' && empty($fecha_extension)) {
     exit;
 }
 
+if ($accion === 'aprobar') {
+    $fechaObjeto = DateTime::createFromFormat('!Y-m-d', $fecha_extension);
+    if (!$fechaObjeto || $fechaObjeto->format('Y-m-d') !== $fecha_extension) {
+        http_response_code(400);
+        echo json_encode(['success' => false, 'error' => 'La fecha de extensión no es válida']);
+        exit;
+    }
+}
+
 try {
     $mysql = new mysql;
     $mysql->connect();
@@ -124,10 +133,14 @@ try {
     if ($accion === 'aprobar') {
         // Usar la fecha proporcionada en el modal
         $nuevaFecha = $fecha_extension;
+        if ($nuevaFecha <= $prestamo->fecha_debe_devolver) {
+            throw new Exception("La nueva fecha debe ser posterior a la fecha vigente de devolución");
+        }
         
         $update = "UPDATE equipo_prestamo SET
                   $campo_estado = 'aprobada',
                   $campo_fecha_propuesta = '$nuevaFecha',
+                  fecha_debe_devolver = '$nuevaFecha',
                   $campo_motivo = '$motivo',
                   $campo_fecha_procesado = NOW(),
                   $campo_procesado_por = '{$_SESSION['usuario_id']}'
@@ -165,17 +178,23 @@ try {
         $campo_buscar_estado = $esSegundaExtension ? 'estado_extension2' : 'estado_extension';
         $estado_pendiente = 'pendiente';
         
-        $sqlOtrosEquipos = "SELECT token FROM equipo_prestamo 
+        $sqlOtrosEquipos = "SELECT token, fecha_debe_devolver FROM equipo_prestamo
                            WHERE id_usuario_prestamo = '$id_usuario' 
+                           AND estado = 'prestado'
                            AND $campo_buscar_estado = '$estado_pendiente'
                            AND token != '$token'";
         $resultEquipos = $mysql->query($sqlOtrosEquipos);
         
         while ($equipo = $mysql->f_obj($resultEquipos)) {
             if ($accion === 'aprobar') {
+                if ($nuevaFecha <= $equipo->fecha_debe_devolver) {
+                    throw new Exception("La nueva fecha no es posterior a la fecha vigente de todos los préstamos seleccionados");
+                }
+
                 $updateTodos = "UPDATE equipo_prestamo SET
                                $campo_estado = 'aprobada',
                                $campo_fecha_propuesta = '$nuevaFecha',
+                               fecha_debe_devolver = '$nuevaFecha',
                                $campo_motivo = '$motivo',
                                $campo_fecha_procesado = NOW(),
                                $campo_procesado_por = '{$_SESSION['usuario_id']}'

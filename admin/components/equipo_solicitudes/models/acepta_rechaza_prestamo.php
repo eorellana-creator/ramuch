@@ -11,9 +11,9 @@ $usuario_nombre	= $_SESSION["usuario_nombre"];
 $email_usuario  = $_SESSION["usuario_email"];
 
 
-$observacion	= $_GET['observacion'];
-$tipo 			= $_GET['tipo']; //0=rechaza  1=acepta
-$token			= $_GET['token'];
+$observacion	= trim($_POST['observacion'] ?? '');
+$tipo 			= $_POST['tipo'] ?? ''; //0=rechaza  1=acepta
+$token			= trim($_POST['token'] ?? '');
 
 
 $config 	= new Config;
@@ -23,15 +23,38 @@ date_default_timezone_set("$config->zona_horaria");
 $mysql 		= new mysql;
 $mysql->connect();
 
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+	http_response_code(405);
+	exit('Método no permitido');
+}
+
+if (empty($id_usuario) || !in_array((string)$tipo, ['0', '1'], true)
+	|| !preg_match('/^[a-zA-Z0-9]{32}$/', $token)) {
+	http_response_code(400);
+	exit('Datos inválidos');
+}
+
+if ((string)$tipo === '0' && $observacion === '') {
+	http_response_code(400);
+	exit('Debe ingresar el motivo del rechazo');
+}
+
+$observacion = substr(strip_tags($observacion), 0, 255);
+$observacion = str_replace("'", "''", $observacion);
 
 $hoy 	= date("Y-m-d");
 
 if($token!=""){
 
-
-	$sql 	= $mysql->query("SELECT * FROM equipo_prestamo WHERE token='$token' ;");
-	$result = $mysql->f_obj($sql);
-	$id_equipo 				= $result->id_equipo;
+		$mysql->query("START TRANSACTION");
+		$sql 	= $mysql->query("SELECT * FROM equipo_prestamo WHERE token='$token' AND estado='solicitado' FOR UPDATE;");
+		$result = $mysql->f_obj($sql);
+		if (!$result) {
+			$mysql->query("ROLLBACK");
+			http_response_code(409);
+			exit('La solicitud ya fue procesada o cancelada');
+		}
+		$id_equipo 				= $result->id_equipo;
 	$id_usuario_prestamo 	= $result->id_usuario_prestamo;
 	$fecha1 				= $result->fecha_prestamo;
 	$fecha2 				= $result->fecha_debe_devolver;
@@ -53,7 +76,12 @@ $texto_estado = "";
 
 if($tipo==0){
 
-$sql 	= $mysql->query("UPDATE equipo_prestamo SET estado='rechazado', id_usuario_responsable='$id_usuario', comentario='$observacion' WHERE token ='$token';");
+$sql 	= $mysql->query("UPDATE equipo_prestamo SET estado='rechazado', id_usuario_responsable='$id_usuario', comentario='$observacion' WHERE token ='$token' AND estado='solicitado';");
+if (!$sql) {
+	$mysql->query("ROLLBACK");
+	http_response_code(500);
+	exit('No se pudo rechazar la solicitud');
+}
 
 $texto_estado = "<strong>rechazado</strong> el préstamo de equipo. El motivo es: $observacion . ";
 $_SESSION["equipo_prestado"] = "<div class='alert alert-success' role='alert'>El préstamo se ha rechazado.</div>";
@@ -65,12 +93,30 @@ $_SESSION["equipo_prestado"] = "<div class='alert alert-success' role='alert'>El
 
 if($tipo==1){
 
+$sqlActivo = $mysql->query("SELECT id_equipo_prestamo FROM equipo_prestamo
+	WHERE id_equipo='$id_equipo'
+	AND token!='$token'
+	AND estado IN ('solicitado', 'prestado')
+	LIMIT 1 FOR UPDATE;");
+if ($mysql->f_num($sqlActivo) > 0) {
+	$mysql->query("ROLLBACK");
+	http_response_code(409);
+	exit('El equipo ya posee otra solicitud o préstamo activo');
+}
 
-$sql 	= $mysql->query("UPDATE equipo_prestamo SET estado='prestado', id_usuario_responsable='$id_usuario'  WHERE token ='$token';");
-
+$sql 	= $mysql->query("UPDATE equipo_prestamo SET estado='prestado', id_usuario_responsable='$id_usuario' WHERE token ='$token' AND estado='solicitado';");
+if (!$sql) {
+	$mysql->query("ROLLBACK");
+	http_response_code(500);
+	exit('No se pudo aceptar la solicitud');
+}
 
 $sql 	= $mysql->query("UPDATE equipo SET  prestado_a_id_usuario='$id_usuario_prestamo', prestado_a_nombre='$nombre_usuario', id_responsable_prestamo='$id_usuario' , nombre_responsable_prestamo='$usuario_nombre', fecha_devolucion='$fecha2' WHERE id_equipo ='$id_equipo';");
-
+if (!$sql) {
+	$mysql->query("ROLLBACK");
+	http_response_code(500);
+	exit('No se pudo actualizar el equipo');
+}
 
 //echo "UPDATE equipo SET  prestado_a_id_usuario='$id_usuario_prestamo', prestado_a_nombre='$nombre_usuario', id_responsable_prestamo='$id_usuario' , nombre_responsable_prestamo='$usuario_nombre', fecha_devolucion='$fecha2' WHERE id_equipo ='$id_equipo';";
 
@@ -80,6 +126,8 @@ $texto_estado = "<strong>autorizado</strong> el préstamo del equipo. ";
 $_SESSION["equipo_prestado"] = "<div class='alert alert-success' role='alert'>El préstamo se ha realizado.</div>";
 
 }//if($tipo==1)
+
+$mysql->query("COMMIT");
 
 $fecha1 				= fecha_mysql_a_normal($fecha1);
 $fecha2 				= fecha_mysql_a_normal($fecha2);

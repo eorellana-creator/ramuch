@@ -256,7 +256,7 @@ var observacion = document.getElementById('observacion').value;
                                 var datos = "&token="+token+"&observacion="+observacion+"&tipo="+tipo;
                                 $.ajax({
                                     url: "components/equipo_solicitudes/models/acepta_rechaza_prestamo.php",
-                                    type: "get",
+                                    type: "post",
                                     dataType: "html",
                                     data: datos,
                                     cache: false,
@@ -264,12 +264,12 @@ var observacion = document.getElementById('observacion').value;
                                     processData: false
                                 })
                                     .done(function(res){
-                                    //alert(res);
-                                    var retorno = res.split('|');
-                                    var token = retorno[1];
-
-                                });
-                                document.location.reload();
+                                        document.location.reload();
+                                    })
+                                    .fail(function(xhr){
+                                        $.unblockUI();
+                                        BootstrapDialog.alert("No se pudo procesar la solicitud. Intenta nuevamente.");
+                                    });
 
                 }else {
                     // alert('no.');
@@ -288,7 +288,6 @@ function prueba(tipo, token){
 
  
            
-
 
 
 

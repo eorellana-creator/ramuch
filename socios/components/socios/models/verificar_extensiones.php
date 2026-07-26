@@ -28,8 +28,14 @@ try {
     $mysql = new mysql;
     $mysql->connect();
 
-    // Consulta SQL
-    $sql = "SELECT extensiones_solicitadas, estado FROM equipo_prestamo WHERE token = '$token'";
+    $tokenUsuario = str_replace("'", "''", $_SESSION['usuario_token']);
+
+    // Consultar únicamente préstamos pertenecientes al usuario autenticado.
+    $sql = "SELECT ep.extensiones_solicitadas, ep.estado
+            FROM equipo_prestamo ep
+            INNER JOIN usuario u ON u.id_usuario = ep.id_usuario_prestamo
+            WHERE ep.token = '$token' AND u.token = '$tokenUsuario'
+            LIMIT 1";
     $result = $mysql->query($sql);
     
     if (!$result) {

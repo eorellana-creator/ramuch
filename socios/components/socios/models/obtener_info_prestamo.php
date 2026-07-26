@@ -30,12 +30,17 @@ try {
     // Conexión a DB
     $mysql = new mysql;
     $mysql->connect();
+    $tokenUsuario = str_replace("'", "''", $_SESSION['usuario_token']);
 
     // Obtener información del préstamo
     $sql = "SELECT ep.*, e.nombre as nombre_equipo
             FROM equipo_prestamo ep
             LEFT JOIN equipo e ON ep.id_equipo = e.id_equipo
-            WHERE ep.token = '$token' AND ep.estado = 'prestado'";
+            INNER JOIN usuario u ON u.id_usuario = ep.id_usuario_prestamo
+            WHERE ep.token = '$token'
+            AND u.token = '$tokenUsuario'
+            AND ep.estado = 'prestado'
+            LIMIT 1";
     
     $result = $mysql->query($sql);
     

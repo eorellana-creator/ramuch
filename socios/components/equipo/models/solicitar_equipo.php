@@ -22,8 +22,26 @@ $hoy = date("Y-m-d");
 $equipos_solicitados = [];
 $equipos_no_disponibles = [];
 
+function fechaValida($fecha) {
+    $objetoFecha = DateTime::createFromFormat('!Y-m-d', $fecha);
+    return $objetoFecha && $objetoFecha->format('Y-m-d') === $fecha;
+}
+
+if (empty($id_usuario) || empty($tokens) || !fechaValida($fecha1) || !fechaValida($fecha2)
+    || $fecha1 < $hoy || $fecha2 < $fecha1) {
+    http_response_code(400);
+    $_SESSION["equipo_prestado"] = "<div class='alert alert-danger' role='alert'>Las fechas o los equipos seleccionados no son válidos.</div>";
+    exit("invalid");
+}
+
 foreach ($tokens as $token) {
-    $sql = $mysql->query("SELECT * FROM equipo WHERE token='$token';");
+    if (!preg_match('/^[a-zA-Z0-9]{32}$/', $token)) {
+        $equipos_no_disponibles[] = 'Equipo no válido';
+        continue;
+    }
+
+    $mysql->query("START TRANSACTION");
+    $sql = $mysql->query("SELECT * FROM equipo WHERE token='$token' FOR UPDATE;");
     $result = $mysql->f_obj($sql);
     
     if ($result) {
@@ -38,15 +56,24 @@ foreach ($tokens as $token) {
             
             $sql = $mysql->query("INSERT INTO equipo_prestamo (id_equipo, id_usuario_prestamo, id_usuario_responsable, fecha_prestamo, fecha_debe_devolver, estado, token) 
                                 VALUES('$id_equipo', '$id_usuario', '0', '$fecha1', '$fecha2', 'solicitado', '$token_nuevo');");
-            
-            $equipos_solicitados[] = [
-                'id_equipo' => $id_equipo,
-                'nombre' => $result->nombre,
-                'id_unico' => $result->id_unico
-            ];
+
+            if ($sql) {
+                $mysql->query("COMMIT");
+                $equipos_solicitados[] = [
+                    'id_equipo' => $id_equipo,
+                    'nombre' => $result->nombre,
+                    'id_unico' => $result->id_unico
+                ];
+            } else {
+                $mysql->query("ROLLBACK");
+                $equipos_no_disponibles[] = $result->nombre;
+            }
         } else {
+            $mysql->query("ROLLBACK");
             $equipos_no_disponibles[] = $result->nombre;
         }
+    } else {
+        $mysql->query("ROLLBACK");
     }
 }
 

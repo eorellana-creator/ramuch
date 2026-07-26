@@ -1000,27 +1000,18 @@ function enviar_Solicitud_Extension() {
     $('#btnEnviarExtension').prop('disabled', true);
     $('#btnEnviarExtension').html('<span class="spinner-border spinner-border-sm" role="status"></span> Enviando...');
     
-    // 4. Construir URL EXACTA
-    var url = 'components/socios/models/solicitar_extension.php?' +
-              'tipo_extension=' + encodeURIComponent(tipoExtension) +
-              '&nueva_fecha=' + encodeURIComponent(nuevaFecha) +
-              '&motivo=' + encodeURIComponent(motivo);
-    
-    // Agregar tokens
-    selectedTokens.forEach(function(token) {
-        url += '&tokens[]=' + encodeURIComponent(token);
-    });
-    
-    console.log('📤 URL COMPLETA:');
-    console.log(url);
-    console.log('🔍 URL contiene tokens[]?:', url.includes('tokens[]'));
-    
-    // 5. Hacer la petición AJAX
+    // 4. Hacer la petición AJAX
     console.log('🔄 INICIANDO PETICIÓN AJAX...');
     
     $.ajax({
-        url: url,
-        type: 'GET',
+        url: 'components/socios/models/solicitar_extension.php',
+        type: 'POST',
+        data: {
+            tipo_extension: tipoExtension,
+            nueva_fecha: nuevaFecha,
+            motivo: motivo,
+            tokens: selectedTokens
+        },
         dataType: 'json',
         success: function(response) {
             console.log('✅ RESPUESTA EXITOSA:', response);
