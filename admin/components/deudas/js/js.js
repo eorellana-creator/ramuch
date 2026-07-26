@@ -17,6 +17,12 @@ $(document).ready(function() {
         }
     });
 
+    $('[data-toggle="tooltip"]').tooltip({
+        trigger: 'hover',
+        placement: 'top',
+        html: true
+    });
+
     $(".usuarios-tags").select2({
         tags: true
     });
@@ -55,13 +61,6 @@ function enviar(){
         $("#fecha").addClass("is-invalid");
     } else {
         $("#fecha").removeClass("is-invalid");
-    }
-
-    if($("#medio").val() == "") {
-        error = 1;
-        $("#medio").addClass("is-invalid");
-    } else {
-        $("#medio").removeClass("is-invalid");
     }
 
     if($("#monto").val() == "") {

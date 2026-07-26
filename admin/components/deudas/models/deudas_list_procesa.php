@@ -3,35 +3,36 @@
 header("Cache-Control: no-cache, no-store, must-revalidate");
 header("Pragma: no-cache");
 header("Expires: 0");
+header("Content-Type: application/json; charset=utf-8");
 
 //include("../../../includes/sql_inyection.php");
 include("../../../configuration.php");
 include("../../../includes/conexionMysql.php");
 include("../../../includes/funciones.php");
 
-@$draw			= $_POST["draw"];
-@$inicio		= $_POST["start"];
-@$fin			  = $_POST["length"];
-@$busqueda 	= $_POST["search"]["value"];
-@$orden 		= $_POST["order"][0]["column"];
-@$direccion = $_POST["order"][0]["dir"];
-
-if($busqueda!=""){
-$busqueda = " WHERE nombre_deudor LIKE '%$busqueda%'  OR id_deuda LIKE '%$busqueda%' OR glosa LIKE '%$busqueda%'  OR estado LIKE '%$busqueda%'  ";
-}else{
-  $busqueda = "  ";
-}
-
-if($inicio=="")
-$inicio = 0;
+$draw = isset($_POST["draw"]) ? (int) $_POST["draw"] : 0;
+$inicio = isset($_POST["start"]) ? max(0, (int) $_POST["start"]) : 0;
+$fin = isset($_POST["length"]) ? (int) $_POST["length"] : 25;
+$fin = ($fin > 0 && $fin <= 100) ? $fin : 25;
+$texto_busqueda = isset($_POST["search"]["value"]) ? trim((string) $_POST["search"]["value"]) : "";
+$orden = isset($_POST["order"][0]["column"]) ? (int) $_POST["order"][0]["column"] : 0;
+$direccion = isset($_POST["order"][0]["dir"]) && strtolower($_POST["order"][0]["dir"]) === "asc" ? "ASC" : "DESC";
  
 $config 	= new Config;
 
 $mysql 		= new mysql;
 $mysql->connect(); 		
 
-$usuarios	= "";
-$datos		= "";
+$busqueda = "";
+if ($texto_busqueda !== "") {
+  $texto_busqueda = mysqli_real_escape_string($mysql->conexion, $texto_busqueda);
+  $busqueda = " WHERE nombre_deudor LIKE '%$texto_busqueda%'
+                OR id_deuda LIKE '%$texto_busqueda%'
+                OR glosa LIKE '%$texto_busqueda%'
+                OR estado LIKE '%$texto_busqueda%' ";
+}
+
+$datos = array();
 
  
 $orderby = " ORDER BY id_deuda DESC";
@@ -62,30 +63,32 @@ $sql_string = "SELECT id_deuda,
                $busqueda $orderby 
                LIMIT $inicio,$fin";
 
-// Registras el SQL en el error_log antes de ejecutarlo
-//error_log("Consulta SQL a ejecutar: " . $sql_string);
-
-// Luego ejecutas la consulta
 $sql = $mysql->query($sql_string);
 
-$sql2 	= $mysql->query("SELECT id_deuda FROM deudas  $busqueda ;");
-$cantidad_filtrados = $mysql->f_num($sql2);
+if (!$sql) {
+  error_log("No se pudo cargar el listado de deudas: " . mysqli_error($mysql->conexion));
+  http_response_code(500);
+  echo json_encode(array(
+    "draw" => $draw,
+    "recordsTotal" => 0,
+    "recordsFiltered" => 0,
+    "data" => array(),
+    "error" => "No fue posible cargar el listado de deudas."
+  ), JSON_UNESCAPED_UNICODE | JSON_INVALID_UTF8_SUBSTITUTE);
+  exit;
+}
 
-$sql3 	= $mysql->query("SELECT id_deuda FROM deudas $busqueda;");
+$sql_total = $mysql->query("SELECT COUNT(*) AS total FROM deudas;");
+$result_total = $sql_total ? $mysql->f_obj($sql_total) : null;
+$cantidad_registros = $result_total ? (int) $result_total->total : 0;
 
-$cantidad_registros = $mysql->f_num($sql3);
+$sql_filtrados = $mysql->query("SELECT COUNT(*) AS total FROM deudas $busqueda;");
+$result_filtrados = $sql_filtrados ? $mysql->f_obj($sql_filtrados) : null;
+$cantidad_filtrados = $result_filtrados ? (int) $result_filtrados->total : 0;
 
-
-$coma = 0;
-$signo_coma = "";
-$info_adicional = "";
 while($result = $mysql->f_obj($sql)){
 
   $info_adicional = "";
-  if($coma==1)
-  $signo_coma = ",";
-
-  $coma = 1;
   $result->fecha = fecha_mysql_a_normal($result->fecha);
   $result->monto = number_format($result->monto, 0, '', '.');
 
@@ -174,11 +177,17 @@ while($result = $mysql->f_obj($sql)){
 
   //solo se pueden eliminar deudas de 
   $hoy = date("Y-m-d");
-  $date1 = new DateTime($result->fecha_insercion);
-  $date2 = new DateTime($hoy);
-  $diff = $date1->diff($date2);
-  // will output 2 days
-  $diferencia = $diff->days;
+  $diferencia = 999;
+  if (!empty($result->fecha_insercion)) {
+    try {
+      $date1 = new DateTime($result->fecha_insercion);
+      $date2 = new DateTime($hoy);
+      $diff = $date1->diff($date2);
+      $diferencia = $diff->days;
+    } catch (Exception $exception) {
+      error_log("Fecha de insercion invalida para deuda " . (int) $result->id_deuda);
+    }
+  }
 
   if($diferencia<=2){
       $editar = "<a href='index.php?component=deudas&view=deuda&token=$result->token'><i class='fas fa-edit'></i> Editar</a>";
@@ -266,40 +275,30 @@ while($result = $mysql->f_obj($sql)){
   $estado = $result->estado . "<br>" . $info_adicional;
 
   
-  $datos = $datos ."
-      $signo_coma
-      [
-          \"$span1 $result->id_deuda $span2\",
-          \"$span1 $result->fecha $span2\",
-          \"$span1 $result->nombre_deudor $span2\",
-          \"$span1 $result->glosa $span2\",
-          \"$span1 $result->observacion $span2\",
-          \"$span1 $documento $span2\",
-          \"$span1 $estado $span2\",
-          \"$span1 $result->monto $span2\",
-          \"$span1 $editar $span2\",
-          \"$span1 $condonar $span2\",
-          \"$span1 $pagar $span2\",
-          \"$span1 $eliminar $span2\",
-          \"$span1 $desactivar $span2\"
-      ]";
-      
-      $datos = preg_replace("/[\r\n|\n|\r]+/", PHP_EOL, $datos);
-	
+  $datos[] = array(
+    "$span1 $result->id_deuda $span2",
+    "$span1 $result->fecha $span2",
+    "$span1 $result->nombre_deudor $span2",
+    "$span1 $result->glosa $span2",
+    "$span1 $result->observacion $span2",
+    "$span1 $documento $span2",
+    "$span1 $estado $span2",
+    "$span1 $result->monto $span2",
+    "$span1 $editar $span2",
+    "$span1 $condonar $span2",
+    "$span1 $pagar $span2",
+    "$span1 $eliminar $span2",
+    "$span1 $desactivar $span2"
+  );
+
 }//while($result2 = $mysql->f_obj($sql))
 
-
-echo "
-{
-  \"draw\": $draw,
-  \"recordsTotal\": $cantidad_registros,
-  \"recordsFiltered\": $cantidad_filtrados,
-  \"data\": [
-    $datos
-  ]
-}
- 
-";
+echo json_encode(array(
+  "draw" => $draw,
+  "recordsTotal" => $cantidad_registros,
+  "recordsFiltered" => $cantidad_filtrados,
+  "data" => $datos
+), JSON_UNESCAPED_UNICODE | JSON_INVALID_UTF8_SUBSTITUTE);
 
 
 ?>

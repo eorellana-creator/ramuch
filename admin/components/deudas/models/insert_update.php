@@ -12,7 +12,6 @@ $nombre_usuario_sistema = $_SESSION["usuario_nombre"];
 $nombre = $_POST['nombre'];
 $glosa = $_POST['glosa'];
 $fecha = $_POST['fecha'];
-$medio = $_POST['medio'];
 $monto = $_POST['monto'];
 $observacion = "";
 $sub_cuenta = $_POST['sub_cuenta'];

@@ -37,14 +37,3 @@
 
                 </div>
         </div>
-
-<script>
-$(document).ready(function(){
-    // Inicializar tooltips
-    $('[data-toggle="tooltip"]').tooltip({
-        trigger: 'hover',
-        placement: 'top',
-        html: true
-    });
-});
-</script>
