@@ -107,9 +107,13 @@ while($result = $mysql->f_obj($sql)) {
 
     if ($result->prestado_a_id_usuario > 0) {
         // Obtener información de extensiones y fecha de devolución
-        $sqlX2 = $mysql->query("SELECT fecha_debe_devolver, fecha_propuesta_extension, fecha_propuesta_extension2 
+        $sqlX2 = $mysql->query("SELECT token, fecha_debe_devolver,
+                                   fecha_propuesta_extension, estado_extension,
+                                   fecha_propuesta_extension2, estado_extension2
                             FROM equipo_prestamo 
-                            WHERE id_equipo ='$result->id_equipo' AND estado = 'prestado' LIMIT 1");
+                            WHERE id_equipo ='$result->id_equipo' AND estado = 'prestado'
+                            ORDER BY id_equipo_prestamo DESC
+                            LIMIT 1");
         $resultX2 = $mysql->f_obj($sqlX2);
         
         $tiene_extension1 = (!empty($resultX2->fecha_propuesta_extension));
@@ -159,39 +163,15 @@ while($result = $mysql->f_obj($sql)) {
         } else {
             $btn_devolver = "<button type='button' class='btn btn-primary devolucion-btn' data-id='$result->prestado_a_id_usuario' data-nombre='$result->prestado_a_nombre' data-token='$result->token' data-toggle='modal' data-target='#primaryModal'>Devolución</button>";
 
-            // LÓGICA PARA BOTÓN DE EXTENSIÓN
-            $extensionData = null;
-            $extensionToken = null;
-            $extensionFecha = null;
-            
-            $sqlExt2 = $mysql->query("SELECT estado_extension2, token, fecha_propuesta_extension2 
-                                    FROM equipo_prestamo 
-                                    WHERE id_equipo = '$result->id_equipo' 
-                                    AND estado_extension2 = 'pendiente' 
-                                    LIMIT 1");
-            
-            if ($mysql->f_num($sqlExt2) > 0) {
-                $extData2 = $mysql->f_obj($sqlExt2);
-                $extensionData = $extData2;
-                $extensionToken = $extData2->token;
-                $extensionFecha = $extData2->fecha_propuesta_extension2;
-            } else {
-                $sqlExt = $mysql->query("SELECT estado_extension, token, fecha_propuesta_extension 
-                                        FROM equipo_prestamo 
-                                        WHERE id_equipo = '$result->id_equipo' 
-                                        AND estado_extension = 'pendiente' 
-                                        LIMIT 1");
-                
-                if ($mysql->f_num($sqlExt) > 0) {
-                    $extData = $mysql->f_obj($sqlExt);
-                    $extensionData = $extData;
-                    $extensionToken = $extData->token;
-                    $extensionFecha = $extData->fecha_propuesta_extension;
-                }
-            }
-            
-            if ($extensionData !== null && $extensionToken !== null) {
-                $btn_extension = "<button class='btn btn-warning btn-sm btn-extension' data-token='$extensionToken' data-toggle='modal' data-target='#modalExtension'><i class='fas fa-clock'></i> Gestionar Extensión</button>";
+            // El botón debe corresponder al mismo préstamo activo usado para
+            // mostrar las fechas. No se deben considerar préstamos históricos.
+            $extensionPendiente = (
+                $resultX2->estado_extension2 === 'pendiente'
+                || $resultX2->estado_extension === 'pendiente'
+            );
+
+            if ($extensionPendiente && !empty($resultX2->token)) {
+                $btn_extension = "<button class='btn btn-warning btn-sm btn-extension' data-token='$resultX2->token' data-toggle='modal' data-target='#modalExtension'><i class='fas fa-clock'></i> Gestionar Extensión</button>";
             }
         }
     }
