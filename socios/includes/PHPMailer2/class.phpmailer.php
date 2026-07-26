@@ -1198,8 +1198,14 @@ class PHPMailer
     {
         $hostActual = strtolower(preg_replace('/:\d+$/', '', $_SERVER['HTTP_HOST'] ?? ''));
         if ($hostActual === 'staging.ramuch.cl') {
-            error_log('STAGING: correo bloqueado para evitar envíos reales');
-            return true;
+            $this->clearAllRecipients();
+            $this->clearReplyTos();
+            $this->addAddress('eorellana@gmail.com', 'Pruebas staging');
+            $this->addReplyTo('eorellana@gmail.com', 'Pruebas staging');
+            if (strpos($this->Subject, '[STAGING]') !== 0) {
+                $this->Subject = '[STAGING] ' . $this->Subject;
+            }
+            error_log('STAGING: destinatarios de correo redirigidos al buzón de pruebas');
         }
 
         try {
