@@ -121,10 +121,6 @@ try {
         */
     }
 
-    $_SESSION["equipo_prestado"] = "<div class='alert alert-success'>
-        Devolución exitosa de " . count($equipos) . " equipos
-    </div>";
-
     $mysql->query("COMMIT");
 
     echo json_encode([
