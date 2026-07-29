@@ -31,7 +31,7 @@ $incluir_css	= "";
 $document_js	= @$archivos->listar("components/$component/js/");
 if($document_js!="")
 foreach($document_js as $archivo_js)
-$incluir_js	 	= $incluir_js."<script src=\"components/$component/js/$archivo_js?v=8\"></script>
+$incluir_js	 	= $incluir_js."<script src=\"components/$component/js/$archivo_js?v=9\"></script>
 
 " ;
 $archivos->limpiar();

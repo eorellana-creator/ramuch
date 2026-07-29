@@ -15,7 +15,12 @@ $(document).ready(function() {
         "serverSide": true,
         "responsive": false,
         "order": [[5, 'asc']],
-        "pageLength": 25,
+        "pageLength": 50,
+        "lengthMenu": [[25, 50, 100], [25, 50, 100]],
+        "dom": "<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6'f>>" +
+               "<'row mb-2'<'col-sm-12'p>>" +
+               "<'row'<'col-sm-12'tr>>" +
+               "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
         "initComplete": function(settings, json) {
             $('.sel2-basic-single').select2();
             initializeModalHandlers();
