@@ -1,7 +1,14 @@
 $(document).ready(function() {
-    $('#tabla').DataTable({
+    var $tabla = $('#tabla');
+
+    $tabla.on('processing.dt', function(e, settings, processing) {
+        $tabla.closest('.dataTables_wrapper').toggleClass('tabla-procesando', processing);
+    });
+
+    $tabla.DataTable({
         language: {
-            url: '//cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json'
+            url: '//cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json',
+            processing: '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Procesando...'
         },
         "ordering": true,
         "processing": true,
@@ -25,7 +32,7 @@ $(document).ready(function() {
         }
     });
 
-    var table = $('#tabla').DataTable();
+    var table = $tabla.DataTable();
 
     table.on('draw', function() {
         $('.sel2-basic-single').select2();
