@@ -7,7 +7,7 @@ $(document).ready(function() {
         "processing": true,
         "serverSide": true,
         "responsive": false,
-        "order": [[7, 'desc']],
+        "order": [[5, 'asc']],
         "pageLength": 25,
         "initComplete": function(settings, json) {
             $('.sel2-basic-single').select2();

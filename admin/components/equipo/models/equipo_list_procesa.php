@@ -17,12 +17,12 @@ error_reporting(E_ALL);
 
 $id_usuario_sesion = @$_SESSION["usuario_id"];
 
+$filtro_prestados = " prestado_a_id_usuario > 0 ";
+$where = " WHERE $filtro_prestados ";
+
 if($busqueda != "") {
-    $busqueda = " WHERE ( id_equipo LIKE '%$busqueda%' OR nombre LIKE '%$busqueda%' OR id_unico LIKE '%$busqueda%' OR prestado_a_id_usuario LIKE '%$busqueda%' ) ";
-    //$busqueda = " WHERE ( id_equipo LIKE '%$busqueda%' OR nombre LIKE '%$busqueda%' OR id_unico LIKE '%$busqueda%' ) ";
-    
-} else {
-    $busqueda = " ";
+    $busqueda = str_replace("'", "''", $busqueda);
+    $where .= " AND ( id_equipo LIKE '%$busqueda%' OR nombre LIKE '%$busqueda%' OR id_unico LIKE '%$busqueda%' OR prestado_a_nombre LIKE '%$busqueda%' ) ";
 }
 
 if($inicio == "") $inicio = 0;
@@ -54,19 +54,20 @@ while($resultU = $mysql->f_obj($sql21)) {
     }
 }
 
-$orderby = " ORDER BY fecha_devolucion DESC, nombre ASC";
+$direccion = strtolower((string)$direccion) === 'desc' ? 'DESC' : 'ASC';
+$orderby = " ORDER BY prestado_a_nombre ASC, nombre ASC";
 
 if($orden == 0) $orderby = " ORDER BY id_equipo $direccion ";
 if($orden == 2) $orderby = " ORDER BY nombre $direccion ";
 if($orden == 3) $orderby = " ORDER BY id_unico $direccion ";
 if($orden == 4) $orderby = " ORDER BY estado $direccion ";
-if($orden == 5) $orderby = " ORDER BY prestado_a_nombre $direccion ";
+if($orden == 5) $orderby = " ORDER BY prestado_a_nombre $direccion, nombre ASC ";
 if($orden == 6) $orderby = " ORDER BY nombre_responsable_prestamo $direccion ";
 
-$sql = $mysql->query("SELECT * FROM equipo $busqueda $orderby LIMIT $inicio,$fin;");
-$sql2 = $mysql->query("SELECT id_equipo FROM equipo $busqueda;");
+$sql = $mysql->query("SELECT * FROM equipo $where $orderby LIMIT $inicio,$fin;");
+$sql2 = $mysql->query("SELECT id_equipo FROM equipo $where;");
 $cantidad_filtrados = $mysql->f_num($sql2);
-$sql3 = $mysql->query("SELECT id_equipo FROM equipo $busqueda;");
+$sql3 = $mysql->query("SELECT id_equipo FROM equipo WHERE $filtro_prestados;");
 $cantidad_registros = $mysql->f_num($sql3);
 
 $coma = 0;
@@ -202,7 +203,7 @@ while($result = $mysql->f_obj($sql)) {
 
 // Generar Excel
 $lista_excel = "";
-$sql = $mysql->query("SELECT * FROM equipo $busqueda $orderby;");
+$sql = $mysql->query("SELECT * FROM equipo $where $orderby;");
 while($result = $mysql->f_obj($sql)) {
     $prestado_a_excel = "";
     $responsable = "";
