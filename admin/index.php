@@ -40,7 +40,7 @@ $archivos->limpiar();
 $document_css	= @$archivos->listar("components/$component/css/");
 if($document_css!="")
 foreach($document_css as $archivo_css)
-$incluir_css 	= @$incluir_css."<link href=\"components/$component/css/$archivo_css\" rel=\"stylesheet\">
+$incluir_css 	= @$incluir_css."<link href=\"components/$component/css/$archivo_css?v=2\" rel=\"stylesheet\">
 " ;
 
 

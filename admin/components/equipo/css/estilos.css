@@ -113,9 +113,9 @@
 	left: 50%;
 	margin: 0;
 	padding: 12px 18px;
-	position: absolute;
-	top: 120px;
-	transform: translateX(-50%);
+	position: fixed;
+	top: 50%;
+	transform: translate(-50%, -50%);
 	width: auto;
 	z-index: 1001;
 }
@@ -140,4 +140,12 @@
 	border-color: #28a745;
 	color: #fff;
 	cursor: default;
+}
+
+.devolucion-seleccion-total {
+	background-color: #fff3cd;
+	border: 1px solid #ffeeba;
+	border-radius: 0.25rem;
+	color: #856404;
+	padding: 0.75rem 1.25rem;
 }

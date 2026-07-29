@@ -118,7 +118,7 @@
                 </select>
 
                 <!-- Checkbox Devolver Todo -->
-                <div class="alert alert-warning mt-3 mb-0">
+                <div class="devolucion-seleccion-total mt-3 mb-0">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="devolverTodo">
                         <label class="form-check-label" for="devolverTodo">
@@ -471,7 +471,16 @@ function mostrarNotificacion(tipo, titulo, mensaje) {
 $(document).on('click', '.devolucion-btn', function() {
     var idUsuario = $(this).data('id');
     var nombreUsuario = $(this).data('nombre');
-    
+
+    // Cada apertura comienza con el mismo estado limpio del modal.
+    $('#observacion').val('').removeClass('is-invalid');
+    $('#estado').val('En el mismo estado');
+    $('#devolverTodo').prop('checked', true);
+    $('#equiposList').html(
+        '<div class="text-center text-muted py-3">' +
+        '<i class="fas fa-spinner fa-spin"></i> Cargando equipos...</div>'
+    );
+
     $.ajax({
         url: 'components/equipo/models/get_equipos_usuario.php',
         data: { id_usuario: idUsuario },
@@ -793,8 +802,9 @@ function mostrarMensajeElegante(tipo, mensaje) {
     const icono = tipo === 'success' ? 'fa-check-circle' : 'fa-exclamation-triangle';
     const color = tipo === 'success' ? 'success' : 'danger';
     
+    const idMensaje = 'mensaje-flotante-' + Date.now();
     const mensajeHTML = `
-        <div class="alert alert-${color} alert-dismissible fade show" role="alert" style="min-width: 300px; margin-bottom: 10px;">
+        <div id="${idMensaje}" class="alert alert-${color} alert-dismissible fade show" role="alert" style="min-width: 300px; margin-bottom: 10px;">
             <i class="fas ${icono} me-2"></i>
             ${mensaje}
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
@@ -805,7 +815,7 @@ function mostrarMensajeElegante(tipo, mensaje) {
     
     // Auto-eliminar después de 5 segundos
     setTimeout(() => {
-        $('.alert').alert('close');
+        $('#' + idMensaje).alert('close');
     }, 5000);
 }
 
