@@ -56,6 +56,10 @@ if( $component=="equipo"  ){
     include("components/equipo/equipo.php");
     }//if( @$_GET["component"]=="equipo" )
 
+if( $component=="equipo_inventario"  ){
+    include("components/equipo_inventario/equipo_inventario.php");
+    }
+
 if( $component=="mercado"  ){
         include("components/mercado/mercado.php");
         }//if( @$_GET["component"]=="equipo" )

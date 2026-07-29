@@ -32,6 +32,18 @@ while($result2 = $mysql->f_obj($sql2)){
    <i class='$result2->icono'></i> $result2->nombre</a>
  </li>
  ";
+
+ if(
+	strpos($result2->url, "component=equipo") !== false
+	&& strpos($result2->url, "view=equipo_list") !== false
+ ){
+	$lista_menu = $lista_menu . "
+	<li class='nav-item'>
+	<a class='nav-link' href='index.php?component=equipo_inventario&view=inventario'>
+	  <i class='fas fa-boxes'></i> Inventario de Equipo</a>
+	</li>
+	";
+ }
 }
 }
 
