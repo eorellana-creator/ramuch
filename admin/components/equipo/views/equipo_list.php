@@ -28,7 +28,7 @@
         ?>
 
         <button type="button" class="btn btn-<?php echo ($prestamo_activo == 1) ? 'success' : 'danger'; ?>" 
-                id="togglePrestamo" style="margin-left: 10px;">
+                id="togglePrestamo" data-estado-actual="<?php echo (int)$prestamo_activo; ?>" style="margin-left: 10px;">
             <i class="fas fa-power-off"></i> Préstamo <?php echo ($prestamo_activo == 1) ? 'Activo' : 'Desactivado'; ?>
         </button>
 
@@ -62,6 +62,34 @@
                     </tr>
                 </thead>
             </table>
+        </div>
+    </div>
+</div>
+
+<!-- Confirmación para activar o desactivar los préstamos -->
+<div class="modal fade" id="modalConfirmarPrestamo" tabindex="-1" role="dialog"
+     aria-labelledby="tituloConfirmarPrestamo" aria-describedby="mensajeConfirmarPrestamo" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-warning text-dark">
+                <h5 class="modal-title" id="tituloConfirmarPrestamo">
+                    <i class="fas fa-exclamation-triangle"></i> Confirmar cambio
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="No, cancelar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="mensajeConfirmarPrestamo" class="mb-0"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnCancelarCambioPrestamo" data-dismiss="modal">
+                    <i class="fas fa-times"></i> No, cancelar
+                </button>
+                <button type="button" class="btn btn-outline-danger" id="btnConfirmarCambioPrestamo">
+                    <i class="fas fa-check"></i> Sí, cambiar
+                </button>
+            </div>
         </div>
     </div>
 </div>
@@ -364,7 +392,39 @@ function confirmarAccion(accion) {
 
 // Función para alternar estado de préstamo
 $('#togglePrestamo').click(function() {
-    var boton = $(this);
+    var estadoActual = Number($(this).attr('data-estado-actual'));
+    var accion = estadoActual === 1 ? 'desactivar' : 'activar';
+    var consecuencia = estadoActual === 1
+        ? 'Los socios no podrán realizar nuevos préstamos mientras permanezca desactivado.'
+        : 'Los socios podrán volver a realizar solicitudes de préstamo.';
+
+    $('#mensajeConfirmarPrestamo').html(
+        'Está a punto de <strong>' + accion + ' el préstamo de equipos</strong>.<br><br>' +
+        consecuencia + '<br><br>¿Está seguro de continuar?'
+    );
+    $('#modalConfirmarPrestamo').modal('show');
+});
+
+$('#modalConfirmarPrestamo').on('shown.bs.modal', function() {
+    // La alternativa segura queda seleccionada por defecto en computador y móvil.
+    $('#btnCancelarCambioPrestamo').trigger('focus');
+});
+
+$('#modalConfirmarPrestamo').on('keydown', function(evento) {
+    if (evento.key === 'Enter') {
+        evento.preventDefault();
+        $('#btnCancelarCambioPrestamo').trigger('click');
+    }
+});
+
+$('#btnConfirmarCambioPrestamo').click(function() {
+    var boton = $('#togglePrestamo');
+    var botonConfirmar = $(this);
+    var textoConfirmar = botonConfirmar.html();
+    var textoBotonEstado = boton.html();
+
+    botonConfirmar.prop('disabled', true).html('<i class="fas fa-spinner fa-spin"></i> Cambiando...');
+
     $.ajax({
         url: 'components/equipo/models/toggle_prestamo.php',
         type: 'POST',
@@ -378,19 +438,25 @@ $('#togglePrestamo').click(function() {
                 boton.prop('disabled', false)
                     .removeClass(response.nuevo_estado == 1 ? 'btn-danger' : 'btn-success')
                     .addClass(response.nuevo_estado == 1 ? 'btn-success' : 'btn-danger')
+                    .attr('data-estado-actual', response.nuevo_estado)
                     .html('<i class="fas fa-power-off"></i> Préstamo ' + (response.nuevo_estado == 1 ? 'Activo' : 'Desactivado'));
-                
+
+                $('#modalConfirmarPrestamo').modal('hide');
+
                 // Mostrar notificación
                 mostrarNotificacion('success', 'Estado actualizado', 'El préstamo de equipos ha sido ' + 
                                   (response.nuevo_estado == 1 ? 'activado' : 'desactivado'));
             } else {
                 mostrarNotificacion('error', 'Error', response.message || 'Error al actualizar el estado');
-                boton.prop('disabled', false).html('<i class="fas fa-power-off"></i> Error');
+                boton.prop('disabled', false).html(textoBotonEstado);
             }
         },
         error: function() {
             mostrarNotificacion('error', 'Error', 'No se pudo conectar con el servidor');
-            boton.prop('disabled', false).html('<i class="fas fa-power-off"></i> Error');
+            boton.prop('disabled', false).html(textoBotonEstado);
+        },
+        complete: function() {
+            botonConfirmar.prop('disabled', false).html(textoConfirmar);
         }
     });
 });
