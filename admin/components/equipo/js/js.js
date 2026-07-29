@@ -296,47 +296,6 @@ function seteaTokenEquipo(tokenEquipo) {
     $("#tokenEquipo").val(tokenEquipo);
 }
 
-function devolverEquipo_old_no_usar() {
-    var tokenEquipo = $("#tokenEquipo").val();
-    var observacion = $("#observacion").val();
-    var estado = $("#estado").val();
-    var devolverTodo = $("#devolverTodo").is(":checked"); // Verificar si el checkbox está marcado
-    var idUsuario = $("#idUsuario").val(); // Obtener el ID del usuario
-
-    // Depuración: Imprime los datos en la consola del navegador
-    console.log("Datos que llegan al js.js:", { tokenEquipo, observacion, estado, devolverTodo, idUsuario });
-    
-    // Validar que si se selecciona "Devolver todo", el ID del usuario no esté vacío
-    if (devolverTodo && !idUsuario) {
-        alert("Error: No se ha seleccionado un usuario.");
-        return;
-    }
-
-    if (idUsuario != "") {
-        $.ajax({
-            url: "components/equipo/models/devolver_equipo.php",
-            type: "POST", // Cambiamos a POST para enviar más datos
-            data: {
-                tokenEquipo: tokenEquipo,
-                observacion: observacion,
-                estado: estado,
-                devolverTodo: devolverTodo, // Indicador de si se devuelve todo
-                idUsuario: idUsuario // ID del usuario para devolver todos los equipos
-            },
-            success: function(res) {
-                alert(res.message); // Mostrar mensaje de éxito o error
-                $('#primaryModal').modal('hide'); // Cerrar el modal
-                document.location.reload(); // Recargar la página para reflejar los cambios
-            },
-            error: function() {
-                alert("Error al registrar la devolución.");
-            }
-        });
-    } else {
-       // documentalert("usuario en blanco en js.js .");
-    }
-}
-
 function abrirModalDevolucion(tokenEquipo, nombreUsuario, idUsuario) {
     // Establecer el token del equipo en el campo oculto
     $("#tokenEquipo").val(tokenEquipo);
@@ -462,61 +421,4 @@ function restaurarFechaOriginal() {
     } else {
         console.warn("No hay fecha original para restaurar");
     }
-}
-
-// Función para confirmar la gestión (actualizada)
-function confirmarGestionExtension() {
-    const token = $('#tokenExtension').val();
-    const accion = $('input[name="accionExtension"]:checked').val();
-    const motivo = $('#motivoExtension').val();
-    const aplicarATodos = $('#aplicarATodos').is(':checked');
-    const nuevaFecha = $('#fechaExtension').val();
-    const fechaOriginal = $('#fechaPropuestaOriginal').val();
-    
-    // Validaciones
-    if (accion === 'rechazar' && !motivo.trim()) {
-        alert('Por favor ingrese un motivo para el rechazo');
-        return;
-    }
-    
-    if (accion === 'aprobar') {
-        if (!nuevaFecha) {
-            alert('Por favor seleccione una fecha de devolución');
-            return;
-        }
-        
-        // Opcional: Validar que la nueva fecha es posterior a la actual
-        if (new Date(nuevaFecha) <= new Date()) {
-            if (!confirm('La fecha seleccionada es hoy o una fecha pasada. ¿Desea continuar?')) {
-                return;
-            }
-        }
-    }
-
-    // Enviar datos al servidor
-    $.ajax({
-        url: 'components/equipo/models/procesar_extension.php',
-        type: 'POST',
-        data: {
-            token: token,
-            accion: accion,
-            motivo: motivo,
-            aplicar_a_todos: aplicarATodos,
-            nueva_fecha: nuevaFecha,
-            fecha_original: fechaOriginal
-        },
-        dataType: 'json',
-        success: function(response) {
-            if (response.success) {
-                $('#modalExtension').modal('hide');
-                $('#tabla').DataTable().ajax.reload(null, false);
-                alert(response.message);
-            } else {
-                alert('Error: ' + response.message);
-            }
-        },
-        error: function() {
-            alert('Error al procesar la solicitud');
-        }
-    });
 }

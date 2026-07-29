@@ -583,6 +583,7 @@ function quitarFilasDevueltas(equiposProcesados) {
     const tabla = $('#tabla').DataTable();
     const idsEquipo = equiposProcesados.map(equipo => String(equipo.id_equipo));
     const filas = [];
+    const paginaAntes = tabla.page.info();
 
     tabla.rows({ page: 'current' }).every(function() {
         const datos = this.data();
@@ -594,15 +595,58 @@ function quitarFilasDevueltas(equiposProcesados) {
     $(filas).addClass('fila-equipo-devuelta');
 
     setTimeout(function() {
-        // DataTables vuelve a consultar únicamente los datos de la tabla y
-        // recalcula totales/páginas sin recargar el resto de la pantalla.
-        tabla.ajax.reload(function() {
-            const pagina = tabla.page.info();
-            if (pagina.recordsDisplay > 0 && pagina.page >= pagina.pages) {
-                tabla.page(Math.max(0, pagina.pages - 1)).draw('page');
-            }
-        }, false);
+        $(filas).remove();
+
+        const eliminadosVisibles = filas.length;
+        const eliminadosTotales = equiposProcesados.length;
+        const registrosFiltrados = Math.max(0, paginaAntes.recordsDisplay - eliminadosVisibles);
+        const registrosTotales = Math.max(0, paginaAntes.recordsTotal - eliminadosTotales);
+        const filasRestantes = $('#tabla tbody tr').length;
+        const paginas = registrosFiltrados === 0
+            ? 0
+            : Math.ceil(registrosFiltrados / paginaAntes.length);
+
+        actualizarResumenTabla(
+            paginaAntes,
+            registrosFiltrados,
+            registrosTotales,
+            filasRestantes,
+            paginas
+        );
+
+        // Solo se consulta otra página si la actual quedó completamente vacía.
+        if (filasRestantes === 0 && registrosFiltrados > 0) {
+            tabla.page(Math.max(0, paginas - 1)).draw('page');
+        }
     }, filas.length ? 350 : 0);
+}
+
+function actualizarResumenTabla(paginaAntes, filtrados, total, filasRestantes, paginas) {
+    const inicio = filtrados > 0 ? paginaAntes.start + 1 : 0;
+    const fin = Math.min(paginaAntes.start + filasRestantes, filtrados);
+    let resumen = 'Mostrando ' + inicio + ' a ' + fin + ' de ' + filtrados + ' registros';
+
+    if (filtrados !== total) {
+        resumen += ' (filtrados de ' + total + ' registros totales)';
+    }
+    $('#tabla_info').text(resumen);
+
+    $('#tabla_wrapper .dataTables_paginate').each(function() {
+        const paginador = $(this);
+
+        paginador.find('.paginate_button').each(function() {
+            const botonPagina = $(this);
+            const numero = parseInt(botonPagina.text().trim(), 10);
+
+            if (!isNaN(numero)) {
+                botonPagina.toggle(numero <= paginas);
+            }
+        });
+
+        const paginaActual = paginaAntes.page + 1;
+        paginador.find('.next').toggleClass('disabled', paginas === 0 || paginaActual >= paginas);
+        paginador.find('.previous').toggleClass('disabled', paginaActual <= 1);
+    });
 }
 
 // Función para verificar checkboxes y habilitar/deshabilitar botón
