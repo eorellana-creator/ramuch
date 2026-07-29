@@ -54,6 +54,7 @@
                         <th>ID Único</th>
                         <th>Estado</th>
                         <th style="min-width:130px;">Prestamo a</th>
+                        <th style="min-width:130px;">Fecha devolución</th>
                         <th>Acciones</th>
                         <th>Responsable Préstamo</th>
                         <th>Ver Detalle</th>

@@ -14,7 +14,7 @@ $(document).ready(function() {
             initializeModalHandlers();
             initializeExtensionHandlers();
         },
-        "columnDefs": [{ orderable: false, targets: [1,8,9] }, { 'visible': false, 'targets': [7] }],
+        "columnDefs": [{ orderable: false, targets: [1,7,9,10] }, { 'visible': false, 'targets': [8] }],
         "ajax": {
             "url": "components/equipo/models/equipo_list_procesa.php",
             "type": "POST",

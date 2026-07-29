@@ -62,7 +62,8 @@ if($orden == 2) $orderby = " ORDER BY nombre $direccion ";
 if($orden == 3) $orderby = " ORDER BY id_unico $direccion ";
 if($orden == 4) $orderby = " ORDER BY estado $direccion ";
 if($orden == 5) $orderby = " ORDER BY prestado_a_nombre $direccion, nombre ASC ";
-if($orden == 6) $orderby = " ORDER BY nombre_responsable_prestamo $direccion ";
+if($orden == 6) $orderby = " ORDER BY fecha_devolucion $direccion ";
+if($orden == 8) $orderby = " ORDER BY nombre_responsable_prestamo $direccion ";
 
 $sql = $mysql->query("SELECT * FROM equipo $where $orderby LIMIT $inicio,$fin;");
 $sql2 = $mysql->query("SELECT id_equipo FROM equipo $where;");
@@ -102,6 +103,7 @@ while($result = $mysql->f_obj($sql)) {
     
     $responsable = "";
     $fecha_devolucion = "";
+    $fechas_devolucion = "";
     $color_fecha = "";
     $btn_devolver = "";
     $btn_extension = "";
@@ -136,18 +138,19 @@ while($result = $mysql->f_obj($sql)) {
         
         $fecha_devolucion_formateada = fecha_mysql_a_normal($fecha_debe_devolver);
 
-        // Construir contenido base
-        $prestado_a = "<span $color_base> $result->prestado_a_nombre <br> Fecha Devolución: <br> $fecha_devolucion_formateada</span>";
+        // Separar el nombre del socio y las fechas en columnas distintas.
+        $prestado_a = "<span>$result->prestado_a_nombre</span>";
+        $fechas_devolucion = "<span $color_base>Fecha Devolución: <br> $fecha_devolucion_formateada</span>";
 
         // Agregar extensiones si existen (siempre en azul)
         $color_extension = " style='color:#4169e1;'";
         if ($tiene_extension1) {
             $fecha_extension1 = fecha_mysql_a_normal($resultX2->fecha_propuesta_extension);
-            $prestado_a .= " <span $color_extension> <br> Fecha extensión 1: <br> $fecha_extension1 </span> ";
+            $fechas_devolucion .= " <span $color_extension> <br> Fecha extensión 1: <br> $fecha_extension1 </span> ";
         }
         if ($tiene_extension2) {
             $fecha_extension2 = fecha_mysql_a_normal($resultX2->fecha_propuesta_extension2);
-            $prestado_a .= " <span $color_extension> <br> Fecha extensión 2: <br> $fecha_extension2 </span> ";
+            $fechas_devolucion .= " <span $color_extension> <br> Fecha extensión 2: <br> $fecha_extension2 </span> ";
         }
 
         // ... el resto del código se mantiene igual ...
@@ -192,6 +195,7 @@ while($result = $mysql->f_obj($sql)) {
         \"$result->id_unico\",
         \"$result->estado\",
         \"$prestado_a\",
+        \"$fechas_devolucion\",
         \"$btn_devolver $btn_extension\",
         \"$responsable\",
         \"$detalle\",
@@ -206,18 +210,33 @@ $lista_excel = "";
 $sql = $mysql->query("SELECT * FROM equipo $where $orderby;");
 while($result = $mysql->f_obj($sql)) {
     $prestado_a_excel = "";
+    $fechas_devolucion_excel = "";
     $responsable = "";
 
     if($result->prestado_a_id_usuario > 0) {
-        $fecha_devolucion = fecha_mysql_a_normal($result->fecha_devolucion);
-        $prestado_a_excel = "$result->prestado_a_nombre - Fecha devolución: $fecha_devolucion";
+        $prestado_a_excel = "$result->prestado_a_nombre";
+        $sqlPrestamoExcel = $mysql->query("SELECT fecha_debe_devolver, fecha_propuesta_extension, fecha_propuesta_extension2
+                                          FROM equipo_prestamo
+                                          WHERE id_equipo='$result->id_equipo' AND estado='prestado'
+                                          ORDER BY id_equipo_prestamo DESC
+                                          LIMIT 1");
+        $prestamoExcel = $mysql->f_obj($sqlPrestamoExcel);
+        if ($prestamoExcel) {
+            $fechas_devolucion_excel = "Fecha devolución: " . fecha_mysql_a_normal($prestamoExcel->fecha_debe_devolver);
+            if (!empty($prestamoExcel->fecha_propuesta_extension)) {
+                $fechas_devolucion_excel .= " | Extensión 1: " . fecha_mysql_a_normal($prestamoExcel->fecha_propuesta_extension);
+            }
+            if (!empty($prestamoExcel->fecha_propuesta_extension2)) {
+                $fechas_devolucion_excel .= " | Extensión 2: " . fecha_mysql_a_normal($prestamoExcel->fecha_propuesta_extension2);
+            }
+        }
         $responsable = "$result->nombre_responsable_prestamo";
     }
 
-    $lista_excel .= "<tr style='background-color:#ffffff; color:#000000;padding:4px;'><td>$result->id_equipo</td><td>$result->nombre</td><td>$result->id_unico</td><td>$result->estado</td><td>$prestado_a_excel</td><td>$responsable</td></tr>";
+    $lista_excel .= "<tr style='background-color:#ffffff; color:#000000;padding:4px;'><td>$result->id_equipo</td><td>$result->nombre</td><td>$result->id_unico</td><td>$result->estado</td><td>$prestado_a_excel</td><td>$fechas_devolucion_excel</td><td>$responsable</td></tr>";
 }
 
-$lista_excel = "<table border='1' cellpadding='1' cellspacing='0'><tr style='background-color:#1d3e9d; color:#ffffff;padding:4px;'><td>ID</td><td>Nombre</td><td>ID Único</td><td>Estado</td><td>Prestado a:</td><td>Responsable del Préstamo</td></tr>$lista_excel</table>";
+$lista_excel = "<table border='1' cellpadding='1' cellspacing='0'><tr style='background-color:#1d3e9d; color:#ffffff;padding:4px;'><td>ID</td><td>Nombre</td><td>ID Único</td><td>Estado</td><td>Prestado a:</td><td>Fecha devolución</td><td>Responsable del Préstamo</td></tr>$lista_excel</table>";
 
 $fp = fopen("../excel/lista_equipo$id_usuario_sesion.xls", 'w');
 fwrite($fp, $lista_excel);
