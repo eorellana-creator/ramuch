@@ -607,11 +607,11 @@ function quitarFilasDevueltas(equiposProcesados) {
             : Math.ceil(registrosFiltrados / paginaAntes.length);
 
         actualizarResumenTabla(
+            tabla,
             paginaAntes,
             registrosFiltrados,
             registrosTotales,
-            filasRestantes,
-            paginas
+            filasRestantes
         );
 
         // Solo se consulta otra página si la actual quedó completamente vacía.
@@ -621,7 +621,20 @@ function quitarFilasDevueltas(equiposProcesados) {
     }, filas.length ? 350 : 0);
 }
 
-function actualizarResumenTabla(paginaAntes, filtrados, total, filasRestantes, paginas) {
+function actualizarResumenTabla(tabla, paginaAntes, filtrados, total, filasRestantes) {
+    const configuracion = tabla.settings()[0];
+
+    // Mantener sincronizado el estado interno usado por los botones Anterior,
+    // Siguiente y por los dos grupos de números de página.
+    configuracion._iRecordsDisplay = filtrados;
+    configuracion._iRecordsTotal = total;
+
+    configuracion.aoDrawCallback.forEach(function(callback) {
+        if (callback.sName === 'information' || callback.sName === 'pagination') {
+            callback.fn(configuracion);
+        }
+    });
+
     const inicio = filtrados > 0 ? paginaAntes.start + 1 : 0;
     const fin = Math.min(paginaAntes.start + filasRestantes, filtrados);
     let resumen = 'Mostrando ' + inicio + ' a ' + fin + ' de ' + filtrados + ' registros';
@@ -630,23 +643,6 @@ function actualizarResumenTabla(paginaAntes, filtrados, total, filasRestantes, p
         resumen += ' (filtrados de ' + total + ' registros totales)';
     }
     $('#tabla_info').text(resumen);
-
-    $('#tabla_wrapper .dataTables_paginate').each(function() {
-        const paginador = $(this);
-
-        paginador.find('.paginate_button').each(function() {
-            const botonPagina = $(this);
-            const numero = parseInt(botonPagina.text().trim(), 10);
-
-            if (!isNaN(numero)) {
-                botonPagina.toggle(numero <= paginas);
-            }
-        });
-
-        const paginaActual = paginaAntes.page + 1;
-        paginador.find('.next').toggleClass('disabled', paginas === 0 || paginaActual >= paginas);
-        paginador.find('.previous').toggleClass('disabled', paginaActual <= 1);
-    });
 }
 
 // Función para verificar checkboxes y habilitar/deshabilitar botón
