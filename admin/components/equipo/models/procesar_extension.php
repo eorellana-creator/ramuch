@@ -100,6 +100,7 @@ try {
     $prestamo = $mysql->f_obj($result);
     $equipo_token = $prestamo->equipo_token;
     $id_usuario = $prestamo->id_usuario_prestamo;
+    $tokensProcesados = [$token];
     
     // DETERMINAR QUÉ EXTENSIÓN ESTÁ PENDIENTE
     $esSegundaExtension = false;
@@ -217,6 +218,7 @@ try {
             if (!$mysql->query($updateTodos)) {
                 throw new Exception("Error al actualizar equipos adicionales");
             }
+            $tokensProcesados[] = $equipo->token;
         }
     }
     
@@ -228,7 +230,8 @@ try {
         'message' => "Extensión " . ($accion === 'aprobar' ? 'aprobada' : 'rechazada') . " correctamente",
         'nueva_fecha' => ($accion === 'aprobar') ? $nuevaFecha : null,
         'aplicado_a_todos' => $aplicarATodos,
-        'es_segunda_extension' => $esSegundaExtension
+        'es_segunda_extension' => $esSegundaExtension,
+        'tokens_procesados' => $tokensProcesados
     ]);
     
 } catch (Exception $e) {

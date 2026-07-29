@@ -124,3 +124,20 @@
 	margin-right: 7px;
 	vertical-align: -2px;
 }
+
+#tabla tbody tr {
+	transition: opacity 0.35s ease, transform 0.35s ease, background-color 0.35s ease;
+}
+
+#tabla tbody tr.fila-equipo-devuelta {
+	background-color: #d8f3e3 !important;
+	opacity: 0;
+	transform: translateX(24px);
+}
+
+.btn-extension.extension-gestionada {
+	background-color: #28a745;
+	border-color: #28a745;
+	color: #fff;
+	cursor: default;
+}

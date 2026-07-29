@@ -237,7 +237,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary" onclick="confirmarGestionExtensionEquipo()">Confirmar</button>
+                <button type="button" class="btn btn-primary" id="btnConfirmarExtension" onclick="confirmarGestionExtensionEquipo()">Confirmar</button>
             </div>
         </div>
     </div>
@@ -465,24 +465,69 @@ function devolverEquipo() {
     const estado = $('#estado').val();
     const idUsuario = $('#idUsuario').val();
 
+    if (!observacion.trim()) {
+        $('#observacion').addClass('is-invalid').focus();
+        return;
+    }
+    $('#observacion').removeClass('is-invalid');
+
+    const boton = $('#btnDevolver');
+    const textoOriginal = boton.html();
+    boton.prop('disabled', true).html('<i class="fas fa-spinner fa-spin"></i> Registrando...');
+
     // Enviar solicitud AJAX
-    $.post('components/equipo/models/devolver_equipo.php', {
+    $.ajax({
+        url: 'components/equipo/models/devolver_equipo.php',
+        type: 'POST',
+        dataType: 'json',
+        data: {
         equipos: JSON.stringify(equipos),
         observacion: observacion,
         estado: estado,
         idUsuario: idUsuario
-    })
-    .done(response => {
+        }
+    }).done(response => {
         if(response.success) {
-            location.reload();
+            $('#primaryModal').modal('hide');
+            quitarFilasDevueltas(response.equipos || []);
+            mostrarMensajeElegante('success', response.message || 'Devolución registrada correctamente');
         } else {
-            location.reload();
+            mostrarMensajeElegante('error', response.message || 'No se pudo registrar la devolución');
         }
     })
     .fail((jqXHR, textStatus, errorThrown) => {
         console.error("Error en la solicitud:", textStatus, errorThrown);
-        alert("Error en la comunicación con el servidor");
+        mostrarMensajeElegante('error', 'Error en la comunicación con el servidor');
+    })
+    .always(() => {
+        boton.prop('disabled', false).html(textoOriginal);
     });
+}
+
+function quitarFilasDevueltas(equiposProcesados) {
+    const tabla = $('#tabla').DataTable();
+    const idsEquipo = equiposProcesados.map(equipo => String(equipo.id_equipo));
+    const filas = [];
+
+    tabla.rows({ page: 'current' }).every(function() {
+        const datos = this.data();
+        if (datos && idsEquipo.indexOf(String(datos[0]).trim()) !== -1) {
+            filas.push(this.node());
+        }
+    });
+
+    $(filas).addClass('fila-equipo-devuelta');
+
+    setTimeout(function() {
+        // DataTables vuelve a consultar únicamente los datos de la tabla y
+        // recalcula totales/páginas sin recargar el resto de la pantalla.
+        tabla.ajax.reload(function() {
+            const pagina = tabla.page.info();
+            if (pagina.recordsDisplay > 0 && pagina.page >= pagina.pages) {
+                tabla.page(Math.max(0, pagina.pages - 1)).draw('page');
+            }
+        }, false);
+    }, filas.length ? 350 : 0);
 }
 
 // Función para verificar checkboxes y habilitar/deshabilitar botón
@@ -537,7 +582,7 @@ function confirmarGestionExtensionEquipo() {
     }
 
     // Mostrar loading
-    const btnConfirmar = document.querySelector('#modalExtension .btn-primary');
+    const btnConfirmar = document.getElementById('btnConfirmarExtension');
     const originalText = btnConfirmar.innerHTML;
     btnConfirmar.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Procesando...';
     btnConfirmar.disabled = true;
@@ -572,14 +617,9 @@ function confirmarGestionExtensionEquipo() {
     .then(data => {
         console.log('DEBUG - Response data:', data);
         if (data.success) {
-            // Mostrar mensaje elegante en lugar de alert
             mostrarMensajeElegante('success', data.message || 'Solicitud procesada correctamente');
             $('#modalExtension').modal('hide');
-            
-            // Recargar después de un breve delay para que se vea el mensaje
-            setTimeout(() => {
-                location.reload();
-            }, 1500);
+            ocultarBotonesExtension(data.tokens_procesados || [token]);
             
         } else {
             mostrarMensajeElegante('error', 'Error: ' + (data.error || 'No se pudo procesar la solicitud'));
@@ -592,6 +632,25 @@ function confirmarGestionExtensionEquipo() {
     .finally(() => {
         btnConfirmar.innerHTML = originalText;
         btnConfirmar.disabled = false;
+    });
+}
+
+function ocultarBotonesExtension(tokensProcesados) {
+    tokensProcesados.forEach(function(token) {
+        const boton = $('.btn-extension').filter(function() {
+            return String($(this).data('token')) === String(token);
+        });
+
+        boton
+            .prop('disabled', true)
+            .html('<i class="fas fa-check"></i> Gestionada')
+            .addClass('extension-gestionada');
+
+        setTimeout(function() {
+            boton.fadeOut(220, function() {
+                $(this).remove();
+            });
+        }, 500);
     });
 }
 
