@@ -251,24 +251,61 @@ var observacion = document.getElementById('observacion').value;
 
         BootstrapDialog.confirm(mensaje, function(result){
                 if(result) {
-                    $(document).ajaxStart($.blockUI).ajaxStop($.unblockUI);	
                     $('#primaryModal').modal('hide');
-                                var datos = "&token="+token+"&observacion="+observacion+"&tipo="+tipo;
                                 $.ajax({
                                     url: "components/equipo_solicitudes/models/acepta_rechaza_prestamo.php",
                                     type: "post",
-                                    dataType: "html",
-                                    data: datos,
+                                    dataType: "json",
+                                    data: {
+                                        token: token,
+                                        observacion: observacion,
+                                        tipo: tipo
+                                    },
                                     cache: false,
-                                    contentType: false,
-                                    processData: false
+                                    beforeSend: function() {
+                                        $.blockUI();
+                                    }
                                 })
-                                    .done(function(res){
-                                        document.location.reload();
+                                    .done(function(respuesta){
+                                        $.unblockUI();
+
+                                        BootstrapDialog.show({
+                                            title: respuesta.email_sent ? 'Solicitud procesada' : 'Solicitud procesada con advertencia',
+                                            message: respuesta.message,
+                                            type: respuesta.email_sent ? BootstrapDialog.TYPE_SUCCESS : BootstrapDialog.TYPE_WARNING,
+                                            buttons: [{
+                                                label: 'Aceptar',
+                                                cssClass: 'btn-primary',
+                                                action: function(dialogo) {
+                                                    dialogo.close();
+                                                    document.location.reload();
+                                                }
+                                            }]
+                                        });
                                     })
                                     .fail(function(xhr){
                                         $.unblockUI();
-                                        BootstrapDialog.alert("No se pudo procesar la solicitud. Intenta nuevamente.");
+                                        var mensajeError = 'No se pudo procesar la solicitud.';
+
+                                        if (xhr.responseJSON && xhr.responseJSON.error) {
+                                            mensajeError = xhr.responseJSON.error;
+                                        }
+
+                                        BootstrapDialog.show({
+                                            title: 'No se realizó la operación',
+                                            message: mensajeError,
+                                            type: BootstrapDialog.TYPE_DANGER,
+                                            buttons: [{
+                                                label: 'Aceptar',
+                                                cssClass: 'btn-primary',
+                                                action: function(dialogo) {
+                                                    dialogo.close();
+                                                    if (xhr.status === 409) {
+                                                        document.location.reload();
+                                                    }
+                                                }
+                                            }]
+                                        });
                                     });
 
                 }else {
@@ -288,8 +325,6 @@ function prueba(tipo, token){
 
  
            
-
-
 
 
 
