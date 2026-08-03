@@ -8,8 +8,13 @@ $id_company = (int)($_SESSION["company_id"] ?? 0);
 $id_usuario = (int)($_SESSION["usuario_id"] ?? 0);
 $nombre_usuario = $_SESSION["usuario_nombre"] ?? '';
 $email_usuario = $_SESSION["usuario_email"] ?? '';
-$sesionSocios = ($_SESSION["usuario_valido_socio_ramuch"] ?? '') === 'true'
-    && ($_SESSION["usuario_origen"] ?? '') === 'socios';
+$sesionAutorizada = (
+    ($_SESSION["usuario_valido_socio_ramuch"] ?? '') === 'true'
+    && ($_SESSION["usuario_origen"] ?? '') === 'socios'
+) || (
+    ($_SESSION["usuario_valido_bastro_ruta"] ?? '') === 'true'
+    && ($_SESSION["usuario_origen"] ?? '') === 'admin'
+);
 
 $fecha1 = $_GET['fecha1'];
 $fecha2 = $_GET['fecha2'];
@@ -23,7 +28,7 @@ $mysql->connect();
 // No confiar solamente en la sesión: el usuario debe seguir existiendo y vigente.
 $sqlUsuario = $mysql->query("SELECT nombre_usuario, email FROM usuario WHERE id_usuario='$id_usuario' AND estado='Vigente' LIMIT 1;");
 $usuarioValido = $mysql->f_obj($sqlUsuario);
-if (!$sesionSocios || $id_usuario <= 0 || !$usuarioValido) {
+if (!$sesionAutorizada || $id_usuario <= 0 || !$usuarioValido) {
     http_response_code(401);
     exit("invalid user");
 }

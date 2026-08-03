@@ -60,6 +60,10 @@ if( $component=="equipo_inventario"  ){
     include("components/equipo_inventario/equipo_inventario.php");
     }
 
+if( $component=="equipo_reserva"  ){
+    include("components/equipo_reserva/equipo_reserva.php");
+    }
+
 if( $component=="mercado"  ){
         include("components/mercado/mercado.php");
         }//if( @$_GET["component"]=="equipo" )

@@ -39,6 +39,10 @@ while($result2 = $mysql->f_obj($sql2)){
  ){
 	$lista_menu = $lista_menu . "
 	<li class='nav-item'>
+	<a class='nav-link' href='index.php?component=equipo_reserva&view=equipo_list'>
+	  <i class='fas fa-calendar-plus'></i> Solicitar Equipo</a>
+	</li>
+	<li class='nav-item'>
 	<a class='nav-link' href='index.php?component=equipo_inventario&view=inventario'>
 	  <i class='fas fa-boxes'></i> Inventario de Equipo</a>
 	</li>
