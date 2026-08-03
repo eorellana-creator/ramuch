@@ -8,13 +8,8 @@ $id_company = (int)($_SESSION["company_id"] ?? 0);
 $id_usuario = (int)($_SESSION["usuario_id"] ?? 0);
 $nombre_usuario = $_SESSION["usuario_nombre"] ?? '';
 $email_usuario = $_SESSION["usuario_email"] ?? '';
-$sesionAutorizada = (
-    ($_SESSION["usuario_valido_socio_ramuch"] ?? '') === 'true'
-    && ($_SESSION["usuario_origen"] ?? '') === 'socios'
-) || (
-    ($_SESSION["usuario_valido_bastro_ruta"] ?? '') === 'true'
-    && ($_SESSION["usuario_origen"] ?? '') === 'admin'
-);
+$sesionAutorizada = ($_SESSION["usuario_valido_socio_ramuch"] ?? '') === 'true'
+    || ($_SESSION["usuario_valido_bastro_ruta"] ?? '') === 'true';
 
 $fecha1 = $_GET['fecha1'];
 $fecha2 = $_GET['fecha2'];
