@@ -8,6 +8,8 @@ include("../../../includes/funciones.php");
 
 $id_company 	= (int)($_SESSION["company_id"] ?? 0);
 $id_usuario 	= (int)($_SESSION["usuario_id"] ?? 0);
+$sesionSocios = ($_SESSION["usuario_valido_socio_ramuch"] ?? '') === 'true'
+  && ($_SESSION["usuario_origen"] ?? '') === 'socios';
 
 $nombre_usuario	= $_SESSION["usuario_nombre"];
 $email_usuario  = $_SESSION["usuario_email"];
@@ -30,7 +32,7 @@ $mysql->connect();
 
 // Ruta heredada: impedir solicitudes anónimas o con una sesión obsoleta.
 $sqlUsuario = $mysql->query("SELECT id_usuario FROM usuario WHERE id_usuario='$id_usuario' AND estado='Vigente' LIMIT 1;");
-if ($id_usuario <= 0 || !$mysql->f_obj($sqlUsuario)) {
+if (!$sesionSocios || $id_usuario <= 0 || !$mysql->f_obj($sqlUsuario)) {
   http_response_code(401);
   exit("invalid user");
 }

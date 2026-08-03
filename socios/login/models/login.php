@@ -39,6 +39,8 @@ if($accion == "login"){ //ingresar
 	$cantidad = $mysql->f_num($sql);	
 
 	if($cantidad>0){
+		unset($_SESSION["usuario_valido_bastro_ruta"]);
+		$_SESSION["usuario_origen"] = "socios";
 		$_SESSION["usuario_valido_socio_ramuch"]="true" ;
 		$_SESSION["usuario_token"] 	=@$result->usuario_token; 
 		$_SESSION["usuario_nombre"]	=@$result->usuario_nombre;
