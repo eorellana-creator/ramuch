@@ -4,10 +4,10 @@ include("../../../configuration.php");
 include("../../../includes/conexionMysql.php");
 include("../../../includes/funciones.php");
 
-$id_company = $_SESSION["company_id"];
-$id_usuario = $_SESSION["usuario_id"];
-$nombre_usuario = $_SESSION["usuario_nombre"];
-$email_usuario = $_SESSION["usuario_email"];
+$id_company = (int)($_SESSION["company_id"] ?? 0);
+$id_usuario = (int)($_SESSION["usuario_id"] ?? 0);
+$nombre_usuario = $_SESSION["usuario_nombre"] ?? '';
+$email_usuario = $_SESSION["usuario_email"] ?? '';
 
 $fecha1 = $_GET['fecha1'];
 $fecha2 = $_GET['fecha2'];
@@ -17,6 +17,16 @@ $config = new Config;
 date_default_timezone_set($config->zona_horaria);
 $mysql = new mysql;
 $mysql->connect();
+
+// No confiar solamente en la sesión: el usuario debe seguir existiendo y vigente.
+$sqlUsuario = $mysql->query("SELECT nombre_usuario, email FROM usuario WHERE id_usuario='$id_usuario' AND estado='Vigente' LIMIT 1;");
+$usuarioValido = $mysql->f_obj($sqlUsuario);
+if ($id_usuario <= 0 || !$usuarioValido) {
+    http_response_code(401);
+    exit("invalid user");
+}
+$nombre_usuario = $usuarioValido->nombre_usuario;
+$email_usuario = $usuarioValido->email;
 
 $hoy = date("Y-m-d");
 $equipos_solicitados = [];

@@ -105,14 +105,21 @@ while($result = $mysql->f_obj($sql)){
   
   $sqlu 	= $mysql->query("SELECT nombre_usuario FROM usuario WHERE id_usuario = '$result->id_usuario_prestamo' ;");
   $resultu = $mysql->f_obj($sqlu);
-  $usuario_solicitud = $resultu->nombre_usuario;
+  $usuario_valido = $resultu && (int)$result->id_usuario_prestamo > 0;
+  $usuario_solicitud = $usuario_valido
+    ? $resultu->nombre_usuario
+    : "<span class='text-danger'><strong>Solicitud inválida</strong><br>Usuario ID: $result->id_usuario_prestamo</span>";
 
   $desde = fecha_mysql_a_normal($result->fecha_prestamo);
   $hasta = fecha_mysql_a_normal($result->fecha_debe_devolver);
 
   $periodo = "Desde el $desde <br>al $hasta";
 
-  $aceptar_rechazar = "<button type='button' class='btn btn-success' onClick='aceptaRechaza(1,\\\"$result->token\\\");' >Aceptar</button> <button type='button' class='btn btn-danger' onClick='seteaTokenPrestamo(\\\"$result->token\\\")' data-toggle='modal' data-target='#primaryModal' >Rechazar</button>";
+  if ($usuario_valido) {
+    $aceptar_rechazar = "<button type='button' class='btn btn-success' onClick='aceptaRechaza(1,\\\"$result->token\\\");' >Aceptar</button> <button type='button' class='btn btn-danger' onClick='seteaTokenPrestamo(\\\"$result->token\\\")' data-toggle='modal' data-target='#primaryModal' >Rechazar</button>";
+  } else {
+    $aceptar_rechazar = "<button type='button' class='btn btn-default' disabled>Solicitud inválida</button>";
+  }
   //$aceptar_rechazar = "<button id='btn-aceptar-{$result->token}' type='button' class='btn btn-success' onClick='aceptaRechaza(1,\"{$result->token}\");' >Aceptar</button> <button id='btn-rechazar-{$result->token}' type='button' class='btn btn-danger' onClick='seteaTokenPrestamo(\"{$result->token}\")' data-toggle='modal' data-target='#primaryModal' >Rechazar</button>";
   $datos = $datos."
       $signo_coma

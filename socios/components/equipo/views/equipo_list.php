@@ -152,6 +152,12 @@ function solicitarMultiplesEquipos() {
         success: function(response) {
             window.scrollTo(0, 0);
             document.location.reload();
+        },
+        error: function(xhr) {
+            const mensaje = xhr.status === 401
+                ? "Tu sesión no corresponde a un socio vigente. Vuelve a iniciar sesión antes de solicitar equipos."
+                : "No se pudo registrar la solicitud. Intenta nuevamente.";
+            BootstrapDialog.alert(mensaje);
         }
     });
 }
