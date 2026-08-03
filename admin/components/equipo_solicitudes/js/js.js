@@ -16,7 +16,7 @@ $(document).ready(function() {
         "initComplete": function(settings, json) {
             $('.sel2-basic-single').select2();
           },
-        "columnDefs": [ { orderable: false, targets: [1,2] } ],
+        "columnDefs": [ { orderable: false, targets: [1,6] } ],
         "ajax": {
             "url": "components/equipo_solicitudes/models/equipo_solicitudes_list_procesa.php",
             "type": "POST"
@@ -325,7 +325,6 @@ function prueba(tipo, token){
 
  
            
-
 
 
 
