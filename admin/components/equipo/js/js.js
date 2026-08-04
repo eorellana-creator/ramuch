@@ -126,7 +126,11 @@ function enviar() {
     .done(function(res) {
         var retorno = res.split('|');
         var token = retorno[1];
-        document.location.reload();
+        if ($('#origen').val() === 'inventario') {
+            document.location.href = 'index.php?component=equipo_inventario&view=inventario';
+        } else {
+            document.location.reload();
+        }
     });
 }
 
