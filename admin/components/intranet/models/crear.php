@@ -1,8 +1,6 @@
 <?php
 include('_bootstrap.php');
 intranetValidarCsrf();
-if ($rolIntranet !== 'directiva') intranetJson(['error' => 'Sólo Directiva puede crear solicitudes.'], 403);
-
 $texto = intranetTextoSql($_POST['texto'] ?? '');
 if ($texto === '') intranetJson(['error' => 'Debes escribir la solicitud.'], 400);
 $nombre = intranetTextoSql($nombreUsuarioIntranet, 255);

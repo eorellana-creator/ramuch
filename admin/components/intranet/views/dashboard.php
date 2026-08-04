@@ -16,9 +16,7 @@ $esDesarrollador = $rolIntranet === 'desarrollador';
 <div class="card">
     <div class="card-header d-flex align-items-center">
         <i class="fas fa-network-wired mr-2"></i> <strong>Intranet — Solicitudes de actualizaciones</strong>
-        <?php if ($esDirectiva): ?>
         <button class="btn btn-primary ml-3" data-toggle="modal" data-target="#modalNuevaSolicitud"><i class="fas fa-plus"></i> Nueva solicitud</button>
-        <?php endif; ?>
         <button class="btn btn-sm btn-info ml-auto" id="recargar-intranet"><i class="fas fa-sync"></i> Recargar</button>
     </div>
     <div class="card-body">
@@ -34,6 +32,16 @@ $esDesarrollador = $rolIntranet === 'desarrollador';
     <div class="modal-header"><h5>Nueva solicitud</h5><button class="close" data-dismiss="modal">&times;</button></div>
     <div class="modal-body"><label>Describe detalladamente la actualización solicitada:</label><textarea id="nueva-solicitud-texto" class="form-control" rows="7" maxlength="5000"></textarea></div>
     <div class="modal-footer"><button class="btn btn-secondary" data-dismiss="modal">Cancelar</button><button class="btn btn-primary" id="guardar-solicitud">Guardar solicitud</button></div>
+</div></div></div>
+
+<div class="modal fade" id="modalEditarSolicitud" tabindex="-1"><div class="modal-dialog modal-lg"><div class="modal-content">
+    <div class="modal-header"><h5>Editar solicitud</h5><button class="close" data-dismiss="modal">&times;</button></div>
+    <div class="modal-body">
+        <input type="hidden" id="editar-solicitud-token">
+        <label>Texto de la solicitud:</label><textarea id="editar-solicitud-texto" class="form-control" rows="7" maxlength="5000"></textarea>
+        <small class="text-muted">La edición quedará registrada con tu usuario y fecha.</small>
+    </div>
+    <div class="modal-footer"><button class="btn btn-secondary" data-dismiss="modal">Cancelar</button><button class="btn btn-primary" id="guardar-edicion-solicitud">Guardar cambios</button></div>
 </div></div></div>
 
 <div class="modal fade" id="modalProcesoIntranet" tabindex="-1"><div class="modal-dialog modal-lg"><div class="modal-content">

@@ -26,7 +26,7 @@ $nombresEstado = [
     'solicitada' => ['Solicitada', 'secondary'], 'valorizada' => ['Valorizada', 'warning'],
     'aprobada' => ['Aprobada', 'info'], 'en_desarrollo' => ['En desarrollo', 'primary'],
     'realizada' => ['Realizada / por revisar', 'warning'], 'finalizada' => ['Finalizada', 'success'],
-    'rechazada' => ['Rechazada', 'danger']
+    'rechazada' => ['Rechazada', 'danger'], 'descartada' => ['Descartada', 'dark']
 ];
 $datos = [];
 while ($item = $mysql->f_obj($sql)) {
@@ -40,6 +40,13 @@ while ($item = $mysql->f_obj($sql)) {
     $valor = $item->valor === null ? '-' : '$ ' . number_format((int)$item->valor, 0, ',', '.');
     $pago = (int)$item->pagado === 1 ? "<span class='badge badge-success'>Pagado</span>" : "<span class='badge badge-secondary'>Pendiente</span>";
     $acciones = "<button class='btn btn-sm btn-light historial-intranet' data-token='$token'><i class='fas fa-history'></i> Historial</button>";
+
+    if ($estado === 'solicitada') {
+        $acciones .= "<button class='btn btn-sm btn-info editar-intranet' data-token='$token'><i class='fas fa-edit'></i> Editar</button>";
+    }
+    if (!in_array($estado, ['finalizada', 'descartada'], true)) {
+        $acciones .= "<button class='btn btn-sm btn-outline-danger accion-intranet' data-token='$token' data-accion='descartar' data-titulo='Descartar solicitud' data-label='Motivo para descartar:'><i class='fas fa-ban'></i> Descartar</button>";
+    }
 
     if ($rolIntranet === 'desarrollador') {
         if ($estado === 'solicitada') $acciones .= "<button class='btn btn-sm btn-warning accion-intranet' data-token='$token' data-accion='valorizar' data-titulo='Valorizar solicitud' data-label='Detalle de la valorización:'>Valorizar</button>";

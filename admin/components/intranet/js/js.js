@@ -30,6 +30,25 @@ $(document).ready(function() {
         }, 'json').fail(mostrarError);
     });
 
+    $('#tabla-intranet').on('click', '.editar-intranet', function() {
+        var token = $(this).data('token');
+        $.getJSON('components/intranet/models/obtener.php', { token: token }, function(data) {
+            $('#editar-solicitud-token').val(data.token);
+            $('#editar-solicitud-texto').val(data.texto);
+            $('#modalEditarSolicitud').modal('show');
+        }).fail(mostrarError);
+    });
+
+    $('#guardar-edicion-solicitud').on('click', function() {
+        var texto = $('#editar-solicitud-texto').val().trim();
+        if (!texto) { BootstrapDialog.alert('Debes escribir la solicitud.'); return; }
+        $.post('components/intranet/models/editar.php', {
+            csrf: config.csrf,
+            token: $('#editar-solicitud-token').val(),
+            texto: texto
+        }, function() { $('#modalEditarSolicitud').modal('hide'); recargar(); }, 'json').fail(mostrarError);
+    });
+
     $('#tabla-intranet').on('click', '.accion-intranet', function() {
         var boton = $(this);
         $('#proceso-token').val(boton.data('token'));

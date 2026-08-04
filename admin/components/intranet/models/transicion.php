@@ -8,6 +8,23 @@ $comentario = intranetTextoSql($_POST['comentario'] ?? '');
 $valor = max(0, (int)($_POST['valor'] ?? 0));
 if ($token === '') intranetJson(['error' => 'Solicitud inválida.'], 400);
 
+if ($accion === 'descartar') {
+    if ($comentario === '') intranetJson(['error' => 'Debes indicar el motivo para descartar.'], 400);
+    $mysql->query('START TRANSACTION');
+    $sqlItem = $mysql->query("SELECT * FROM intranet_solicitud WHERE token='$token' FOR UPDATE;");
+    $item = $mysql->f_obj($sqlItem);
+    if (!$item || in_array($item->estado, ['finalizada', 'descartada'], true)) {
+        $mysql->query('ROLLBACK');
+        intranetJson(['error' => 'La solicitud ya no puede descartarse.'], 409);
+    }
+    $ahora = date('Y-m-d H:i:s');
+    $mysql->query("UPDATE intranet_solicitud SET estado='descartada',fecha_actualizacion='$ahora' WHERE id_solicitud='$item->id_solicitud';");
+    $nombre = intranetTextoSql($nombreUsuarioIntranet, 255);
+    $mysql->query("INSERT INTO intranet_solicitud_historial (id_solicitud,id_usuario,usuario_nombre,accion,estado_anterior,estado_nuevo,comentario,fecha) VALUES ('$item->id_solicitud','$idUsuarioIntranet','$nombre','descartar','$item->estado','descartada','$comentario','$ahora');");
+    $mysql->query('COMMIT');
+    intranetJson(['ok' => true]);
+}
+
 $reglas = [
     'valorizar' => ['desarrollador', 'solicitada', 'valorizada'],
     'aprobar' => ['directiva', 'valorizada', 'aprobada'],
