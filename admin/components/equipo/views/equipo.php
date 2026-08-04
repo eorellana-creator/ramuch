@@ -160,6 +160,8 @@ if ($isModal) {
 
 <?php echo $mensaje; ?>
 
+<?php $origenInventario = ($_GET['origen'] ?? '') === 'inventario'; ?>
+
 <div class="card">
     <div class="card-header">
         <i class="fas fa-hiking"></i> Equipo Ramuch
@@ -167,6 +169,7 @@ if ($isModal) {
     <div class="card-body">
         <form name="formulario" id="formulario" method="post" action="javascript: enviar();" enctype="multipart/form-data">
             <input id="token" name="token" type="hidden" value="<?php echo $token; ?>">
+            <input id="origen" name="origen" type="hidden" value="<?php echo $origenInventario ? 'inventario' : ''; ?>">
             <div class="col-sm-12">
                 <div class="row">
                     <div class="col-lg-3 form-group"> 
@@ -238,7 +241,7 @@ if ($isModal) {
 
                     <div class="col-lg-12 text-center">
                         <br>
-                        <a href="index.php?component=equipo&view=equipo_list">
+                        <a href="index.php?component=<?php echo $origenInventario ? 'equipo_inventario&view=inventario' : 'equipo&view=equipo_list'; ?>">
                             <button type="button" class="btn btn-secondary" style="margin-top:10px; width:180px;margin-right:10px;">
                                 ir al listado de equipos
                             </button>
