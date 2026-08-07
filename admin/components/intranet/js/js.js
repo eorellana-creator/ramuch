@@ -25,9 +25,24 @@ $(document).ready(function() {
     $('#guardar-solicitud').on('click', function() {
         var texto = $('#nueva-solicitud-texto').val().trim();
         if (!texto) { BootstrapDialog.alert('Debes escribir la solicitud.'); return; }
-        $.post('components/intranet/models/crear.php', { csrf: config.csrf, texto: texto }, function() {
-            $('#modalNuevaSolicitud').modal('hide'); $('#nueva-solicitud-texto').val(''); recargar();
-        }, 'json').fail(mostrarError);
+        $('#guardar-solicitud').prop('disabled', true).html('<i class="fas fa-spinner fa-spin"></i> Guardando...');
+        $.post('components/intranet/models/crear.php', { csrf: config.csrf, texto: texto }, function(respuesta) {
+            if (!respuesta || respuesta.ok !== true) {
+                BootstrapDialog.alert('El servidor no confirmó el guardado.');
+                return;
+            }
+            $('#modalNuevaSolicitud').modal('hide');
+            $('#nueva-solicitud-texto').val('');
+            recargar();
+            BootstrapDialog.show({
+                type: BootstrapDialog.TYPE_SUCCESS,
+                title: 'Solicitud guardada',
+                message: 'La solicitud y su registro de auditoría fueron guardados correctamente.',
+                buttons: [{ label: 'Aceptar', cssClass: 'btn-success', action: function(dialogo) { dialogo.close(); } }]
+            });
+        }, 'json').fail(mostrarError).always(function() {
+            $('#guardar-solicitud').prop('disabled', false).html('Guardar solicitud');
+        });
     });
 
     $('#tabla-intranet').on('click', '.editar-intranet', function() {

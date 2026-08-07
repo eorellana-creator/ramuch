@@ -7,7 +7,9 @@ include("../includes/intranet.php");
 $mysql = new mysql;
 $mysql->connect();
 $rolIntranet = intranetExigirAcceso($mysql);
-intranetCrearTablas($mysql);
+if (!intranetCrearTablas($mysql)) {
+    intranetJson(['error' => 'No fue posible acceder al almacenamiento de solicitudes.'], 500);
+}
 $idUsuarioIntranet = (int)($_SESSION['usuario_id'] ?? 0);
 $nombreUsuarioIntranet = $_SESSION['usuario_nombre'] ?? '';
 

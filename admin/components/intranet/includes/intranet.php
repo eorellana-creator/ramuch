@@ -26,7 +26,7 @@ function intranetExigirAcceso($mysql) {
 }
 
 function intranetCrearTablas($mysql) {
-    $mysql->query("CREATE TABLE IF NOT EXISTS intranet_solicitud (
+    $tablaSolicitudes = $mysql->query("CREATE TABLE IF NOT EXISTS intranet_solicitud (
         id_solicitud INT NOT NULL AUTO_INCREMENT,
         token VARCHAR(32) NOT NULL,
         id_solicitante INT NOT NULL,
@@ -47,7 +47,7 @@ function intranetCrearTablas($mysql) {
         KEY id_solicitante (id_solicitante)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
-    $mysql->query("CREATE TABLE IF NOT EXISTS intranet_solicitud_historial (
+    $tablaHistorial = $mysql->query("CREATE TABLE IF NOT EXISTS intranet_solicitud_historial (
         id_historial INT NOT NULL AUTO_INCREMENT,
         id_solicitud INT NOT NULL,
         id_usuario INT NOT NULL,
@@ -60,6 +60,20 @@ function intranetCrearTablas($mysql) {
         PRIMARY KEY (id_historial),
         KEY id_solicitud (id_solicitud)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+
+    if (!$tablaSolicitudes || !$tablaHistorial) {
+        error_log('Intranet: no fue posible crear o verificar las tablas requeridas.');
+        return false;
+    }
+
+    $verificaSolicitudes = $mysql->query("SELECT 1 FROM intranet_solicitud LIMIT 1;");
+    $verificaHistorial = $mysql->query("SELECT 1 FROM intranet_solicitud_historial LIMIT 1;");
+    if ($verificaSolicitudes === false || $verificaHistorial === false) {
+        error_log('Intranet: las tablas requeridas no están disponibles para lectura.');
+        return false;
+    }
+
+    return true;
 }
 
 function intranetJson($datos, $codigo = 200) {

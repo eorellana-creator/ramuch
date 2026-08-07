@@ -86,6 +86,14 @@ Hasta completar estas condiciones no se debe automatizar el paso a produccion.
 - Los commits `230c0a2` y `2c491a1` fueron desplegados sólo en staging y verificados por descarga.
 - Producción no fue modificada; quedan pendientes pruebas funcionales y de permisos.
 
+### 2026-08-07 - Persistencia verificable de solicitudes de Intranet
+
+- Se eliminó el guardado silencioso: ahora se comprueba la disponibilidad de ambas tablas antes de operar.
+- La creación de la solicitud y su primer evento de historial deben completarse dentro de la misma transacción; cualquier fallo revierte todo.
+- La interfaz bloquea el botón mientras guarda y sólo muestra éxito después de recibir confirmación explícita del servidor.
+- Los fallos técnicos se registran sin incluir el texto de la solicitud ni datos personales.
+- Cambio preparado para staging; producción no fue modificada.
+
 ### 2026-08-03 - Prevención de solicitudes de equipo sin socio
 
 - Se confirmaron en producción dos solicitudes inválidas con `id_usuario_prestamo = 0`; fueron rechazadas manualmente antes de modificar el código.
