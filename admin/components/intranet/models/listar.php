@@ -13,7 +13,7 @@ $where = ' WHERE 1=1 ';
 if ($buscar !== '') {
     $where .= " AND (texto LIKE '%$buscar%' OR solicitante_nombre LIKE '%$buscar%' OR estado LIKE '%$buscar%') ";
 }
-$columnas = [0 => 'id_solicitud', 1 => 'fecha_solicitud', 2 => 'solicitante_nombre', 4 => 'estado', 5 => 'valor', 6 => 'pagado'];
+$columnas = [0 => 'id_solicitud', 1 => 'fecha_solicitud', 2 => 'solicitante_nombre', 4 => 'estado', 5 => 'valor'];
 $campo = $columnas[$orden] ?? 'id_solicitud';
 
 $sql = $mysql->query("SELECT * FROM intranet_solicitud $where ORDER BY $campo $direccion, id_solicitud DESC LIMIT $inicio,$fin;");
@@ -23,10 +23,12 @@ $sqlFiltrado = $mysql->query("SELECT COUNT(*) cantidad FROM intranet_solicitud $
 $filtrado = $mysql->f_obj($sqlFiltrado);
 
 $nombresEstado = [
-    'solicitada' => ['Solicitada', 'secondary'], 'valorizada' => ['Valorizada', 'warning'],
-    'aprobada' => ['Aprobada', 'info'], 'en_desarrollo' => ['En desarrollo', 'primary'],
-    'realizada' => ['Realizada / por revisar', 'warning'], 'finalizada' => ['Finalizada', 'success'],
-    'rechazada' => ['Rechazada', 'danger'], 'descartada' => ['Descartada', 'dark']
+    'solicitado' => ['Solicitado', 'secondary'],
+    'valorado' => ['Valorado', 'info'],
+    'aprobado' => ['Aprobado', 'success'],
+    'pagado' => ['Pagado', 'intranet-pagado'],
+    'finalizado' => ['Finalizado', 'intranet-finalizado'],
+    'descartado' => ['Descartado', 'danger']
 ];
 $datos = [];
 while ($item = $mysql->f_obj($sql)) {
@@ -38,38 +40,25 @@ while ($item = $mysql->f_obj($sql)) {
     $solicitante = htmlspecialchars($item->solicitante_nombre, ENT_QUOTES, 'UTF-8');
     $fecha = date('d-m-Y H:i', strtotime($item->fecha_solicitud));
     $valor = $item->valor === null ? '-' : '$ ' . number_format((int)$item->valor, 0, ',', '.');
-    $pago = (int)$item->pagado === 1 ? "<span class='badge badge-success'>Pagado</span>" : "<span class='badge badge-secondary'>Pendiente</span>";
     $acciones = "<button class='btn btn-sm btn-light historial-intranet' data-token='$token'><i class='fas fa-history'></i> Historial</button>";
 
-    if ($estado === 'solicitada') {
+    if ($estado === 'solicitado') {
         $acciones .= "<button class='btn btn-sm btn-info editar-intranet' data-token='$token'><i class='fas fa-edit'></i> Editar</button>";
     }
-    if (!in_array($estado, ['finalizada', 'descartada'], true)) {
+    if (!in_array($estado, ['finalizado', 'descartado'], true)) {
         $acciones .= "<button class='btn btn-sm btn-outline-danger accion-intranet' data-token='$token' data-accion='descartar' data-titulo='Descartar solicitud' data-label='Motivo para descartar:'><i class='fas fa-ban'></i> Descartar</button>";
     }
 
     if ($rolIntranet === 'desarrollador') {
-        if ($estado === 'solicitada') $acciones .= "<button class='btn btn-sm btn-warning accion-intranet' data-token='$token' data-accion='valorizar' data-titulo='Valorizar solicitud' data-label='Detalle de la valorización:'>Valorizar</button>";
-        if ($estado === 'aprobada') $acciones .= "<button class='btn btn-sm btn-primary accion-intranet' data-token='$token' data-accion='iniciar' data-titulo='Iniciar desarrollo' data-label='Comentario de inicio:'>Iniciar</button>";
-        if ($estado === 'en_desarrollo') $acciones .= "<button class='btn btn-sm btn-success accion-intranet' data-token='$token' data-accion='realizar' data-titulo='Marcar como realizada' data-label='Detalle de lo realizado:'>Marcar realizada</button>";
+        if ($estado === 'solicitado') $acciones .= "<button class='btn btn-sm btn-info accion-intranet' data-token='$token' data-accion='valorizar' data-titulo='Valorizar solicitud' data-label='Detalle de la cotización (opcional):'>Valorizar</button>";
     }
     if ($rolIntranet === 'directiva') {
-        if ($estado === 'valorizada') {
-            $acciones .= "<button class='btn btn-sm btn-success accion-intranet' data-token='$token' data-accion='aprobar' data-titulo='Aprobar valorización' data-label='Observación de Directiva:'>Aprobar</button>";
-            $acciones .= "<button class='btn btn-sm btn-danger accion-intranet' data-token='$token' data-accion='rechazar' data-titulo='Rechazar solicitud' data-label='Motivo del rechazo:'>Rechazar</button>";
-        }
-        if ($estado === 'realizada') {
-            $acciones .= "<button class='btn btn-sm btn-success accion-intranet' data-token='$token' data-accion='finalizar' data-titulo='Dar aprobación final' data-label='Comentario final:'>OK final</button>";
-            $acciones .= "<button class='btn btn-sm btn-warning accion-intranet' data-token='$token' data-accion='observar' data-titulo='Solicitar correcciones' data-label='Correcciones requeridas:'>Observar</button>";
-        }
-        if ($item->valor !== null) {
-            $accionPago = (int)$item->pagado === 1 ? 'pago_pendiente' : 'pagar';
-            $tituloPago = (int)$item->pagado === 1 ? 'Marcar pago como pendiente' : 'Confirmar pago';
-            $acciones .= "<button class='btn btn-sm btn-dark accion-intranet' data-token='$token' data-accion='$accionPago' data-titulo='$tituloPago' data-label='Referencia u observación de pago:'>$tituloPago</button>";
-        }
+        if ($estado === 'valorado') $acciones .= "<button class='btn btn-sm btn-success accion-intranet' data-token='$token' data-accion='aprobar' data-titulo='Aprobar cotización' data-label='Observación de Directiva (opcional):'>Aprobar</button>";
+        if ($estado === 'aprobado') $acciones .= "<button class='btn btn-sm btn-warning accion-intranet' data-token='$token' data-accion='pagar' data-titulo='Registrar pago' data-label='Referencia u observación de pago (opcional):'>Registrar pago</button>";
+        if ($estado === 'pagado') $acciones .= "<button class='btn btn-sm btn-success accion-intranet' data-token='$token' data-accion='finalizar' data-titulo='Finalizar solicitud' data-label='Observación final (opcional):'>Finalizar</button>";
     }
 
-    $datos[] = [(int)$item->id_solicitud, $fecha, $solicitante, $texto, $badgeEstado, $valor, $pago, $acciones];
+    $datos[] = [(int)$item->id_solicitud, $fecha, $solicitante, $texto, $badgeEstado, $valor, $acciones];
 }
 
 intranetJson(['draw' => $draw, 'recordsTotal' => (int)($total->cantidad ?? 0), 'recordsFiltered' => (int)($filtrado->cantidad ?? 0), 'data' => $datos]);

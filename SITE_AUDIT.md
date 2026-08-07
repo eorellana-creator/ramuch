@@ -93,7 +93,8 @@ Este documento es el tablero de seguimiento para errores funcionales, estabilida
 - [~] Acceso para rol `Administrador de Socios` y desarrollador ID `1`.
 - [~] CRUD con descarte lógico e historial de creación, edición, estados y pago.
 - [~] Persistencia reforzada: creación e historial se confirman en una sola transacción y los errores de almacenamiento dejan registro técnico.
-- [~] Flujo: solicitada → valorizada → aprobada → en desarrollo → realizada → aprobación final.
+- [~] Flujo unificado: solicitado → valorado → aprobado → pagado → finalizado; descartado es una salida terminal alternativa.
+- [~] El estado de pago se integró en la columna Estado; cada transición conserva usuario, fecha y observación en el historial.
 - [ ] Probar creación, edición, descarte y pago con ambos perfiles.
 - [ ] Probar HTTP 403 con un usuario no autorizado.
 - [ ] Probar dos usuarios cambiando simultáneamente la misma solicitud.

@@ -69,6 +69,16 @@ Hasta completar estas condiciones no se debe automatizar el paso a produccion.
 
 ## Bitacora
 
+### 2026-08-07 - Flujo unificado de solicitudes de Intranet
+
+- Se ajustó el ciclo de las solicitudes a los estados `solicitado`, `valorado`, `aprobado`, `pagado`, `finalizado` y `descartado`.
+- La valorización y cotización corresponde al desarrollador; aprobación, registro de pago y aprobación final corresponden a cualquier integrante autorizado de Directiva.
+- El pago dejó de presentarse como una condición paralela y pasó a formar parte de la columna y secuencia de estados.
+- Cada avance se guarda atómicamente con usuario, fecha, estado anterior, estado nuevo y observación; el descarte exige indicar un motivo.
+- Se agregó una normalización compatible para solicitudes creadas con los nombres del flujo anterior, sin eliminar su historial.
+- Los estados se distinguen visualmente mediante gris, celeste, verde, naranjo y rojo.
+- Los cambios quedan pendientes de prueba funcional y despliegue exclusivo a staging; producción no fue modificada.
+
 ### 2026-08-04 - Inicio de auditoría integral de admin y socios
 
 - Se creó `SITE_AUDIT.md` como tablero de errores, riesgos, prioridades y pruebas pendientes.

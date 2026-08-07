@@ -6,11 +6,18 @@ $csrfIntranet = $_SESSION['intranet_csrf'];
 $esDirectiva = $rolIntranet === 'directiva';
 $esDesarrollador = $rolIntranet === 'desarrollador';
 ?>
+<style>
+.badge-intranet-pagado { background-color: #fd7e14; color: #fff; }
+.badge-intranet-finalizado { background-color: #218838; color: #fff; }
+.bg-intranet-pagado { background-color: #fd7e14; }
+</style>
 <div class="row mb-3" id="resumen-intranet">
-    <div class="col-md-3"><div class="card text-white bg-info"><div class="card-body"><div class="h3" data-resumen="solicitada">0</div><div>Solicitadas</div></div></div></div>
-    <div class="col-md-3"><div class="card text-white bg-warning"><div class="card-body"><div class="h3" data-resumen="valorizada">0</div><div>Por aprobar</div></div></div></div>
-    <div class="col-md-3"><div class="card text-white bg-primary"><div class="card-body"><div class="h3" data-resumen="desarrollo">0</div><div>En ejecución</div></div></div></div>
-    <div class="col-md-3"><div class="card text-white bg-success"><div class="card-body"><div class="h3" data-resumen="finalizada">0</div><div>Finalizadas</div></div></div></div>
+    <div class="col-md-2 col-6"><div class="card text-white bg-secondary"><div class="card-body"><div class="h3" data-resumen="solicitado">0</div><div>Solicitados</div></div></div></div>
+    <div class="col-md-2 col-6"><div class="card text-white bg-info"><div class="card-body"><div class="h3" data-resumen="valorado">0</div><div>Valorados</div></div></div></div>
+    <div class="col-md-2 col-6"><div class="card text-white bg-success"><div class="card-body"><div class="h3" data-resumen="aprobado">0</div><div>Aprobados</div></div></div></div>
+    <div class="col-md-2 col-6"><div class="card text-white bg-intranet-pagado"><div class="card-body"><div class="h3" data-resumen="pagado">0</div><div>Pagados</div></div></div></div>
+    <div class="col-md-2 col-6"><div class="card text-white bg-success"><div class="card-body"><div class="h3" data-resumen="finalizado">0</div><div>Finalizados</div></div></div></div>
+    <div class="col-md-2 col-6"><div class="card text-white bg-danger"><div class="card-body"><div class="h3" data-resumen="descartado">0</div><div>Descartados</div></div></div></div>
 </div>
 
 <div class="card">
@@ -22,7 +29,7 @@ $esDesarrollador = $rolIntranet === 'desarrollador';
     <div class="card-body">
         <div class="table-responsive">
             <table id="tabla-intranet" class="table table-striped table-hover" style="width:100%;">
-                <thead><tr><th>N°</th><th>Fecha</th><th>Solicitado por</th><th>Solicitud</th><th>Estado</th><th>Valor</th><th>Pago</th><th>Acciones</th></tr></thead>
+                <thead><tr><th>N°</th><th>Fecha</th><th>Solicitado por</th><th>Solicitud</th><th>Estado</th><th>Valor</th><th>Acciones</th></tr></thead>
             </table>
         </div>
     </div>
@@ -49,7 +56,7 @@ $esDesarrollador = $rolIntranet === 'desarrollador';
     <div class="modal-body">
         <input type="hidden" id="proceso-token"><input type="hidden" id="proceso-accion">
         <div id="campo-valor" style="display:none;"><label>Valor estimado (CLP):</label><input id="proceso-valor" type="number" min="0" class="form-control mb-3"></div>
-        <label id="label-comentario">Comentario:</label><textarea id="proceso-comentario" class="form-control" rows="5" maxlength="5000"></textarea>
+        <label id="label-comentario">Observación (opcional):</label><textarea id="proceso-comentario" class="form-control" rows="5" maxlength="5000"></textarea>
     </div>
     <div class="modal-footer"><button class="btn btn-secondary" data-dismiss="modal">Cancelar</button><button class="btn btn-primary" id="confirmar-proceso">Confirmar</button></div>
 </div></div></div>

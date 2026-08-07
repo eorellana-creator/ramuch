@@ -32,7 +32,7 @@ function intranetCrearTablas($mysql) {
         id_solicitante INT NOT NULL,
         solicitante_nombre VARCHAR(255) NOT NULL,
         texto TEXT NOT NULL,
-        estado VARCHAR(30) NOT NULL DEFAULT 'solicitada',
+        estado VARCHAR(30) NOT NULL DEFAULT 'solicitado',
         valor INT NULL,
         detalle_valorizacion TEXT NULL,
         observacion_directiva TEXT NULL,
@@ -63,6 +63,25 @@ function intranetCrearTablas($mysql) {
 
     if (!$tablaSolicitudes || !$tablaHistorial) {
         error_log('Intranet: no fue posible crear o verificar las tablas requeridas.');
+        return false;
+    }
+
+    // Normaliza solicitudes creadas con el flujo anterior. La columna pagado se
+    // conserva por compatibilidad, pero desde ahora el pago es un estado formal.
+    $normalizaEstados = $mysql->query("UPDATE intranet_solicitud SET estado=CASE estado
+        WHEN 'solicitada' THEN 'solicitado'
+        WHEN 'valorizada' THEN 'valorado'
+        WHEN 'aprobada' THEN 'aprobado'
+        WHEN 'en_desarrollo' THEN 'aprobado'
+        WHEN 'realizada' THEN 'aprobado'
+        WHEN 'finalizada' THEN 'finalizado'
+        WHEN 'rechazada' THEN 'descartado'
+        WHEN 'descartada' THEN 'descartado'
+        ELSE estado END
+        WHERE estado IN ('solicitada','valorizada','aprobada','en_desarrollo','realizada','finalizada','rechazada','descartada');");
+    $normalizaPagos = $mysql->query("UPDATE intranet_solicitud SET estado='pagado' WHERE pagado=1 AND estado='aprobado';");
+    if ($normalizaEstados === false || $normalizaPagos === false) {
+        error_log('Intranet: no fue posible normalizar los estados del flujo.');
         return false;
     }
 

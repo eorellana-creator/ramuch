@@ -7,7 +7,7 @@ $(document).ready(function() {
         responsive: false,
         order: [[0, 'desc']],
         pageLength: 25,
-        columnDefs: [{ orderable: false, targets: [3, 7] }],
+        columnDefs: [{ orderable: false, targets: [3, 6] }],
         ajax: { url: 'components/intranet/models/listar.php', type: 'POST' }
     });
 
