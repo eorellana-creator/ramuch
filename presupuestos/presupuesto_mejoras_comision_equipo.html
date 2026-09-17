@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Presupuesto — Mejoras Comisión de Equipo RAMUCH</title>
+<style>
+  @page { size: A4; margin: 1.8cm; }
+  body { font-family: Arial, sans-serif; color: #222; font-size: 10.5pt; line-height: 1.4; }
+  h1 { color: #17365d; font-size: 20pt; margin-bottom: 4px; }
+  h2 { color: #245b84; font-size: 14pt; margin-top: 20px; border-bottom: 1px solid #b8c8d8; padding-bottom: 4px; }
+  .subtitulo { color: #666; margin-top: 0; }
+  .resumen { background: #eef5fa; border-left: 5px solid #2a84b8; padding: 12px 15px; }
+  .advertencia { background: #fff8e6; border-left: 5px solid #e5a100; padding: 10px 15px; }
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+  th { background: #245b84; color: white; text-align: left; padding: 7px; }
+  td { border: 1px solid #c8d1da; padding: 7px; vertical-align: top; }
+  td.numero { text-align: right; white-space: nowrap; }
+  tr.total td { font-weight: bold; background: #eef5fa; }
+  .estado-hecho { color: #16713a; font-weight: bold; }
+  .estado-parcial { color: #a46700; font-weight: bold; }
+  .estado-pendiente { color: #a22020; font-weight: bold; }
+  .valores { width: 67%; margin-left: auto; }
+  .valores td:first-child { font-weight: bold; }
+  .nota { font-size: 9pt; color: #555; }
+  .texto-registro { border: 1px solid #c8d1da; background: #fafafa; padding: 12px 15px; }
+</style>
+</head>
+<body>
+  <h1>Presupuesto de desarrollo</h1>
+  <p class="subtitulo">Mejoras para la Comisión de Equipo — RAMUCH</p>
+  <p><strong>Fecha:</strong> 12 de septiembre de 2026</p>
+
+  <div class="resumen">
+    <strong>Objetivo</strong><br>
+    Completar la separación entre préstamos e inventario, permitir préstamos directos por usuarios autorizados, mejorar la búsqueda y presentación de datos, y condicionar las solicitudes de equipo a información mínima de seguridad del socio.
+  </div>
+
+  <h2>Evaluación de la implementación actual</h2>
+  <table>
+    <thead><tr><th>Solicitud</th><th style="width:18%">Estado</th><th>Evaluación</th></tr></thead>
+    <tbody>
+      <tr><td>Cambiar de 3 a 4 meses la restricción por deuda</td><td class="estado-pendiente">Pendiente</td><td>Los módulos activos todavía calculan el bloqueo utilizando tres meses.</td></tr>
+      <tr><td>Incorporar filtros de búsqueda</td><td class="estado-parcial">Parcial</td><td>Existe búsqueda general por equipo, identificador y socio, pero faltan filtros específicos por estado, fechas, categoría y responsable.</td></tr>
+      <tr><td>Aclarar préstamo personal versus préstamo gestionado</td><td class="estado-pendiente">Pendiente</td><td>No existe una explicación clara ni separación formal de ambos flujos.</td></tr>
+      <tr><td>Préstamo directo por administradores de equipo</td><td class="estado-parcial">Parcial</td><td>Existe lógica reutilizable de préstamo, pero el flujo actual de préstamos activos no permite asignar de forma completa un equipo disponible sin solicitud previa.</td></tr>
+      <tr><td>Inventario de equipos separado</td><td class="estado-parcial">Inicial</td><td>El menú y la sección fueron creados, pero la pantalla únicamente muestra “Prontamente”. Falta el inventario funcional.</td></tr>
+      <tr><td>Mostrar únicamente equipos actualmente prestados</td><td class="estado-hecho">Implementado</td><td>El listado administrativo aplica un filtro que muestra solo equipos asignados actualmente.</td></tr>
+      <tr><td>Fechas en columnas independientes</td><td class="estado-parcial">Parcial</td><td>La fecha de devolución ya está separada del nombre del socio, pero falta una columna independiente para la fecha de inicio del préstamo.</td></tr>
+      <tr><td>Ordenar por nombre de la persona asignada</td><td class="estado-hecho">Implementado</td><td>El orden inicial se realiza por el nombre del socio y admite ordenamiento desde la tabla.</td></tr>
+      <tr><td>Confirmación antes de desactivar préstamos</td><td class="estado-hecho">Implementado</td><td>Existe un diálogo de confirmación y la opción segura queda seleccionada por defecto.</td></tr>
+      <tr><td>Devolver equipos sin recargar toda la página</td><td class="estado-hecho">Implementado</td><td>La devolución utiliza AJAX y retira de la tabla las filas procesadas.</td></tr>
+      <tr><td>Impedir solicitudes con datos incompletos</td><td class="estado-pendiente">Pendiente</td><td>Los datos de contacto de emergencia existen en el perfil, pero son opcionales y no condicionan la solicitud.</td></tr>
+      <tr><td>Aviso, enlace de actualización y comunicación</td><td class="estado-pendiente">Pendiente</td><td>No existe aviso específico con acceso directo al perfil ni notificación asociada a datos incompletos.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Desarrollo pendiente incluido</h2>
+  <ol>
+    <li>Actualizar y unificar en cuatro meses la regla de morosidad para solicitar o recibir equipo.</li>
+    <li>Agregar filtros explícitos por socio, equipo, identificador, responsable, estado y rango de fechas.</li>
+    <li>Incorporar textos y ayudas que distingan la solicitud personal del préstamo directo gestionado por la Comisión.</li>
+    <li>Construir el inventario funcional con equipos disponibles, prestados, dados de baja, extraviados o inutilizables, reutilizando las operaciones de creación y edición existentes.</li>
+    <li>Crear un flujo de préstamo directo para usuarios autorizados, seleccionando socio, equipo, fecha inicial y fecha comprometida de devolución sin solicitud previa.</li>
+    <li>Registrar quién realizó el préstamo directo, fecha, destinatario y observaciones, enviando la confirmación correspondiente.</li>
+    <li>Agregar la fecha inicial del préstamo como columna independiente.</li>
+    <li>Validar antes de cada solicitud que exista, como mínimo, nombre y teléfono de contacto de emergencia.</li>
+    <li>Mostrar un aviso explícito con enlace directo a la edición del perfil cuando falten datos obligatorios.</li>
+    <li>Probar permisos, filtros, préstamo directo, devolución, reglas de deuda y perfiles incompletos en staging.</li>
+  </ol>
+
+  <div class="advertencia">
+    <strong>Criterio de privacidad:</strong> la restricción propuesta se limita a datos de contacto de emergencia. Los antecedentes de salud permanecerán opcionales y no serán requisito para solicitar equipo.
+  </div>
+
+  <h2>Estimación integral de la solicitud</h2>
+  <table>
+    <thead><tr><th>Actividad</th><th style="width:20%; text-align:right">Horas</th></tr></thead>
+    <tbody>
+      <tr><td>Separación del módulo de préstamos y visualización exclusiva de equipos prestados</td><td class="numero">1,5</td></tr>
+      <tr><td>Búsqueda por socio, ordenamiento y separación inicial de datos</td><td class="numero">1,5</td></tr>
+      <tr><td>Confirmación de activación o desactivación y devolución sin recarga completa</td><td class="numero">1,5</td></tr>
+      <tr><td>Regla de cuatro meses y revisión de puntos de acceso</td><td class="numero">0,5</td></tr>
+      <tr><td>Filtros avanzados y ajustes de columnas</td><td class="numero">1,5</td></tr>
+      <tr><td>Inventario funcional separado</td><td class="numero">2,5</td></tr>
+      <tr><td>Flujo de préstamo directo y trazabilidad</td><td class="numero">2,0</td></tr>
+      <tr><td>Validación de datos de emergencia, avisos y enlace al perfil</td><td class="numero">2,5</td></tr>
+      <tr><td>Pruebas integrales en staging y publicación</td><td class="numero">1,5</td></tr>
+      <tr class="total"><td>Total estimado de la solicitud completa</td><td class="numero">15,0 horas</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Valorización</h2>
+  <table class="valores">
+    <tbody>
+      <tr><td>Tarifa desarrollador senior</td><td class="numero">$40.000 CLP/hora</td></tr>
+      <tr><td>Valor neto integral</td><td class="numero">$600.000 CLP</td></tr>
+      <tr><td>IVA (19 %)</td><td class="numero">$114.000 CLP</td></tr>
+      <tr class="total"><td>Total con IVA</td><td class="numero">$714.000 CLP</td></tr>
+    </tbody>
+  </table>
+
+  <p class="nota">Esta valorización comprende la solicitud completa, incluyendo las funcionalidades ya desarrolladas y aquellas que todavía están pendientes, debido a que no se ha efectuado ningún cobro previo por esta solicitud. Considera desarrollo PHP/MySQL, pruebas en staging y publicación posterior a la aprobación.</p>
+
+  <h2>Detalle para registrar en la Intranet</h2>
+  <div class="texto-registro">
+    Desarrollo integral de las mejoras para la Comisión de Equipo: cambio de tres a cuatro meses en la regla de morosidad; filtros de búsqueda; separación entre préstamos e inventario; visualización exclusiva de equipos prestados; ordenamiento por socio; fechas independientes; confirmación antes de desactivar préstamos; devolución sin recarga completa; inventario funcional; préstamo directo por administradores autorizados; trazabilidad y notificación; validación obligatoria del contacto de emergencia; avisos y acceso directo a la actualización del perfil; pruebas en staging y publicación.<br><br>
+    <strong>Tiempo total estimado:</strong> 15 horas.<br>
+    <strong>Valor total estimado:</strong> $600.000 CLP netos.
+  </div>
+</body>
+</html>
