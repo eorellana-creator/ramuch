@@ -1,4 +1,39 @@
+<?php
+if (empty($_SESSION['csrf_reenvio_verificacion'])) {
+    $_SESSION['csrf_reenvio_verificacion'] = bin2hex(random_bytes(32));
+}
+?>
 <script>
+window.csrfReenvioVerificacion = <?php echo json_encode($_SESSION['csrf_reenvio_verificacion']); ?>;
+
+function reenviarVerificacion(idUsuario, boton) {
+    if (!window.confirm('¿Reenviar ahora el correo de verificación a este socio?')) {
+        return;
+    }
+
+    var $boton = $(boton);
+    $boton.prop('disabled', true).html("<i class='fas fa-spinner fa-spin'></i> Enviando...");
+
+    $.ajax({
+        url: 'components/socios/models/reenviar_verificacion.php',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            id_usuario: idUsuario,
+            csrf_token: window.csrfReenvioVerificacion
+        }
+    }).done(function(respuesta) {
+        alert(respuesta.mensaje || 'El correo de verificación fue enviado.');
+    }).fail(function(xhr) {
+        var mensaje = 'No fue posible enviar el correo de verificación.';
+        if (xhr.responseJSON && xhr.responseJSON.mensaje) {
+            mensaje = xhr.responseJSON.mensaje;
+        }
+        alert(mensaje);
+    }).always(function() {
+        $boton.prop('disabled', false).html("<i class='fas fa-paper-plane'></i> Reenviar verificación");
+    });
+}
 </script>
 
 <!-- Campos ocultos para almacenar valores de tipo y cuota -->

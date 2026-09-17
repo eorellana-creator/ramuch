@@ -51,6 +51,15 @@ $config 	= new Config;
 $mysql 		= new mysql;
 $mysql->connect(); 	
 
+$rol_administrador = isset($_SESSION['usuario_rol']) ? (int) $_SESSION['usuario_rol'] : 0;
+$puede_reenviar_verificacion = ($rol_administrador === 1);
+if (!$puede_reenviar_verificacion && $rol_administrador > 0) {
+  $sqlRolSesion = $mysql->query("SELECT nombre FROM rol WHERE id_rol='$rol_administrador' LIMIT 1;");
+  $rolSesion = $sqlRolSesion ? $mysql->f_obj($sqlRolSesion) : null;
+  $nombreRolSesion = $rolSesion ? strtolower(trim($rolSesion->nombre)) : '';
+  $puede_reenviar_verificacion = ($nombreRolSesion === 'administrador de socios');
+}
+
 
 //MARCAMOS LOS QUE SE REGISTRARON VÍA PÁGINA WEB Y NO HAN PAGADO LA MATRÍCULA*************************************************************************** */
 
@@ -196,8 +205,13 @@ while($result = $mysql->f_obj($sql)){
   $referencia = $result->referencia;
   $estado = $result->estado;
   $fecha_registro = $result->fecha_registro;
-  if($result->estado=='Por confirmar email')
-  $estado = "<span style='color:#ff0000;'>$result->estado</span>";
+  if($result->estado=='Por confirmar email') {
+    $estado = "<span style='color:#ff0000;'>$result->estado</span>";
+    $matricula_pendiente = ($result->web_matricula_pagada == '' || $result->web_matricula_pagada == 'No');
+    if ($puede_reenviar_verificacion && $matricula_pendiente) {
+      $estado .= "<br><button type='button' class='btn btn-sm btn-warning mt-1' onclick='reenviarVerificacion($result->id_usuario, this)'><i class='fas fa-paper-plane'></i> Reenviar verificación</button>";
+    }
+  }
 
   $web_matricula_pagada = $result->web_matricula_pagada;
   if($web_matricula_pagada == "" OR $web_matricula_pagada == 'No'){
@@ -303,4 +317,3 @@ echo "
 
 
 ?>
-
