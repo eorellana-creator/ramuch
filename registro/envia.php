@@ -13,7 +13,7 @@ function logError($message) {
 }
 
 // Cargar PHPMailer
-require '../vendor/autoload.php';
+require_once __DIR__ . '/../admin/includes/RamuchMailer.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -174,7 +174,7 @@ $recaptchaToken = $_POST["recaptchaToken"];
 
         try {
             // Configuración del servidor SMTP
-            $mail = new PHPMailer(true);
+            $mail = crearMailerRamuch(true);
             $mail->isSMTP();
             $mail->Host       = $host;
             $mail->SMTPAuth   = true;

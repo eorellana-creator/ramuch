@@ -19,7 +19,7 @@ function logError($message) {
 }
 
 // Cargar PHPMailer
-require '../vendor/autoload.php';
+require_once __DIR__ . '/../admin/includes/RamuchMailer.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -199,7 +199,7 @@ try {
 
 				try {
 					// Configuración del servidor SMTP
-					$mail = new PHPMailer(true);
+					$mail = crearMailerRamuch(true);
 					$mail->isSMTP();
 					$mail->Host       = $host;
 					$mail->SMTPAuth   = true;
@@ -349,7 +349,7 @@ try {
 				Web: ramuch.cl";
 
 					// Configuración PHPMailer para el socio
-					$mail_socio = new PHPMailer(true);
+					$mail_socio = crearMailerRamuch(true);
 					$mail_socio->isSMTP();
 					$mail_socio->Host       = $host;
 					$mail_socio->SMTPAuth   = true;
