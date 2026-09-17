@@ -314,12 +314,9 @@ while($result2 = $mysql->f_obj($sql2)){
     // Inicializamos la variable en 0 (desactivado por defecto)
     $activa_el_boton_2dias_antes = 0;
 
-    // Condición 1: ¿Estamos dentro del rango de 2 días antes hasta el viernes?
+    // La solicitud permanece disponible durante todo el día de devolución.
     if ($hoy >= $fecha_2dias_antes && $hoy <= $fecha_compromiso_sql ) {
-        // Condición 2: debe ser antes de las 20:00 hrs
-        if (!($hora_actual >= 01)) {
-            $activa_el_boton_2dias_antes = 1;
-        }
+        $activa_el_boton_2dias_antes = 1;
     }
 
     // ========== DEPURACIÓN: MOSTRAR VALORES ==========
@@ -342,7 +339,13 @@ while($result2 = $mysql->f_obj($sql2)){
     $estados_extensiones_html = "";
     
     if ($result2->estado == "prestado") {
-        $total_extensiones_solicitadas = (int)$result2->extensiones_solicitadas;
+        $total_extensiones_solicitadas = 0;
+        if (in_array((string)$result2->estado_extension, ['pendiente', 'aprobada'], true)) {
+            $total_extensiones_solicitadas++;
+        }
+        if (in_array((string)$result2->estado_extension2, ['pendiente', 'aprobada'], true)) {
+            $total_extensiones_solicitadas++;
+        }
         $extensiones_restantes = 2 - $total_extensiones_solicitadas;
         
         // Construir HTML de estados de extensiones

@@ -24,7 +24,6 @@ $(document).ready(function() {
         "initComplete": function(settings, json) {
             $('.sel2-basic-single').select2();
             initializeModalHandlers();
-            initializeExtensionHandlers();
         },
         "columnDefs": [{ orderable: false, targets: [1,7,9,10] }, { 'visible': false, 'targets': [8] }],
         "ajax": {
@@ -55,7 +54,6 @@ $(document).ready(function() {
         
         // Reinitialize modals after table redraw
         initializeModalHandlers();
-        initializeExtensionHandlers(); 
     });
     
     $('[data-toggle="tooltip"]').tooltip(); 
@@ -99,94 +97,6 @@ function initializeModalHandlers() {
     });
 }
 
-
-function initializeExtensionHandlers() {
-    $('.btn-extension').off('click').on('click', function() {
-        // Obtener el token directamente del botón
-        const token = $(this).attr('data-token'); 
-        
-        // Depuración
-        console.log("Token capturado del botón:", token); 
-        console.log("Todos los data-* del botón:", $(this).data());
-        
-        if (!token) {
-            console.error("Error: El botón no tiene data-token", this);
-            return;
-        }
-        
-        // Guardar el token en un campo oculto del modal
-        $('#tokenExtension').val(token);
-        $('#tokenDebug').text(token);
-
-        // Resetear el modal
-        $('input[name="accionExtension"][value="aprobar"]').prop('checked', true);
-        $('#motivoExtension').val('');
-        $('#fechaExtension').val('');
-        $('#fechaPropuestaOriginal').val('');
-        $('#fechaOriginalText').text('Cargando...');
-        $('#debugInfo').html('<div class="alert alert-info">Cargando datos de extensión...</div>');
-        
-        // Cargar datos ANTES de abrir el modal
-        $.ajax({
-            url: 'components/equipo/models/obtener_datos_extension.php',
-            type: 'GET',
-            data: { 
-                token: token,
-                debug: true
-            },
-            dataType: 'json',
-            success: function(response) {
-                console.log("Respuesta completa del servidor:", response);
-                
-                if(response && response.success) {
-                    // Mostrar información de depuración
-                    $('#debugInfo').html(`
-                        <div class="alert alert-success">
-                            <strong>Datos cargados correctamente</strong><br>
-                            Token: ${token}<br>
-                            Estado: ${response.estado || 'N/A'}
-                        </div>
-                    `);
-                    
-                    // Manejar la fecha propuesta
-                    if(response.fecha_propuesta) {
-                        $('#fechaExtension').val(response.fecha_propuesta);
-                        $('#fechaPropuestaOriginal').val(response.fecha_propuesta);
-                        $('#fechaOriginalText').text(response.fecha_propuesta_formateada || response.fecha_propuesta);
-                    } else {
-                        console.warn("No se recibió fecha propuesta en la respuesta");
-                        $('#fechaOriginalText').text("No disponible");
-                        $('#debugInfo').append('<div class="alert alert-warning mt-2">No se encontró fecha propuesta en la respuesta</div>');
-                    }
-                    
-                    // Establecer fecha mínima (hoy)
-                    var today = new Date().toISOString().split('T')[0];
-                    $('#fechaExtension').attr('min', today);
-                    
-                    // Ahora sí abrir el modal
-                    $('#modalExtension').modal('show');
-                } else {
-                    const errorMsg = response && response.error ? response.error : 'Respuesta inválida del servidor';
-                    console.error("Error en la respuesta:", errorMsg);
-                    $('#debugInfo').html(`
-                        <div class="alert alert-danger">
-                            Error al cargar datos: ${errorMsg}
-                        </div>
-                    `);
-                }
-            },
-            error: function(xhr, status, error) {
-                console.error("Error en la solicitud AJAX:", status, error);
-                $('#debugInfo').html(`
-                    <div class="alert alert-danger">
-                        Error en la comunicación con el servidor:<br>
-                        ${status}: ${error}
-                    </div>
-                `);
-            }
-        });
-    });
-}
 
 function enviar() {
     var error = 0;

@@ -132,7 +132,7 @@ while($result = $mysql->f_obj($sql)) {
         
         // Determinar color base
         $color_base = "";
-        if ($esta_atrasado && !$tiene_extension1 && !$tiene_extension2) {
+        if ($esta_atrasado) {
             $color_base = " style='color:#ff0000;'";
         }
         
@@ -146,11 +146,17 @@ while($result = $mysql->f_obj($sql)) {
         $color_extension = " style='color:#4169e1;'";
         if ($tiene_extension1) {
             $fecha_extension1 = fecha_mysql_a_normal($resultX2->fecha_propuesta_extension);
-            $fechas_devolucion .= " <span $color_extension> <br> Fecha extensión 1: <br> $fecha_extension1 </span> ";
+            $estado_extension1 = strtolower(trim((string)$resultX2->estado_extension));
+            $etiqueta_extension1 = $estado_extension1 === 'pendiente' ? 'Extensión 1 solicitada (pendiente)' : ($estado_extension1 === 'aprobada' ? 'Extensión 1 aprobada' : ($estado_extension1 === 'rechazada' ? 'Extensión 1 rechazada' : 'Extensión 1'));
+            $color_estado_extension1 = $estado_extension1 === 'pendiente' ? " style='color:#d98200;'" : $color_extension;
+            $fechas_devolucion .= " <span $color_estado_extension1> <br> $etiqueta_extension1: <br> $fecha_extension1 </span> ";
         }
         if ($tiene_extension2) {
             $fecha_extension2 = fecha_mysql_a_normal($resultX2->fecha_propuesta_extension2);
-            $fechas_devolucion .= " <span $color_extension> <br> Fecha extensión 2: <br> $fecha_extension2 </span> ";
+            $estado_extension2 = strtolower(trim((string)$resultX2->estado_extension2));
+            $etiqueta_extension2 = $estado_extension2 === 'pendiente' ? 'Extensión 2 solicitada (pendiente)' : ($estado_extension2 === 'aprobada' ? 'Extensión 2 aprobada' : ($estado_extension2 === 'rechazada' ? 'Extensión 2 rechazada' : 'Extensión 2'));
+            $color_estado_extension2 = $estado_extension2 === 'pendiente' ? " style='color:#d98200;'" : $color_extension;
+            $fechas_devolucion .= " <span $color_estado_extension2> <br> $etiqueta_extension2: <br> $fecha_extension2 </span> ";
         }
 
         // ... el resto del código se mantiene igual ...

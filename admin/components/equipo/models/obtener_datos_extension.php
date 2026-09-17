@@ -2,9 +2,6 @@
 include("../../../includes/conexionMysql.php");
 include("../../../includes/funciones.php");
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 header('Content-Type: application/json');
 
 error_log("Solicitud recibida con estos parámetros: " . print_r($_GET, true));
@@ -13,19 +10,6 @@ $token = $_GET['token'] ?? '';
 if(empty($token)) {
     error_log("Error: Token no recibido");
     echo json_encode(['success' => false, 'error' => 'Token no proporcionado']);
-    exit;
-}
-
-// Validar token recibido
-$token = $_GET['token'] ?? '';
-$debug = $_GET['debug'] ?? false;
-
-if (empty($token)) {
-    echo json_encode([
-        'success' => false, 
-        'error' => 'Token no proporcionado',
-        'debug' => $debug ? ['received_data' => $_GET] : null
-    ]);
     exit;
 }
 
@@ -102,16 +86,6 @@ try {
         'motivo_extension' => $motivo_extension
     ];
     
-    // Agregar datos extra si está en modo depuración
-    if ($debug) {
-        $response['debug'] = [
-            'query' => $sql,
-            'token_received' => $token,
-            'full_record' => $data,
-            'extension_detected' => $esSegundaExtension ? 'segunda' : 'primera'
-        ];
-    }
-    
     echo json_encode($response);
     
 } catch (Exception $e) {
@@ -119,7 +93,6 @@ try {
     
     echo json_encode([
         'success' => false,
-        'error' => $e->getMessage(),
-        'debug' => $debug ? ['exception' => $e->getTraceAsString()] : null
+        'error' => $e->getMessage()
     ]);
 }

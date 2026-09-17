@@ -67,6 +67,23 @@ try {
     $contador = 0;
     
     while ($prestamo = $mysql->f_obj($result)) {
+        $extensionesUtilizadas = 0;
+        if (in_array((string)$prestamo->estado_extension, ['pendiente', 'aprobada'], true)) {
+            $extensionesUtilizadas++;
+        }
+        if (in_array((string)$prestamo->estado_extension2, ['pendiente', 'aprobada'], true)) {
+            $extensionesUtilizadas++;
+        }
+
+        // Reconciliar contadores históricos que hayan incluido solicitudes
+        // rechazadas. El token proviene de la propia consulta a la base.
+        if ((int)$prestamo->extensiones_solicitadas !== $extensionesUtilizadas) {
+            $tokenPrestamo = str_replace("'", "''", (string)$prestamo->token);
+            $mysql->query("UPDATE equipo_prestamo
+                           SET extensiones_solicitadas = '$extensionesUtilizadas'
+                           WHERE token = '$tokenPrestamo'");
+        }
+
         $contador++;
         error_log("DEBUG - Préstamo $contador: " . 
                   "Token: {$prestamo->token}, " .
@@ -80,7 +97,7 @@ try {
             'nombre_equipo' => $prestamo->nombre_equipo,
             'fecha_prestamo' => fecha_mysql_a_normal($prestamo->fecha_prestamo),
             'fecha_debe_devolver' => fecha_mysql_a_normal($prestamo->fecha_debe_devolver),
-            'extensiones_solicitadas' => (int)$prestamo->extensiones_solicitadas,
+            'extensiones_solicitadas' => $extensionesUtilizadas,
             'estado_extension' => $prestamo->estado_extension ?: 'no solicitada',
             'estado_extension2' => $prestamo->estado_extension2 ?: 'no solicitada',
             'fecha_propuesta_extension' => $prestamo->fecha_propuesta_extension,
