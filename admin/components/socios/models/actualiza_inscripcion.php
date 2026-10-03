@@ -45,16 +45,16 @@ if($tipo!=""){
 
     }
 
-    //  si lo desvinculamos elimninar las deudas para que no exista el descuadre.
+    // Si lo deshabilitamos, sincronizar el estado y desactivar sus deudas.
     if($tipo=="7"){
-                // tabla a modificar deudas, eliminamos las deudas activas
-                $sqlA 	= $mysql->query("DELETE FROM deudas WHERE id_usuario_deuda ='$id_usuario' and estado = 'activa';");
+                $sqlUsuario = $mysql->query("UPDATE usuario SET estado='Deshabilitado' WHERE id_usuario='$id_usuario';");
+                $sqlA = $mysql->query("UPDATE deudas SET estado='desactivada', fecha_modificacion=CURDATE() WHERE id_usuario_deuda='$id_usuario' AND estado='activa';");
     }
 
-    //  si lo eliminamos, eliminar sus deudas y cambiar los estados de las tablas que corresponden
+    // Si lo eliminamos, sincronizar el estado y desactivar sus deudas.
     if($tipo=="8"){
-                // tabla a modificar deudas, eliminamos las deudas activas
-                $sqlA 	= $mysql->query("DELETE FROM deudas WHERE id_usuario_deuda ='$id_usuario' and estado = 'activa';");
+                $sqlUsuario = $mysql->query("UPDATE usuario SET estado='Eliminado' WHERE id_usuario='$id_usuario';");
+                $sqlA = $mysql->query("UPDATE deudas SET estado='desactivada', fecha_modificacion=CURDATE() WHERE id_usuario_deuda='$id_usuario' AND estado='activa';");
     }
 
     // si estaba desvinculado o eliminado y lo volvemos a dejar como profesional o estudiante y debe cambiar los valores de la deuda y crear las deudas
