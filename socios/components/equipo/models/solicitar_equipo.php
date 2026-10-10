@@ -89,20 +89,22 @@ foreach ($tokens as $token) {
 
 if (!empty($equipos_solicitados)) {
     // Email configuration
-    require_once("../../../includes/PHPMailer2/PHPMailerAutoload.php");
-    $mail = new PHPMailer;
+    require_once __DIR__ . "/../../../../admin/includes/RamuchMailer.php";
+    $mail = crearMailerRamuch(false);
     
     // Configure SMTP settings
     $mail->isSMTP();
-    $mail->Host = "mail.montanauchile.cl";
+    $mail->Host = "mail.ramuch.cl";
     $mail->SMTPAuth = true;
-    $mail->Username = "no-responder@montanauchile.cl";
-    $mail->Password = "123ramuchchile2022";
-    $mail->Port = 25;
+    $mail->Username = "no-responder@ramuch.cl";
+    $mail->Password = "1941ramuch2024";
+    $mail->Port = 587;
+    $mail->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Timeout = 15;
     $mail->CharSet = 'UTF-8';
     
-    $mail->setFrom("no-responder@montanauchile.cl", "Sistema Ramuch");
-    $mail->addReplyTo("no-responder@montanauchile.cl", 'Re: Solicitud de Préstamo');
+    $mail->setFrom("no-responder@ramuch.cl", "Sistema Ramuch");
+    $mail->addReplyTo("no-responder@ramuch.cl", 'Re: Solicitud de Préstamo');
     
     // Add commission members as recipients
     $sql = $mysql->query("SELECT c.*, u.* FROM comision_prestamo c INNER JOIN usuario u ON c.id_usuario=u.id_usuario ORDER BY u.nombre_usuario;");

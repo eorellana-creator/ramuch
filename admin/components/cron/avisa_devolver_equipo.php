@@ -20,8 +20,14 @@ $hoy 	= date("Y-m-d");
 
                           $id_equipo 				    = $result->id_equipo;
                           $id_usuario_prestamo 	= $result->id_usuario_prestamo;
-                          $fecha1 				      = $result->fecha_prestamo;
-                          $fecha2 				      = $result->fecha_debe_devolver;
+	                          $fecha1 				      = $result->fecha_prestamo;
+	                          $fecha2 				      = $result->fecha_debe_devolver;
+	                          $fecha_extension_pendiente = "";
+	                          if (@$result->estado_extension2 === 'pendiente' && !empty($result->fecha_propuesta_extension2)) {
+	                            $fecha_extension_pendiente = $result->fecha_propuesta_extension2;
+	                          } elseif (@$result->estado_extension === 'pendiente' && !empty($result->fecha_propuesta_extension)) {
+	                            $fecha_extension_pendiente = $result->fecha_propuesta_extension;
+	                          }
 
 
                           $sql55 	= $mysql->query("SELECT nombre FROM equipo WHERE id_equipo='$id_equipo' ;");
@@ -33,14 +39,19 @@ $hoy 	= date("Y-m-d");
                           $nombre_usuario = $result77->nombre_usuario;
                           $email_usuario = $result77->email;
 
-                          $fecha1 				= fecha_mysql_a_normal($fecha1);
-                          $fecha2 				= fecha_mysql_a_normal($fecha2);
+	                          $fecha1 				= fecha_mysql_a_normal($fecha1);
+	                          $fecha2 				= fecha_mysql_a_normal($fecha2);
+	                          $aviso_extension = "";
+	                          if ($fecha_extension_pendiente !== "") {
+	                            $fecha_extension_formateada = fecha_mysql_a_normal($fecha_extension_pendiente);
+	                            $aviso_extension = "<br><br><strong>Importante:</strong> Existe una solicitud de extensión hasta el <strong>$fecha_extension_formateada</strong>, pero todavía se encuentra <strong>pendiente de aprobación</strong> por la Comisión de Equipo. Mientras no sea aprobada, la fecha vigente de devolución continúa siendo el <strong>$fecha2</strong>.";
+	                          }
 
                         //Configuración de envío ***************************************************************
-                        $host 			= "mail.montanauchile.cl";
-                        $email_user 	= "no-responder@montanauchile.cl";
-                        $email_pass 	= "123ramuchchile2022";
-                        $email_from 	= "no-responder@montanauchile.cl";
+                        $host 			= "mail.ramuch.cl";
+                        $email_user 	= "no-responder@ramuch.cl";
+                        $email_pass 	= "1941ramuch2024";
+                        $email_from 	= "no-responder@ramuch.cl";
                         $email_to 		= "";
                         $email_name 	= "Ramuch";
                         $email_reply 	= "no-responder@montanauchile.cl";
@@ -79,7 +90,7 @@ $hoy 	= date("Y-m-d");
                           <strong>Devolución de equipo,</strong>
                           <br><br>
                           
-                          <strong>$nombre_usuario</strong> te recordamos que en nuestro sistema tienes pendiente la devolución del equipo: $nombre_equipo comprometida para su uso entre las fechas <strong>$fecha1</strong> y <strong>$fecha2</strong>. Te solicitamos recordarte de la devolución del equipo y en caso de ya haberlo devuelto u otra situación, por favor comunícate con la comisión o la directiva para solucionar el caso.<br><br><br>
+	                          <strong>$nombre_usuario</strong>, te recordamos que en nuestro sistema tienes pendiente la devolución del equipo <strong>$nombre_equipo</strong>, cuyo préstamo fue registrado desde el <strong>$fecha1</strong> y mantiene como fecha vigente de devolución el <strong>$fecha2</strong>.$aviso_extension<br><br>Si ya devolviste el equipo o necesitas aclarar esta situación, comunícate con la Comisión de Equipo o la Directiva.<br><br><br>
                           <strong>Sistema Ramuch</strong>
                           </p>
                           <br> 
@@ -96,10 +107,10 @@ $hoy 	= date("Y-m-d");
 
 
                           
-                        require_once("../../includes/PHPMailer2/PHPMailerAutoload.php");
+                        require_once __DIR__ . "/../../includes/RamuchMailer.php";
 
                         //Create a new PHPMailer instance
-                        $mail = new PHPMailer;
+                        $mail = crearMailerRamuch(false);
                         //Tell PHPMailer to use SMTP
                         $mail->isSMTP();
                         //Enable SMTP debugging
@@ -112,7 +123,9 @@ $hoy 	= date("Y-m-d");
                         //Set the hostname of the mail server
                         $mail->Host = $host;
                         //Set the SMTP port number - likely to be 25, 465 or 587
-                        $mail->Port = 25;
+                        $mail->Port = 587;
+                        $mail->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
+                        $mail->Timeout = 15;
                         //Whether to use SMTP authentication
                         $mail->SMTPAuth = true;
                         //Username to use for SMTP authentication
@@ -157,7 +170,7 @@ $hoy 	= date("Y-m-d");
 
 
                         //Set the subject line
-                        $mail->Subject = 'Respuesta solicitud de Préstamo';
+	                        $mail->Subject = 'Recordatorio de devolución de equipo';
                         //Read an HTML message body from an external file, convert referenced images to embedded,
                         //convert HTML into a basic plain-text alternative body
                         $mail->msgHTML($cuerpo);

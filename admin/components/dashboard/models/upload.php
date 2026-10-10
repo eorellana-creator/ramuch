@@ -15,6 +15,16 @@ date_default_timezone_set("$config->zona_horaria");
 $mysql 	= new mysql;
 $mysql->connect();
 
+require_once __DIR__ . '/permisos_documentos.php';
+if (!puedeAdministrarDocumentos($mysql)) {
+    http_response_code(403);
+    echo json_encode([
+        'success' => false,
+        'error' => 'No tiene permisos para subir documentos'
+    ]);
+    exit;
+}
+
 // Recibir los datos del formulario
 $id_comision = $_POST['id_comision'] ?? null;
 $descripcion = $_POST['descripcion'] ?? null;

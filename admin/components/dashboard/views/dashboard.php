@@ -3,26 +3,6 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<?php 
-session_start();
-// Define los IDs permitidos
-$usuarios_permitidos = [1, 2143, 1978, 2150, 1752, 1794];
-$mostrar_botones = in_array($_SESSION['usuario_id'], $usuarios_permitidos);
-?>
-
-<script>
-// Debug en consola
-window.addEventListener('DOMContentLoaded', () => {
-    console.group('Debug de permisos');
-    console.log('ID Usuario:', <?= json_encode($usuario_id) ?>);
-    console.log('Usuarios permitidos:', <?= json_encode($usuarios_permitidos) ?>);
-    console.log('Mostrar botones:', <?= json_encode($mostrar_botones) ?>);
-    console.groupEnd();
-});
-console.log("Datos de Sesión:", <?= json_encode($_SESSION) ?>);
-
-</script>
-
 <div class="row">
     <div class="col-sm-6 col-lg-3">
         <div class="card text-white bg-primary">

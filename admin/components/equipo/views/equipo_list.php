@@ -222,7 +222,6 @@
                 <input type="hidden" id="fechaPropuestaOriginal">
                 
                 <div id="debugInfo"></div>
-                <div class="small text-muted mb-3">Token: <span id="tokenDebug" class="font-weight-bold"></span></div>
 
                 <!-- Selector de acción -->
                 <div class="form-group">
@@ -897,10 +896,8 @@ $(document).ready(function() {
         var token = button.data('token');
         
         $('#tokenExtension').val(token);
-        $('#tokenDebug').text(token);
         $('#motivoExtension').val('');
-        
-        console.log('DEBUG - Cargando datos para token:', token);
+        $('#debugInfo').html('<div class="alert alert-info">Cargando información de la extensión...</div>');
 
         // Cargar datos de la extensión via AJAX
         $.ajax({
@@ -908,26 +905,24 @@ $(document).ready(function() {
             type: 'GET',
             data: { token: token },
             success: function(response) {
-                console.log('DEBUG - Datos recibidos:', response);
                 if (response.success) {
                     $('#fechaPropuestaOriginal').val(response.fecha_propuesta);
                     $('#fechaOriginalText').text(response.fecha_propuesta_formateada);
                     $('#fechaExtension').val(response.fecha_propuesta);
                     
-                    // Mostrar información de debug si es segunda extensión
                     if (response.es_segunda_extension) {
-                        $('#debugInfo').html('<div class="alert alert-info">Gestionando <strong>SEGUNDA</strong> extensión</div>');
+                        $('#debugInfo').html('<div class="alert alert-info">Gestionando <strong>segunda extensión</strong></div>');
                     } else {
-                        $('#debugInfo').html('<div class="alert alert-info">Gestionando <strong>PRIMERA</strong> extensión</div>');
+                        $('#debugInfo').html('<div class="alert alert-info">Gestionando <strong>primera extensión</strong></div>');
                     }
                 } else {
                     alert('Error al cargar datos: ' + response.error);
                     console.error('Error al cargar datos:', response.error);
                 }
             },
-            error: function() {
+            error: function(xhr, status, error) {
                 alert('Error al cargar los datos de la extensión');
-                console.error('DEBUG - Error AJAX:', error);
+                console.error('Error AJAX:', error);
             }
         });
     });

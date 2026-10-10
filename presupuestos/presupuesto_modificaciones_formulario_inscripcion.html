@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Presupuesto — Modificaciones Formulario de Inscripción RAMUCH</title>
+<style>
+  @page { size: A4; margin: 1.7cm; }
+  body { font-family: Arial, sans-serif; color: #222; font-size: 10.2pt; line-height: 1.38; }
+  h1 { color: #17365d; font-size: 20pt; margin-bottom: 4px; }
+  h2 { color: #245b84; font-size: 14pt; margin-top: 20px; border-bottom: 1px solid #b8c8d8; padding-bottom: 4px; }
+  .subtitulo { color: #666; margin-top: 0; }
+  .resumen { background: #eef5fa; border-left: 5px solid #2a84b8; padding: 11px 14px; }
+  .seguridad { background: #fff8e6; border-left: 5px solid #e5a100; padding: 10px 14px; }
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+  th { background: #245b84; color: white; text-align: left; padding: 7px; }
+  td { border: 1px solid #c8d1da; padding: 7px; vertical-align: top; }
+  td.numero { text-align: right; white-space: nowrap; }
+  tr.total td { font-weight: bold; background: #eef5fa; }
+  .hecho { color: #16713a; font-weight: bold; }
+  .parcial { color: #a46700; font-weight: bold; }
+  .pendiente { color: #a22020; font-weight: bold; }
+  .valores { width: 67%; margin-left: auto; }
+  .valores td:first-child { font-weight: bold; }
+  .nota { font-size: 9pt; color: #555; }
+  .texto-registro { border: 1px solid #c8d1da; background: #fafafa; padding: 12px 15px; }
+</style>
+</head>
+<body>
+  <h1>Presupuesto de desarrollo</h1>
+  <p class="subtitulo">Modificaciones al Formulario de Inscripción — RAMUCH</p>
+  <p><strong>Fecha:</strong> 12 de septiembre de 2026</p>
+
+  <div class="resumen">
+    <strong>Objetivo</strong><br>
+    Ampliar y estandarizar los antecedentes capturados durante la inscripción, mejorar la calidad de los datos, incorporar estadísticas agregadas, automatizar saludos de cumpleaños y actualizar el consentimiento informado del socio.
+  </div>
+
+  <h2>Evaluación de lo existente</h2>
+  <table>
+    <thead><tr><th style="width:32%">Requerimiento</th><th style="width:14%">Estado</th><th>Evaluación</th></tr></thead>
+    <tbody>
+      <tr><td>Separar nombres y apellidos; exportar a Excel</td><td class="pendiente">Pendiente</td><td>Actualmente se almacena el nombre completo en un solo campo. La exportación también utiliza ese único valor.</td></tr>
+      <tr><td>Sexo/género y tablero agregado</td><td class="pendiente">Pendiente</td><td>No existe el campo en el registro ni una visualización estadística en el Dashboard.</td></tr>
+      <tr><td>RUT obligatorio y estandarizado</td><td class="parcial">Parcial</td><td>Es obligatorio, se valida y se formatea con puntos y guion al salir del campo. Falta mejorar el formateo durante la digitación y reforzar la validación del servidor.</td></tr>
+      <tr><td>Email obligatorio</td><td class="hecho">Implementado</td><td>El formulario exige email, confirmación del email y valida su formato y duplicidad.</td></tr>
+      <tr><td>Fecha de nacimiento obligatoria</td><td class="parcial">Parcial</td><td>El perfil interno ya dispone de fecha de nacimiento, pero el formulario público no la solicita y actualmente registra una fecha vacía.</td></tr>
+      <tr><td>Correo automático de cumpleaños</td><td class="pendiente">Pendiente</td><td>No existe una tarea diaria a las 09:00, plantilla de saludo, copia oculta ni control de envíos duplicados.</td></tr>
+      <tr><td>Teléfono obligatorio y normalizado</td><td class="parcial">Parcial</td><td>Es obligatorio, pero admite texto libre y no controla prefijo, longitud ni formato internacional.</td></tr>
+      <tr><td>Tipo de socio obligatorio</td><td class="parcial">Parcial</td><td>El sistema ya diferencia planes profesional y estudiante, pero actualmente lo infiere según la existencia del certificado; no hay selector explícito.</td></tr>
+      <tr><td>Certificado obligatorio para estudiante</td><td class="parcial">Parcial</td><td>La carga de PDF o imagen existe, pero es opcional y no depende de una selección explícita de “Estudiante Pregrado”.</td></tr>
+      <tr><td>Participación en otro club</td><td class="pendiente">Pendiente</td><td>No existen la pregunta, el detalle máximo de 50 caracteres ni campos de base de datos asociados.</td></tr>
+      <tr><td>Motivaciones para ingresar a RAMUCH</td><td class="pendiente">Pendiente</td><td>No existe selección múltiple, límite de tres alternativas ni opción “Otro”.</td></tr>
+      <tr><td>Consentimiento, Protocolo y Estatutos</td><td class="parcial">Parcial</td><td>Existe un checkbox obligatorio. El texto está desactualizado; el vínculo de deberes no apunta a ningún documento y debe actualizarse la referencia al Protocolo de Cuotas.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Certificado de Alumno Regular</h2>
+  <p>Actualmente el certificado se guarda en el directorio <strong>admin/components/socios/archivos</strong> y su nombre se registra en el perfil del socio. Los administradores pueden abrirlo desde la ficha administrativa mediante el enlace “ver certificado actual”, por lo que su consulta es sencilla.</p>
+  <div class="seguridad">
+    <strong>Recomendación de seguridad:</strong> los certificados no deberían depender únicamente de una dirección directa dentro del sitio web. Se recomienda impedir el listado público, validar el tipo real y tamaño del archivo, asignar nombres aleatorios y servir la descarga mediante un controlador autenticado que compruebe los permisos del administrador.
+  </div>
+
+  <h2>Desarrollo considerado</h2>
+  <ol>
+    <li>Migración de base de datos para nombres, apellidos, género, nacimiento, teléfono normalizado, club anterior, motivaciones y consentimiento.</li>
+    <li>Actualización del formulario y validaciones tanto en navegador como en servidor.</li>
+    <li>Dependencias condicionales: certificado obligatorio para estudiante, detalle del club anterior y texto para la opción “Otro”.</li>
+    <li>Límite de tres motivaciones y almacenamiento estructurado para informes posteriores.</li>
+    <li>Actualización de la ficha administrativa, listados y exportaciones Excel.</li>
+    <li>Tablero agregado de distribución por sexo/género, sin exponer información individual innecesaria.</li>
+    <li>Tarea diaria de cumpleaños a las 09:00, correo personalizado, copia oculta a la Directiva, registro y prevención de duplicados.</li>
+    <li>Actualización del consentimiento y enlaces a los documentos oficiales publicados por RAMUCH.</li>
+    <li>Protección y descarga autenticada del certificado de alumno regular.</li>
+    <li>Pruebas de inscripción profesional y estudiante en staging y publicación posterior.</li>
+  </ol>
+
+  <h2>Estimación integral</h2>
+  <table>
+    <thead><tr><th>Actividad</th><th style="width:20%; text-align:right">Horas</th></tr></thead>
+    <tbody>
+      <tr><td>Diseño y migración del modelo de datos</td><td class="numero">2,0</td></tr>
+      <tr><td>Nombres, apellidos, género y fecha de nacimiento</td><td class="numero">2,5</td></tr>
+      <tr><td>RUT, email y normalización internacional del teléfono</td><td class="numero">1,5</td></tr>
+      <tr><td>Tipo de socio y certificado condicional protegido</td><td class="numero">2,0</td></tr>
+      <tr><td>Club anterior, motivaciones y reglas condicionales</td><td class="numero">2,5</td></tr>
+      <tr><td>Consentimiento y enlaces documentales</td><td class="numero">1,0</td></tr>
+      <tr><td>Ficha administrativa y exportaciones Excel</td><td class="numero">2,0</td></tr>
+      <tr><td>Dashboard agregado por sexo/género</td><td class="numero">1,5</td></tr>
+      <tr><td>Automatización del correo de cumpleaños</td><td class="numero">2,0</td></tr>
+      <tr><td>Pruebas integrales, staging y publicación</td><td class="numero">2,0</td></tr>
+      <tr class="total"><td>Total estimado de la solicitud completa</td><td class="numero">19,0 horas</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Valorización</h2>
+  <table class="valores">
+    <tbody>
+      <tr><td>Tarifa desarrollador senior</td><td class="numero">$40.000 CLP/hora</td></tr>
+      <tr><td>Valor neto</td><td class="numero">$760.000 CLP</td></tr>
+      <tr><td>IVA (19 %)</td><td class="numero">$144.400 CLP</td></tr>
+      <tr class="total"><td>Total con IVA</td><td class="numero">$904.400 CLP</td></tr>
+    </tbody>
+  </table>
+
+  <p class="nota">La valorización contempla la solicitud completa, incluyendo la adaptación de funciones existentes. Considera desarrollo PHP/MySQL, migración no destructiva, validación en staging y publicación posterior a la aprobación.</p>
+
+  <h2>Detalle para registrar en la Intranet</h2>
+  <div class="texto-registro">
+    Ampliación integral del formulario de inscripción: separación de nombres y apellidos; género opcional; RUT, email, fecha de nacimiento, teléfono y tipo de socio obligatorios y estandarizados; certificado condicional para estudiantes; preguntas sobre clubes anteriores y motivaciones; actualización del consentimiento y sus enlaces documentales; adaptación de exportaciones Excel; tablero agregado por género; acceso protegido a certificados; y saludo automático de cumpleaños a las 09:00 con copia oculta a la Directiva. Incluye migración de datos, validaciones, trazabilidad, pruebas en staging y publicación.<br><br>
+    <strong>Tiempo estimado total:</strong> 19 horas.<br>
+    <strong>Valor estimado total:</strong> $760.000 CLP netos.
+  </div>
+</body>
+</html>

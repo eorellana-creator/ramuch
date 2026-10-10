@@ -1,5 +1,6 @@
 <?php
 include("../../../includes/conexionMysql.php");
+require_once __DIR__ . '/../../../includes/RamuchMailer.php';
 
 // Habilitar reporte de errores
 error_reporting(E_ALL);
@@ -225,10 +226,12 @@ try {
             </body>
             </html>
         ";
-        $headers_usuario = "From: no-reply@ramuch.cl\r\n";
-        $headers_usuario .= "Content-Type: text/html; charset=UTF-8\r\n";
-
-        if (!mail($email_usuario, $asunto_usuario, $mensaje_usuario, $headers_usuario)) {
+        $mailUsuario = crearMailerRamuch(true);
+        $mailUsuario->setFrom('no-responder@ramuch.cl', 'Mercado Ramuch');
+        $mailUsuario->addAddress($email_usuario, $nombre_usuario);
+        $mailUsuario->Subject = $asunto_usuario;
+        $mailUsuario->msgHTML($mensaje_usuario);
+        if (!$mailUsuario->send()) {
             error_log("Error al enviar el correo al usuario con email: $email_usuario");
             throw new Exception("Error al enviar el correo al usuario.");
         }
@@ -253,10 +256,12 @@ try {
             </body>
             </html>
         ";
-        $headers_comision = "From: no-reply@ramuch.cl\r\n";
-        $headers_comision .= "Content-Type: text/html; charset=UTF-8\r\n";
-
-        if (!mail($email_comision, $asunto_comision, $mensaje_comision, $headers_comision)) {
+        $mailComision = crearMailerRamuch(true);
+        $mailComision->setFrom('no-responder@ramuch.cl', 'Mercado Ramuch');
+        $mailComision->addAddress($email_comision, 'Comisión de Merchandising');
+        $mailComision->Subject = $asunto_comision;
+        $mailComision->msgHTML($mensaje_comision);
+        if (!$mailComision->send()) {
             error_log("Error al enviar el correo a comision.merchandising@ramuch.cl");
             throw new Exception("Error al enviar el correo a comision.merchandising@ramuch.cl.");
         }

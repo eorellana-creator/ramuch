@@ -138,7 +138,13 @@ while($result2 = $mysql->f_obj($sql2)){
     $estados_extensiones_html = "";
     
     if ($result2->estado == "prestado") {
-        $total_extensiones_solicitadas = (int)$result2->extensiones_solicitadas;
+        $total_extensiones_solicitadas = 0;
+        if (in_array((string)$result2->estado_extension, ['pendiente', 'aprobada'], true)) {
+            $total_extensiones_solicitadas++;
+        }
+        if (in_array((string)$result2->estado_extension2, ['pendiente', 'aprobada'], true)) {
+            $total_extensiones_solicitadas++;
+        }
         $extensiones_restantes = 2 - $total_extensiones_solicitadas;
         
         // Construir HTML de estados de extensiones

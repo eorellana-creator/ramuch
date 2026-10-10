@@ -7,6 +7,7 @@ include("../../includes/sql_inyection_salto_textarea.php");
 include("../../configuration.php");
 include("../../includes/conexionMysql.php");
 include("../../includes/funciones.php");
+require_once __DIR__ . '/../../includes/RamuchMailer.php';
 
 
 
@@ -144,7 +145,12 @@ while($result = $mysql->f_obj($sql)){
 
 }//while($result = $mysql->f_obj($sql))
 
-mail('eorellana@gmail.com', 'Cron Ramuch', "El cron se encuentra trabajando");
+$mailCron = crearMailerRamuch(false);
+$mailCron->setFrom('no-responder@ramuch.cl', 'Sistema Ramuch');
+$mailCron->addAddress('eorellana@gmail.com');
+$mailCron->Subject = 'Cron Ramuch';
+$mailCron->Body = 'El cron se encuentra trabajando';
+$mailCron->send();
 
 
 

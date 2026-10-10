@@ -3,6 +3,9 @@ session_start();
 @include("../../../includes/sql_inyection.php");
 $mysql->connect();
 
+require_once __DIR__ . '/permisos_documentos.php';
+$mostrar_botones = puedeAdministrarDocumentos($mysql);
+
 
 // Consulta de comisiones
 // 3. Para carga inicial (solo comisiones)

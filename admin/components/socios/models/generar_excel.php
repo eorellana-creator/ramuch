@@ -9,6 +9,19 @@ $config = new Config;
 $mysql = new mysql;
 $mysql->connect();
 
+// El modelo conserva el nombre completo en una sola columna. Los registros
+// nuevos llegan en el orden Nombres + Apellido paterno + Apellido materno.
+function separarNombreParaExcel($nombreCompleto) {
+    $partes = preg_split('/\s+/u', trim($nombreCompleto), -1, PREG_SPLIT_NO_EMPTY);
+    $cantidad = count($partes);
+    if ($cantidad === 0) return array('', '', '');
+    if ($cantidad === 1) return array($partes[0], '', '');
+    if ($cantidad === 2) return array($partes[0], $partes[1], '');
+    $apellidoMaterno = array_pop($partes);
+    $apellidoPaterno = array_pop($partes);
+    return array(implode(' ', $partes), $apellidoPaterno, $apellidoMaterno);
+}
+
 // Obtener los parámetros del formulario
 $fechaInicio = $_GET['fechaInicio'];
 $fechaFin = $_GET['fechaFin'];
@@ -101,6 +114,7 @@ error_log("sql: " . $sqlBase);
 // Procesar los resultados
 $lista_excel = "";
 while ($resultC = $mysql->f_obj($sqlC)) {
+    list($nombres, $apellidoPaterno, $apellidoMaterno) = separarNombreParaExcel($resultC->nombre_usuario);
     // Traducir el tipo de inscripción
     $tipoInscripcionTexto = '';
     switch ($resultC->tipo_inscripcion) {
@@ -144,7 +158,9 @@ while ($resultC = $mysql->f_obj($sqlC)) {
     // Agregar fila al archivo Excel
     $lista_excel .= "<tr>
                         <td>{$resultC->id_usuario}</td>
-                        <td>{$resultC->nombre_usuario}</td>
+                        <td>$nombres</td>
+                        <td>$apellidoPaterno</td>
+                        <td>$apellidoMaterno</td>
                         <td>{$resultC->rut}</td>
                         <td>{$resultC->fono}</td>
                         <td>{$resultC->email}</td>
@@ -160,7 +176,9 @@ while ($resultC = $mysql->f_obj($sqlC)) {
 // Encabezados del archivo Excel
 $encabezados = "<tr style='background-color:#313131; color:#ffffff;padding:4px;'>
                     <td>ID</td>
-                    <td>Nombre</td>
+                    <td>Nombres</td>
+                    <td>Apellido paterno</td>
+                    <td>Apellido materno</td>
                     <td>Rut</td>
                     <td>Teléfono</td>
                     <td>Email</td>
