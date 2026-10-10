@@ -18,6 +18,16 @@ $direccion = strtolower($_POST["order"][0]["dir"] ?? "asc") === "desc" ? "DESC" 
 $mysql = new mysql;
 $mysql->connect();
 
+require_once __DIR__ . '/../permisos.php';
+if (!puedeAdministrarInventario($mysql)) {
+    http_response_code(403);
+    header("Content-Type: application/json; charset=UTF-8");
+    echo json_encode([
+        "error" => "No tiene permisos para acceder al inventario de equipos"
+    ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+    exit;
+}
+
 $where = " WHERE 1=1 ";
 if ($busqueda !== "") {
     $busquedaSql = str_replace(["\\", "'", "%", "_"], ["\\\\", "''", "\\%", "\\_"], $busqueda);
