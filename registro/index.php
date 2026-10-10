@@ -501,7 +501,7 @@ function validaCertificado(e){
                           </div>
 
 
-                          <div class="acepto-terminos"  ><input type="checkbox" id="terminos" name="terminos" value=""  > Acepto el <a href="reglamento-ramuch-2022.pdf" target="_blank">Reglamento de Cuotas</a> y los <a href="#">deberes del Club Ramuch</a></div>
+                          <div class="acepto-terminos"  ><input type="checkbox" id="terminos" name="terminos" value=""  > Acepto el <a href="https://www.ramuch.cl/admin/documentos/6ac2b38517f48.pdf" target="_blank">Protocolo de Pago de Cuotas</a> y los <a href="#">deberes del Club Ramuch</a></div>
 
                           <div id="alerta-invalido"></div>
 
