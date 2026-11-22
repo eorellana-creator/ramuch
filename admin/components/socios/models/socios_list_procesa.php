@@ -9,6 +9,7 @@ session_start();
 include("../../../configuration.php");
 include("../../../includes/conexionMysql.php");
 include("../../../includes/funciones.php");
+require_once __DIR__ . '/../../../includes/tipo_inscripcion.php';
 
 $draw			 = @$_POST["draw"];
 $inicio		 = @$_POST["start"];
@@ -227,31 +228,8 @@ while($result = $mysql->f_obj($sql)){
   $telefono = "<a href='tel:$result->fono'><i class='fas fa-mobile'></i> $result->fono</a>";
 
 
-  // Kop se debe eliminar y dejar la busqueda por la base de datos
-  $tipo_inscripcion = "";
-  switch($result->tipo_inscripcion){
-  case 1:
-    $tipo_inscripcion = "Profesional";
-    break;
-  case 3:
-    $tipo_inscripcion = "Estudiante";
-    break;
-  case 6:
-    $tipo_inscripcion = "Congelado";
-    break;
-  case 2:
-    $tipo_inscripcion = "Honorario";
-    break;
-  case 7:
-    $tipo_inscripcion = "Desvinculado";
-    break;
-
-//  case 8:
-//    $tipo_inscripcion = "Eliminado";
-//    break;
-
-
-}//switch
+  // Nombre desde plan_matricula; "Eliminado" (8) no se muestra en el listado.
+  $tipo_inscripcion = (int)$result->tipo_inscripcion === 8 ? "" : ramuchNombreTipoInscripcion($mysql, $result->tipo_inscripcion);
 
   /*
   // tipo de inscripcion

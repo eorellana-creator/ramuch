@@ -4,6 +4,7 @@ header('Content-Type: application/json; charset=utf-8');
 include('includes/conexionMysql.php');
 include('includes/funciones.php');
 require_once __DIR__ . '/../admin/includes/RamuchMailer.php';
+require_once __DIR__ . '/../admin/includes/tipo_inscripcion.php';
 
 define('LOG_FILE', __DIR__ . '/email_errors.log');
 define('CONSENTIMIENTO_VERSION', '2026-10-10');
@@ -105,7 +106,7 @@ if (!rutValido($rutIngresado)) responder(false, 'El RUT ingresado no es válido.
 if (!filter_var($email, FILTER_VALIDATE_EMAIL) || $email !== $emailConfirmacion) responder(false, 'Los correos electrónicos no son válidos o no coinciden.', 422);
 if (!in_array($codigoPais, $codigosPaisPermitidos, true) || strlen($telefonoLocal) < 7 || strlen($telefonoLocal) > 15) responder(false, 'El teléfono ingresado no es válido.', 422);
 if (!checkdate($mesNacimiento, $diaNacimiento, $anioNacimiento) || $fechaNacimiento > date('Y-m-d')) responder(false, 'La fecha de nacimiento no es válida.', 422);
-if (!in_array($tipoSocio, array('profesional', 'estudiante'), true)) responder(false, 'Debes seleccionar Profesional o Estudiante.', 422);
+if (!in_array($tipoSocio, array('profesional', 'estudiante'), true)) responder(false, 'Debes seleccionar ' . ramuchNombreTipoInscripcion(null, 1) . ' o ' . ramuchNombreTipoInscripcion(null, 3) . '.', 422);
 if (strlen($passwordPlano) < 8 || !preg_match('/[a-z]/', $passwordPlano) || !preg_match('/[A-Z]/', $passwordPlano) || !preg_match('/[0-9]/', $passwordPlano) || $passwordPlano !== $passwordConfirmacion) responder(false, 'La contraseña no cumple los requisitos o no coincide con su confirmación.', 422);
 if (!in_array($otroClub, array('', '0', '1'), true) || ($otroClub === '1' && $nombreOtroClub === '') || strlen($nombreOtroClub) > 50) responder(false, 'Completa el nombre del club anterior cuando corresponda.', 422);
 if (count($motivaciones) > 3 || (in_array('otro', $motivaciones, true) && $motivacionOtro === '')) responder(false, 'Puedes seleccionar hasta tres motivaciones y debes completar “Otro” cuando corresponda.', 422);
@@ -173,7 +174,7 @@ try {
     $plan = $consultaPlan ? $mysql->f_obj($consultaPlan) : null;
     if (!$plan) throw new Exception('No se encontró el plan de matrícula seleccionado.');
     $valorMatricula = (int)$plan->valor;
-    $glosa = $tipoInscripcion === 3 ? "Matrícula Estudiante $nombre" : "Matrícula Profesional $nombre";
+    $glosa = "Matrícula " . ramuchNombreTipoInscripcion($mysql, $tipoInscripcion) . " $nombre";
     $glosaSql = $esc($glosa);
     $tokenDeuda = $esc(md5(random_int(9999, 999999) . $nombre . $ahora . $ultimoId));
     $sqlDeuda = "INSERT INTO deudas (id_usuario, id_usuario_deuda, nombre_deudor, sub_cuenta, fecha, monto, glosa, estado, fecha_insercion, token) VALUES (0, '$ultimoId', '$nombreSql', 'matricula', '$hoy', '$valorMatricula', '$glosaSql', 'por confirmar email', '$hoy', '$tokenDeuda')";

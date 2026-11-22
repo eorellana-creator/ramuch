@@ -183,6 +183,56 @@
     </div>
 </div>
 
+<?php if (!empty($distribucion_genero)): ?>
+<div class="row mt-2">
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="mb-0">Socios activos por sexo/género</h4>
+            </div>
+            <div class="card-body">
+                <div id="grafico-genero" style="width:100%; height:280px;"></div>
+                <table class="table table-sm mt-3 mb-0">
+                    <tbody>
+                    <?php $totalGenero = array_sum($distribucion_genero); ?>
+                    <?php foreach ($distribucion_genero as $etiquetaGenero => $cantidadGenero): ?>
+                        <tr>
+                            <td><?php echo htmlspecialchars($etiquetaGenero, ENT_QUOTES, 'UTF-8'); ?></td>
+                            <td class="text-right"><?php echo number_format($cantidadGenero, 0, ',', '.'); ?></td>
+                            <td class="text-right text-muted"><?php echo $totalGenero > 0 ? number_format($cantidadGenero * 100 / $totalGenero, 1, ',', '.') . '%' : '0%'; ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+                <small class="text-muted">"Sin información" corresponde a socios que no han indicado este dato (campo opcional).</small>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+(function () {
+    var datosGenero = <?php echo json_encode(array_map(null, array_keys($distribucion_genero), array_values($distribucion_genero)), JSON_UNESCAPED_UNICODE); ?>;
+    function dibujarGraficoGenero() {
+        var tabla = new google.visualization.DataTable();
+        tabla.addColumn('string', 'Sexo/Género');
+        tabla.addColumn('number', 'Socios');
+        tabla.addRows(datosGenero);
+        new google.visualization.PieChart(document.getElementById('grafico-genero')).draw(tabla, {
+            pieHole: 0.45,
+            legend: { position: 'right' },
+            chartArea: { width: '90%', height: '85%' },
+            colors: ['#c2185b', '#1976d2', '#7b1fa2', '#9e9e9e'],
+            sliceVisibilityThreshold: 0
+        });
+    }
+    if (window.google && google.charts) {
+        google.charts.load('current', { packages: ['corechart'] });
+        google.charts.setOnLoadCallback(dibujarGraficoGenero);
+    }
+})();
+</script>
+<?php endif; ?>
+
 <div class="clear:both;width:100%; font-size:10px !important;"></div>
 
 <div class="row mt-4">

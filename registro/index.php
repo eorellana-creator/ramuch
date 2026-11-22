@@ -500,8 +500,26 @@ function validaCertificado(e){
                           <div class="input-group mb-3">
                             <select id="tipo_socio" name="tipo_socio" class="form-control" required>
                               <option value="">Selecciona una opción</option>
-                              <option value="profesional">Profesional</option>
-                              <option value="estudiante">Estudiante</option>
+<?php
+// Nombres visibles desde plan_matricula (IDs fijos: 1 y 3). Si la base no
+// responde, se muestran los nombres de respaldo y el formulario sigue operativo.
+$nombresTipoRegistro = array(1 => 'Socio General', 3 => 'Estudiante Pregrado');
+try {
+    include_once __DIR__ . '/includes/conexionMysql.php';
+    require_once __DIR__ . '/../admin/includes/tipo_inscripcion.php';
+    $mysqlTipos = new mysql;
+    if ($mysqlTipos->connect()) {
+        foreach ($nombresTipoRegistro as $idTipo => $nombreRespaldo) {
+            $nombresTipoRegistro[$idTipo] = ramuchNombreTipoInscripcion($mysqlTipos, $idTipo, $nombreRespaldo);
+        }
+        $mysqlTipos->close();
+    }
+} catch (Throwable $e) {
+    error_log('Registro: no fue posible leer los tipos de inscripción.');
+}
+?>
+                              <option value="profesional"><?php echo htmlspecialchars($nombresTipoRegistro[1], ENT_QUOTES, 'UTF-8'); ?></option>
+                              <option value="estudiante"><?php echo htmlspecialchars($nombresTipoRegistro[3], ENT_QUOTES, 'UTF-8'); ?></option>
                             </select>
                           </div>
 

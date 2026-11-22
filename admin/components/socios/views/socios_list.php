@@ -88,14 +88,18 @@ function reenviarVerificacion(idUsuario, boton) {
                 <option value="3">Con cuotas al día</option>
             </select>
 
+            <?php
+            require_once __DIR__ . '/../../../includes/tipo_inscripcion.php';
+            $nombresTipoFiltro = ramuchNombresTipoInscripcion(isset($mysql) ? $mysql : null);
+            $tipoTexto = function ($id) use ($nombresTipoFiltro) {
+                return htmlspecialchars(isset($nombresTipoFiltro[$id]) ? $nombresTipoFiltro[$id] : '', ENT_QUOTES, 'UTF-8');
+            };
+            ?>
             <select id="tipos" name="tipos" style="margin-right:20px;width:250px;" onChange="selTipo(this)">
-                <option value="10" selected>Profesionales y Estudiantes</option>
-                <option value="1">Profesionales</option>
-                <option value="3">Estudiantes</option>
-                <option value="2">Honorarios</option>
-                <option value="6">Congelado</option>
-                <option value="7">Desvinculado</option>
-                <option value="8">Eliminados</option>
+                <option value="10" selected><?php echo $tipoTexto(1) . ' y ' . $tipoTexto(3); ?></option>
+                <?php foreach (array(1, 3, 2, 6, 7, 8) as $idTipoFiltro): ?>
+                <option value="<?php echo $idTipoFiltro; ?>"><?php echo $tipoTexto($idTipoFiltro); ?></option>
+                <?php endforeach; ?>
                 <option value="0123499">Todos</option>
             </select>
         </div>
@@ -163,30 +167,12 @@ function reenviarVerificacion(idUsuario, boton) {
                                 <input class="form-check-input" type="checkbox" id="tipoInscripcionTodos" name="tipoInscripcion[]" value="todos">
                                 <label class="form-check-label" for="tipoInscripcionTodos">Todos</label>
                             </div>
+                            <?php foreach (array(1, 2, 3, 6, 7, 8) as $idTipoExcel): ?>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="tipoInscripcion1" name="tipoInscripcion[]" value="1">
-                                <label class="form-check-label" for="tipoInscripcion1">Profesional</label>
+                                <input class="form-check-input" type="checkbox" id="tipoInscripcion<?php echo $idTipoExcel; ?>" name="tipoInscripcion[]" value="<?php echo $idTipoExcel; ?>">
+                                <label class="form-check-label" for="tipoInscripcion<?php echo $idTipoExcel; ?>"><?php echo $tipoTexto($idTipoExcel); ?></label>
                             </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="tipoInscripcion2" name="tipoInscripcion[]" value="2">
-                                <label class="form-check-label" for="tipoInscripcion2">Honorario</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="tipoInscripcion3" name="tipoInscripcion[]" value="3">
-                                <label class="form-check-label" for="tipoInscripcion3">Estudiante</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="tipoInscripcion6" name="tipoInscripcion[]" value="6">
-                                <label class="form-check-label" for="tipoInscripcion6">Congelado</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="tipoInscripcion7" name="tipoInscripcion[]" value="7">
-                                <label class="form-check-label" for="tipoInscripcion7">Desvinculado</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="tipoInscripcion8" name="tipoInscripcion[]" value="8">
-                                <label class="form-check-label" for="tipoInscripcion8">Eliminado</label>
-                            </div>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                 </form>

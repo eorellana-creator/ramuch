@@ -4,6 +4,7 @@ include("../../../includes/sql_inyection.php");
 include("../../../configuration.php");
 include("../../../includes/conexionMysql.php");
 include("../../../includes/funciones.php");
+require_once __DIR__ . '/../../../includes/tipo_inscripcion.php';
 
 $config = new Config;
 $mysql = new mysql;
@@ -45,13 +46,13 @@ if (in_array('todos', $tipoInscripcion)) {
     foreach ($tipoInscripcion as $tipo) {
         switch ($tipo) {
             case '1':
-                $TI .= 'P'; // Profesional
+                $TI .= 'P'; // Socio General (ID 1)
                 break;
             case '2':
                 $TI .= 'H'; // Honorario
                 break;
             case '3':
-                $TI .= 'E'; // Estudiante
+                $TI .= 'E'; // Estudiante Pregrado (ID 3)
                 break;
             case '6':
                 $TI .= 'C'; // Congelado
@@ -116,29 +117,7 @@ $lista_excel = "";
 while ($resultC = $mysql->f_obj($sqlC)) {
     list($nombres, $apellidoPaterno, $apellidoMaterno) = separarNombreParaExcel($resultC->nombre_usuario);
     // Traducir el tipo de inscripción
-    $tipoInscripcionTexto = '';
-    switch ($resultC->tipo_inscripcion) {
-        case '1':
-            $tipoInscripcionTexto = 'Profesional';
-            break;
-        case '2':
-            $tipoInscripcionTexto = 'Honorario';
-            break;
-        case '3':
-            $tipoInscripcionTexto = 'Estudiante';
-            break;
-        case '6':
-            $tipoInscripcionTexto = 'Congelado';
-            break;
-        case '7':
-            $tipoInscripcionTexto = 'Desvinculado';
-            break;
-        case '8':
-            $tipoInscripcionTexto = 'Eliminado';
-            break;
-        default:
-            $tipoInscripcionTexto = 'Desconocido';
-    }
+    $tipoInscripcionTexto = ramuchNombreTipoInscripcion($mysql, $resultC->tipo_inscripcion, 'Desconocido');
 
     //agregar campo de deuda
     $hoy = date("Y-m-d");

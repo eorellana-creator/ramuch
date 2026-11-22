@@ -67,29 +67,8 @@ if(@$result5->donante=="1")
 $donante = "<option value='1' selected >Si</option> <option value='0' >No</option>";
 
 
-$tipo_inscripcion = "";
-
-switch(@$result5->tipo_inscripcion){
-  case 1:
-    $tipo_inscripcion = "Profesional";
-    break;
-  case 3:
-    $tipo_inscripcion = "Estudiante";
-    break;
-  case 6:
-    $tipo_inscripcion = "Congelado";
-    break;
-  case 2:
-    $tipo_inscripcion = "Honorario";
-    break;
-  case 7:
-    $tipo_inscripcion = "Desvinculado";
-    break;
-
-  case 8:
-    $tipo_inscripcion = "Eliminado";
-    break;
-}//switch
+require_once __DIR__ . '/../../../includes/tipo_inscripcion.php';
+$tipo_inscripcion = ramuchNombreTipoInscripcion($mysql, @$result5->tipo_inscripcion);
 
 if($tipo_inscripcion!="")
 $tipo_inscripcion = ": $tipo_inscripcion";
@@ -180,13 +159,13 @@ while($result = $mysql->f_obj($sql)){
     $resultx = $mysql->f_obj($sqlx);
     
     if ($resultx->tipo_inscripcion == 1) {
-        $obs .= " Profesional ";
+        $obs .= " " . ramuchNombreTipoInscripcion($mysql, 1) . " ";
     } else {
         $obs = "";
     }
     
     if ($resultx->tipo_inscripcion == 3) {
-        $obs .= " Estudiante ";
+        $obs .= " " . ramuchNombreTipoInscripcion($mysql, 3) . " ";
     } else {
         $obs = "";
     }

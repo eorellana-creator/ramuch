@@ -108,6 +108,29 @@ $equipo = $mysql->f_num($sql);
 $equipo = number_format($equipo,0,",",".");
 //********************************************************************
 
+//********************************************************************
+// Distribución agregada por sexo/género de los socios activos (mismo criterio
+// que la tarjeta "Socios Activos"). Solo se entregan totales, nunca datos
+// individuales. Si la columna aún no existe en el ambiente, el gráfico se oculta.
+$distribucion_genero = [];
+$sqlColumnaGenero = $mysql->query("SHOW COLUMNS FROM perfil LIKE 'sexo_genero';");
+if ($sqlColumnaGenero && $mysql->f_num($sqlColumnaGenero) > 0) {
+    $etiquetasGenero = ['Femenino' => 'Femenino', 'Masculino' => 'Masculino', 'Otro' => 'Otro'];
+    $distribucion_genero = ['Femenino' => 0, 'Masculino' => 0, 'Otro' => 0, 'Sin información' => 0];
+    $sqlGenero = $mysql->query("SELECT p.sexo_genero, COUNT(*) AS cantidad
+        FROM usuario AS u
+        INNER JOIN perfil AS p ON u.id_usuario = p.id_usuario
+        WHERE p.tipo_inscripcion IN (1, 2, 3)
+        AND u.estado = 'Vigente'
+        AND (u.web_matricula_pagada IS NULL OR u.web_matricula_pagada != 'No')
+        GROUP BY p.sexo_genero;");
+    while ($sqlGenero && ($filaGenero = $mysql->f_obj($sqlGenero))) {
+        $clave = $etiquetasGenero[(string)$filaGenero->sexo_genero] ?? 'Sin información';
+        $distribucion_genero[$clave] += (int)$filaGenero->cantidad;
+    }
+}
+//********************************************************************
+
 //*************************************************************************************************
 $mensaje = "";
 
