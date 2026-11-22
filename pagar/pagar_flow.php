@@ -74,7 +74,7 @@ try {
 			error_log("Error: codigo 1605 ");
 			die("Error: codigo 1605 ". $response["message"] );
 		}
-		error_log("Error: La respuesta de la API no contiene las claves 'url' o 'token'. Respuesta recibida: " . print_r($response, true));
+		error_log("Error: la respuesta de Flow no contiene URL o token.");
 		die("Error: Ocurrió un problema al procesar la solicitud. Por favor, intente nuevamente.");
 		//exit;
 	}

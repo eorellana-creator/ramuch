@@ -3,14 +3,6 @@ session_start();
 include("../../../includes/conexionMysql.php");
 include("../../../includes/funciones.php");
 
-error_log("🎯 SOLICITAR_EXTENSION - INICIANDO");
-error_log("POST recibido: " . print_r($_POST, true));
-error_log("GET recibido: " . print_r($_GET, true));
-
-// DEBUG INICIAL
-
-error_log("🎯 GET DATA: " . print_r($_GET, true));
-
 // 🔥 PROCESAR EXACTAMENTE COMO EL EJEMPLO QUE FUNCIONA
 $tokens = [];
 if (!empty($_GET['tokens'])) {
@@ -22,11 +14,6 @@ if (!empty($_GET['tokens'])) {
 $nuevaFecha = $_GET['nueva_fecha'] ?? $_POST['nueva_fecha'] ?? '';
 $motivo = $_GET['motivo'] ?? $_POST['motivo'] ?? '';
 $tipo_extension = $_GET['tipo_extension'] ?? $_POST['tipo_extension'] ?? '1';
-
-error_log("🎯 TOKENS: " . print_r($tokens, true));
-error_log("🎯 CANTIDAD TOKENS: " . count($tokens));
-error_log("🎯 FECHA: $nuevaFecha");
-error_log("🎯 TIPO: $tipo_extension");
 
 // Validaciones básicas
 if (empty($tokens)) {
@@ -76,7 +63,6 @@ foreach ($tokens as $token) {
             throw new Exception('Token de préstamo no válido');
         }
 
-        error_log("🔄 Procesando token: $token");
         $mysql->query("START TRANSACTION");
         
         // Obtener datos del préstamo
@@ -177,8 +163,6 @@ foreach ($tokens as $token) {
             'id_unico' => $prestamo->id_unico
         ];
         
-        error_log("✅ Éxito para: {$prestamo->nombre_equipo}");
-
     } catch (Exception $e) {
         $mysql->query("ROLLBACK");
         $fallidos++;

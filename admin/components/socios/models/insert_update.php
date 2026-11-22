@@ -16,6 +16,20 @@ $mail				= $_POST['mail'];
 $fono			    = $_POST['fono'];
 $direccion			= $_POST['direccion'];
 
+$sexos_permitidos = array('', 'Femenino', 'Masculino', 'Otro');
+$sexo_genero = isset($_POST['sexo_genero']) && in_array($_POST['sexo_genero'], $sexos_permitidos, true)
+	? $_POST['sexo_genero'] : '';
+$otro_club_montanismo = isset($_POST['otro_club_montanismo']) && in_array($_POST['otro_club_montanismo'], array('0', '1'), true)
+	? $_POST['otro_club_montanismo'] : '';
+$nombre_otro_club = isset($_POST['nombre_otro_club']) ? trim($_POST['nombre_otro_club']) : '';
+if ($otro_club_montanismo !== '1') $nombre_otro_club = '';
+$motivaciones_permitidas = array('vinculos', 'formacion', 'beneficios', 'actividades', 'historia', 'otro');
+$motivaciones = isset($_POST['motivaciones']) && is_array($_POST['motivaciones'])
+	? array_values(array_unique(array_intersect($_POST['motivaciones'], $motivaciones_permitidas))) : array();
+if (count($motivaciones) > 3) $motivaciones = array_slice($motivaciones, 0, 3);
+$motivacion_otro = isset($_POST['motivacion_otro']) ? trim($_POST['motivacion_otro']) : '';
+if (!in_array('otro', $motivaciones, true)) $motivacion_otro = '';
+
 $nombre_contacto	= $_POST['nombreContacto'];
 $fono_contacto		= $_POST['fonoContacto'];
 $mail_contacto		= $_POST['mailContacto'];
@@ -55,7 +69,13 @@ $config 	= new Config;
 date_default_timezone_set("$config->zona_horaria");
 
 $mysql 		= new mysql;
-$mysql->connect();
+$conexion = $mysql->connect();
+
+$sexo_genero_sql = mysqli_real_escape_string($conexion, $sexo_genero);
+$otro_club_sql = $otro_club_montanismo === '' ? 'NULL' : "'" . mysqli_real_escape_string($conexion, $otro_club_montanismo) . "'";
+$nombre_otro_club_sql = mysqli_real_escape_string($conexion, $nombre_otro_club);
+$motivaciones_sql = mysqli_real_escape_string($conexion, json_encode($motivaciones, JSON_UNESCAPED_UNICODE));
+$motivacion_otro_sql = mysqli_real_escape_string($conexion, $motivacion_otro);
 
 $token_nuevo = md5(rand(99999, 99999999).$rut.date("Y m d H s"));
 
@@ -112,7 +132,7 @@ $sql 	= $mysql->query("INSERT INTO usuario (id_company, id_rol, nombre_usuario, 
 $ultimo_id = $mysql->ultimo_id(); 
 
  
-$sql 	= $mysql->query("INSERT INTO perfil ( id_usuario, nombre, fono,    mail,    rut, fecha_nacimiento, certificado_estudios, certificado_vencimiento, carrera, institucion,       anos_cursados, anos_carrera, estado_estudios, direccion, nombre_contacto,  mail_contacto, fono_contacto, tipo_sangre,       enfermedades, operaciones,       alergias, medicamentos, otros_diagnosticos, prevision_salud, preferencia_atencion, donante )  VALUES (   '$ultimo_id', '$nombre', '$fono', '$mail', '$rut', '$fechaNacimiento', '$doc_ima_fisico', '$fechaCertificado', '$carrera', '$institucion', '$anos_cursados', '$anos_carrera', '$estado_estudios', '$direccion', '$nombre_contacto', '$mail_contacto', '$fono_contacto',  '$sangre', '$enfermedades', '$operaciones', '$alergias', '$medicamentos', '$diagnosticos', '$prevision', '$preferencia', '$donante');");
+$sql 	= $mysql->query("INSERT INTO perfil ( id_usuario, nombre, fono, mail, rut, fecha_nacimiento, certificado_estudios, certificado_vencimiento, carrera, institucion, anos_cursados, anos_carrera, estado_estudios, direccion, nombre_contacto, mail_contacto, fono_contacto, tipo_sangre, enfermedades, operaciones, alergias, medicamentos, otros_diagnosticos, prevision_salud, preferencia_atencion, donante, sexo_genero, otro_club_montanismo, nombre_otro_club, motivaciones_ingreso, motivacion_otro ) VALUES ( '$ultimo_id', '$nombre', '$fono', '$mail', '$rut', '$fechaNacimiento', '$doc_ima_fisico', '$fechaCertificado', '$carrera', '$institucion', '$anos_cursados', '$anos_carrera', '$estado_estudios', '$direccion', '$nombre_contacto', '$mail_contacto', '$fono_contacto', '$sangre', '$enfermedades', '$operaciones', '$alergias', '$medicamentos', '$diagnosticos', '$prevision', '$preferencia', '$donante', '$sexo_genero_sql', $otro_club_sql, '$nombre_otro_club_sql', '$motivaciones_sql', '$motivacion_otro_sql' );");
 
 $ultimo_id_perfil = $mysql->ultimo_id(); 
 echo "UPDATE perfil SET tipo_inscripcion='$tipo', id_plan_matricula='$tipo' WHERE id_perfil ='$ultimo_id_perfil' ;";
@@ -144,7 +164,7 @@ $sql3 	= $mysql->query("SELECT id_usuario FROM usuario WHERE token ='$token';");
 $result = $mysql->f_obj($sql3);
 $id_usuario = $result->id_usuario;
 
-$sql 	= $mysql->query("UPDATE perfil SET  nombre='$nombre', fono='$fono', mail='$mail', rut='$rut', fecha_nacimiento='$fechaNacimiento', certificado_vencimiento='$fechaCertificado', carrera='$carrera', institucion='$institucion', anos_cursados='$anos_cursados', anos_carrera='$anos_carrera', estado_estudios='$estado_estudios', direccion='$direccion', nombre_contacto='$nombre_contacto',  mail_contacto='$mail_contacto', fono_contacto='$fono_contacto', tipo_sangre='$sangre', enfermedades='$enfermedades', operaciones='$operaciones', alergias='$alergias', medicamentos='$medicamentos', otros_diagnosticos='$diagnosticos', prevision_salud='$prevision', preferencia_atencion='$preferencia', donante='$donante' WHERE id_usuario ='$id_usuario';");
+$sql 	= $mysql->query("UPDATE perfil SET nombre='$nombre', fono='$fono', mail='$mail', rut='$rut', fecha_nacimiento='$fechaNacimiento', certificado_vencimiento='$fechaCertificado', carrera='$carrera', institucion='$institucion', anos_cursados='$anos_cursados', anos_carrera='$anos_carrera', estado_estudios='$estado_estudios', direccion='$direccion', nombre_contacto='$nombre_contacto', mail_contacto='$mail_contacto', fono_contacto='$fono_contacto', tipo_sangre='$sangre', enfermedades='$enfermedades', operaciones='$operaciones', alergias='$alergias', medicamentos='$medicamentos', otros_diagnosticos='$diagnosticos', prevision_salud='$prevision', preferencia_atencion='$preferencia', donante='$donante', sexo_genero='$sexo_genero_sql', otro_club_montanismo=$otro_club_sql, nombre_otro_club='$nombre_otro_club_sql', motivaciones_ingreso='$motivaciones_sql', motivacion_otro='$motivacion_otro_sql' WHERE id_usuario ='$id_usuario';");
 
 if($doc_ima_fisico!="")
 $sql 	= $mysql->query("UPDATE perfil SET  certificado_estudios='$doc_ima_fisico' WHERE id_usuario ='$id_usuario';");

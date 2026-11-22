@@ -2,7 +2,6 @@
 @include("../../includes/sql_inyection.php");
 
 ini_set('log_errors', '1');
-ini_set('error_log', __DIR__ . '/error.log');
 
 $mysql->connect();
 
@@ -16,6 +15,22 @@ $id_usuario = @$result7->id_usuario;
 
 $sql5 	= $mysql->query("SELECT * FROM perfil WHERE id_usuario = '$id_usuario' AND id_usuario!='' ;");
 $result5 = $mysql->f_obj($sql5);
+
+$sexo_genero = isset($result5->sexo_genero) ? $result5->sexo_genero : '';
+$otro_club_montanismo = isset($result5->otro_club_montanismo) ? (string)$result5->otro_club_montanismo : '';
+$motivaciones_permitidas = array('vinculos', 'formacion', 'beneficios', 'actividades', 'historia', 'otro');
+$motivaciones_ingreso = array();
+if (!empty($result5->motivaciones_ingreso)) {
+    $motivaciones_guardadas = json_decode($result5->motivaciones_ingreso, true);
+    if (is_array($motivaciones_guardadas)) {
+        $motivaciones_ingreso = array_values(array_intersect($motivaciones_guardadas, $motivaciones_permitidas));
+    }
+}
+
+$consentimiento_estado = 'Sin registro';
+if (isset($result5->consentimiento_convenios) && $result5->consentimiento_convenios !== null) {
+    $consentimiento_estado = (int)$result5->consentimiento_convenios === 1 ? 'Aceptado' : 'Revocado';
+}
 
 $imagen_perfil = "images/icono-300.png";
 if(@$result5->img_perfil!="")

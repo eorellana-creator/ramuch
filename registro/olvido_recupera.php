@@ -43,39 +43,6 @@ $token = @$result2->token;
       $email_subject 	= "Recuperar contraseña Socio(a) Ramuch";
       $ruta			= "https://ramuch.cl/registro";
       //**************************************************************************************
-/*
-      require "includes/PHPMailer/src/Exception.php";
-      require "includes/PHPMailer/src/PHPMailer.php";
-      require "includes/PHPMailer/src/SMTP.php";
-      
-      $mail = new PHPMailer(true);
-      try {
-          // Configuración del servidor
-          $mail->isSMTP();
-          $mail->Host = "mail.ramuch.cl";
-          $mail->SMTPAuth = true;
-          $mail->Username = 'no-responder@ramuch.cl';
-          $mail->Password = '1941ramuch2024';
-          $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-          $mail->Port = 587;
-      
-          // Destinatarios
-          $mail->setFrom('no-responder@ramuch.cl', 'Mailer');
-          $mail->addAddress($email);
-      
-          // Contenido
-          $mail->isHTML(true);
-          $mail->Subject = 'Asunto del correo';
-          $mail->Body    = 'Este es el cuerpo del mensaje en <b>HTML!</b>';
-      
-          $mail->send();
-          echo 'El mensaje ha sido enviado';
-      } catch (Exception $e) {
-          echo "El mensaje no pudo ser enviado. Error: {$mail->ErrorInfo}";
-      }
-
-*/
-
       $cuerpo = "
       <html>
       <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />

@@ -1,21 +1,26 @@
+Options -Indexes
+ServerSignature Off
+
+# Protege archivos de configuración, respaldos y registros operacionales.
+<FilesMatch "(?i)^(?:\.env(?:\..*)?|\.user\.ini|composer\.(?:json|lock)|error_log|.*\.(?:log|sql|sqlite|bak|old|orig|save|swp)|wp-config.*\.php)$">
+  Require all denied
+</FilesMatch>
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
+
 # BEGIN WordPress
 <IfModule mod_rewrite.c>
 RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 RewriteBase /
+RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
 </IfModule>
 # END WordPress
-
-<IfModule mime_module>
-AddHandler application/x-httpd-ea-php74___lsphp .php .php7 .phtml
-</IfModule>
-# php -- END cPanel-generated handler, do not edit
-
-# php -- BEGIN cPanel-generated handler, do not edit
-# Set the “ea-php82” package as the default “PHP” programming language.
-<IfModule mime_module>
-  AddHandler application/x-httpd-ea-php82___lsphp .php .php8 .phtml
-</IfModule>
-# php -- END cPanel-generated handler, do not edit

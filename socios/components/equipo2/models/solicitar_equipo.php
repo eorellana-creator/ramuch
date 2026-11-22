@@ -1,5 +1,5 @@
 <?php
-//ini_set('display_errors', '1');
+//ini_set('display_errors', '0');
 session_start();
 //include("../../../includes/sql_inyection_salto_textarea.php");
 include("../../../configuration.php");

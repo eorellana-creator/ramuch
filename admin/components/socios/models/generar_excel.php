@@ -110,7 +110,6 @@ switch ($tipoListado) {
 // Ejecutar la consulta
 $sqlC = $mysql->query($sqlBase);
 
-error_log("sql: " . $sqlBase);
 
 // Procesar los resultados
 $lista_excel = "";

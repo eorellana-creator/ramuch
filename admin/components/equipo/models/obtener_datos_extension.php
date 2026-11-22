@@ -4,8 +4,6 @@ include("../../../includes/funciones.php");
 
 header('Content-Type: application/json');
 
-error_log("Solicitud recibida con estos parámetros: " . print_r($_GET, true));
-
 $token = $_GET['token'] ?? '';
 if(empty($token)) {
     error_log("Error: Token no recibido");
@@ -30,8 +28,6 @@ try {
             WHERE token = '$token' 
             LIMIT 1";
     
-    error_log("Consulta SQL ejecutada: ".$sql); // Log para depuración
-    
     $result = $mysql->query($sql);
     
     if ($mysql->f_num($result) === 0) {
@@ -55,8 +51,6 @@ try {
         $estado = $data->estado_extension2;
         $motivo_extension = $data->motivo_extension2 ?? '';
         
-        error_log("Mostrando datos de SEGUNDA extensión para token: $token");
-        
     } 
     // Si no hay segunda extensión pendiente, verificar la primera
     else if (!empty($data->estado_extension) && $data->estado_extension == 'pendiente') {
@@ -65,7 +59,6 @@ try {
         $fecha_propuesta_formateada = fecha_mysql_a_normal($data->fecha_propuesta_extension);
         $estado = $data->estado_extension;
         
-        error_log("Mostrando datos de PRIMERA extensión para token: $token");
     }
     // Si ninguna está pendiente, usar la primera por defecto (para compatibilidad)
     else {
@@ -74,7 +67,6 @@ try {
         $fecha_propuesta_formateada = fecha_mysql_a_normal($data->fecha_propuesta_extension);
         $estado = $data->estado_extension;
         
-        error_log("Mostrando datos de PRIMERA extensión (por defecto) para token: $token");
     }
     
     $response = [

@@ -1,7 +1,7 @@
 <?php
 // Configuración inicial de errores y sesión
 error_reporting(E_ALL);
-ini_set('display_errors', '1');
+ini_set('display_errors', '0');
 session_start();
 
 // Inclusión de archivos necesarios

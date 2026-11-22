@@ -22,7 +22,6 @@ EXCLUDED_DIRECTORIES = {
     PurePosixPath("template/font-awesome/sprites"),
     PurePosixPath("template/font-awesome/metadata"),
     PurePosixPath("template/font-awesome/less"),
-    PurePosixPath("includes/PHPExcel"),
     PurePosixPath("includes/fpdf"),
     PurePosixPath("components/socios/archivos"),
     PurePosixPath("components/mercado/images"),

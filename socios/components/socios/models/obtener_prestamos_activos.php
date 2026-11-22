@@ -11,8 +11,6 @@ $response = [
     'mensaje' => 'Error inicial',
     'data' => []
 ];
-error_log("DEBUG - obtener prestamos activos");
-
 try {
     // Verificar sesión
     if (!isset($_SESSION['usuario_token'])) {
@@ -35,8 +33,6 @@ try {
 
     $id_usuario = $usuario->id_usuario;
     
-    error_log("DEBUG - ID Usuario: $id_usuario");
-
     // Obtener todos los préstamos activos del usuario
     $sql = "SELECT 
                 ep.token,
@@ -55,8 +51,6 @@ try {
             AND ep.estado = 'prestado'
             ORDER BY ep.fecha_prestamo DESC";
 
-    error_log("DEBUG - SQL ejecutado: $sql");
-    
     $result = $mysql->query($sql);
     
     if (!$result) {
@@ -85,12 +79,6 @@ try {
         }
 
         $contador++;
-        error_log("DEBUG - Préstamo $contador: " . 
-                  "Token: {$prestamo->token}, " .
-                  "Equipo: {$prestamo->nombre_equipo}, " .
-                  "Ext1: " . ($prestamo->estado_extension ?: 'NULL') . ", " .
-                  "Ext2: " . ($prestamo->estado_extension2 ?: 'NULL') . ", " .
-                  "Solicitadas: {$prestamo->extensiones_solicitadas}");
         
         $prestamos[] = [
             'token' => $prestamo->token,
@@ -106,8 +94,6 @@ try {
         ];
     }
 
-    error_log("DEBUG - Total de préstamos encontrados: $contador");
-
     $response = [
         'success' => true,
         'mensaje' => 'Préstamos activos obtenidos correctamente',
@@ -119,6 +105,5 @@ try {
     error_log("Error en obtener_prestamos_activos: " . $e->getMessage());
 }
 
-error_log("DEBUG - Respuesta final: " . json_encode($response));
 echo json_encode($response, JSON_UNESCAPED_UNICODE);
 ?>

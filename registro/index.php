@@ -267,26 +267,6 @@ $( "#rut" ).removeClass( "rutnovalido" );
 });
 
 
-$(document).ready(function() {
-            $('#formulario').on('submit', function(e) {
-                e.preventDefault(); // Evitar recarga de la página
-                var formData = $(this).serialize(); // Serializar los datos del formulario
-                
-                $.ajax({
-                    url: 'verificar_captcha.php', // Archivo PHP donde se valida el captcha
-                    type: 'POST',
-                    data: formData,
-                    success: function(response) {
-                        $('#result').html(response); // Mostrar el mensaje de validación
-                    },
-                    error: function() {
-                        $('#result').html('Error al enviar el formulario.');
-                    }
-                });
-            });
-        });
-
-
 function valida_mail(e){  
 if(e.value!=""){
 if(e.value.indexOf("@")==-1 || e.value.indexOf(".")==-1){ 
@@ -734,7 +714,7 @@ try {
     <script src="js/validadores.js"></script>
     <script src="js/rut/jquery.rut.js"></script>
     <script src="js/validate-password/js/jquery.passwordRequirements.js"></script>
-    <script src="js/formulario-inscripcion.js"></script>
+    <script src="js/formulario-inscripcion.js?v=20261020-2"></script>
 
 </body>
 </html>

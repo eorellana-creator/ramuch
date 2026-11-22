@@ -19,7 +19,17 @@
     $('#otro_referencia').prop('required', otraReferencia);
   }
 
-  function mostrarError(mensaje) {
+  function selectorCampo(campo) {
+    var selectores = {
+      fecha_nacimiento: '#nacimiento_dia, #nacimiento_mes, #nacimiento_anio',
+      motivaciones: '.motivaciones input',
+      otro_club_montanismo: 'input[name="otro_club_montanismo"]',
+      captcha: '#rct'
+    };
+    return selectores[campo] || (campo ? '#' + campo : '');
+  }
+
+  function mostrarError(mensaje, campo) {
     $('#alerta-invalido').html(
       $('<div>', {
         'class': 'alert alert-danger',
@@ -27,6 +37,23 @@
         'text': mensaje
       })
     );
+    var selector = selectorCampo(campo);
+    if (selector) {
+      $(selector).addClass('is-invalid');
+      var elemento = $(selector).first();
+      if (elemento.length) {
+        $('html, body').animate({scrollTop: Math.max(0, elemento.offset().top - 120)}, 250);
+        if (elemento.is(':input')) elemento.trigger('focus');
+      }
+    }
+  }
+
+  function respuestaError(xhr) {
+    if (xhr.responseJSON) return xhr.responseJSON;
+    if (xhr.responseText) {
+      try { return JSON.parse(xhr.responseText); } catch (error) { /* respuesta no JSON */ }
+    }
+    return null;
   }
 
   window.mailExiste = function (campo) {
@@ -115,7 +142,7 @@
       processData: false
     }).done(function (respuesta) {
       if (!respuesta.success) {
-        mostrarError(respuesta.message || 'No fue posible completar el registro.');
+        mostrarError(respuesta.message || 'No fue posible completar el registro.', respuesta.field);
         if (typeof grecaptcha !== 'undefined') grecaptcha.reset();
         boton.prop('disabled', false).text('Crear cuenta');
         return;
@@ -123,10 +150,21 @@
       $('#contenido').html("<div style='width:100%; text-align:center; padding:30px 0 90px'><strong>Hemos enviado un correo para verificar tu cuenta.<br>Sigue sus instrucciones para terminar el registro.<br><br>Muchas gracias.<br>RAMUCH.</strong></div>");
       window.parent.parent.scrollTo(0, 0);
     }).fail(function (xhr) {
-      var mensaje = xhr.responseJSON && xhr.responseJSON.message
-        ? xhr.responseJSON.message
-        : 'No fue posible completar el registro. Intenta nuevamente.';
-      mostrarError(mensaje);
+      var respuesta = respuestaError(xhr);
+      var mensaje;
+      if (respuesta && respuesta.message) {
+        mensaje = respuesta.message;
+      } else if (xhr.status === 413) {
+        mensaje = 'El archivo o el formulario supera el tamaño permitido por el servidor.';
+      } else if (xhr.status === 403) {
+        mensaje = 'El servidor rechazó la solicitud. Recarga la página e intenta nuevamente.';
+      } else if (xhr.status) {
+        mensaje = 'No fue posible completar el registro (error HTTP ' + xhr.status + ').';
+      } else {
+        mensaje = 'No fue posible conectar con el servidor. Revisa tu conexión e intenta nuevamente.';
+      }
+      mensaje += ' Debes completar nuevamente el CAPTCHA antes de reintentar.';
+      mostrarError(mensaje, respuesta ? respuesta.field : null);
       if (typeof grecaptcha !== 'undefined') grecaptcha.reset();
       boton.prop('disabled', false).text('Crear cuenta');
     });
@@ -156,7 +194,10 @@
     $('#telefono').on('input.formulario', function () {
       this.value = this.value.replace(/\D/g, '');
     });
-    $('#formulario').off('submit.formulario').on('submit.formulario', function (evento) {
+    // El formulario histórico registraba otro submit que consumía el mismo token
+    // reCAPTCHA en verificar_captcha.php. Se retiran todos los manejadores previos
+    // para que el token se valide una sola vez, directamente en envia.php.
+    $('#formulario').off('submit').on('submit.formulario', function (evento) {
       evento.preventDefault();
       window.enviar();
     });

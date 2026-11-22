@@ -1,7 +1,7 @@
 <?php
 // Habilitar la visualización de errores de PHP (solo para desarrollo)
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
+ini_set('display_errors', '0');
+ini_set('display_startup_errors', '0');
 error_reporting(E_ALL);
 
 session_start();
@@ -18,14 +18,12 @@ if (isset($_POST['token'])) {
     $mysql->connect();
 
     // Registrar el token recibido para depuración
-    error_log("Token recibido para eliminar plan de pago: $token");
 
     // Eliminar el plan de pago de la tabla `plan`
     $sql = $mysql->query("DELETE FROM plan WHERE token = '$token';");
 
     // Verificar si la eliminación fue exitosa
     if ($sql) {
-        error_log("Plan de pago eliminado correctamente: $token");
         $_SESSION["plan_pago_eliminado"] = "<div class='alert alert-success' role='alert'>El plan de pago se ha eliminado correctamente.</div>";
     } else {
         error_log("Error al eliminar el plan de pago: " . $mysql->error());

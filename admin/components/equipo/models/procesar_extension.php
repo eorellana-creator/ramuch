@@ -4,15 +4,6 @@ include("../../../includes/funciones.php");
 
 header('Content-Type: application/json');
 
-// DEBUG: Log de todos los datos recibidos
-error_log("=== DEBUG PROCESAR_EXTENSION ===");
-error_log("POST data: " . print_r($_POST, true));
-error_log("Token: " . ($_POST['token'] ?? 'NO_RECIBIDO'));
-error_log("Acción: " . ($_POST['accion'] ?? 'NO_RECIBIDO'));
-error_log("Motivo: " . ($_POST['motivo'] ?? 'NO_RECIBIDO'));
-error_log("Fecha extension: " . ($_POST['fecha_extension'] ?? 'NO_RECIBIDO'));
-error_log("Aplicar a todos: " . ($_POST['aplicar_a_todos'] ?? 'NO_RECIBIDO'));
-
 // Validar sesión y permisos
 session_start();
 if (!isset($_SESSION['usuario_token'])) {

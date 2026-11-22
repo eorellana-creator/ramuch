@@ -72,6 +72,68 @@
                         </div>
                     </div>
 
+                    <h4>Antecedentes de Incorporación</h4>
+                    <div class="linea-horizontal"></div>
+
+                    <div class="col-lg-4 form-group">
+                        <label class="col-form-label" for="sexo_genero">Sexo/Género:</label>
+                        <select class="form-control" id="sexo_genero" name="sexo_genero">
+                            <option value="" <?php echo $sexo_genero === '' ? 'selected' : ''; ?>>Sin información</option>
+                            <option value="Femenino" <?php echo $sexo_genero === 'Femenino' ? 'selected' : ''; ?>>Femenino</option>
+                            <option value="Masculino" <?php echo $sexo_genero === 'Masculino' ? 'selected' : ''; ?>>Masculino</option>
+                            <option value="Otro" <?php echo $sexo_genero === 'Otro' ? 'selected' : ''; ?>>Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="col-lg-4 form-group">
+                        <label class="col-form-label" for="otro_club_montanismo">¿Ha pertenecido a otro club de montañismo?</label>
+                        <select class="form-control" id="otro_club_montanismo" name="otro_club_montanismo">
+                            <option value="" <?php echo $otro_club_montanismo === '' ? 'selected' : ''; ?>>Sin información</option>
+                            <option value="1" <?php echo $otro_club_montanismo === '1' ? 'selected' : ''; ?>>Sí</option>
+                            <option value="0" <?php echo $otro_club_montanismo === '0' ? 'selected' : ''; ?>>No</option>
+                        </select>
+                    </div>
+
+                    <div class="col-lg-4 form-group" id="nombre-otro-club-admin-container">
+                        <label class="col-form-label" for="nombre_otro_club">Nombre del otro club:</label>
+                        <input type="text" class="form-control" id="nombre_otro_club" name="nombre_otro_club" maxlength="50" value="<?php echo htmlspecialchars(isset($result5->nombre_otro_club) ? $result5->nombre_otro_club : '', ENT_QUOTES, 'UTF-8'); ?>">
+                    </div>
+
+                    <div class="col-lg-12 form-group">
+                        <label class="col-form-label">Motivaciones para ingresar a RAMUCH (máximo 3):</label>
+                        <div id="motivaciones-ingreso-admin">
+                            <div class="form-check"><input class="form-check-input motivacion-ingreso-admin" type="checkbox" name="motivaciones[]" id="motivacion_admin_vinculos" value="vinculos" <?php echo in_array('vinculos', $motivaciones_ingreso, true) ? 'checked' : ''; ?>><label class="form-check-label" for="motivacion_admin_vinculos">Conocer personas, formar cordada y generar vínculos.</label></div>
+                            <div class="form-check"><input class="form-check-input motivacion-ingreso-admin" type="checkbox" name="motivaciones[]" id="motivacion_admin_formacion" value="formacion" <?php echo in_array('formacion', $motivaciones_ingreso, true) ? 'checked' : ''; ?>><label class="form-check-label" for="motivacion_admin_formacion">Tomar cursos, capacitaciones y desarrollar habilidades.</label></div>
+                            <div class="form-check"><input class="form-check-input motivacion-ingreso-admin" type="checkbox" name="motivaciones[]" id="motivacion_admin_beneficios" value="beneficios" <?php echo in_array('beneficios', $motivaciones_ingreso, true) ? 'checked' : ''; ?>><label class="form-check-label" for="motivacion_admin_beneficios">Aprovechar los beneficios del club.</label></div>
+                            <div class="form-check"><input class="form-check-input motivacion-ingreso-admin" type="checkbox" name="motivaciones[]" id="motivacion_admin_actividades" value="actividades" <?php echo in_array('actividades', $motivaciones_ingreso, true) ? 'checked' : ''; ?>><label class="form-check-label" for="motivacion_admin_actividades">Participar en salidas y actividades de montaña.</label></div>
+                            <div class="form-check"><input class="form-check-input motivacion-ingreso-admin" type="checkbox" name="motivaciones[]" id="motivacion_admin_historia" value="historia" <?php echo in_array('historia', $motivaciones_ingreso, true) ? 'checked' : ''; ?>><label class="form-check-label" for="motivacion_admin_historia">Conocer y participar de la historia y tradición de RAMUCH.</label></div>
+                            <div class="form-check"><input class="form-check-input motivacion-ingreso-admin" type="checkbox" name="motivaciones[]" id="motivacion_admin_otro" value="otro" <?php echo in_array('otro', $motivaciones_ingreso, true) ? 'checked' : ''; ?>><label class="form-check-label" for="motivacion_admin_otro">Otro.</label></div>
+                        </div>
+                        <small id="motivaciones-admin-error" class="form-text text-danger" style="display:none;">Puedes seleccionar como máximo tres motivaciones.</small>
+                    </div>
+
+                    <div class="col-lg-12 form-group" id="motivacion-otro-admin-container">
+                        <label class="col-form-label" for="motivacion_otro">Detalle de otra motivación:</label>
+                        <input type="text" class="form-control" id="motivacion_otro" name="motivacion_otro" maxlength="255" value="<?php echo htmlspecialchars(isset($result5->motivacion_otro) ? $result5->motivacion_otro : '', ENT_QUOTES, 'UTF-8'); ?>">
+                    </div>
+
+                    <div class="col-lg-3 form-group">
+                        <label class="col-form-label">Consentimiento:</label>
+                        <input type="text" class="form-control" value="<?php echo htmlspecialchars($consentimiento_estado, ENT_QUOTES, 'UTF-8'); ?>" readonly>
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label class="col-form-label">Fecha de aceptación:</label>
+                        <input type="text" class="form-control" value="<?php echo htmlspecialchars(isset($result5->consentimiento_fecha) ? $result5->consentimiento_fecha : '', ENT_QUOTES, 'UTF-8'); ?>" readonly>
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label class="col-form-label">Versión:</label>
+                        <input type="text" class="form-control" value="<?php echo htmlspecialchars(isset($result5->consentimiento_version) ? $result5->consentimiento_version : '', ENT_QUOTES, 'UTF-8'); ?>" readonly>
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label class="col-form-label">Fecha de revocación:</label>
+                        <input type="text" class="form-control" value="<?php echo htmlspecialchars(isset($result5->consentimiento_revocado_fecha) ? $result5->consentimiento_revocado_fecha : '', ENT_QUOTES, 'UTF-8'); ?>" readonly>
+                    </div>
+
                     <h4>Contacto de Emergencia</h4>
                     <div class="linea-horizontal"></div>
               

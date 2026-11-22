@@ -9,10 +9,13 @@ require_once __DIR__ . '/../admin/includes/tipo_inscripcion.php';
 define('LOG_FILE', __DIR__ . '/email_errors.log');
 define('CONSENTIMIENTO_VERSION', '2026-10-10');
 
-function responder($success, $message, $status = 200)
+function responder($success, $message, $status = 200, $field = null, $code = null)
 {
     http_response_code($status);
-    echo json_encode(array('success' => $success, 'message' => $message), JSON_UNESCAPED_UNICODE);
+    $response = array('success' => $success, 'message' => $message);
+    if ($field !== null) $response['field'] = $field;
+    if ($code !== null) $response['code'] = $code;
+    echo json_encode($response, JSON_UNESCAPED_UNICODE);
     exit;
 }
 
@@ -100,33 +103,40 @@ $motivaciones = isset($_POST['motivaciones']) && is_array($_POST['motivaciones']
     ? array_values(array_unique(array_intersect($_POST['motivaciones'], $motivacionesPermitidas)))
     : array();
 
-if ($nombres === '' || $apellidoPaterno === '' || $apellidoMaterno === '') responder(false, 'Los nombres y ambos apellidos son obligatorios.', 422);
-if (!in_array($sexoGenero, $sexosPermitidos, true)) responder(false, 'La opción de sexo/género no es válida.', 422);
-if (!rutValido($rutIngresado)) responder(false, 'El RUT ingresado no es válido.', 422);
-if (!filter_var($email, FILTER_VALIDATE_EMAIL) || $email !== $emailConfirmacion) responder(false, 'Los correos electrónicos no son válidos o no coinciden.', 422);
-if (!in_array($codigoPais, $codigosPaisPermitidos, true) || strlen($telefonoLocal) < 7 || strlen($telefonoLocal) > 15) responder(false, 'El teléfono ingresado no es válido.', 422);
-if (!checkdate($mesNacimiento, $diaNacimiento, $anioNacimiento) || $fechaNacimiento > date('Y-m-d')) responder(false, 'La fecha de nacimiento no es válida.', 422);
-if (!in_array($tipoSocio, array('profesional', 'estudiante'), true)) responder(false, 'Debes seleccionar ' . ramuchNombreTipoInscripcion(null, 1) . ' o ' . ramuchNombreTipoInscripcion(null, 3) . '.', 422);
-if (strlen($passwordPlano) < 8 || !preg_match('/[a-z]/', $passwordPlano) || !preg_match('/[A-Z]/', $passwordPlano) || !preg_match('/[0-9]/', $passwordPlano) || $passwordPlano !== $passwordConfirmacion) responder(false, 'La contraseña no cumple los requisitos o no coincide con su confirmación.', 422);
-if (!in_array($otroClub, array('', '0', '1'), true) || ($otroClub === '1' && $nombreOtroClub === '') || strlen($nombreOtroClub) > 50) responder(false, 'Completa el nombre del club anterior cuando corresponda.', 422);
-if (count($motivaciones) > 3 || (in_array('otro', $motivaciones, true) && $motivacionOtro === '')) responder(false, 'Puedes seleccionar hasta tres motivaciones y debes completar “Otro” cuando corresponda.', 422);
-if ($terminos !== '1') responder(false, 'Debes aceptar el protocolo, los estatutos y la autorización indicada.', 422);
-if ($referencia === '' || ($referencia === 'Otro' && valorPost('otro_referencia') === '')) responder(false, 'Debes indicar dónde conociste RAMUCH.', 422);
-if (!verificarCaptcha(valorPost('g-recaptcha-response'))) responder(false, 'No fue posible validar el captcha. Intenta nuevamente.', 422);
+if ($nombres === '') responder(false, 'Debes ingresar tus nombres.', 422, 'nombres', 'VALIDATION_NAMES');
+if ($apellidoPaterno === '') responder(false, 'Debes ingresar el apellido paterno.', 422, 'apellido_paterno', 'VALIDATION_LAST_NAME');
+if ($apellidoMaterno === '') responder(false, 'Debes ingresar el apellido materno.', 422, 'apellido_materno', 'VALIDATION_SECOND_LAST_NAME');
+if (!in_array($sexoGenero, $sexosPermitidos, true)) responder(false, 'La opción de sexo/género no es válida.', 422, 'sexo_genero', 'VALIDATION_GENDER');
+if (!rutValido($rutIngresado)) responder(false, 'El RUT ingresado no es válido.', 422, 'rut', 'VALIDATION_RUT');
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) responder(false, 'El correo electrónico no es válido.', 422, 'email', 'VALIDATION_EMAIL');
+if ($email !== $emailConfirmacion) responder(false, 'Los correos electrónicos no coinciden.', 422, 'email2', 'VALIDATION_EMAIL_CONFIRMATION');
+if (!in_array($codigoPais, $codigosPaisPermitidos, true) || strlen($telefonoLocal) < 7 || strlen($telefonoLocal) > 15) responder(false, 'El teléfono ingresado no es válido.', 422, 'telefono', 'VALIDATION_PHONE');
+if (!checkdate($mesNacimiento, $diaNacimiento, $anioNacimiento) || $fechaNacimiento > date('Y-m-d')) responder(false, 'La fecha de nacimiento no es válida.', 422, 'fecha_nacimiento', 'VALIDATION_BIRTH_DATE');
+if (!in_array($tipoSocio, array('profesional', 'estudiante'), true)) responder(false, 'Debes seleccionar ' . ramuchNombreTipoInscripcion($mysql ?? null, 1) . ' o ' . ramuchNombreTipoInscripcion($mysql ?? null, 3) . '.', 422, 'tipo_socio', 'VALIDATION_MEMBER_TYPE');
+if (strlen($passwordPlano) < 8 || !preg_match('/[a-z]/', $passwordPlano) || !preg_match('/[A-Z]/', $passwordPlano) || !preg_match('/[0-9]/', $passwordPlano)) responder(false, 'La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un número.', 422, 'password', 'VALIDATION_PASSWORD');
+if ($passwordPlano !== $passwordConfirmacion) responder(false, 'Las contraseñas no coinciden.', 422, 'password2', 'VALIDATION_PASSWORD_CONFIRMATION');
+if (!in_array($otroClub, array('', '0', '1'), true)) responder(false, 'Selecciona si has pertenecido a otro club.', 422, 'otro_club_montanismo', 'VALIDATION_OTHER_CLUB');
+if ($otroClub === '1' && ($nombreOtroClub === '' || strlen($nombreOtroClub) > 50)) responder(false, 'Completa el nombre del club anterior (máximo 50 caracteres).', 422, 'nombre_otro_club', 'VALIDATION_OTHER_CLUB_NAME');
+if (count($motivaciones) > 3) responder(false, 'Puedes seleccionar como máximo tres motivaciones.', 422, 'motivaciones', 'VALIDATION_MOTIVATIONS');
+if (in_array('otro', $motivaciones, true) && $motivacionOtro === '') responder(false, 'Debes completar la motivación “Otro”.', 422, 'motivacion_otro', 'VALIDATION_OTHER_MOTIVATION');
+if ($terminos !== '1') responder(false, 'Debes aceptar el protocolo, los estatutos y la autorización indicada.', 422, 'terminos', 'VALIDATION_CONSENT');
+if ($referencia === '') responder(false, 'Debes indicar dónde conociste RAMUCH.', 422, 'referencia', 'VALIDATION_REFERENCE');
+if ($referencia === 'Otro' && valorPost('otro_referencia') === '') responder(false, 'Debes especificar dónde conociste RAMUCH.', 422, 'otro_referencia', 'VALIDATION_OTHER_REFERENCE');
+if (!verificarCaptcha(valorPost('g-recaptcha-response'))) responder(false, 'El CAPTCHA no pudo validarse o expiró. Complétalo nuevamente.', 422, 'captcha', 'VALIDATION_CAPTCHA');
 
 if ($referencia === 'Otro') $referencia = limpiarNombre(valorPost('otro_referencia'));
 
 $tieneArchivo = isset($_FILES['archivo'], $_FILES['archivo']['error']) && $_FILES['archivo']['error'] !== UPLOAD_ERR_NO_FILE;
-if ($tipoSocio === 'estudiante' && !$tieneArchivo) responder(false, 'El certificado de alumno regular es obligatorio para estudiantes.', 422);
+if ($tipoSocio === 'estudiante' && !$tieneArchivo) responder(false, 'El certificado de alumno regular es obligatorio para estudiantes.', 422, 'archivo', 'VALIDATION_CERTIFICATE_REQUIRED');
 
 $extensionArchivo = '';
 if ($tieneArchivo) {
-    if ($_FILES['archivo']['error'] !== UPLOAD_ERR_OK || $_FILES['archivo']['size'] > 10 * 1024 * 1024) responder(false, 'No fue posible recibir el certificado o supera el máximo de 10 MB.', 422);
+    if ($_FILES['archivo']['error'] !== UPLOAD_ERR_OK || $_FILES['archivo']['size'] > 10 * 1024 * 1024) responder(false, 'No fue posible recibir el certificado o supera el máximo de 10 MB.', 422, 'archivo', 'VALIDATION_CERTIFICATE_UPLOAD');
     $tiposPermitidos = array('application/pdf' => 'pdf', 'image/jpeg' => 'jpg', 'image/png' => 'png');
     $finfo = finfo_open(FILEINFO_MIME_TYPE);
     $mime = $finfo ? finfo_file($finfo, $_FILES['archivo']['tmp_name']) : '';
     if ($finfo) finfo_close($finfo);
-    if (!isset($tiposPermitidos[$mime])) responder(false, 'El certificado debe ser PDF, JPG o PNG.', 422);
+    if (!isset($tiposPermitidos[$mime])) responder(false, 'El certificado debe ser PDF, JPG o PNG.', 422, 'archivo', 'VALIDATION_CERTIFICATE_TYPE');
     $extensionArchivo = $tiposPermitidos[$mime];
 }
 
@@ -151,7 +161,8 @@ $emailSql = $esc($email);
 $rutSql = $esc($rut);
 $duplicadoEmail = $mysql->query("SELECT id_usuario FROM usuario WHERE email='$emailSql' AND email!='' LIMIT 1");
 $duplicadoRut = $mysql->query("SELECT id_perfil FROM perfil WHERE rut='$rutSql' AND rut!='' LIMIT 1");
-if (($duplicadoEmail && $mysql->f_num($duplicadoEmail) > 0) || ($duplicadoRut && $mysql->f_num($duplicadoRut) > 0)) responder(false, 'El RUT o el correo electrónico ya se encuentra registrado.', 409);
+if ($duplicadoEmail && $mysql->f_num($duplicadoEmail) > 0) responder(false, 'El correo electrónico ya se encuentra registrado.', 409, 'email', 'DUPLICATE_EMAIL');
+if ($duplicadoRut && $mysql->f_num($duplicadoRut) > 0) responder(false, 'El RUT ya se encuentra registrado.', 409, 'rut', 'DUPLICATE_RUT');
 
 mysqli_begin_transaction($conexion);
 try {
@@ -195,8 +206,8 @@ try {
 } catch (Throwable $e) {
     mysqli_rollback($conexion);
     if ($archivoGuardado !== '') @unlink(__DIR__ . '/../admin/components/socios/archivos/' . $archivoGuardado);
-    logError('Registro rechazado: ' . $e->getMessage());
-    responder(false, 'No fue posible completar el registro. Intenta nuevamente.', 500);
+    logError('Registro rechazado: ' . $e->getMessage() . ' | MySQL: ' . mysqli_error($conexion));
+    responder(false, 'No fue posible guardar el registro. Informa el código REG-SAVE al administrador.', 500, null, 'REG-SAVE');
 }
 
 $hostActual = strtolower(preg_replace('/:\d+$/', '', isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : 'www.ramuch.cl'));

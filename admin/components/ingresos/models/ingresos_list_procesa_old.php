@@ -1,5 +1,5 @@
 <?php
-ini_set('display_errors', "on");
+ini_set('display_errors', '0');
 
 //include("../../../includes/sql_inyection.php");
 include("../../../configuration.php");

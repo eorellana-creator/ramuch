@@ -8,6 +8,7 @@ import ftplib
 import io
 import ssl
 import threading
+import time
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path, PurePosixPath
 
@@ -47,6 +48,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--source", type=Path, default=Path("."))
     parser.add_argument("--password-file", type=Path, required=True)
     parser.add_argument("--execute", action="store_true")
+    parser.add_argument("--workers", type=int, default=2)
+    parser.add_argument("--retries", type=int, default=20)
     return parser.parse_args()
 
 
@@ -142,18 +145,29 @@ def main() -> int:
     clients_lock = threading.Lock()
 
     def upload_file(item: tuple[str, Path, PurePosixPath]) -> None:
-        if not hasattr(local, "client"):
-            local.client = Client(password)
-            with clients_lock:
-                clients.append(local.client)
         module, path, relative = item
-        local.client.upload(
-            REMOTE_SITE / module / relative,
-            staging_content(module, path, relative),
-        )
+        content = staging_content(module, path, relative)
+        for attempt in range(1, args.retries + 1):
+            try:
+                if not hasattr(local, "client"):
+                    local.client = Client(password)
+                    with clients_lock:
+                        clients.append(local.client)
+                local.client.upload(REMOTE_SITE / module / relative, content)
+                return
+            except (OSError, EOFError, ftplib.Error):
+                if hasattr(local, "client"):
+                    try:
+                        local.client.close()
+                    except Exception:
+                        pass
+                    del local.client
+                if attempt == args.retries:
+                    raise
+                time.sleep(min(attempt * 2, 10))
 
     try:
-        with ThreadPoolExecutor(max_workers=8) as executor:
+        with ThreadPoolExecutor(max_workers=args.workers) as executor:
             for number, _ in enumerate(executor.map(upload_file, files), 1):
                 if number % 200 == 0 or number == len(files):
                     print(f"Transferidos: {number}/{len(files)}", flush=True)

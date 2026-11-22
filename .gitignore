@@ -1,0 +1,18 @@
+# Registros y volcados generados durante la ejecución.
+*.log
+**/error_log
+**/modelserror.log
+
+# Archivos locales o de respaldo que no deben publicarse.
+.env
+.env.*
+!.env.example
+*.sql.gz
+*.sql.bz2
+*.sql.xz
+*.dump
+*.bak
+*.orig
+*.swp
+.DS_Store
+Thumbs.db

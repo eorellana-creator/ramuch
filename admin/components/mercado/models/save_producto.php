@@ -6,8 +6,8 @@ require_once '../../../includes/conexionMysql.php';
 header('Content-Type: application/json');
 
 // Mostrar errores para depuración (elimina esto en producción)
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
+ini_set('display_errors', '0');
+ini_set('display_startup_errors', '0');
 error_reporting(E_ALL);
 
 // Crear una instancia de la clase mysql y conectar a la base de datos
