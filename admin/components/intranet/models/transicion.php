@@ -9,7 +9,8 @@ function notificarDecisionDirectiva($mysql, $item, $accion, $responsable, $comen
 
         $hostActual = strtolower(preg_replace('/:\\d+$/', '', $_SERVER['HTTP_HOST'] ?? ''));
         $esStaging = $hostActual === 'staging.ramuch.cl';
-        $destinatarios = ['eorellana@warez.cl', 'eorellana@gmail.com'];
+        // Producción: solo la Directiva. Staging: solo el buzón de pruebas.
+        $destinatarios = [];
         if (!$esStaging) {
             $sqlDirectiva = $mysql->query("SELECT DISTINCT u.email
                 FROM usuario AS u
@@ -28,6 +29,10 @@ function notificarDecisionDirectiva($mysql, $item, $accion, $responsable, $comen
             $destinatarios = ['eorellana@gmail.com'];
         }
         $destinatarios = array_values(array_unique($destinatarios));
+        if (!$destinatarios) {
+            error_log('Intranet: no hay correos de Directiva vigentes para notificar la decisión.');
+            return false;
+        }
 
         $decision = $accion === 'aprobar' ? 'aprobada' : 'rechazada';
         $titulo = $accion === 'aprobar' ? 'Valorización aprobada' : 'Solicitud rechazada';
