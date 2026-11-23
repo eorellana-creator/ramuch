@@ -24,7 +24,7 @@ $id_plan_matricula = @$result5->id_plan_matricula;
 
 $certificado = "";
 if(@$result5->certificado_estudios!="")
-$certificado = "<a href='../admin/components/socios/archivos/$result5->certificado_estudios' target='_blank'><i class='fas fa-search-plus'></i> ver certificado actual</a>";
+$certificado = "<a href='components/socios/models/ver_certificado.php' target='_blank' rel='noopener'><i class='fas fa-search-plus'></i> ver certificado actual</a>";
 
 $estado_estudios = "<option value='' selected >Seleccionar</option>";
 

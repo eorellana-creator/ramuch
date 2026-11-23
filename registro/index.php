@@ -484,6 +484,11 @@ function validaCertificado(e){
 // Nombres visibles desde plan_matricula (IDs fijos: 1 y 3). Si la base no
 // responde, se muestran los nombres de respaldo y el formulario sigue operativo.
 $nombresTipoRegistro = array(1 => 'Socio General', 3 => 'Estudiante Pregrado');
+// Protocolo de Cuotas: se enlaza la versión vigente más reciente publicada en
+// Documentos Compartidos (tipo Protocolo, activo, referido a cuotas). Así, al
+// subir una nueva versión desde la Intranet, el formulario la usa sin cambios
+// de código. Respaldo: versión 24-09-2026 publicada en producción.
+$urlProtocoloCuotas = 'https://www.ramuch.cl/admin/documentos/6ac2b38517f48.pdf';
 try {
     include_once __DIR__ . '/includes/conexionMysql.php';
     require_once __DIR__ . '/../admin/includes/tipo_inscripcion.php';
@@ -492,10 +497,21 @@ try {
         foreach ($nombresTipoRegistro as $idTipo => $nombreRespaldo) {
             $nombresTipoRegistro[$idTipo] = ramuchNombreTipoInscripcion($mysqlTipos, $idTipo, $nombreRespaldo);
         }
+        $sqlProtocolo = $mysqlTipos->query("SELECT nombre_guardado FROM documentos_compartidos
+            WHERE estado = 1 AND id_tipo_documento = 1
+              AND (nombre_archivo LIKE '%cuota%' OR descripcion LIKE '%cuota%')
+              AND nombre_guardado LIKE '%.pdf'
+            ORDER BY fecha_subida DESC, id_documento DESC LIMIT 1;");
+        $protocolo = $sqlProtocolo ? $mysqlTipos->f_obj($sqlProtocolo) : null;
+        $archivoProtocolo = $protocolo ? basename($protocolo->nombre_guardado) : '';
+        // Solo se usa si el archivo existe en este servidor; si no, se mantiene el respaldo.
+        if ($archivoProtocolo !== '' && is_file(__DIR__ . '/../admin/documentos/' . $archivoProtocolo)) {
+            $urlProtocoloCuotas = '../admin/documentos/' . rawurlencode($archivoProtocolo);
+        }
         $mysqlTipos->close();
     }
 } catch (Throwable $e) {
-    error_log('Registro: no fue posible leer los tipos de inscripción.');
+    error_log('Registro: no fue posible leer los tipos de inscripción o el protocolo vigente.');
 }
 ?>
                               <option value="profesional"><?php echo htmlspecialchars($nombresTipoRegistro[1], ENT_QUOTES, 'UTF-8'); ?></option>
@@ -597,7 +613,7 @@ try {
                           <div class="acepto-terminos mb-3">
                             <label>
                               <input type="checkbox" id="terminos" name="terminos" value="1" required>
-                              Acepto el <a href="https://www.ramuch.cl/admin/documentos/6ac2b38517f48.pdf" target="_blank" rel="noopener">Protocolo de Cuotas</a>,
+                              Acepto el <a href="<?php echo htmlspecialchars($urlProtocoloCuotas, ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noopener">Protocolo de Cuotas</a>,
                               <a href="https://ramuch.cl/wp-content/uploads/2023/03/ESTATUTOS-RAMUCH.pdf" target="_blank" rel="noopener">las obligaciones y derechos de los socios</a>
                               (art. 8 y 9 de los Estatutos), además de autorizar a la Rama de Montaña U. de Chile (RAMUCH) para comunicar mi nombre, RUT y correo electrónico únicamente a las entidades con las que el Club mantenga convenios de beneficios para socios, con el exclusivo objeto de permitir la aplicación de dichos beneficios. Esta autorización podrá ser revocada a solicitud.
                             </label>
