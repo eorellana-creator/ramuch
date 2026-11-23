@@ -21,3 +21,31 @@ Thumbs.db
 # Nunca deben versionarse; solo se conserva la protección de la carpeta.
 admin/components/socios/archivos/*
 !admin/components/socios/archivos/.htaccess
+
+# Archivos subidos por socios y Directiva (comprobantes, fotos, documentos).
+# Contienen datos personales: nunca deben versionarse.
+admin/images/img_perfil/**
+admin/images/img_equipo/**
+admin/images/equipo/**
+admin/images/ingresos/**
+admin/images/egresos/**
+admin/images/pagos/**
+admin/images/deudas/**
+admin/components/mercado/images/**
+admin/uploads/**
+admin/documentos/**
+socios/images/img_perfil/**
+socios/images/img_equipo/**
+socios/images/equipo/**
+socios/images/ingresos/**
+socios/images/egresos/**
+socios/images/pagos/**
+socios/images/deudas/**
+socios/components/mercado/images/**
+socios/components/socios/archivos/**
+# Imágenes de reemplazo que usa el código.
+!admin/images/equipo/equipo_sin_imagen.jpg
+!socios/images/equipo/equipo_sin_imagen.jpg
+!admin/components/mercado/images/productos/producto_sin_imagen.png
+!socios/components/mercado/images/productos/producto_sin_imagen.png
+!socios/components/mercado/images/producto_sin_imagen.png
