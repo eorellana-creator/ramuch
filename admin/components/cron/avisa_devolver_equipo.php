@@ -4,18 +4,31 @@ include("../../includes/sql_inyection_salto_textarea.php");
 include("../../configuration.php");
 include("../../includes/conexionMysql.php");
 include("../../includes/funciones.php");
+require_once __DIR__ . "/../../includes/procesos_automaticos.php";
 
 
 
 $config 	= new Config;
  
 
+date_default_timezone_set($config->zona_horaria);
+
 $mysql 		= new mysql;
 $mysql->connect();
 $hoy 	= date("Y-m-d");
 
+$registroProceso = ramuchProcesoIniciar($mysql, 'avisa_devolver_equipo', 'Recordatorio de devolución de equipos');
+$prestamosVencidos = 0;
+$recordatoriosEnviados = 0;
+$erroresProceso = [];
+
 	$sql 	= $mysql->query("SELECT * FROM equipo_prestamo WHERE fecha_debe_devolver>='2022-01-01' AND fecha_debe_devolver<='$hoy' AND estado='prestado' ;");
+	if ($sql === false) {
+		ramuchProcesoFinalizar($registroProceso, false, 'No fue posible consultar los préstamos vencidos. La base de datos respondió: ' . mysqli_error($mysql->conexion));
+		exit(1);
+	}
 	while($result = $mysql->f_obj($sql)){
+		$prestamosVencidos++;
 
 
                           $id_equipo 				    = $result->id_equipo;
@@ -50,7 +63,6 @@ $hoy 	= date("Y-m-d");
                         //Configuración de envío ***************************************************************
                         $host 			= "mail.ramuch.cl";
                         $email_user 	= "no-responder@ramuch.cl";
-                        $email_pass 	= "1941ramuch2024";
                         $email_from 	= "no-responder@ramuch.cl";
                         $email_to 		= "";
                         $email_name 	= "Ramuch";
@@ -111,29 +123,6 @@ $hoy 	= date("Y-m-d");
 
                         //Create a new PHPMailer instance
                         $mail = crearMailerRamuch(false);
-                        //Tell PHPMailer to use SMTP
-                        $mail->isSMTP();
-                        //Enable SMTP debugging
-                        // 0 = off (for production use)
-                        // 1 = client messages
-                        // 2 = client and server messages
-                        $mail->SMTPDebug = 0;
-                        //Ask for HTML-friendly debug output
-                        $mail->Debugoutput = 'html';
-                        //Set the hostname of the mail server
-                        $mail->Host = $host;
-                        //Set the SMTP port number - likely to be 25, 465 or 587
-                        $mail->Port = 587;
-                        $mail->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
-                        $mail->Timeout = 15;
-                        //Whether to use SMTP authentication
-                        $mail->SMTPAuth = true;
-                        //Username to use for SMTP authentication
-                        $mail->Username = $email_user;
-                        //Password to use for SMTP authentication
-                        $mail->Password = $email_pass;
-                        //Set who the message is to be sent from
-                        $mail->CharSet = 'UTF-8';
 
                         $mail->setFrom($email_from, "Sistema Ramuch");
                         //Set an alternative reply-to address
@@ -179,24 +168,24 @@ $hoy 	= date("Y-m-d");
                         //Attach an image file
                         //$mail->addAttachment('images/phpmailer_mini.png');
 
-                        $mail->SMTPOptions = array(
-                          'ssl' => array(
-                            'verify_peer' => false,
-                            'verify_peer_name' => false,
-                            'allow_self_signed' => true
-                          )
-                        );
-
                         //send the message, check for errors
                         if (!$mail->send()) {
                           echo "Mailer Error: " . $mail->ErrorInfo;
-                          
+                          $erroresProceso[] = "No se pudo enviar el recordatorio de \"$nombre_equipo\" a $nombre_usuario: " . $mail->ErrorInfo;
                         } else {
                           echo "Message sent!";
-                          
+                          $recordatoriosEnviados++;
                         }
 
 }	//while($result = $mysql->f_obj($sql))
+
+$descripcionProceso = $prestamosVencidos === 0
+	? "No hay préstamos de equipo vencidos. No se enviaron recordatorios."
+	: "Préstamos vencidos: $prestamosVencidos. Recordatorios enviados al socio y a la Comisión de Equipos: $recordatoriosEnviados.";
+if ($erroresProceso) {
+	$descripcionProceso .= "\n\nErrores (" . count($erroresProceso) . "):\n- " . implode("\n- ", $erroresProceso);
+}
+ramuchProcesoFinalizar($registroProceso, !$erroresProceso, $descripcionProceso);
  
 
  

@@ -131,6 +131,26 @@ if ($sqlColumnaGenero && $mysql->f_num($sqlColumnaGenero) > 0) {
 }
 //********************************************************************
 
+//********************************************************************
+// Procesos automáticos (crons y confirmación de pagos): últimas 10 ejecuciones.
+// Visible solo para los roles Administrador y Administrador de Socios (Directiva).
+$procesos_automaticos = [];
+$procesos_estado = [];
+$ver_procesos_automaticos = false;
+$idRolSesion = (int)($_SESSION['usuario_rol'] ?? 0);
+if ($idRolSesion > 0) {
+    $sqlRolProcesos = $mysql->query("SELECT nombre FROM rol WHERE id_rol='$idRolSesion' LIMIT 1;");
+    $rolProcesos = $sqlRolProcesos ? $mysql->f_obj($sqlRolProcesos) : null;
+    $nombreRolProcesos = $rolProcesos ? strtolower(trim($rolProcesos->nombre)) : '';
+    $ver_procesos_automaticos = in_array($nombreRolProcesos, ['administrador', 'administrador de socios'], true);
+}
+if ($ver_procesos_automaticos) {
+    require_once __DIR__ . '/../../../includes/procesos_automaticos.php';
+    $procesos_automaticos = ramuchProcesoUltimasEjecuciones($mysql, 10);
+    $procesos_estado = ramuchProcesoEstadoPorProceso($mysql);
+}
+//********************************************************************
+
 //*************************************************************************************************
 $mensaje = "";
 

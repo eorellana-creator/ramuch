@@ -233,6 +233,80 @@
 </script>
 <?php endif; ?>
 
+<?php if (!empty($ver_procesos_automaticos)): ?>
+<?php
+$hayErrorReciente = false;
+foreach ($procesos_estado as $estadoProceso) {
+    if ($estadoProceso->resultado !== 'ok') { $hayErrorReciente = true; }
+}
+$fechaProceso = function ($fecha) { return date('d-m-Y H:i', strtotime($fecha)); };
+?>
+<div class="row mt-2">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center flex-wrap">
+                <h4 class="mb-0"><i class="fa fa-cogs"></i> Procesos automáticos</h4>
+                <?php if (empty($procesos_estado)): ?>
+                    <span class="badge badge-secondary">Sin ejecuciones registradas</span>
+                <?php elseif ($hayErrorReciente): ?>
+                    <span class="badge badge-danger" style="font-size:90%;">Hay procesos con error</span>
+                <?php else: ?>
+                    <span class="badge badge-success" style="font-size:90%;">Todo funcionando</span>
+                <?php endif; ?>
+            </div>
+            <div class="card-body">
+                <?php if (empty($procesos_automaticos)): ?>
+                    <p class="text-muted mb-0">Todavía no hay ejecuciones registradas. Aparecerán aquí cuando corra el primer cron o se confirme un pago con Flow.</p>
+                <?php else: ?>
+                    <div class="mb-3">
+                        <strong>Último resultado de cada proceso:</strong><br>
+                        <?php foreach ($procesos_estado as $estadoProceso): ?>
+                            <span class="badge <?php echo $estadoProceso->resultado === 'ok' ? 'badge-success' : 'badge-danger'; ?> mr-1 mb-1" style="font-size:85%; font-weight:normal;">
+                                <?php echo htmlspecialchars($estadoProceso->titulo, ENT_QUOTES, 'UTF-8'); ?>:
+                                <?php echo $estadoProceso->resultado === 'ok' ? 'OK' : 'Error'; ?>,
+                                <?php echo $fechaProceso($estadoProceso->fecha_fin); ?>
+                            </span>
+                        <?php endforeach; ?>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-sm table-hover mb-1">
+                            <thead>
+                                <tr>
+                                    <th style="width:130px;">Fecha</th>
+                                    <th style="width:90px;">Resultado</th>
+                                    <th>Proceso</th>
+                                    <th>Qué pasó</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <?php foreach ($procesos_automaticos as $ejecucion): ?>
+                                <tr class="<?php echo $ejecucion->resultado === 'ok' ? '' : 'table-danger'; ?>">
+                                    <td class="text-nowrap"><?php echo $fechaProceso($ejecucion->fecha_fin); ?></td>
+                                    <td>
+                                        <?php if ($ejecucion->resultado === 'ok'): ?>
+                                            <span class="badge badge-success">OK</span>
+                                        <?php else: ?>
+                                            <span class="badge badge-danger">Error</span>
+                                            <?php if ((int)$ejecucion->correo_enviado === 1): ?>
+                                                <br><small class="text-muted" title="Se avisó por correo">aviso enviado</small>
+                                            <?php endif; ?>
+                                        <?php endif; ?>
+                                    </td>
+                                    <td><strong><?php echo htmlspecialchars($ejecucion->titulo, ENT_QUOTES, 'UTF-8'); ?></strong></td>
+                                    <td><?php echo nl2br(htmlspecialchars($ejecucion->descripcion, ENT_QUOTES, 'UTF-8')); ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                    <small class="text-muted">Se muestran las últimas 10 ejecuciones. Cuando un proceso termina con error, se avisa por correo a directiva@ramuch.cl.</small>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
+
 <div class="clear:both;width:100%; font-size:10px !important;"></div>
 
 <div class="row mt-4">

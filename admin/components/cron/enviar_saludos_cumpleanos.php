@@ -30,21 +30,39 @@ set_time_limit(300);
 
 include __DIR__ . '/../../configuration.php';
 include __DIR__ . '/../../includes/conexionMysql.php';
-require_once __DIR__ . '/../../includes/RamuchMailer.php';
+require_once __DIR__ . '/../../includes/procesos_automaticos.php';
 
 $config = new Config;
 date_default_timezone_set($config->zona_horaria);
 
 $dryRun = in_array('--dry-run', $argv, true);
+
+$mysql = new mysql;
+$conectado = $mysql->connect();
+$registroProceso = ramuchProcesoIniciar(
+    $mysql,
+    'enviar_saludos_cumpleanos',
+    $dryRun ? 'Saludos de cumpleaños (prueba sin envío)' : 'Saludos de cumpleaños'
+);
+
+function terminarCumpleanos($registroProceso, $ok, $mensaje, $codigo)
+{
+    ramuchProcesoFinalizar($registroProceso, $ok, $mensaje);
+    fwrite($ok ? STDOUT : STDERR, $mensaje . "\n");
+    exit($codigo);
+}
+
+if (!$conectado) {
+    terminarCumpleanos($registroProceso, false, 'No fue posible conectar con la base de datos.', 1);
+}
+
 if (!$dryRun && date('H') !== '09') {
-    fwrite(STDERR, "El proceso solo puede enviar correos durante las 09:00.\n");
-    exit(1);
+    terminarCumpleanos($registroProceso, false, 'El proceso solo puede enviar correos durante las 09:00 y se ejecutó a las ' . date('H:i') . '. Revisa la hora programada del cron en cPanel.', 1);
 }
 
 $directorioEstado = __DIR__ . '/runtime';
 if (!is_dir($directorioEstado) && !mkdir($directorioEstado, 0750, true)) {
-    fwrite(STDERR, "No fue posible crear el directorio de control.\n");
-    exit(1);
+    terminarCumpleanos($registroProceso, false, 'No fue posible crear el directorio de control (admin/components/cron/runtime).', 1);
 }
 
 $fechaProceso = date('Y-m-d');
@@ -52,21 +70,13 @@ $archivoCompletado = $directorioEstado . '/cumpleanos-' . $fechaProceso . '.done
 $archivoBloqueo = $directorioEstado . '/cumpleanos.lock';
 $bloqueo = fopen($archivoBloqueo, 'c');
 if (!$bloqueo || !flock($bloqueo, LOCK_EX | LOCK_NB)) {
-    fwrite(STDERR, "Ya existe una ejecución del proceso en curso.\n");
-    exit(1);
+    terminarCumpleanos($registroProceso, false, 'Ya existe otra ejecución del proceso en curso; esta se canceló para no enviar saludos repetidos.', 1);
 }
 
 if (!$dryRun && file_exists($archivoCompletado)) {
-    echo "El proceso de cumpleaños ya fue completado para $fechaProceso.\n";
     flock($bloqueo, LOCK_UN);
     fclose($bloqueo);
-    exit(0);
-}
-
-$mysql = new mysql;
-if (!$mysql->connect()) {
-    fwrite(STDERR, "No fue posible conectar con la base de datos.\n");
-    exit(1);
+    terminarCumpleanos($registroProceso, true, "Los saludos de hoy ($fechaProceso) ya se habían enviado. No se envió nada nuevo.", 0);
 }
 
 $mes = (int)date('n');
@@ -87,8 +97,7 @@ $sql = $mysql->query(
 );
 
 if (!$sql) {
-    fwrite(STDERR, "No fue posible consultar los cumpleaños del día.\n");
-    exit(1);
+    terminarCumpleanos($registroProceso, false, 'No fue posible consultar los cumpleaños del día: ' . mysqli_error($mysql->conexion), 1);
 }
 
 $socios = array();
@@ -105,11 +114,13 @@ if ($dryRun) {
     }
     flock($bloqueo, LOCK_UN);
     fclose($bloqueo);
+    ramuchProcesoFinalizar($registroProceso, true, 'Prueba sin envío: hoy (' . $fechaProceso . ') ' . (count($socios) === 1 ? 'hay 1 socio' : 'hay ' . count($socios) . ' socios') . ' de cumpleaños. No se envió ningún correo.');
     exit(0);
 }
 
 $enviados = 0;
 $errores = 0;
+$detalleErrores = array();
 foreach ($socios as $socio) {
     $idUsuario = (int)$socio->id_usuario;
     $marcaSocio = $directorioEstado . '/cumpleanos-' . $fechaProceso . '-' . $idUsuario . '.sent';
@@ -153,6 +164,7 @@ foreach ($socios as $socio) {
         $enviados++;
     } catch (Throwable $e) {
         $errores++;
+        $detalleErrores[] = 'Socio ID ' . $idUsuario . ': ' . $e->getMessage();
         error_log('Cumpleaños staging, usuario ' . $idUsuario . ': ' . $e->getMessage());
     }
 }
@@ -160,13 +172,20 @@ foreach ($socios as $socio) {
 if ($errores === 0) {
     $resumen = "fecha=$fechaProceso enviados=$enviados candidatos=" . count($socios) . PHP_EOL;
     if (file_put_contents($archivoCompletado, $resumen, LOCK_EX) === false) {
-        fwrite(STDERR, "Los correos se procesaron, pero no fue posible cerrar el control diario.\n");
-        exit(1);
+        terminarCumpleanos($registroProceso, false, "Se enviaron $enviados saludos, pero no fue posible cerrar el control diario; una nueva ejecución hoy podría repetir envíos.", 1);
     }
 }
 
 flock($bloqueo, LOCK_UN);
 fclose($bloqueo);
+
+$descripcionProceso = count($socios) === 0
+    ? "Hoy ($fechaProceso) no hay socios de cumpleaños."
+    : "Cumpleaños de hoy ($fechaProceso): " . count($socios) . ". Saludos enviados: $enviados.";
+if ($errores > 0) {
+    $descripcionProceso .= "\n\nErrores ($errores):\n- " . implode("\n- ", $detalleErrores);
+}
+ramuchProcesoFinalizar($registroProceso, $errores === 0, $descripcionProceso);
 
 echo "Proceso finalizado. Enviados: $enviados. Errores: $errores.\n";
 exit($errores === 0 ? 0 : 1);

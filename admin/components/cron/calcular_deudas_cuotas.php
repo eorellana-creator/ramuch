@@ -7,7 +7,7 @@ include("../../includes/sql_inyection_salto_textarea.php");
 include("../../configuration.php");
 include("../../includes/conexionMysql.php");
 include("../../includes/funciones.php");
-require_once __DIR__ . '/../../includes/RamuchMailer.php';
+require_once __DIR__ . '/../../includes/procesos_automaticos.php';
 
 
 
@@ -20,6 +20,12 @@ date_default_timezone_set("$config->zona_horaria");
 
 $mysql 		= new mysql;
 $mysql->connect();
+
+$registroProceso = ramuchProcesoIniciar($mysql, 'calcular_deudas_cuotas', 'Cálculo de cuotas mensuales');
+$sociosRevisados = 0;
+$cuotasGeneradas = 0;
+$congelacionesGeneradas = 0;
+$erroresProceso = [];
 
 
 $agno_inicial	= date("Y");
@@ -50,6 +56,10 @@ $hoy_dia		= date("j");//dia sin cero inicial
 $mes_final = 12;
 
 $sql 			= $mysql->query("SELECT * FROM usuario WHERE estado='Vigente' ;");
+if ($sql === false) {
+	ramuchProcesoFinalizar($registroProceso, false, 'No fue posible consultar los socios vigentes. La base de datos respondió: ' . mysqli_error($mysql->conexion));
+	exit(1);
+}
 $n=0;
 while($result = $mysql->f_obj($sql)){
 	$n++;
@@ -62,6 +72,7 @@ while($result = $mysql->f_obj($sql)){
 	$verificar 		= $mysql->f_num($sqlP);
 
 	if($verificar>0){
+					$sociosRevisados++;
 					//Consultar cual es el valor cuota del usuario
 					$sqlC 				= $mysql->query("SELECT id_plan_matricula FROM perfil WHERE id_usuario='$id_usuario'  ;");
 					$resultC 			= $mysql->f_obj($sqlC);
@@ -112,6 +123,11 @@ while($result = $mysql->f_obj($sql)){
 											$glosa = "Cuota mes $mes_texto de $agno, $nombre";
 											$sql4 			= $mysql->query("INSERT INTO deudas (id_usuario, id_usuario_deuda, nombre_deudor, sub_cuenta, fecha,           monto,  glosa, estado, fecha_insercion, token) 
 																						VALUES (      0,        '$id_usuario',  '$nombre',     'cuota',   '$fecha_consulta','$valor_cuota','$glosa','activa','$hoy','$token')	 ;");
+											if ($sql4 === false) {
+												$erroresProceso[] = "No se pudo crear la $glosa (socio ID $id_usuario): " . mysqli_error($mysql->conexion);
+											} else {
+												$cuotasGeneradas++;
+											}
 
 										}//if($existe==0)
 							}
@@ -137,6 +153,11 @@ while($result = $mysql->f_obj($sql)){
 					//inserta la deuda de congelado
 					$sqlB 	= $mysql->query("INSERT INTO deudas (id_usuario_deuda, nombre_deudor, sub_cuenta, fecha, monto, glosa, estado, observacion, token) 
 													VALUES('$id_usuario', '$nombre', 'otros', '$hoy', '$precio', 'Cuota de congelación', 'activa', '', '$token_deuda' ) ;");
+					if ($sqlB === false) {
+						$erroresProceso[] = "No se pudo crear la cuota de congelación (socio ID $id_usuario): " . mysqli_error($mysql->conexion);
+					} else {
+						$congelacionesGeneradas++;
+					}
 				}
 			}
 		}
@@ -145,12 +166,14 @@ while($result = $mysql->f_obj($sql)){
 
 }//while($result = $mysql->f_obj($sql))
 
-$mailCron = crearMailerRamuch(false);
-$mailCron->setFrom('no-responder@ramuch.cl', 'Sistema Ramuch');
-$mailCron->addAddress('eorellana@gmail.com');
-$mailCron->Subject = 'Cron Ramuch';
-$mailCron->Body = 'El cron se encuentra trabajando';
-$mailCron->send();
+$descripcionProceso = "Se revisaron $sociosRevisados socios (Socio General y Estudiante Pregrado). "
+	. ($cuotasGeneradas > 0 ? "Se generaron $cuotasGeneradas cuotas nuevas." : "No había cuotas nuevas por generar.")
+	. ($congelacionesGeneradas > 0 ? " Se generaron $congelacionesGeneradas cuotas de congelación." : "");
+if ($erroresProceso) {
+	$descripcionProceso .= "\n\nErrores (" . count($erroresProceso) . "):\n- " . implode("\n- ", array_slice($erroresProceso, 0, 20))
+		. (count($erroresProceso) > 20 ? "\n- ... y " . (count($erroresProceso) - 20) . " más." : "");
+}
+ramuchProcesoFinalizar($registroProceso, !$erroresProceso, $descripcionProceso);
 
 
 

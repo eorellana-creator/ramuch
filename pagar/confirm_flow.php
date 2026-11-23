@@ -20,6 +20,7 @@ function logError($message) {
 
 // Cargar PHPMailer
 require_once __DIR__ . '/../admin/includes/RamuchMailer.php';
+require_once __DIR__ . '/../admin/includes/procesos_automaticos.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -29,6 +30,11 @@ try {
 	}
 	
 	$token = filter_input(INPUT_POST, 'token');
+
+	$mysql 		= new mysql;
+	$mysql->connect();
+	$registroProceso = ramuchProcesoIniciar($mysql, 'confirmacion_pago_flow', 'Confirmación de pago Flow');
+	$erroresProceso = [];
 	$params = array(
 		"token" => $token
 	);
@@ -42,9 +48,6 @@ try {
 	$monto = @$response["amount"];
 	$estado = @$response["status"];
 	$flow_order = @$response["flowOrder"];
-
-	$mysql 		= new mysql;
-	$mysql->connect();
 
 	$sql = $mysql->query("UPDATE flow SET flow_status='$estado' WHERE flow_order='$orden'  ;");
 
@@ -260,6 +263,7 @@ try {
 				} catch (Exception $e) {
 					$errorMsg = "Error al enviar correo a $email_to: " . $e->getMessage() . " - PHPMailer Error: " . $mail->ErrorInfo;
 					logError($errorMsg);
+					$erroresProceso[] = "El pago quedó registrado, pero falló el aviso a la Directiva: " . $mail->ErrorInfo;
 					echo "Error al enviar el correo. Se ha registrado el error para su revisión.";
 				}
 
@@ -418,6 +422,7 @@ try {
 				} catch (Exception $e) {
 					$errorMsg = "Error al enviar email de bienvenida a $email_socio: " . $e->getMessage() . " - PHPMailer Error: " . $mail_socio->ErrorInfo;
 					logError($errorMsg);
+					$erroresProceso[] = "El pago quedó registrado, pero falló el correo de bienvenida al socio: " . $mail_socio->ErrorInfo;
 					echo "Error al enviar email de bienvenida. Se ha registrado el error.";
 				}
 			} else {
@@ -440,6 +445,9 @@ try {
 
 		$sql 	= $mysql->query("INSERT INTO cuenta_maestra (id_usuario_sistema, nombre_usuario_sistema, id_usuario_movimiento, nombre,             fecha,    tipo,   sub_cuenta,   glosa,         observacion,     medio, id_transaccion, documento_respaldo, monto, estado, token)
 														VALUES ('$id_usuario',      '$nombre_usuario',      '$id_usuario',     '$nombre_usuario',  '$fecha', 'ingreso', 'cuota',    'Pago vía Flow',     '',          'Flow','$flow_order',          '',        '$monto','activo', '$token_nuevo'  ) ;");
+		if ($sql === false) {
+			$erroresProceso[] = "No se pudo registrar el ingreso en la cuenta maestra: " . mysqli_error($mysql->conexion);
+		}
 
 		// agregar envio de correo si el pago de es metricula, avisando a la directiva que se pago la matricula.
 		// subcuenta tiene el valor 
@@ -447,8 +455,27 @@ try {
 
 		}//if($estado==2)
 
+	$montoTexto = '$ ' . number_format((float)$monto, 0, ',', '.');
+	$estadosFlow = [1 => 'quedó pendiente de pago', 3 => 'fue rechazado', 4 => 'fue anulado'];
+	if ($estado == 2) {
+		$tipoPago = (isset($matriculaX) && $matriculaX === 'matricula') ? 'matrícula' : 'cuotas';
+		$descripcionProceso = "Pago confirmado: orden Flow $flow_order por $montoTexto ($tipoPago, socio ID $id_usuario).";
+	} elseif (isset($estadosFlow[(int)$estado])) {
+		$descripcionProceso = "Flow informó que el pago de la orden $orden por $montoTexto " . $estadosFlow[(int)$estado] . ". No se registró ningún pago.";
+	} else {
+		$erroresProceso[] = "Flow respondió un estado desconocido (" . var_export($estado, true) . ") para la orden " . var_export($orden, true) . ".";
+		$descripcionProceso = "No se pudo interpretar la respuesta de Flow.";
+	}
+	if ($erroresProceso) {
+		$descripcionProceso .= "\n\nErrores:\n- " . implode("\n- ", $erroresProceso);
+	}
+	ramuchProcesoFinalizar($registroProceso, !$erroresProceso, $descripcionProceso);
+
 	
 } catch (Exception $e) {
+	if (isset($registroProceso)) {
+		ramuchProcesoFinalizar($registroProceso, false, "No se pudo completar la confirmación del pago informado por Flow: " . $e->getMessage());
+	}
 	echo "Error: " . $e->getCode() . " - " . $e->getMessage();
 }
 ?>
