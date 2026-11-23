@@ -231,7 +231,7 @@ if ($mostrarProcesos) {
                 <h4 class="mb-0">Socios activos por sexo/género</h4>
             </div>
             <div class="card-body">
-                <div id="grafico-genero" style="width:100%; height:280px;"></div>
+                <div id="grafico-genero" style="width:100%; height:280px; overflow:hidden;"></div>
                 <table class="table table-sm mt-3 mb-0">
                     <tbody>
                     <?php $totalGenero = array_sum($distribucion_genero); ?>
@@ -316,22 +316,46 @@ if ($mostrarProcesos) {
 <script>
 (function () {
     var datosGenero = <?php echo json_encode(array_map(null, array_keys($distribucion_genero), array_values($distribucion_genero)), JSON_UNESCAPED_UNICODE); ?>;
+    var contenedor = document.getElementById('grafico-genero');
+    var grafico = null, tabla = null, ultimoAncho = 0, espera = null;
+    // Google Charts dibuja con el ancho que tiene el recuadro en ese momento:
+    // se vuelve a dibujar cuando cambia el ancho (zoom, ventana, menú lateral).
     function dibujarGraficoGenero() {
-        var tabla = new google.visualization.DataTable();
-        tabla.addColumn('string', 'Sexo/Género');
-        tabla.addColumn('number', 'Socios');
-        tabla.addRows(datosGenero);
-        new google.visualization.PieChart(document.getElementById('grafico-genero')).draw(tabla, {
+        var ancho = contenedor.clientWidth;
+        if (!ancho || ancho === ultimoAncho) { return; }
+        ultimoAncho = ancho;
+        if (!tabla) {
+            tabla = new google.visualization.DataTable();
+            tabla.addColumn('string', 'Sexo/Género');
+            tabla.addColumn('number', 'Socios');
+            tabla.addRows(datosGenero);
+            grafico = new google.visualization.PieChart(contenedor);
+        }
+        var angosto = ancho < 420;
+        grafico.draw(tabla, {
+            width: ancho,
+            height: 280,
             pieHole: 0.45,
-            legend: { position: 'right' },
-            chartArea: { width: '90%', height: '85%' },
+            legend: { position: angosto ? 'bottom' : 'right', alignment: 'center' },
+            chartArea: angosto ? { left: 10, top: 10, width: '95%', height: '75%' } : { left: 10, top: 20, width: '95%', height: '85%' },
             colors: ['#c2185b', '#1976d2', '#7b1fa2', '#9e9e9e'],
             sliceVisibilityThreshold: 0
         });
     }
+    function redibujar() {
+        clearTimeout(espera);
+        espera = setTimeout(dibujarGraficoGenero, 150);
+    }
     if (window.google && google.charts) {
         google.charts.load('current', { packages: ['corechart'] });
-        google.charts.setOnLoadCallback(dibujarGraficoGenero);
+        google.charts.setOnLoadCallback(function () {
+            dibujarGraficoGenero();
+            if (window.ResizeObserver) {
+                new ResizeObserver(redibujar).observe(contenedor);
+            } else {
+                window.addEventListener('resize', redibujar);
+            }
+        });
     }
 })();
 </script>
