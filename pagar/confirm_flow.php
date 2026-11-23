@@ -146,6 +146,29 @@ try {
 				$nombre = $result->nombre_usuario;
 				$email = $result->email;
 
+				// Teléfono del nuevo socio para que la Directiva lo incorpore a WhatsApp (solicitud #3).
+				$telefono = "";
+				$sqlFono = $mysql->query("SELECT fono FROM perfil WHERE id_usuario='$id_usuario' LIMIT 1;");
+				$perfilFono = $sqlFono ? @$mysql->f_obj($sqlFono) : null;
+				if ($perfilFono && trim((string)$perfilFono->fono) !== '') {
+					$telefono = trim((string)$perfilFono->fono);
+				}
+				$telefonoHtml = $telefono !== '' ? htmlspecialchars($telefono, ENT_QUOTES, 'UTF-8') : 'No registrado';
+				$digitosTelefono = preg_replace('/\D+/', '', $telefono);
+				// Enlace directo a WhatsApp: con código de país (+XX...), 569XXXXXXXX,
+				// o celular chileno de 9 dígitos sin código (se antepone 56).
+				$numeroWhatsapp = '';
+				if (strpos($telefono, '+') === 0 && strlen($digitosTelefono) >= 8) {
+					$numeroWhatsapp = $digitosTelefono;
+				} elseif (preg_match('/^569\d{8}$/', $digitosTelefono)) {
+					$numeroWhatsapp = $digitosTelefono;
+				} elseif (preg_match('/^9\d{8}$/', $digitosTelefono)) {
+					$numeroWhatsapp = '56' . $digitosTelefono;
+				}
+				$enlaceWhatsapp = $numeroWhatsapp !== ''
+					? " (<a href='https://wa.me/$numeroWhatsapp'>abrir en WhatsApp</a>)"
+					: "";
+
 				// Configuración PHPMailer ***************************************************************
 				$host           = "mail.ramuch.cl";
 				$email_user     = "no-responder@ramuch.cl";
@@ -183,6 +206,7 @@ try {
 					<br><br>
 					<strong>Estimada directiva, </strong><br><br>
 					Soci(a) $nombre con email $email a pagado correctamente su matricula<br>
+					<strong>Teléfono:</strong> $telefonoHtml$enlaceWhatsapp<br>
 					<br><br>
 					Ya es posible agregarlo al grupo de whatapps y enviar su saludos de bienvenida.
 					<br><br>
@@ -195,7 +219,7 @@ try {
 				</html>";
 
 				// Versión texto plano
-				$message_plain = "Nuevo Soci@ pago su matricula $nombre,\n\n Estimada directiva,\n\nSoci@ $nombre a pagado correctamente su matricula.\n\nYa es posible agregarlo al grupo de whatapps y enviar su saludos de bienvenida.\n\nServicios automaticos Ramuch";
+				$message_plain = "Nuevo Soci@ pago su matricula $nombre,\n\n Estimada directiva,\n\nSoci@ $nombre a pagado correctamente su matricula.\nTeléfono: " . ($telefono !== "" ? $telefono : "No registrado") . "\n\nYa es posible agregarlo al grupo de whatapps y enviar su saludos de bienvenida.\n\nServicios automaticos Ramuch";
 
 				try {
 					// Configuración del servidor SMTP
