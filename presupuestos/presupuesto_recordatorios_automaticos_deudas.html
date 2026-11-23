@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Presupuesto — Recordatorios automáticos de deudas RAMUCH</title>
+<style>
+  @page { size: A4; margin: 2cm; }
+  body { font-family: Arial, sans-serif; color: #222; font-size: 11pt; line-height: 1.45; }
+  h1 { color: #17365d; font-size: 20pt; margin-bottom: 4px; }
+  h2 { color: #245b84; font-size: 14pt; margin-top: 22px; border-bottom: 1px solid #b8c8d8; padding-bottom: 4px; }
+  .subtitulo { color: #666; margin-top: 0; }
+  .resumen { background: #eef5fa; border-left: 5px solid #2a84b8; padding: 12px 15px; }
+  .advertencia { background: #fff8e6; border-left: 5px solid #e5a100; padding: 10px 15px; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+  th { background: #245b84; color: white; text-align: left; padding: 8px; }
+  td { border: 1px solid #c8d1da; padding: 8px; vertical-align: top; }
+  td.numero { text-align: right; white-space: nowrap; }
+  tr.total td { font-weight: bold; background: #eef5fa; }
+  .valores { width: 65%; margin-left: auto; }
+  .valores td:first-child { font-weight: bold; }
+  .nota { font-size: 9.5pt; color: #555; }
+  .texto-registro { border: 1px solid #c8d1da; background: #fafafa; padding: 12px 15px; }
+</style>
+</head>
+<body>
+  <h1>Presupuesto de desarrollo</h1>
+  <p class="subtitulo">Automatización de recordatorios y alertas por deudas — RAMUCH</p>
+  <p><strong>Fecha:</strong> 12 de septiembre de 2026</p>
+
+  <div class="resumen">
+    <strong>Objetivo</strong><br>
+    Automatizar las comunicaciones asociadas a cuotas atrasadas, informando al socio desde su primer mes de deuda y notificando la pérdida de beneficios desde cuatro meses de atraso. La Directiva recibirá un informe de las personas que acumulen cuatro o más meses impagos.
+  </div>
+
+  <h2>Estado actual</h2>
+  <ul>
+    <li>Existe un proceso programado que genera las cuotas de los socios.</li>
+    <li>Las deudas activas y pagadas ya se almacenan en la base de datos.</li>
+    <li>La administración permite consultar socios y montos adeudados.</li>
+    <li>La plataforma dispone de una infraestructura común para enviar correos mediante PHPMailer.</li>
+  </ul>
+  <p><strong>No existe actualmente</strong> un proceso que envíe recordatorios de deuda a los socios, clasifique automáticamente la antigüedad de la morosidad o entregue a la Directiva un informe de quienes tengan cuatro o más meses impagos.</p>
+
+  <h2>Desarrollo pendiente</h2>
+  <ol>
+    <li>Crear una consulta confiable que calcule los meses de atraso y el total adeudado por socio.</li>
+    <li>Enviar al socio un recordatorio desde el primer mes de atraso, indicando cuotas pendientes, antigüedad, monto total y acceso a la sección de pago.</li>
+    <li>Incorporar, desde cuatro meses de atraso, una advertencia destacada sobre la pérdida de beneficios.</li>
+    <li>Generar un correo consolidado para la Directiva con los miembros que mantengan cuatro o más meses de deuda.</li>
+    <li>Obtener los destinatarios de la Directiva desde los roles vigentes de la plataforma, evitando correos escritos directamente en el código.</li>
+    <li>Registrar fecha, destinatario, rango de morosidad y resultado de cada envío.</li>
+    <li>Evitar recordatorios duplicados cuando el proceso automático se ejecute más de una vez en el mismo periodo.</li>
+    <li>Configurar una tarea programada segura y separar los envíos de staging y producción.</li>
+    <li>Realizar pruebas con socios sin deuda, con uno a tres meses y con cuatro o más meses de atraso.</li>
+  </ol>
+
+  <div class="advertencia">
+    <strong>Alcance considerado:</strong> este presupuesto incluye comunicar la pérdida de beneficios. La suspensión técnica automática de permisos o beneficios dentro de todos los módulos no está incluida, porque requiere definir exactamente cuáles funciones debe bloquear la plataforma.
+  </div>
+
+  <h2>Funcionamiento propuesto</h2>
+  <table>
+    <thead><tr><th>Situación</th><th>Acción automática</th><th>Destinatario</th></tr></thead>
+    <tbody>
+      <tr><td>Sin deuda</td><td>No se envía recordatorio.</td><td>—</td></tr>
+      <tr><td>1 a 3 meses de atraso</td><td>Recordatorio con detalle y total pendiente.</td><td>Socio/a</td></tr>
+      <tr><td>4 o más meses de atraso</td><td>Recordatorio con advertencia de pérdida de beneficios.</td><td>Socio/a</td></tr>
+      <tr><td>4 o más meses de atraso</td><td>Informe consolidado de morosidad crítica.</td><td>Directiva</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Estimación de trabajo</h2>
+  <table>
+    <thead><tr><th>Actividad</th><th style="width:20%; text-align:right">Horas</th></tr></thead>
+    <tbody>
+      <tr><td>Cálculo y clasificación de antigüedad de las deudas</td><td class="numero">1,0</td></tr>
+      <tr><td>Plantilla y envío de recordatorios a socios</td><td class="numero">1,5</td></tr>
+      <tr><td>Advertencia de beneficios e informe para la Directiva</td><td class="numero">1,0</td></tr>
+      <tr><td>Registro de envíos y prevención de duplicados</td><td class="numero">1,0</td></tr>
+      <tr><td>Configuración de ejecución automática y separación de ambientes</td><td class="numero">0,5</td></tr>
+      <tr><td>Pruebas en staging y publicación</td><td class="numero">1,0</td></tr>
+      <tr class="total"><td>Total estimado</td><td class="numero">6,0 horas</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Valorización</h2>
+  <table class="valores">
+    <tbody>
+      <tr><td>Tarifa desarrollador senior</td><td class="numero">$40.000 CLP/hora</td></tr>
+      <tr><td>Valor neto</td><td class="numero">$240.000 CLP</td></tr>
+      <tr><td>IVA (19 %)</td><td class="numero">$45.600 CLP</td></tr>
+      <tr class="total"><td>Total con IVA</td><td class="numero">$285.600 CLP</td></tr>
+    </tbody>
+  </table>
+
+  <p class="nota">La estimación aprovecha el registro de deudas, la generación de cuotas y la infraestructura de correo existentes. Considera implementación en PHP/MySQL, validación en staging y publicación posterior a su aprobación.</p>
+
+  <h2>Detalle para registrar en la Intranet</h2>
+  <div class="texto-registro">
+    Automatización de recordatorios de deuda para socios desde el primer mes de atraso, incluyendo detalle de cuotas y monto pendiente. A partir de cuatro meses de deuda se comunicará la pérdida de beneficios y se enviará a la Directiva un informe consolidado de los miembros afectados. Incluye cálculo de antigüedad, plantillas de correo, destinatarios según roles, registro de envíos, prevención de duplicados, tarea programada, pruebas en staging y publicación.<br><br>
+    <strong>Tiempo estimado:</strong> 6 horas.<br>
+    <strong>Valor estimado:</strong> $240.000 CLP netos.
+  </div>
+</body>
+</html>

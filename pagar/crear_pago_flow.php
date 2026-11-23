@@ -1,6 +1,6 @@
 <?php
 error_reporting(E_ALL);
-ini_set('display_errors', '1');
+ini_set('display_errors', '0');
 
 //include("includes/sql_inyection.php");
 include("includes/conexionMysql.php");
@@ -48,8 +48,6 @@ for($i=1;$i<=$ultimo_check;$i++){
     $token_deuda = $_POST["pago$i"];
     $sqlD 					= $mysql->query("SELECT * FROM deudas WHERE token='$token_deuda' ;");
 
-    error_log("for para los token de tabla deudas:");
-    error_log($token_deuda);
 
     $resultD				= @$mysql->f_obj($sqlD);
     if(@$resultD->id_deuda>0){

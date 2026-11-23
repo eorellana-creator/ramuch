@@ -1,4 +1,39 @@
+<?php
+if (empty($_SESSION['csrf_reenvio_verificacion'])) {
+    $_SESSION['csrf_reenvio_verificacion'] = bin2hex(random_bytes(32));
+}
+?>
 <script>
+window.csrfReenvioVerificacion = <?php echo json_encode($_SESSION['csrf_reenvio_verificacion']); ?>;
+
+function reenviarVerificacion(idUsuario, boton) {
+    if (!window.confirm('¿Reenviar ahora el correo de verificación a este socio?')) {
+        return;
+    }
+
+    var $boton = $(boton);
+    $boton.prop('disabled', true).html("<i class='fas fa-spinner fa-spin'></i> Enviando...");
+
+    $.ajax({
+        url: 'components/socios/models/reenviar_verificacion.php',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            id_usuario: idUsuario,
+            csrf_token: window.csrfReenvioVerificacion
+        }
+    }).done(function(respuesta) {
+        alert(respuesta.mensaje || 'El correo de verificación fue enviado.');
+    }).fail(function(xhr) {
+        var mensaje = 'No fue posible enviar el correo de verificación.';
+        if (xhr.responseJSON && xhr.responseJSON.mensaje) {
+            mensaje = xhr.responseJSON.mensaje;
+        }
+        alert(mensaje);
+    }).always(function() {
+        $boton.prop('disabled', false).html("<i class='fas fa-paper-plane'></i> Reenviar verificación");
+    });
+}
 </script>
 
 <!-- Campos ocultos para almacenar valores de tipo y cuota -->
@@ -53,14 +88,18 @@
                 <option value="3">Con cuotas al día</option>
             </select>
 
+            <?php
+            require_once __DIR__ . '/../../../includes/tipo_inscripcion.php';
+            $nombresTipoFiltro = ramuchNombresTipoInscripcion(isset($mysql) ? $mysql : null);
+            $tipoTexto = function ($id) use ($nombresTipoFiltro) {
+                return htmlspecialchars(isset($nombresTipoFiltro[$id]) ? $nombresTipoFiltro[$id] : '', ENT_QUOTES, 'UTF-8');
+            };
+            ?>
             <select id="tipos" name="tipos" style="margin-right:20px;width:250px;" onChange="selTipo(this)">
-                <option value="10" selected>Profesionales y Estudiantes</option>
-                <option value="1">Profesionales</option>
-                <option value="3">Estudiantes</option>
-                <option value="2">Honorarios</option>
-                <option value="6">Congelado</option>
-                <option value="7">Desvinculado</option>
-                <option value="8">Eliminados</option>
+                <option value="10" selected><?php echo $tipoTexto(1) . ' y ' . $tipoTexto(3); ?></option>
+                <?php foreach (array(1, 3, 2, 6, 7, 8) as $idTipoFiltro): ?>
+                <option value="<?php echo $idTipoFiltro; ?>"><?php echo $tipoTexto($idTipoFiltro); ?></option>
+                <?php endforeach; ?>
                 <option value="0123499">Todos</option>
             </select>
         </div>
@@ -128,30 +167,12 @@
                                 <input class="form-check-input" type="checkbox" id="tipoInscripcionTodos" name="tipoInscripcion[]" value="todos">
                                 <label class="form-check-label" for="tipoInscripcionTodos">Todos</label>
                             </div>
+                            <?php foreach (array(1, 2, 3, 6, 7, 8) as $idTipoExcel): ?>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="tipoInscripcion1" name="tipoInscripcion[]" value="1">
-                                <label class="form-check-label" for="tipoInscripcion1">Profesional</label>
+                                <input class="form-check-input" type="checkbox" id="tipoInscripcion<?php echo $idTipoExcel; ?>" name="tipoInscripcion[]" value="<?php echo $idTipoExcel; ?>">
+                                <label class="form-check-label" for="tipoInscripcion<?php echo $idTipoExcel; ?>"><?php echo $tipoTexto($idTipoExcel); ?></label>
                             </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="tipoInscripcion2" name="tipoInscripcion[]" value="2">
-                                <label class="form-check-label" for="tipoInscripcion2">Honorario</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="tipoInscripcion3" name="tipoInscripcion[]" value="3">
-                                <label class="form-check-label" for="tipoInscripcion3">Estudiante</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="tipoInscripcion6" name="tipoInscripcion[]" value="6">
-                                <label class="form-check-label" for="tipoInscripcion6">Congelado</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="tipoInscripcion7" name="tipoInscripcion[]" value="7">
-                                <label class="form-check-label" for="tipoInscripcion7">Desvinculado</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="tipoInscripcion8" name="tipoInscripcion[]" value="8">
-                                <label class="form-check-label" for="tipoInscripcion8">Eliminado</label>
-                            </div>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                 </form>

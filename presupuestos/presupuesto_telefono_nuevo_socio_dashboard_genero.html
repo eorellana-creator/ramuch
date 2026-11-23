@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Presupuesto — Teléfono y Dashboard de género RAMUCH</title>
+<style>
+  @page { size: A4; margin: 1.8cm; }
+  body { font-family: Arial, sans-serif; color: #222; font-size: 10.5pt; line-height: 1.42; }
+  h1 { color: #17365d; font-size: 20pt; margin-bottom: 4px; }
+  h2 { color: #245b84; font-size: 14pt; margin-top: 21px; border-bottom: 1px solid #b8c8d8; padding-bottom: 4px; }
+  .subtitulo { color: #666; margin-top: 0; }
+  .resumen { background: #eef5fa; border-left: 5px solid #2a84b8; padding: 12px 15px; }
+  .advertencia { background: #fff8e6; border-left: 5px solid #e5a100; padding: 10px 15px; }
+  table { width: 100%; border-collapse: collapse; margin: 11px 0; }
+  th { background: #245b84; color: white; text-align: left; padding: 8px; }
+  td { border: 1px solid #c8d1da; padding: 8px; vertical-align: top; }
+  td.numero { text-align: right; white-space: nowrap; }
+  tr.total td { font-weight: bold; background: #eef5fa; }
+  .hecho { color: #16713a; font-weight: bold; }
+  .parcial { color: #a46700; font-weight: bold; }
+  .pendiente { color: #a22020; font-weight: bold; }
+  .valores { width: 67%; margin-left: auto; }
+  .valores td:first-child { font-weight: bold; }
+  .nota { font-size: 9pt; color: #555; }
+  .texto-registro { border: 1px solid #c8d1da; background: #fafafa; padding: 12px 15px; }
+</style>
+</head>
+<body>
+  <h1>Presupuesto de desarrollo</h1>
+  <p class="subtitulo">Teléfono en aviso de incorporación y distribución agregada por género — RAMUCH</p>
+  <p><strong>Fecha:</strong> 12 de septiembre de 2026</p>
+
+  <div class="resumen">
+    <strong>Objetivo</strong><br>
+    Incorporar el teléfono del nuevo socio en la notificación de pago de matrícula enviada a la Directiva y habilitar el registro opcional de sexo/género para generar estadísticas agregadas en el Dashboard administrativo.
+  </div>
+
+  <h2>Evaluación de lo existente</h2>
+  <table>
+    <thead><tr><th>Elemento</th><th style="width:16%">Estado</th><th>Resultado del análisis</th></tr></thead>
+    <tbody>
+      <tr><td>Teléfono del socio</td><td class="hecho">Existe</td><td>El número se guarda en el perfil desde la inscripción y puede verse en el listado administrativo.</td></tr>
+      <tr><td>Correo por pago de matrícula</td><td class="parcial">Parcial</td><td>El aviso actual informa nombre y email, pero no consulta ni muestra el teléfono.</td></tr>
+      <tr><td>Campo sexo/género</td><td class="pendiente">Pendiente</td><td>No existe un campo estructurado en la base de datos ni en los formularios del socio o la administración.</td></tr>
+      <tr><td>Opciones Femenino, Masculino y Otro</td><td class="pendiente">Pendiente</td><td>No existen selector, validación ni almacenamiento. El campo debe permanecer opcional.</td></tr>
+      <tr><td>Dashboard agregado por género</td><td class="pendiente">Pendiente</td><td>El Dashboard no realiza agrupaciones por género ni presenta gráfico o resumen estadístico.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Desarrollo considerado</h2>
+  <ol>
+    <li>Consultar el teléfono desde el perfil al confirmar el pago de una matrícula.</li>
+    <li>Agregar el teléfono al correo HTML y su versión de texto enviados a la Directiva.</li>
+    <li>Incorporar el campo opcional sexo/género en la base de datos mediante una migración no destructiva.</li>
+    <li>Agregar el selector Femenino, Masculino y Otro en el formulario público, ficha del socio y edición administrativa.</li>
+    <li>Permitir que socios existentes informen o modifiquen voluntariamente este dato.</li>
+    <li>Construir una consulta estadística que agrupe socios vigentes por género e incluya la categoría “Sin información”.</li>
+    <li>Agregar al Dashboard administrativo tarjetas o gráfico con cantidades y porcentajes.</li>
+    <li>Evitar exponer nombres u otra información individual desde la visualización agregada.</li>
+       <li>Probar la notificación de matrícula y el tablero en staging antes de publicar.</li>
+  </ol>
+
+  <div class="advertencia">
+    <strong>Evitar doble cobro:</strong> el campo de género y su Dashboard también forman parte del presupuesto “Modificaciones al Formulario de Inscripción”. Si se aprueba ese presupuesto integral, esta parte no debe cobrarse nuevamente. Este documento permite aprobar esta mejora como una solicitud independiente.
+  </div>
+
+  <h2>Estimación integral</h2>
+  <table>
+    <thead><tr><th>Actividad</th><th style="width:20%; text-align:right">Horas</th></tr></thead>
+    <tbody>
+      <tr><td>Teléfono en el aviso de nuevo socio y pago de matrícula</td><td class="numero">0,5</td></tr>
+      <tr><td>Migración y almacenamiento opcional de sexo/género</td><td class="numero">1,0</td></tr>
+      <tr><td>Actualización de formulario público, perfil y administración</td><td class="numero">1,5</td></tr>
+      <tr><td>Consulta y visualización agregada en el Dashboard</td><td class="numero">1,5</td></tr>
+      <tr><td>Pruebas en staging y publicación</td><td class="numero">0,5</td></tr>
+      <tr class="total"><td>Total estimado de la solicitud completa</td><td class="numero">5,0 horas</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Valorización</h2>
+  <table class="valores">
+    <tbody>
+      <tr><td>Tarifa desarrollador senior</td><td class="numero">$40.000 CLP/hora</td></tr>
+      <tr><td>Valor neto</td><td class="numero">$200.000 CLP</td></tr>
+      <tr><td>IVA (19 %)</td><td class="numero">$38.000 CLP</td></tr>
+      <tr class="total"><td>Total con IVA</td><td class="numero">$238.000 CLP</td></tr>
+    </tbody>
+  </table>
+
+  <p class="nota">La estimación considera desarrollo PHP/MySQL, adaptación de los distintos formularios, visualización agregada, validación en staging y publicación posterior a la aprobación.</p>
+
+  <h2>Detalle para registrar en la Intranet</h2>
+  <div class="texto-registro">
+    Incorporación del número telefónico al correo de aviso de nuevo socio y pago de matrícula enviado a la Directiva, para facilitar el contacto de bienvenida y la integración a WhatsApp. Incorporación adicional de un campo opcional de sexo/género para todos los socios, disponible en registro, perfil y administración, junto con un tablero administrativo de distribución agregada que incluya cantidades, porcentajes y socios sin información. Incluye migración de datos, controles de privacidad, pruebas en staging y publicación.<br><br>
+    <strong>Tiempo estimado total:</strong> 5 horas.<br>
+    <strong>Valor estimado total:</strong> $200.000 CLP netos.
+  </div>
+</body>
+</html>

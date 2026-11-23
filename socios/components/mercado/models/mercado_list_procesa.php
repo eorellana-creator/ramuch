@@ -6,11 +6,10 @@ include("../../../includes/funciones.php");
 
 // Habilitar reporte de errores
 error_reporting(E_ALL);
-ini_set('display_errors', '1');
+ini_set('display_errors', '0');
 
 // Habilitar logs de errores en un archivo
 ini_set('log_errors', '1');
-ini_set('error_log', __DIR__ . '/error.log');
 
 // Parámetros de DataTables
 $draw = isset($_POST["draw"]) ? intval($_POST["draw"]) : 1;

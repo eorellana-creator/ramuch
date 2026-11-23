@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Presupuesto consolidado de desarrollo — RAMUCH</title>
+<style>
+  @page { size: A4; margin: 1.7cm; }
+  body { font-family: Arial, sans-serif; color: #222; font-size: 10.3pt; line-height: 1.4; }
+  h1 { color: #17365d; font-size: 20pt; margin-bottom: 4px; }
+  h2 { color: #245b84; font-size: 14pt; margin-top: 22px; border-bottom: 1px solid #b8c8d8; padding-bottom: 4px; }
+  h3 { color: #245b84; font-size: 11.5pt; margin: 15px 0 5px; }
+  .subtitulo { color: #666; margin-top: 0; }
+  .resumen { background: #eef5fa; border-left: 5px solid #2a84b8; padding: 12px 15px; }
+  .nota-destacada { background: #fff8e6; border-left: 5px solid #e5a100; padding: 10px 15px; }
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+  th { background: #245b84; color: white; text-align: left; padding: 7px; }
+  td { border: 1px solid #c8d1da; padding: 7px; vertical-align: top; }
+  td.numero { text-align: right; white-space: nowrap; }
+  tr.subtotal td { font-weight: bold; background: #f4f7fa; }
+  tr.total td { font-weight: bold; background: #dcecf7; }
+  .nota { font-size: 9pt; color: #555; }
+  .alcance li { margin-bottom: 5px; }
+</style>
+</head>
+<body>
+  <h1>Presupuesto consolidado de desarrollo</h1>
+  <p class="subtitulo">Formulario de inscripción, Comisión de Equipo y control de datos de seguridad — RAMUCH</p>
+  <p><strong>Fecha:</strong> 3 de octubre de 2026</p>
+
+  <div class="resumen">
+    <strong>Objetivo</strong><br>
+    Implementar tres solicitudes relacionadas: modernizar el formulario de inscripción y sus automatizaciones; completar las mejoras operativas e inventario de la Comisión de Equipo; y exigir información mínima de contacto de emergencia antes de permitir solicitudes o préstamos de equipo.
+  </div>
+
+  <div class="nota-destacada">
+    El listado de mejoras de Comisión Equipo fue incluido dos veces en el requerimiento recibido. Para evitar una doble valorización, se considera una sola vez y se divide entre las solicitudes 2 y 3.
+  </div>
+
+  <h2>Solicitud 1 — Formulario de inscripción</h2>
+  <p>Actualización integral del registro público, modelo de datos, ficha administrativa, exportación Excel, Dashboard y comunicaciones automáticas.</p>
+
+  <h3>Descripción del desarrollo</h3>
+  <ol class="alcance">
+    <li>Separar el nombre completo en <strong>Nombres, Apellido Paterno y Apellido Materno</strong>, todos obligatorios, manteniendo compatibilidad con registros anteriores y adaptando la exportación Excel.</li>
+    <li>Agregar <strong>Sexo/Género</strong> opcional con Femenino, Masculino y Otro; incorporar edición administrativa y un tablero agregado con cantidades, porcentajes y categoría “Sin información”.</li>
+    <li>Normalizar el <strong>RUT</strong> con formateo automático de puntos y guion, validación de dígito verificador, obligatoriedad y control en servidor.</li>
+    <li>Mantener el <strong>Email</strong> obligatorio, reforzando validación, confirmación y prevención de duplicados.</li>
+    <li>Agregar <strong>Fecha de nacimiento</strong> obligatoria mediante selectores de día, mes y año, con validación de fechas reales.</li>
+    <li>Programar diariamente a las <strong>09:00</strong> el saludo de cumpleaños, usando la plantilla entregada, personalización por nombre, copia oculta a montana.uchile@gmail.com, trazabilidad y prevención de envíos duplicados.</li>
+    <li>Normalizar el <strong>Teléfono</strong> con prefijo de país, formato internacional y obligatoriedad.</li>
+    <li>Agregar <strong>Tipo de socio</strong> obligatorio: Socio General o Estudiante Pregrado.</li>
+    <li>Exigir certificado de alumno regular en PDF o imagen cuando se elija Estudiante Pregrado, validando tipo/tamaño y habilitando consulta autenticada para administradores.</li>
+    <li>Agregar la pregunta sobre participación en otro club, con respuesta Sí/No y nombre del club limitado a 50 caracteres.</li>
+    <li>Agregar motivaciones de ingreso con selección múltiple, máximo tres opciones y texto condicionado para “Otro”.</li>
+    <li>Actualizar el consentimiento obligatorio y sus vínculos al Protocolo de Cuotas y Estatutos publicados por RAMUCH.</li>
+    <li>Realizar migración no destructiva, pruebas de todos los flujos en staging y publicación posterior.</li>
+  </ol>
+
+  <p><strong>Certificado actual:</strong> se almacena en <code>admin/components/socios/archivos</code> y se referencia desde el perfil. Se incluirá descarga autenticada y controles para evitar exposición directa.</p>
+
+  <h3>Estimación solicitud 1</h3>
+  <table>
+    <thead><tr><th>Actividad</th><th style="width:18%; text-align:right">Horas</th></tr></thead>
+    <tbody>
+      <tr><td>Modelo de datos y migración</td><td class="numero">0,25</td></tr>
+      <tr><td>Nombres, género, nacimiento, RUT, email y teléfono</td><td class="numero">0,50</td></tr>
+      <tr><td>Tipo de socio y certificado condicional protegido</td><td class="numero">0,25</td></tr>
+      <tr><td>Club anterior, motivaciones y validaciones condicionales</td><td class="numero">0,25</td></tr>
+      <tr><td>Consentimiento y enlaces documentales</td><td class="numero">0,10</td></tr>
+      <tr><td>Ficha administrativa y exportación Excel</td><td class="numero">0,20</td></tr>
+      <tr><td>Dashboard agregado por género</td><td class="numero">0,15</td></tr>
+      <tr><td>Correo automático de cumpleaños</td><td class="numero">0,15</td></tr>
+      <tr><td>Pruebas, staging y publicación</td><td class="numero">0,48</td></tr>
+      <tr class="subtotal"><td>Total máximo solicitud 1</td><td class="numero">2 h 20 min</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Solicitud 2 — Mejoras operativas e inventario de Comisión Equipo</h2>
+  <p>Consolidación del flujo de préstamos y construcción de un inventario funcional separado, con herramientas para administradores y mejor experiencia de operación.</p>
+
+  <h3>Descripción del desarrollo</h3>
+  <ol class="alcance">
+    <li>Cambiar de tres a cuatro meses la regla de morosidad que restringe solicitudes o préstamos.</li>
+    <li>Agregar filtros por socio, equipo, identificador, responsable, estado y rango de fechas.</li>
+    <li>Diferenciar mediante textos y ayudas el préstamo solicitado por el socio del préstamo gestionado directamente por un encargado.</li>
+    <li>Permitir a administradores autorizados prestar un equipo disponible directamente a un socio, sin solicitud previa, registrando responsable, destinatario, fechas y observaciones.</li>
+    <li>Implementar una sección independiente de <strong>Inventario de equipo</strong> con equipos disponibles, prestados, dados de baja, extraviados o inutilizables.</li>
+    <li>Mostrar en el módulo de préstamos solo equipos actualmente prestados.</li>
+    <li>Separar fecha de inicio y fecha comprometida de devolución en columnas independientes.</li>
+    <li>Ordenar inicialmente los préstamos por nombre del socio y conservar ordenamiento interactivo.</li>
+    <li>Incorporar confirmación previa antes de activar o desactivar el sistema de préstamos.</li>
+    <li>Procesar devoluciones mediante AJAX, sin recargar completamente la página.</li>
+    <li>Validar permisos y trazabilidad, probar en staging y publicar posteriormente.</li>
+  </ol>
+
+  <h3>Estimación solicitud 2</h3>
+  <table>
+    <thead><tr><th>Actividad</th><th style="width:18%; text-align:right">Horas</th></tr></thead>
+    <tbody>
+      <tr><td>Regla de cuatro meses y revisión de accesos</td><td class="numero">0,10</td></tr>
+      <tr><td>Filtros avanzados, fechas, columnas y ordenamiento</td><td class="numero">0,35</td></tr>
+      <tr><td>Separación conceptual de solicitudes y préstamos gestionados</td><td class="numero">0,10</td></tr>
+      <tr><td>Préstamo directo, permisos y trazabilidad</td><td class="numero">0,20</td></tr>
+      <tr><td>Inventario funcional separado</td><td class="numero">0,30</td></tr>
+      <tr><td>Listado de préstamos, confirmación y devolución sin recarga</td><td class="numero">0,25</td></tr>
+      <tr><td>Pruebas, staging y publicación</td><td class="numero">0,50</td></tr>
+      <tr class="subtotal"><td>Total máximo solicitud 2</td><td class="numero">1 h 48 min</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Solicitud 3 — Datos obligatorios y contacto de emergencia para equipos</h2>
+  <p>Control de información mínima de seguridad antes de solicitar o recibir equipo, sin exigir antecedentes sensibles de salud.</p>
+
+  <h3>Descripción del desarrollo</h3>
+  <ol class="alcance">
+    <li>Definir como requisito para solicitar o recibir equipo el nombre y teléfono de al menos un contacto de emergencia.</li>
+    <li>Validar la información tanto en el navegador como en el servidor, impidiendo omitir el control mediante llamadas directas.</li>
+    <li>Mostrar un aviso explícito cuando los datos estén incompletos, explicando el motivo del bloqueo.</li>
+    <li>Incluir un acceso directo a la sección exacta del perfil donde deben actualizarse los datos.</li>
+    <li>Enviar la comunicación correspondiente y evitar notificaciones duplicadas o reiterativas.</li>
+    <li>Mantener datos médicos y de salud como información opcional, sin convertirlos en requisito.</li>
+    <li>Probar solicitudes personales, préstamos directos y perfiles completos/incompletos en staging.</li>
+  </ol>
+
+  <h3>Estimación solicitud 3</h3>
+  <table>
+    <thead><tr><th>Actividad</th><th style="width:18%; text-align:right">Horas</th></tr></thead>
+    <tbody>
+      <tr><td>Reglas, validación de contacto de emergencia y bloqueo de servidor</td><td class="numero">0,40</td></tr>
+      <tr><td>Aviso, enlace directo al perfil y comunicación</td><td class="numero">0,40</td></tr>
+      <tr><td>Pruebas, staging y publicación</td><td class="numero">0,40</td></tr>
+      <tr class="subtotal"><td>Total máximo solicitud 3</td><td class="numero">1 h 12 min</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Condiciones y supuestos</h2>
+  <ul>
+    <li>Tarifa considerada: <strong>$15.000 CLP por hora</strong> de desarrollo senior.</li>
+    <li>Los valores incluyen análisis, programación PHP/MySQL, migraciones, pruebas en staging, correcciones de implementación y publicación.</li>
+    <li>RAMUCH proporcionará o confirmará las URL definitivas del Protocolo de Cuotas y de los Estatutos.</li>
+    <li>El hosting debe permitir una tarea programada diaria para el correo de cumpleaños.</li>
+    <li>No se considera el desarrollo de una aplicación móvil ni integraciones externas distintas del correo ya disponible.</li>
+    <li>El tiempo máximo estimado de implementación es de <strong>5 horas y 20 minutos</strong>, sujeto a validación oportuna en staging.</li>
+    <li>La vigencia de esta propuesta es de 30 días.</li>
+  </ul>
+
+  <h2>Resumen final de las tres solicitudes</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Solicitud</th>
+        <th style="width:10%; text-align:right">Horas</th>
+        <th style="width:14%">Plazo</th>
+        <th style="width:16%; text-align:right">Neto</th>
+        <th style="width:14%; text-align:right">IVA 19%</th>
+        <th style="width:17%; text-align:right">Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1. Formulario de inscripción</td><td class="numero">2 h 20 min</td><td>Máximo 2 h 20 min</td>
+        <td class="numero">$35.000</td><td class="numero">$6.650</td><td class="numero">$41.650</td>
+      </tr>
+      <tr>
+        <td>2. Comisión Equipo: operación e inventario</td><td class="numero">1 h 48 min</td><td>Máximo 1 h 48 min</td>
+        <td class="numero">$27.000</td><td class="numero">$5.130</td><td class="numero">$32.130</td>
+      </tr>
+      <tr>
+        <td>3. Datos obligatorios y contacto de emergencia</td><td class="numero">1 h 12 min</td><td>Máximo 1 h 12 min</td>
+        <td class="numero">$18.000</td><td class="numero">$3.420</td><td class="numero">$21.420</td>
+      </tr>
+      <tr class="total">
+        <td>Total general</td><td class="numero">5 h 20 min</td><td>Máximo 5 h 20 min</td>
+        <td class="numero">$80.000</td><td class="numero">$15.200</td><td class="numero">$95.200</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="nota">Todos los valores están expresados en pesos chilenos. La ejecución se propone por etapas, con aprobación funcional en staging antes de cada publicación en producción.</p>
+</body>
+</html>

@@ -17,11 +17,7 @@ $lista_excel = "";
 // Kop 
 $sqlC 	= $mysql->query("
 SELECT d.id_usuario_deuda as id_usuario, d.nombre_deudor as nombre_usuario, SUM(d.monto) as deuda, u.estado, p.mail as email,
-CASE tipo_inscripcion
-      WHEN 1 THEN 'Profesional'
-      WHEN 3 THEN 'Estudiante'
-      ELSE 'Otro'
-  END AS tipo_inscripcion, p.fono, p.rut
+COALESCE((SELECT pm.nombre FROM plan_matricula pm WHERE pm.id_plan_matricula = p.tipo_inscripcion), 'Otro') AS tipo_inscripcion, p.fono, p.rut
 FROM deudas d, usuario u, perfil p
 WHERE d.id_usuario_deuda = u.id_usuario and d.id_usuario_deuda = p.id_usuario and u.estado = 'Vigente' and d.sub_cuenta = 'cuota' AND d.estado='activa' and d.fecha < DATE_SUB(CURDATE(), INTERVAL 6 MONTH)
 and (u.web_matricula_pagada IS NULL OR u.web_matricula_pagada!='No') and (p.tipo_inscripcion ='1' OR p.tipo_inscripcion ='3' ) 

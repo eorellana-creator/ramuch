@@ -1,7 +1,7 @@
 <?php
 // Depuración - habilita para ver errores
 error_reporting(E_ALL);
-ini_set('display_errors', 1);
+ini_set('display_errors', '0');
 
 // atrasos.php - Backend para obtener préstamos con atraso
 

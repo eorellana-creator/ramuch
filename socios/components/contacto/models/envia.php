@@ -42,10 +42,10 @@ if($nombre_solicita!=""){
 
 
  //Configuración de envío ***************************************************************
- $host 			= "mail.montanauchile.cl";
- $email_user 	= "no-responder@montanauchile.cl";
- $email_pass 	= "123ramuchchile2022";
- $email_from 	= "no-responder@montanauchile.cl";
+ $host 			= "mail.ramuch.cl";
+ $email_user 	= "no-responder@ramuch.cl";
+ $email_pass 	= "1941ramuch2024";
+ $email_from 	= "no-responder@ramuch.cl";
  $email_to 		= "";
  $email_name 	= "Ramuch";
  $email_reply 	= "no-responder@montanauchile.cl";
@@ -105,10 +105,10 @@ if($nombre_solicita!=""){
 
 
    
- require_once("../../../includes/PHPMailer2/PHPMailerAutoload.php");
+ require_once __DIR__ . "/../../../../admin/includes/RamuchMailer.php";
 
  //Create a new PHPMailer instance
- $mail = new PHPMailer;
+ $mail = crearMailerRamuch(false);
  //Tell PHPMailer to use SMTP
  $mail->isSMTP();
  //Enable SMTP debugging
@@ -121,7 +121,9 @@ if($nombre_solicita!=""){
  //Set the hostname of the mail server
  $mail->Host = $host;
  //Set the SMTP port number - likely to be 25, 465 or 587
- $mail->Port = 25;
+ $mail->Port = 587;
+ $mail->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
+ $mail->Timeout = 15;
  //Whether to use SMTP authentication
  $mail->SMTPAuth = true;
  //Username to use for SMTP authentication

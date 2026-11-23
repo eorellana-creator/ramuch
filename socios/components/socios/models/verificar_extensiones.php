@@ -31,7 +31,8 @@ try {
     $tokenUsuario = str_replace("'", "''", $_SESSION['usuario_token']);
 
     // Consultar únicamente préstamos pertenecientes al usuario autenticado.
-    $sql = "SELECT ep.extensiones_solicitadas, ep.estado
+    $sql = "SELECT ep.extensiones_solicitadas, ep.estado,
+                   ep.estado_extension, ep.estado_extension2
             FROM equipo_prestamo ep
             INNER JOIN usuario u ON u.id_usuario = ep.id_usuario_prestamo
             WHERE ep.token = '$token' AND u.token = '$tokenUsuario'
@@ -53,9 +54,17 @@ try {
     }
 
     // Preparar respuesta exitosa
+    $extensionesUtilizadas = 0;
+    if (in_array((string)$prestamo->estado_extension, ['pendiente', 'aprobada'], true)) {
+        $extensionesUtilizadas++;
+    }
+    if (in_array((string)$prestamo->estado_extension2, ['pendiente', 'aprobada'], true)) {
+        $extensionesUtilizadas++;
+    }
+
     $response = [
         'success' => true,
-        'extensiones_restantes' => max(0, 2 - (int)$prestamo->extensiones_solicitadas),
+        'extensiones_restantes' => max(0, 2 - $extensionesUtilizadas),
         'mensaje' => 'OK'
     ];
 

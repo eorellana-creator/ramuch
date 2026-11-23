@@ -19,7 +19,8 @@ function logError($message) {
 }
 
 // Cargar PHPMailer
-require '../vendor/autoload.php';
+require_once __DIR__ . '/../admin/includes/RamuchMailer.php';
+require_once __DIR__ . '/../admin/includes/procesos_automaticos.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -29,6 +30,11 @@ try {
 	}
 	
 	$token = filter_input(INPUT_POST, 'token');
+
+	$mysql 		= new mysql;
+	$mysql->connect();
+	$registroProceso = ramuchProcesoIniciar($mysql, 'confirmacion_pago_flow', 'Confirmación de pago Flow');
+	$erroresProceso = [];
 	$params = array(
 		"token" => $token
 	);
@@ -42,9 +48,6 @@ try {
 	$monto = @$response["amount"];
 	$estado = @$response["status"];
 	$flow_order = @$response["flowOrder"];
-
-	$mysql 		= new mysql;
-	$mysql->connect();
 
 	$sql = $mysql->query("UPDATE flow SET flow_status='$estado' WHERE flow_order='$orden'  ;");
 
@@ -146,6 +149,29 @@ try {
 				$nombre = $result->nombre_usuario;
 				$email = $result->email;
 
+				// Teléfono del nuevo socio para que la Directiva lo incorpore a WhatsApp (solicitud #3).
+				$telefono = "";
+				$sqlFono = $mysql->query("SELECT fono FROM perfil WHERE id_usuario='$id_usuario' LIMIT 1;");
+				$perfilFono = $sqlFono ? @$mysql->f_obj($sqlFono) : null;
+				if ($perfilFono && trim((string)$perfilFono->fono) !== '') {
+					$telefono = trim((string)$perfilFono->fono);
+				}
+				$telefonoHtml = $telefono !== '' ? htmlspecialchars($telefono, ENT_QUOTES, 'UTF-8') : 'No registrado';
+				$digitosTelefono = preg_replace('/\D+/', '', $telefono);
+				// Enlace directo a WhatsApp: con código de país (+XX...), 569XXXXXXXX,
+				// o celular chileno de 9 dígitos sin código (se antepone 56).
+				$numeroWhatsapp = '';
+				if (strpos($telefono, '+') === 0 && strlen($digitosTelefono) >= 8) {
+					$numeroWhatsapp = $digitosTelefono;
+				} elseif (preg_match('/^569\d{8}$/', $digitosTelefono)) {
+					$numeroWhatsapp = $digitosTelefono;
+				} elseif (preg_match('/^9\d{8}$/', $digitosTelefono)) {
+					$numeroWhatsapp = '56' . $digitosTelefono;
+				}
+				$enlaceWhatsapp = $numeroWhatsapp !== ''
+					? " (<a href='https://wa.me/$numeroWhatsapp'>abrir en WhatsApp</a>)"
+					: "";
+
 				// Configuración PHPMailer ***************************************************************
 				$host           = "mail.ramuch.cl";
 				$email_user     = "no-responder@ramuch.cl";
@@ -183,6 +209,7 @@ try {
 					<br><br>
 					<strong>Estimada directiva, </strong><br><br>
 					Soci(a) $nombre con email $email a pagado correctamente su matricula<br>
+					<strong>Teléfono:</strong> $telefonoHtml$enlaceWhatsapp<br>
 					<br><br>
 					Ya es posible agregarlo al grupo de whatapps y enviar su saludos de bienvenida.
 					<br><br>
@@ -195,11 +222,11 @@ try {
 				</html>";
 
 				// Versión texto plano
-				$message_plain = "Nuevo Soci@ pago su matricula $nombre,\n\n Estimada directiva,\n\nSoci@ $nombre a pagado correctamente su matricula.\n\nYa es posible agregarlo al grupo de whatapps y enviar su saludos de bienvenida.\n\nServicios automaticos Ramuch";
+				$message_plain = "Nuevo Soci@ pago su matricula $nombre,\n\n Estimada directiva,\n\nSoci@ $nombre a pagado correctamente su matricula.\nTeléfono: " . ($telefono !== "" ? $telefono : "No registrado") . "\n\nYa es posible agregarlo al grupo de whatapps y enviar su saludos de bienvenida.\n\nServicios automaticos Ramuch";
 
 				try {
 					// Configuración del servidor SMTP
-					$mail = new PHPMailer(true);
+					$mail = crearMailerRamuch(true);
 					$mail->isSMTP();
 					$mail->Host       = $host;
 					$mail->SMTPAuth   = true;
@@ -236,6 +263,7 @@ try {
 				} catch (Exception $e) {
 					$errorMsg = "Error al enviar correo a $email_to: " . $e->getMessage() . " - PHPMailer Error: " . $mail->ErrorInfo;
 					logError($errorMsg);
+					$erroresProceso[] = "El pago quedó registrado, pero falló el aviso a la Directiva: " . $mail->ErrorInfo;
 					echo "Error al enviar el correo. Se ha registrado el error para su revisión.";
 				}
 
@@ -349,7 +377,7 @@ try {
 				Web: ramuch.cl";
 
 					// Configuración PHPMailer para el socio
-					$mail_socio = new PHPMailer(true);
+					$mail_socio = crearMailerRamuch(true);
 					$mail_socio->isSMTP();
 					$mail_socio->Host       = $host;
 					$mail_socio->SMTPAuth   = true;
@@ -394,6 +422,7 @@ try {
 				} catch (Exception $e) {
 					$errorMsg = "Error al enviar email de bienvenida a $email_socio: " . $e->getMessage() . " - PHPMailer Error: " . $mail_socio->ErrorInfo;
 					logError($errorMsg);
+					$erroresProceso[] = "El pago quedó registrado, pero falló el correo de bienvenida al socio: " . $mail_socio->ErrorInfo;
 					echo "Error al enviar email de bienvenida. Se ha registrado el error.";
 				}
 			} else {
@@ -416,6 +445,9 @@ try {
 
 		$sql 	= $mysql->query("INSERT INTO cuenta_maestra (id_usuario_sistema, nombre_usuario_sistema, id_usuario_movimiento, nombre,             fecha,    tipo,   sub_cuenta,   glosa,         observacion,     medio, id_transaccion, documento_respaldo, monto, estado, token)
 														VALUES ('$id_usuario',      '$nombre_usuario',      '$id_usuario',     '$nombre_usuario',  '$fecha', 'ingreso', 'cuota',    'Pago vía Flow',     '',          'Flow','$flow_order',          '',        '$monto','activo', '$token_nuevo'  ) ;");
+		if ($sql === false) {
+			$erroresProceso[] = "No se pudo registrar el ingreso en la cuenta maestra: " . mysqli_error($mysql->conexion);
+		}
 
 		// agregar envio de correo si el pago de es metricula, avisando a la directiva que se pago la matricula.
 		// subcuenta tiene el valor 
@@ -423,8 +455,27 @@ try {
 
 		}//if($estado==2)
 
+	$montoTexto = '$ ' . number_format((float)$monto, 0, ',', '.');
+	$estadosFlow = [1 => 'quedó pendiente de pago', 3 => 'fue rechazado', 4 => 'fue anulado'];
+	if ($estado == 2) {
+		$tipoPago = (isset($matriculaX) && $matriculaX === 'matricula') ? 'matrícula' : 'cuotas';
+		$descripcionProceso = "Pago confirmado: orden Flow $flow_order por $montoTexto ($tipoPago, socio ID $id_usuario).";
+	} elseif (isset($estadosFlow[(int)$estado])) {
+		$descripcionProceso = "Flow informó que el pago de la orden $orden por $montoTexto " . $estadosFlow[(int)$estado] . ". No se registró ningún pago.";
+	} else {
+		$erroresProceso[] = "Flow respondió un estado desconocido (" . var_export($estado, true) . ") para la orden " . var_export($orden, true) . ".";
+		$descripcionProceso = "No se pudo interpretar la respuesta de Flow.";
+	}
+	if ($erroresProceso) {
+		$descripcionProceso .= "\n\nErrores:\n- " . implode("\n- ", $erroresProceso);
+	}
+	ramuchProcesoFinalizar($registroProceso, !$erroresProceso, $descripcionProceso);
+
 	
 } catch (Exception $e) {
+	if (isset($registroProceso)) {
+		ramuchProcesoFinalizar($registroProceso, false, "No se pudo completar la confirmación del pago informado por Flow: " . $e->getMessage());
+	}
 	echo "Error: " . $e->getCode() . " - " . $e->getMessage();
 }
 ?>

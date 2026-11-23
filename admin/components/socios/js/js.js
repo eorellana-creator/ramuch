@@ -2,6 +2,29 @@
 
 $(document).ready(function() {
 
+ function alternarAntecedentesIngreso() {
+    var perteneceOtroClub = $('#otro_club_montanismo').val() === '1';
+    $('#nombre-otro-club-admin-container').toggle(perteneceOtroClub);
+    $('#nombre_otro_club').prop('required', perteneceOtroClub);
+
+    var seleccionoOtraMotivacion = $('#motivacion_admin_otro').is(':checked');
+    $('#motivacion-otro-admin-container').toggle(seleccionoOtraMotivacion);
+    $('#motivacion_otro').prop('required', seleccionoOtraMotivacion);
+ }
+
+ $('#otro_club_montanismo').on('change', alternarAntecedentesIngreso);
+ $('.motivacion-ingreso-admin').on('change', function() {
+    var seleccionadas = $('.motivacion-ingreso-admin:checked');
+    if (seleccionadas.length > 3) {
+        this.checked = false;
+        $('#motivaciones-admin-error').show();
+    } else {
+        $('#motivaciones-admin-error').hide();
+    }
+    alternarAntecedentesIngreso();
+ });
+ alternarAntecedentesIngreso();
+
  var tipoSocio = "";
  var tipoCuota = "";
 

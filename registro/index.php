@@ -267,26 +267,6 @@ $( "#rut" ).removeClass( "rutnovalido" );
 });
 
 
-$(document).ready(function() {
-            $('#formulario').on('submit', function(e) {
-                e.preventDefault(); // Evitar recarga de la página
-                var formData = $(this).serialize(); // Serializar los datos del formulario
-                
-                $.ajax({
-                    url: 'verificar_captcha.php', // Archivo PHP donde se valida el captcha
-                    type: 'POST',
-                    data: formData,
-                    success: function(response) {
-                        $('#result').html(response); // Mostrar el mensaje de validación
-                    },
-                    error: function() {
-                        $('#result').html('Error al enviar el formulario.');
-                    }
-                });
-            });
-        });
-
-
 function valida_mail(e){  
 if(e.value!=""){
 if(e.value.indexOf("@")==-1 || e.value.indexOf(".")==-1){ 
@@ -392,28 +372,52 @@ function validaCertificado(e){
             <form name="formulario" id="formulario" method="post" action="javascript: enviar();" enctype="multipart/form-data">
 
                   <div class="row justify-content-center">
-                    <div class="col-md-6">
+                    <div class="col-md-8">
                       <div class="card mx-4">
                         <div class="card-body p-4">
                           <h1><img src="images/tf.png" alt="Logo Ramuch" > &nbsp; Registrarse</h1>
                           <p class="text-muted">Crea tu cuenta en Ramuch</p>
                           <div  id="contenido">
+                          <label for="nombres">Nombres *</label>
                           <div class="input-group mb-3">
                             <div class="input-group-prepend">
                               <span class="input-group-text">
                                 <i class="icon-user"></i>
                               </span>
                             </div>
-                            <input id="nombre" name="nombre" class="form-control" type="text" placeholder="Tu nombre completo" onBlur="elimina_slash(this);elimina_comillas(this);elimina_blancos_inicio_fin(this);" >
+                            <input id="nombres" name="nombres" class="form-control" type="text" placeholder="Nombres" maxlength="100" required>
                           </div>
 
+                          <label for="apellido_paterno">Apellido paterno *</label>
+                          <div class="input-group mb-3">
+                            <div class="input-group-prepend"><span class="input-group-text"><i class="icon-user"></i></span></div>
+                            <input id="apellido_paterno" name="apellido_paterno" class="form-control" type="text" placeholder="Apellido paterno" maxlength="60" required>
+                          </div>
+
+                          <label for="apellido_materno">Apellido materno *</label>
+                          <div class="input-group mb-3">
+                            <div class="input-group-prepend"><span class="input-group-text"><i class="icon-user"></i></span></div>
+                            <input id="apellido_materno" name="apellido_materno" class="form-control" type="text" placeholder="Apellido materno" maxlength="60" required>
+                          </div>
+
+                          <label for="sexo_genero">Sexo/Género (opcional)</label>
+                          <div class="input-group mb-3">
+                            <select id="sexo_genero" name="sexo_genero" class="form-control">
+                              <option value="">Selecciona una opción</option>
+                              <option value="Femenino">Femenino</option>
+                              <option value="Masculino">Masculino</option>
+                              <option value="Otro">Otro</option>
+                            </select>
+                          </div>
+
+                          <label for="rut">RUT *</label>
                           <div class="input-group mb-3">
                             <div class="input-group-prepend">
                               <span class="input-group-text">
                               <i class="fa fa-id-card-o" style="color:#9ea1a2;"></i>
                               </span>
                             </div>
-                            <input id="rut" name="rut" class="form-control" type="text" placeholder="Tu Rut. Ej: 14.231.123-k" onBlur="elimina_slash(this);elimina_comillas(this);elimina_blancos_inicio_fin(this);rutExiste(this);" >
+                            <input id="rut" name="rut" class="form-control" type="text" placeholder="Ej: 14.231.123-K" maxlength="12" autocomplete="off" onBlur="rutExiste(this);" required>
                             <div id="errorrut2" class="errorcampo" style="width:100%;"></div>
                           </div>
 
@@ -421,7 +425,7 @@ function validaCertificado(e){
                             <div class="input-group-prepend">
                               <span class="input-group-text">@</span>
                             </div>
-                            <input id="email" name="email" class="form-control" type="email" placeholder="Tu Email" onBlur="elimina_slash(this);elimina_comillas(this);elimina_blancos_inicio_fin(this);mailExiste(this);">
+                            <input id="email" name="email" class="form-control" type="email" placeholder="Tu correo electrónico" maxlength="150" autocomplete="email" onBlur="mailExiste(this);" required>
                             <div id="error-email" class="error-email" style="width:100%;"></div>
                           </div>
 
@@ -429,27 +433,102 @@ function validaCertificado(e){
                             <div class="input-group-prepend">
                               <span class="input-group-text">@</span>
                             </div>
-                            <input id="email2" name="email2" class="form-control" type="email" placeholder="Confirma tu Email" onBlur="elimina_slash(this);elimina_comillas(this);elimina_blancos_inicio_fin(this);mailExiste(this);">
+                            <input id="email2" name="email2" class="form-control" type="email" placeholder="Confirma tu correo electrónico" maxlength="150" autocomplete="email" required>
                             <div id="error-email2" class="error-email2" style="width:100%;"></div>
                           </div>
 
-                          <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                              <span class="input-group-text">
-                                <i class="icon-screen-smartphone"></i>
-                              </span>
+                          <label>Fecha de nacimiento *</label>
+                          <div class="form-row mb-3">
+                            <div class="col">
+                              <select id="nacimiento_dia" name="nacimiento_dia" class="form-control" required>
+                                <option value="">Día</option>
+                                <?php for ($dia = 1; $dia <= 31; $dia++) { ?><option value="<?php echo $dia; ?>"><?php echo $dia; ?></option><?php } ?>
+                              </select>
                             </div>
-                            <input id="telefono" name="telefono" class="form-control" type="text" placeholder="Tu teléfono." onBlur="elimina_slash(this);elimina_comillas(this);elimina_blancos_inicio_fin(this);" >
+                            <div class="col">
+                              <select id="nacimiento_mes" name="nacimiento_mes" class="form-control" required>
+                                <option value="">Mes</option>
+                                <?php foreach (array(1=>'Enero',2=>'Febrero',3=>'Marzo',4=>'Abril',5=>'Mayo',6=>'Junio',7=>'Julio',8=>'Agosto',9=>'Septiembre',10=>'Octubre',11=>'Noviembre',12=>'Diciembre') as $numeroMes => $nombreMes) { ?><option value="<?php echo $numeroMes; ?>"><?php echo $nombreMes; ?></option><?php } ?>
+                              </select>
+                            </div>
+                            <div class="col">
+                              <select id="nacimiento_anio" name="nacimiento_anio" class="form-control" required>
+                                <option value="">Año</option>
+                                <?php for ($anio = (int)date('Y'); $anio >= (int)date('Y') - 100; $anio--) { ?><option value="<?php echo $anio; ?>"><?php echo $anio; ?></option><?php } ?>
+                              </select>
+                            </div>
                           </div>
 
-                          <label class="form-col-form-label" for="inputSuccess1">Certificado Alumno Regular si corresponde (PDF o Imagen)</label>
+                          <label for="telefono">Teléfono *</label>
+                          <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <select id="telefono_pais" name="telefono_pais" class="form-control" aria-label="Código de país" required>
+                                <option value="+56" selected>Chile +56</option>
+                                <option value="+54">Argentina +54</option>
+                                <option value="+51">Perú +51</option>
+                                <option value="+591">Bolivia +591</option>
+                                <option value="+57">Colombia +57</option>
+                                <option value="+593">Ecuador +593</option>
+                                <option value="+1">EE.UU./Canadá +1</option>
+                                <option value="+34">España +34</option>
+                              </select>
+                            </div>
+                            <input id="telefono" name="telefono" class="form-control" type="tel" inputmode="numeric" placeholder="912345678" minlength="7" maxlength="15" autocomplete="tel-national" required>
+                          </div>
+
+                          <label for="tipo_socio">Tipo de inscripción *</label>
+                          <div class="input-group mb-3">
+                            <select id="tipo_socio" name="tipo_socio" class="form-control" required>
+                              <option value="">Selecciona una opción</option>
+<?php
+// Nombres visibles desde plan_matricula (IDs fijos: 1 y 3). Si la base no
+// responde, se muestran los nombres de respaldo y el formulario sigue operativo.
+$nombresTipoRegistro = array(1 => 'Socio General', 3 => 'Estudiante Pregrado');
+// Protocolo de Cuotas: se enlaza la versión vigente más reciente publicada en
+// Documentos Compartidos (tipo Protocolo, activo, referido a cuotas). Así, al
+// subir una nueva versión desde la Intranet, el formulario la usa sin cambios
+// de código. Respaldo: versión 24-09-2026 publicada en producción.
+$urlProtocoloCuotas = 'https://www.ramuch.cl/admin/documentos/6ac2b38517f48.pdf';
+try {
+    include_once __DIR__ . '/includes/conexionMysql.php';
+    require_once __DIR__ . '/../admin/includes/tipo_inscripcion.php';
+    $mysqlTipos = new mysql;
+    if ($mysqlTipos->connect()) {
+        foreach ($nombresTipoRegistro as $idTipo => $nombreRespaldo) {
+            $nombresTipoRegistro[$idTipo] = ramuchNombreTipoInscripcion($mysqlTipos, $idTipo, $nombreRespaldo);
+        }
+        $sqlProtocolo = $mysqlTipos->query("SELECT nombre_guardado FROM documentos_compartidos
+            WHERE estado = 1 AND id_tipo_documento = 1
+              AND (nombre_archivo LIKE '%cuota%' OR descripcion LIKE '%cuota%')
+              AND nombre_guardado LIKE '%.pdf'
+            ORDER BY fecha_subida DESC, id_documento DESC LIMIT 1;");
+        $protocolo = $sqlProtocolo ? $mysqlTipos->f_obj($sqlProtocolo) : null;
+        $archivoProtocolo = $protocolo ? basename($protocolo->nombre_guardado) : '';
+        // Solo se usa si el archivo existe en este servidor; si no, se mantiene el respaldo.
+        if ($archivoProtocolo !== '' && is_file(__DIR__ . '/../admin/documentos/' . $archivoProtocolo)) {
+            $urlProtocoloCuotas = '../admin/documentos/' . rawurlencode($archivoProtocolo);
+        }
+        $mysqlTipos->close();
+    }
+} catch (Throwable $e) {
+    error_log('Registro: no fue posible leer los tipos de inscripción o el protocolo vigente.');
+}
+?>
+                              <option value="profesional"><?php echo htmlspecialchars($nombresTipoRegistro[1], ENT_QUOTES, 'UTF-8'); ?></option>
+                              <option value="estudiante"><?php echo htmlspecialchars($nombresTipoRegistro[3], ENT_QUOTES, 'UTF-8'); ?></option>
+                            </select>
+                          </div>
+
+                          <div id="certificado-container" style="display:none;">
+                          <label class="form-col-form-label" for="archivo">Certificado de Alumno Regular (PDF o imagen) *</label>
                           <div class="input-group mb-3">
                             <div class="input-group-prepend">
                               <span class="input-group-text">
-                                <i class="icons   cui-paperclip"></i>
+                                <i class="icons cui-paperclip"></i>
                               </span>
                             </div>
-                            <input id="archivo" type="file" name="archivo" class="form-control"  onChange="validaCertificado(this);"  >
+                            <input id="archivo" type="file" name="archivo" class="form-control" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png" onChange="validaCertificado(this);">
+                          </div>
                           </div>
 
                           <div class="input-group mb-3">
@@ -458,7 +537,7 @@ function validaCertificado(e){
                                 <i class="icon-lock"></i>
                               </span>
                             </div>
-                            <div><input id="password" name="password" class="form-control pr-password" type="password" placeholder="Contraseña" onBlur="elimina_blancos_inicio_fin(this);" ></div>
+                            <div><input id="password" name="password" class="form-control pr-password" type="password" placeholder="Contraseña" minlength="8" autocomplete="new-password" required></div>
                             <div class="error-pass"></div>
                           </div>
                           <div class="input-group mb-4">
@@ -467,7 +546,37 @@ function validaCertificado(e){
                                 <i class="icon-lock"></i>
                               </span>
                             </div>
-                            <input id="password2" name="password2" class="form-control" type="password" placeholder="Repite contraseña" onBlur="elimina_blancos_inicio_fin(this);" >
+                            <input id="password2" name="password2" class="form-control" type="password" placeholder="Repite contraseña" minlength="8" autocomplete="new-password" required>
+                          </div>
+
+                          <fieldset class="form-group">
+                            <legend class="h6">¿Has sido parte de otro club de montañismo?</legend>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="otro_club_montanismo" id="otro_club_si" value="1">
+                              <label class="form-check-label" for="otro_club_si">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="otro_club_montanismo" id="otro_club_no" value="0">
+                              <label class="form-check-label" for="otro_club_no">No</label>
+                            </div>
+                          </fieldset>
+
+                          <div id="nombre-club-container" class="input-group mb-3" style="display:none;">
+                            <input id="nombre_otro_club" name="nombre_otro_club" class="form-control" type="text" maxlength="50" placeholder="Nombre del club (máximo 50 caracteres)">
+                          </div>
+
+                          <fieldset class="form-group motivaciones">
+                            <legend class="h6">¿Cuáles son tus principales motivos para ingresar a RAMUCH? (selecciona hasta 3)</legend>
+                            <div class="form-check"><input class="form-check-input" type="checkbox" name="motivaciones[]" id="motivacion_vinculos" value="vinculos"><label class="form-check-label" for="motivacion_vinculos">Conocer personas, formar cordada y generar vínculos con otros montañistas.</label></div>
+                            <div class="form-check"><input class="form-check-input" type="checkbox" name="motivaciones[]" id="motivacion_formacion" value="formacion"><label class="form-check-label" for="motivacion_formacion">Tomar cursos, capacitaciones y desarrollar mis habilidades y experiencia en montaña.</label></div>
+                            <div class="form-check"><input class="form-check-input" type="checkbox" name="motivaciones[]" id="motivacion_beneficios" value="beneficios"><label class="form-check-label" for="motivacion_beneficios">Aprovechar los beneficios que entrega el club.</label></div>
+                            <div class="form-check"><input class="form-check-input" type="checkbox" name="motivaciones[]" id="motivacion_actividades" value="actividades"><label class="form-check-label" for="motivacion_actividades">Participar en salidas y actividades de montaña.</label></div>
+                            <div class="form-check"><input class="form-check-input" type="checkbox" name="motivaciones[]" id="motivacion_historia" value="historia"><label class="form-check-label" for="motivacion_historia">Conocer y participar de la historia y tradición de RAMUCH.</label></div>
+                            <div class="form-check"><input class="form-check-input" type="checkbox" name="motivaciones[]" id="motivacion_otro_check" value="otro"><label class="form-check-label" for="motivacion_otro_check">Otro.</label></div>
+                          </fieldset>
+
+                          <div id="motivacion-otro-container" class="input-group mb-3" style="display:none;">
+                            <input id="motivacion_otro" name="motivacion_otro" class="form-control" type="text" maxlength="255" placeholder="Indica otro motivo">
                           </div>
 
                           <div class="input-group mb-3">
@@ -501,7 +610,14 @@ function validaCertificado(e){
                           </div>
 
 
-                          <div class="acepto-terminos"  ><input type="checkbox" id="terminos" name="terminos" value=""  > Acepto el <a href="reglamento-ramuch-2022.pdf" target="_blank">Reglamento de Cuotas</a> y los <a href="#">deberes del Club Ramuch</a></div>
+                          <div class="acepto-terminos mb-3">
+                            <label>
+                              <input type="checkbox" id="terminos" name="terminos" value="1" required>
+                              Acepto el <a href="<?php echo htmlspecialchars($urlProtocoloCuotas, ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noopener">Protocolo de Cuotas</a>,
+                              <a href="https://ramuch.cl/wp-content/uploads/2023/03/ESTATUTOS-RAMUCH.pdf" target="_blank" rel="noopener">las obligaciones y derechos de los socios</a>
+                              (art. 8 y 9 de los Estatutos), además de autorizar a la Rama de Montaña U. de Chile (RAMUCH) para comunicar mi nombre, RUT y correo electrónico únicamente a las entidades con las que el Club mantenga convenios de beneficios para socios, con el exclusivo objeto de permitir la aplicación de dichos beneficios. Esta autorización podrá ser revocada a solicitud.
+                            </label>
+                          </div>
 
                           <div id="alerta-invalido"></div>
 
@@ -510,7 +626,7 @@ function validaCertificado(e){
                                 Aquí se inserta el captcha de Google -->
                           <div class="g-recaptcha" id="rct" data-sitekey="6LfEwTkqAAAAAES8d1xsGnu9cQ52GunART1qltZM"></div><br>
 
-                          <button class="btn btn-block btn-success" onClick="enviar();" type="button">Crear cuenta</button>
+                          <button id="btn-crear-cuenta" class="btn btn-block btn-success" type="submit">Crear cuenta</button>
                         </div>
                     </div>
                         <div class="card-footer p-4">
@@ -614,6 +730,7 @@ function validaCertificado(e){
     <script src="js/validadores.js"></script>
     <script src="js/rut/jquery.rut.js"></script>
     <script src="js/validate-password/js/jquery.passwordRequirements.js"></script>
+    <script src="js/formulario-inscripcion.js?v=20261020-2"></script>
 
 </body>
 </html>

@@ -11,8 +11,6 @@ $response = [
     'mensaje' => 'Error inicial',
     'data' => []
 ];
-error_log("DEBUG - obtener prestamos activos");
-
 try {
     // Verificar sesión
     if (!isset($_SESSION['usuario_token'])) {
@@ -35,8 +33,6 @@ try {
 
     $id_usuario = $usuario->id_usuario;
     
-    error_log("DEBUG - ID Usuario: $id_usuario");
-
     // Obtener todos los préstamos activos del usuario
     $sql = "SELECT 
                 ep.token,
@@ -55,8 +51,6 @@ try {
             AND ep.estado = 'prestado'
             ORDER BY ep.fecha_prestamo DESC";
 
-    error_log("DEBUG - SQL ejecutado: $sql");
-    
     $result = $mysql->query($sql);
     
     if (!$result) {
@@ -67,20 +61,31 @@ try {
     $contador = 0;
     
     while ($prestamo = $mysql->f_obj($result)) {
+        $extensionesUtilizadas = 0;
+        if (in_array((string)$prestamo->estado_extension, ['pendiente', 'aprobada'], true)) {
+            $extensionesUtilizadas++;
+        }
+        if (in_array((string)$prestamo->estado_extension2, ['pendiente', 'aprobada'], true)) {
+            $extensionesUtilizadas++;
+        }
+
+        // Reconciliar contadores históricos que hayan incluido solicitudes
+        // rechazadas. El token proviene de la propia consulta a la base.
+        if ((int)$prestamo->extensiones_solicitadas !== $extensionesUtilizadas) {
+            $tokenPrestamo = str_replace("'", "''", (string)$prestamo->token);
+            $mysql->query("UPDATE equipo_prestamo
+                           SET extensiones_solicitadas = '$extensionesUtilizadas'
+                           WHERE token = '$tokenPrestamo'");
+        }
+
         $contador++;
-        error_log("DEBUG - Préstamo $contador: " . 
-                  "Token: {$prestamo->token}, " .
-                  "Equipo: {$prestamo->nombre_equipo}, " .
-                  "Ext1: " . ($prestamo->estado_extension ?: 'NULL') . ", " .
-                  "Ext2: " . ($prestamo->estado_extension2 ?: 'NULL') . ", " .
-                  "Solicitadas: {$prestamo->extensiones_solicitadas}");
         
         $prestamos[] = [
             'token' => $prestamo->token,
             'nombre_equipo' => $prestamo->nombre_equipo,
             'fecha_prestamo' => fecha_mysql_a_normal($prestamo->fecha_prestamo),
             'fecha_debe_devolver' => fecha_mysql_a_normal($prestamo->fecha_debe_devolver),
-            'extensiones_solicitadas' => (int)$prestamo->extensiones_solicitadas,
+            'extensiones_solicitadas' => $extensionesUtilizadas,
             'estado_extension' => $prestamo->estado_extension ?: 'no solicitada',
             'estado_extension2' => $prestamo->estado_extension2 ?: 'no solicitada',
             'fecha_propuesta_extension' => $prestamo->fecha_propuesta_extension,
@@ -88,8 +93,6 @@ try {
             'imagen' => $prestamo->imagen
         ];
     }
-
-    error_log("DEBUG - Total de préstamos encontrados: $contador");
 
     $response = [
         'success' => true,
@@ -102,6 +105,5 @@ try {
     error_log("Error en obtener_prestamos_activos: " . $e->getMessage());
 }
 
-error_log("DEBUG - Respuesta final: " . json_encode($response));
 echo json_encode($response, JSON_UNESCAPED_UNICODE);
 ?>

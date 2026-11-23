@@ -118,7 +118,7 @@ $url_changepass = "index.php?component=changepassword&view=dashboard";
             <span><?php echo $config->sitename;?></span>
         </div>
         <div class="ml-auto">
-            <span>Optimizado by Kop</span>
+            <span style="color:#1565c0; font-weight:bold;">Optimizado by Kop</span>
         </div>
     </footer>
 

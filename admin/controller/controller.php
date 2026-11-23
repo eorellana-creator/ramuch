@@ -21,6 +21,10 @@ include("components/login/login.php");
 if( $component=="dashboard" ){
 include("components/dashboard/dashboard.php");
 }//if( @$_GET["component"]=="dashboard" )
+
+if( $component=="intranet" ){
+include("components/intranet/intranet.php");
+}
 	
 if( $component=="profile" ){
 include("components/profile/profile.php");

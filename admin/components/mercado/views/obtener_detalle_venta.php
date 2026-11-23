@@ -10,7 +10,6 @@ $mysql->connect();
 $id_venta = isset($_GET['id_venta']) ? intval($_GET['id_venta']) : 0;
 
 // Depuración: Verificar el valor de id_venta
-error_log("ID de Venta recibido en obtener_detalle_venta.php: " . $id_venta);
 
 if ($id_venta > 0) {
     // Consulta para obtener los detalles de la venta

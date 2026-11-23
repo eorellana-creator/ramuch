@@ -1,13 +1,13 @@
 <?php
 include("../../../includes/conexionMysql.php");
+require_once __DIR__ . '/../../../includes/RamuchMailer.php';
 
 // Habilitar reporte de errores
 error_reporting(E_ALL);
-ini_set('display_errors', '1');
+ini_set('display_errors', '0');
 
 // Habilitar logs de errores en un archivo
 ini_set('log_errors', '1');
-ini_set('error_log', __DIR__ . '/error.log');
 
 try {
     // Recibir el token de la transacción desde Flow
@@ -17,7 +17,6 @@ try {
     }
 
     $token = $_POST['token'];
-    error_log("Token recibido en confirmacion.php: " . $token); // Log para verificar el token recibido
 
     // Conectar a la base de datos
     $mysql = new mysql;
@@ -28,7 +27,6 @@ try {
     $flowApi = new FlowApi();
     $params = array("token" => $token);
     $response = $flowApi->send("payment/getStatus", $params, "GET");
-    error_log("Respuesta de Flow en confirmacion.php: " . print_r($response, true)); // Log para verificar la respuesta de Flow
 
     // Recuperar el id_usuario y token_carrito desde los datos opcionales
     if (isset($response['optional'])) {
@@ -74,7 +72,7 @@ try {
 
         $count_data = $mysql->f_obj($sql_count);
         if ($count_data->total == 0) {
-            error_log("No se encontró el carrito para el token_carrito: $token_carrito");
+            error_log("No se encontró el carrito asociado a la transacción.");
             throw new Exception("No se encontró el carrito para el token_carrito: $token_carrito");
         }
 
@@ -194,7 +192,7 @@ try {
         }
 
         // Después de registrar la confirmación en el log
-        error_log("Venta confirmada: ID $id_venta, Token $token");
+        error_log("Venta confirmada correctamente.");
 
         // Obtener el email del usuario desde la tabla usuarios
         $sql_usuario = $mysql->query("
@@ -225,10 +223,12 @@ try {
             </body>
             </html>
         ";
-        $headers_usuario = "From: no-reply@ramuch.cl\r\n";
-        $headers_usuario .= "Content-Type: text/html; charset=UTF-8\r\n";
-
-        if (!mail($email_usuario, $asunto_usuario, $mensaje_usuario, $headers_usuario)) {
+        $mailUsuario = crearMailerRamuch(true);
+        $mailUsuario->setFrom('no-responder@ramuch.cl', 'Mercado Ramuch');
+        $mailUsuario->addAddress($email_usuario, $nombre_usuario);
+        $mailUsuario->Subject = $asunto_usuario;
+        $mailUsuario->msgHTML($mensaje_usuario);
+        if (!$mailUsuario->send()) {
             error_log("Error al enviar el correo al usuario con email: $email_usuario");
             throw new Exception("Error al enviar el correo al usuario.");
         }
@@ -253,10 +253,12 @@ try {
             </body>
             </html>
         ";
-        $headers_comision = "From: no-reply@ramuch.cl\r\n";
-        $headers_comision .= "Content-Type: text/html; charset=UTF-8\r\n";
-
-        if (!mail($email_comision, $asunto_comision, $mensaje_comision, $headers_comision)) {
+        $mailComision = crearMailerRamuch(true);
+        $mailComision->setFrom('no-responder@ramuch.cl', 'Mercado Ramuch');
+        $mailComision->addAddress($email_comision, 'Comisión de Merchandising');
+        $mailComision->Subject = $asunto_comision;
+        $mailComision->msgHTML($mensaje_comision);
+        if (!$mailComision->send()) {
             error_log("Error al enviar el correo a comision.merchandising@ramuch.cl");
             throw new Exception("Error al enviar el correo a comision.merchandising@ramuch.cl.");
         }
@@ -266,7 +268,6 @@ try {
 
     } else {
         print_r($response);
-        error_log("Respuesta de Flow: " . print_r($response, true));
         throw new Exception("El pago no fue exitoso. Estado: " . $response['status']);
     }
 } catch (Exception $e) {

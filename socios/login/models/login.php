@@ -1,7 +1,6 @@
 <?php
 session_start();
 ini_set('log_errors', '1');
-ini_set('error_log', __DIR__ . 'error.log');
 include("../../includes/sql_inyection.php");
 include("../../configuration.php");
 include("../../includes/conexionMysql.php");

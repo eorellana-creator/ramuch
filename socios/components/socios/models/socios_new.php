@@ -2,9 +2,8 @@
 @include("../../includes/sql_inyection.php");
 
 error_reporting(E_ALL);
-ini_set('display_errors', '1');
+ini_set('display_errors', '0');
 
-error_log("errores: ");
 
 $mysql->connect();
 
@@ -25,7 +24,7 @@ $id_plan_matricula = @$result5->id_plan_matricula;
 
 $certificado = "";
 if(@$result5->certificado_estudios!="")
-$certificado = "<a href='../admin/components/socios/archivos/$result5->certificado_estudios' target='_blank'><i class='fas fa-search-plus'></i> ver certificado actual</a>";
+$certificado = "<a href='components/socios/models/ver_certificado.php' target='_blank' rel='noopener'><i class='fas fa-search-plus'></i> ver certificado actual</a>";
 
 $estado_estudios = "<option value='' selected >Seleccionar</option>";
 
@@ -63,28 +62,8 @@ $donante = "<option value='0' selected >No</option><option value='1' >Si</option
 if(@$result5->donante=="1")
 $donante = "<option value='1' selected >Si</option> <option value='0' >No</option>";
 
-$tipo_inscripcion = "";
-
-switch(@$result5->tipo_inscripcion){
-  case 1:
-    $tipo_inscripcion = "Profesional";
-    break;
-  case 3:
-    $tipo_inscripcion = "Estudiante";
-    break;
-  case 6:
-    $tipo_inscripcion = "Congelado";
-    break;
-  case 2:
-    $tipo_inscripcion = "Honorario";
-    break;
-  case 7:
-    $tipo_inscripcion = "Desvinculado";
-    break;
-  case 8:
-    $tipo_inscripcion = "Eliminado";
-    break;
-}
+require_once __DIR__ . '/../../../../admin/includes/tipo_inscripcion.php';
+$tipo_inscripcion = ramuchNombreTipoInscripcion($mysql, @$result5->tipo_inscripcion);
 
 if($tipo_inscripcion!="")
 $tipo_inscripcion = ": $tipo_inscripcion";

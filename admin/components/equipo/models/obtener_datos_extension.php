@@ -2,30 +2,12 @@
 include("../../../includes/conexionMysql.php");
 include("../../../includes/funciones.php");
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 header('Content-Type: application/json');
-
-error_log("Solicitud recibida con estos parámetros: " . print_r($_GET, true));
 
 $token = $_GET['token'] ?? '';
 if(empty($token)) {
     error_log("Error: Token no recibido");
     echo json_encode(['success' => false, 'error' => 'Token no proporcionado']);
-    exit;
-}
-
-// Validar token recibido
-$token = $_GET['token'] ?? '';
-$debug = $_GET['debug'] ?? false;
-
-if (empty($token)) {
-    echo json_encode([
-        'success' => false, 
-        'error' => 'Token no proporcionado',
-        'debug' => $debug ? ['received_data' => $_GET] : null
-    ]);
     exit;
 }
 
@@ -45,8 +27,6 @@ try {
             FROM equipo_prestamo 
             WHERE token = '$token' 
             LIMIT 1";
-    
-    error_log("Consulta SQL ejecutada: ".$sql); // Log para depuración
     
     $result = $mysql->query($sql);
     
@@ -71,8 +51,6 @@ try {
         $estado = $data->estado_extension2;
         $motivo_extension = $data->motivo_extension2 ?? '';
         
-        error_log("Mostrando datos de SEGUNDA extensión para token: $token");
-        
     } 
     // Si no hay segunda extensión pendiente, verificar la primera
     else if (!empty($data->estado_extension) && $data->estado_extension == 'pendiente') {
@@ -81,7 +59,6 @@ try {
         $fecha_propuesta_formateada = fecha_mysql_a_normal($data->fecha_propuesta_extension);
         $estado = $data->estado_extension;
         
-        error_log("Mostrando datos de PRIMERA extensión para token: $token");
     }
     // Si ninguna está pendiente, usar la primera por defecto (para compatibilidad)
     else {
@@ -90,7 +67,6 @@ try {
         $fecha_propuesta_formateada = fecha_mysql_a_normal($data->fecha_propuesta_extension);
         $estado = $data->estado_extension;
         
-        error_log("Mostrando datos de PRIMERA extensión (por defecto) para token: $token");
     }
     
     $response = [
@@ -102,16 +78,6 @@ try {
         'motivo_extension' => $motivo_extension
     ];
     
-    // Agregar datos extra si está en modo depuración
-    if ($debug) {
-        $response['debug'] = [
-            'query' => $sql,
-            'token_received' => $token,
-            'full_record' => $data,
-            'extension_detected' => $esSegundaExtension ? 'segunda' : 'primera'
-        ];
-    }
-    
     echo json_encode($response);
     
 } catch (Exception $e) {
@@ -119,7 +85,6 @@ try {
     
     echo json_encode([
         'success' => false,
-        'error' => $e->getMessage(),
-        'debug' => $debug ? ['exception' => $e->getTraceAsString()] : null
+        'error' => $e->getMessage()
     ]);
 }

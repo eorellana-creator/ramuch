@@ -1,6 +1,5 @@
 <?php
 ini_set('log_errors', '1');
-ini_set('error_log', __DIR__ . '/error.log');
 
 // Incluir el archivo de conexión
 require_once '../../../includes/conexionMysql.php';
@@ -30,7 +29,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
     if ($result && $result->num_rows > 0) {
         // Si el producto existe, intentar eliminarlo
         $deleteQuery = "DELETE FROM productos WHERE id = $productId";
-        error_log("sql de borrado : " . print_r($deleteQuery, true));
 
         try {
             if ($mysqli->query($deleteQuery)) {

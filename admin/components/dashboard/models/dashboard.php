@@ -3,6 +3,9 @@ session_start();
 @include("../../../includes/sql_inyection.php");
 $mysql->connect();
 
+require_once __DIR__ . '/permisos_documentos.php';
+$mostrar_botones = puedeAdministrarDocumentos($mysql);
+
 
 // Consulta de comisiones
 // 3. Para carga inicial (solo comisiones)
@@ -103,6 +106,49 @@ $saldo_caja = number_format($saldo_caja,0,",",".");
 $sql 	= $mysql->query("SELECT id_equipo FROM equipo WHERE prestado_a_id_usuario> 0  ;");
 $equipo = $mysql->f_num($sql);
 $equipo = number_format($equipo,0,",",".");
+//********************************************************************
+
+//********************************************************************
+// Distribución agregada por sexo/género de los socios activos (mismo criterio
+// que la tarjeta "Socios Activos"). Solo se entregan totales, nunca datos
+// individuales. Si la columna aún no existe en el ambiente, el gráfico se oculta.
+$distribucion_genero = [];
+$sqlColumnaGenero = $mysql->query("SHOW COLUMNS FROM perfil LIKE 'sexo_genero';");
+if ($sqlColumnaGenero && $mysql->f_num($sqlColumnaGenero) > 0) {
+    $etiquetasGenero = ['Femenino' => 'Femenino', 'Masculino' => 'Masculino', 'Otro' => 'Otro'];
+    $distribucion_genero = ['Femenino' => 0, 'Masculino' => 0, 'Otro' => 0, 'Sin información' => 0];
+    $sqlGenero = $mysql->query("SELECT p.sexo_genero, COUNT(*) AS cantidad
+        FROM usuario AS u
+        INNER JOIN perfil AS p ON u.id_usuario = p.id_usuario
+        WHERE p.tipo_inscripcion IN (1, 2, 3)
+        AND u.estado = 'Vigente'
+        AND (u.web_matricula_pagada IS NULL OR u.web_matricula_pagada != 'No')
+        GROUP BY p.sexo_genero;");
+    while ($sqlGenero && ($filaGenero = $mysql->f_obj($sqlGenero))) {
+        $clave = $etiquetasGenero[(string)$filaGenero->sexo_genero] ?? 'Sin información';
+        $distribucion_genero[$clave] += (int)$filaGenero->cantidad;
+    }
+}
+//********************************************************************
+
+//********************************************************************
+// Procesos automáticos (crons y confirmación de pagos): últimas 10 ejecuciones.
+// Visible solo para los roles Administrador y Administrador de Socios (Directiva).
+$procesos_automaticos = [];
+$procesos_estado = [];
+$ver_procesos_automaticos = false;
+$idRolSesion = (int)($_SESSION['usuario_rol'] ?? 0);
+if ($idRolSesion > 0) {
+    $sqlRolProcesos = $mysql->query("SELECT nombre FROM rol WHERE id_rol='$idRolSesion' LIMIT 1;");
+    $rolProcesos = $sqlRolProcesos ? $mysql->f_obj($sqlRolProcesos) : null;
+    $nombreRolProcesos = $rolProcesos ? strtolower(trim($rolProcesos->nombre)) : '';
+    $ver_procesos_automaticos = in_array($nombreRolProcesos, ['administrador', 'administrador de socios'], true);
+}
+if ($ver_procesos_automaticos) {
+    require_once __DIR__ . '/../../../includes/procesos_automaticos.php';
+    $procesos_automaticos = ramuchProcesoUltimasEjecuciones($mysql, 10);
+    $procesos_estado = ramuchProcesoEstadoPorProceso($mysql);
+}
 //********************************************************************
 
 //*************************************************************************************************

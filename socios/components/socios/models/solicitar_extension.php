@@ -3,14 +3,6 @@ session_start();
 include("../../../includes/conexionMysql.php");
 include("../../../includes/funciones.php");
 
-error_log("🎯 SOLICITAR_EXTENSION - INICIANDO");
-error_log("POST recibido: " . print_r($_POST, true));
-error_log("GET recibido: " . print_r($_GET, true));
-
-// DEBUG INICIAL
-
-error_log("🎯 GET DATA: " . print_r($_GET, true));
-
 // 🔥 PROCESAR EXACTAMENTE COMO EL EJEMPLO QUE FUNCIONA
 $tokens = [];
 if (!empty($_GET['tokens'])) {
@@ -22,11 +14,6 @@ if (!empty($_GET['tokens'])) {
 $nuevaFecha = $_GET['nueva_fecha'] ?? $_POST['nueva_fecha'] ?? '';
 $motivo = $_GET['motivo'] ?? $_POST['motivo'] ?? '';
 $tipo_extension = $_GET['tipo_extension'] ?? $_POST['tipo_extension'] ?? '1';
-
-error_log("🎯 TOKENS: " . print_r($tokens, true));
-error_log("🎯 CANTIDAD TOKENS: " . count($tokens));
-error_log("🎯 FECHA: $nuevaFecha");
-error_log("🎯 TIPO: $tipo_extension");
 
 // Validaciones básicas
 if (empty($tokens)) {
@@ -76,7 +63,6 @@ foreach ($tokens as $token) {
             throw new Exception('Token de préstamo no válido');
         }
 
-        error_log("🔄 Procesando token: $token");
         $mysql->query("START TRANSACTION");
         
         // Obtener datos del préstamo
@@ -99,8 +85,18 @@ foreach ($tokens as $token) {
             throw new Exception('Préstamo no encontrado');
         }
 
-        // Validar límite de extensiones
-        if ($prestamo->extensiones_solicitadas >= 2) {
+        // Contar cupos realmente utilizados. Las solicitudes rechazadas no
+        // consumen una extensión y pueden volver a presentarse.
+        $estadosQueConsumenCupo = ['pendiente', 'aprobada'];
+        $extensionesUtilizadas = 0;
+        if (in_array((string)$prestamo->estado_extension, $estadosQueConsumenCupo, true)) {
+            $extensionesUtilizadas++;
+        }
+        if (in_array((string)$prestamo->estado_extension2, $estadosQueConsumenCupo, true)) {
+            $extensionesUtilizadas++;
+        }
+
+        if ($extensionesUtilizadas >= 2) {
             throw new Exception('Límite de extensiones alcanzado');
         }
 
@@ -120,7 +116,7 @@ foreach ($tokens as $token) {
                 throw new Exception('La primera extensión debe ser posterior a la fecha vigente de devolución');
             }
             
-            $nuevoContador = $prestamo->extensiones_solicitadas + 1;
+            $nuevoContador = 1 + (in_array((string)$prestamo->estado_extension2, $estadosQueConsumenCupo, true) ? 1 : 0);
             $sqlUpdate = "UPDATE equipo_prestamo SET
                         fecha_solicitud_extension = NOW(),
                         fecha_propuesta_extension = '$nuevaFecha',
@@ -143,7 +139,7 @@ foreach ($tokens as $token) {
                 throw new Exception('La segunda extensión debe ser posterior a la primera');
             }
             
-            $nuevoContador = $prestamo->extensiones_solicitadas + 1;
+            $nuevoContador = (in_array((string)$prestamo->estado_extension, $estadosQueConsumenCupo, true) ? 1 : 0) + 1;
             $sqlUpdate = "UPDATE equipo_prestamo SET
                         fecha_solicitud_extension2 = NOW(),
                         fecha_propuesta_extension2 = '$nuevaFecha',
@@ -167,8 +163,6 @@ foreach ($tokens as $token) {
             'id_unico' => $prestamo->id_unico
         ];
         
-        error_log("✅ Éxito para: {$prestamo->nombre_equipo}");
-
     } catch (Exception $e) {
         $mysql->query("ROLLBACK");
         $fallidos++;
@@ -180,19 +174,21 @@ foreach ($tokens as $token) {
 // 🔥 ENVIAR EMAIL (EXACTO como el ejemplo)
 if ($exitosos > 0) {
     try {
-        require_once("../../../includes/PHPMailer2/PHPMailerAutoload.php");
-        $mail = new PHPMailer;
+        require_once __DIR__ . "/../../../../admin/includes/RamuchMailer.php";
+        $mail = crearMailerRamuch(false);
         
         // Configuración SMTP (igual al ejemplo)
         $mail->isSMTP();
-        $mail->Host = "mail.montanauchile.cl";
+        $mail->Host = "mail.ramuch.cl";
         $mail->SMTPAuth = true;
-        $mail->Username = "no-responder@montanauchile.cl";
-        $mail->Password = "123ramuchchile2022";
-        $mail->Port = 25;
+        $mail->Username = "no-responder@ramuch.cl";
+        $mail->Password = "1941ramuch2024";
+        $mail->Port = 587;
+        $mail->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Timeout = 15;
         $mail->CharSet = 'UTF-8';
         
-        $mail->setFrom("no-responder@montanauchile.cl", "Sistema Ramuch");
+        $mail->setFrom("no-responder@ramuch.cl", "Sistema Ramuch");
         
         // Destinatarios
         $mail->addAddress("equipo@ramuch.cl", "Comisión de Equipos");

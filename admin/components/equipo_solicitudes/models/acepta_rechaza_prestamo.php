@@ -193,14 +193,16 @@ $fecha2 				= fecha_mysql_a_normal($fecha2);
 	$errorCorreo = '';
 
 	try {
-		require_once(__DIR__ . "/../../../../vendor/autoload.php");
+		require_once __DIR__ . "/../../../includes/RamuchMailer.php";
 
-		$mail = new \PHPMailer\PHPMailer\PHPMailer(true);
+		$mail = crearMailerRamuch(true);
 		$mail->isSMTP();
 		$mail->SMTPDebug = 0;
 		$mail->Host = "mail.ramuch.cl";
-		$mail->Port = 25;
+		$mail->Port = 587;
 		$mail->SMTPAuth = true;
+		$mail->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
+		$mail->Timeout = 15;
 		$mail->Username = "no-responder@ramuch.cl";
 		$mail->Password = "1941ramuch2024";
 		$mail->CharSet = 'UTF-8';

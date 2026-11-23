@@ -22,6 +22,24 @@ if($where!=""){
 
 $lista_menu = "";
 
+// Intranet privada: Directiva (rol Administrador de Socios) y desarrollador.
+$id_usuario_actual = (int)($_SESSION["usuario_id"] ?? 0);
+$acceso_intranet = ($id_usuario_actual === 1);
+if (!$acceso_intranet && $id_usuario_actual > 0) {
+	$sqlIntranet = $mysql->query("SELECT r.nombre FROM usuario u INNER JOIN rol r ON r.id_rol=u.id_rol WHERE u.id_usuario='$id_usuario_actual' AND u.estado='Vigente' LIMIT 1;");
+	$rolIntranet = $mysql->f_obj($sqlIntranet);
+	$acceso_intranet = $rolIntranet && trim(strtolower($rolIntranet->nombre)) === 'administrador de socios';
+}
+
+if ($acceso_intranet) {
+	$lista_menu .= "
+	<li class='nav-item'>
+	<a class='nav-link' href='index.php?component=intranet&view=dashboard'>
+	  <i class='fas fa-network-wired'></i> Intranet</a>
+	</li>
+	";
+}
+
 if($where!=""){
 $sql2 	= $mysql->query("SELECT id_menu, nombre, url, icono FROM menu $where AND tipo_menu='1' ORDER BY orden ;");
 

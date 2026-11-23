@@ -6,6 +6,16 @@ include("../../../includes/conexionMysql.php");
 $mysql = new mysql;
 $mysql->connect();
 
+require_once __DIR__ . '/permisos_documentos.php';
+if (!puedeAdministrarDocumentos($mysql)) {
+    http_response_code(403);
+    echo json_encode(array(
+        'success' => false,
+        'error' => 'No tiene permisos para eliminar documentos'
+    ));
+    exit;
+}
+
 $id = isset($_POST['id']) ? intval($_POST['id']) : 0;
 $token = isset($_POST['token']) ? $_POST['token'] : '';
 

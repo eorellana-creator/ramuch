@@ -6,14 +6,13 @@ include("../../../includes/funciones.php");
 
 // Configurar logging de errores
 ini_set('log_errors', 1);
-ini_set('error_log', 'export_atraso_errors.log');
 ini_set('display_errors', 0);
 
 // Función para loggear eventos
 function logEvent($message, $type = 'INFO') {
     $timestamp = date('Y-m-d H:i:s');
     $logMessage = "[$timestamp] [$type] $message" . PHP_EOL;
-    error_log($logMessage, 3, 'export_atraso.log');
+    error_log(rtrim($logMessage));
 }
 
 // Función para loggear errores
@@ -26,7 +25,7 @@ function logError($message, $exception = null) {
     }
     
     $errorMessage .= PHP_EOL;
-    error_log($errorMessage, 3, 'export_atraso_errors.log');
+    error_log(rtrim($errorMessage));
 }
 
 try {

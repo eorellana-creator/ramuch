@@ -10,7 +10,7 @@ include("../../../includes/conexionMysql.php");
 include("../../../includes/funciones.php");
 
 error_reporting(E_ALL);
-ini_set('display_errors', 1);
+ini_set('display_errors', '0');
 
 // --- CONSULTA PARA VERIFICAR EL ESTADO DEL PRÉSTAMO --- //
 $prestamo_activo = 0; // Valor por defecto (0 = desactivado)

@@ -12,11 +12,10 @@ $id_usuario = $_SESSION["usuario_id"];
 
 // Habilitar reporte de errores
 error_reporting(E_ALL);
-ini_set('display_errors', '1');
+ini_set('display_errors', '0');
 
 // Habilitar logs de errores en un archivo
 ini_set('log_errors', '1');
-ini_set('error_log', __DIR__ . '/error.log'); // Guardar los errores en un archivo llamado error.log
 
 // Establecer el encabezado para devolver una respuesta JSON
 header('Content-Type: application/json');
@@ -115,7 +114,7 @@ try {
         ]);
     } else {
         // Manejar el error de Flow
-        error_log('Error al crear la orden en Flow: ' . print_r($response, true));
+        error_log('Flow rechazó la creación de la orden.');
         throw new Exception('Error al crear la orden en Flow: ' . print_r($response, true));
     }
 

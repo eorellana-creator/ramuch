@@ -2,7 +2,6 @@
 @include("../../includes/sql_inyection.php");
 
 ini_set('log_errors', '1');
-ini_set('error_log', __DIR__ . '/error.log');
 
 $mysql->connect();
 
@@ -17,6 +16,22 @@ $id_usuario = @$result7->id_usuario;
 $sql5 	= $mysql->query("SELECT * FROM perfil WHERE id_usuario = '$id_usuario' AND id_usuario!='' ;");
 $result5 = $mysql->f_obj($sql5);
 
+$sexo_genero = isset($result5->sexo_genero) ? $result5->sexo_genero : '';
+$otro_club_montanismo = isset($result5->otro_club_montanismo) ? (string)$result5->otro_club_montanismo : '';
+$motivaciones_permitidas = array('vinculos', 'formacion', 'beneficios', 'actividades', 'historia', 'otro');
+$motivaciones_ingreso = array();
+if (!empty($result5->motivaciones_ingreso)) {
+    $motivaciones_guardadas = json_decode($result5->motivaciones_ingreso, true);
+    if (is_array($motivaciones_guardadas)) {
+        $motivaciones_ingreso = array_values(array_intersect($motivaciones_guardadas, $motivaciones_permitidas));
+    }
+}
+
+$consentimiento_estado = 'Sin registro';
+if (isset($result5->consentimiento_convenios) && $result5->consentimiento_convenios !== null) {
+    $consentimiento_estado = (int)$result5->consentimiento_convenios === 1 ? 'Aceptado' : 'Revocado';
+}
+
 $imagen_perfil = "images/icono-300.png";
 if(@$result5->img_perfil!="")
 $imagen_perfil = "images/img_perfil/$result5->img_perfil";
@@ -25,7 +40,7 @@ $id_plan_matricula = @$result5->id_plan_matricula;
 
 $certificado = "";
 if(@$result5->certificado_estudios!="")
-$certificado = "<a href='components/socios/archivos/$result5->certificado_estudios' target='_blank'><i class='fas fa-search-plus'></i> ver certificado actual</a>";
+$certificado = "<a href='components/socios/models/ver_certificado.php?token=" . urlencode((string)@$result7->token) . "' target='_blank' rel='noopener'><i class='fas fa-search-plus'></i> ver certificado actual</a>";
 
 $estado_estudios = "<option value='' selected >Seleccionar</option>";
 
@@ -67,29 +82,8 @@ if(@$result5->donante=="1")
 $donante = "<option value='1' selected >Si</option> <option value='0' >No</option>";
 
 
-$tipo_inscripcion = "";
-
-switch(@$result5->tipo_inscripcion){
-  case 1:
-    $tipo_inscripcion = "Profesional";
-    break;
-  case 3:
-    $tipo_inscripcion = "Estudiante";
-    break;
-  case 6:
-    $tipo_inscripcion = "Congelado";
-    break;
-  case 2:
-    $tipo_inscripcion = "Honorario";
-    break;
-  case 7:
-    $tipo_inscripcion = "Desvinculado";
-    break;
-
-  case 8:
-    $tipo_inscripcion = "Eliminado";
-    break;
-}//switch
+require_once __DIR__ . '/../../../includes/tipo_inscripcion.php';
+$tipo_inscripcion = ramuchNombreTipoInscripcion($mysql, @$result5->tipo_inscripcion);
 
 if($tipo_inscripcion!="")
 $tipo_inscripcion = ": $tipo_inscripcion";
@@ -180,13 +174,13 @@ while($result = $mysql->f_obj($sql)){
     $resultx = $mysql->f_obj($sqlx);
     
     if ($resultx->tipo_inscripcion == 1) {
-        $obs .= " Profesional ";
+        $obs .= " " . ramuchNombreTipoInscripcion($mysql, 1) . " ";
     } else {
         $obs = "";
     }
     
     if ($resultx->tipo_inscripcion == 3) {
-        $obs .= " Estudiante ";
+        $obs .= " " . ramuchNombreTipoInscripcion($mysql, 3) . " ";
     } else {
         $obs = "";
     }

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Presupuesto — Proceso de incorporación de socios RAMUCH</title>
+<style>
+  @page { size: A4; margin: 2cm; }
+  body { font-family: Arial, sans-serif; color: #222; font-size: 11pt; line-height: 1.45; }
+  h1 { color: #17365d; font-size: 20pt; margin-bottom: 4px; }
+  h2 { color: #245b84; font-size: 14pt; margin-top: 22px; border-bottom: 1px solid #b8c8d8; padding-bottom: 4px; }
+  .subtitulo { color: #666; margin-top: 0; }
+  .resumen { background: #eef5fa; border-left: 5px solid #2a84b8; padding: 12px 15px; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+  th { background: #245b84; color: white; text-align: left; padding: 8px; }
+  td { border: 1px solid #c8d1da; padding: 8px; vertical-align: top; }
+  td.numero { text-align: right; white-space: nowrap; }
+  tr.total td { font-weight: bold; background: #eef5fa; }
+  .valores { width: 65%; margin-left: auto; }
+  .valores td:first-child { font-weight: bold; }
+  .nota { font-size: 9.5pt; color: #555; }
+  .texto-registro { border: 1px solid #c8d1da; background: #fafafa; padding: 12px 15px; }
+</style>
+</head>
+<body>
+  <h1>Presupuesto de desarrollo</h1>
+  <p class="subtitulo">Actualización del proceso de incorporación de nuevos socios — RAMUCH</p>
+  <p><strong>Fecha:</strong> 12 de septiembre de 2026</p>
+
+  <div class="resumen">
+    <strong>Objetivo</strong><br>
+    Completar y fortalecer el flujo automático que comienza con la creación de una cuenta y termina con el pago de la matrícula, incluyendo comunicaciones al nuevo socio y a la Directiva, expiración de registros pendientes y trazabilidad de las notificaciones.
+  </div>
+
+  <h2>Estado actual</h2>
+  <ul>
+    <li>Al crear una cuenta se envía automáticamente un correo para verificar la propiedad del email.</li>
+    <li>Se genera una deuda de matrícula vinculada al usuario.</li>
+    <li>El sistema reconoce la confirmación del pago realizada por Flow.</li>
+    <li>Al confirmar una matrícula mediante Flow, el sistema ya intenta enviar un aviso de incorporación y un correo de bienvenida.</li>
+  </ul>
+
+  <h2>Desarrollo pendiente</h2>
+  <ol>
+    <li>Reemplazar el contenido del correo inicial por el texto solicitado, conservando el enlace obligatorio de verificación del correo electrónico.</li>
+    <li>Mostrar dinámicamente el valor real de la matrícula según el plan asignado, evitando dejar una cifra fija en el código.</li>
+    <li>Incorporar el aviso destacado del plazo de siete días corridos para pagar la matrícula.</li>
+    <li>Implementar el proceso automático de expiración de inscripciones que permanezcan sin pago después de siete días.</li>
+    <li>Permitir una nueva inscripción después de expirar, conservando la trazabilidad administrativa necesaria.</li>
+    <li>Reemplazar el correo de bienvenida actual por el contenido proporcionado por RAMUCH.</li>
+    <li>Reemplazar el aviso actual a la Directiva por el nuevo formato, incluyendo nombre completo y correo electrónico.</li>
+    <li>Ejecutar las dos notificaciones tanto para pagos confirmados por Flow como para matrículas registradas manualmente por un administrador.</li>
+    <li>Evitar el envío duplicado de correos cuando Flow repita una notificación de confirmación.</li>
+    <li>Registrar la fecha, el resultado y el tipo de cada notificación enviada.</li>
+    <li>Probar en staging el registro, verificación, pago con Flow Sandbox, pago manual y expiración automática.</li>
+  </ol>
+
+  <h2>Estimación de trabajo</h2>
+  <table>
+    <thead><tr><th>Actividad</th><th style="width:20%; text-align:right">Horas</th></tr></thead>
+    <tbody>
+      <tr><td>Correo de creación de cuenta y aviso de matrícula</td><td class="numero">1,0</td></tr>
+      <tr><td>Correos de bienvenida y notificación a la Directiva</td><td class="numero">1,5</td></tr>
+      <tr><td>Integración con confirmación de Flow y pago manual</td><td class="numero">1,5</td></tr>
+      <tr><td>Expiración automática después de siete días</td><td class="numero">1,5</td></tr>
+      <tr><td>Prevención de duplicados y trazabilidad</td><td class="numero">0,5</td></tr>
+      <tr><td>Pruebas en staging y publicación</td><td class="numero">1,0</td></tr>
+      <tr class="total"><td>Total estimado</td><td class="numero">7,0 horas</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Valorización</h2>
+  <table class="valores">
+    <tbody>
+      <tr><td>Tarifa desarrollador senior</td><td class="numero">$40.000 CLP/hora</td></tr>
+      <tr><td>Valor neto</td><td class="numero">$280.000 CLP</td></tr>
+      <tr><td>IVA (19 %)</td><td class="numero">$53.200 CLP</td></tr>
+      <tr class="total"><td>Total con IVA</td><td class="numero">$333.200 CLP</td></tr>
+    </tbody>
+  </table>
+
+  <p class="nota">La estimación considera la implementación sobre la plataforma PHP/MySQL existente, validación inicial en staging y posterior publicación una vez aprobada.</p>
+
+  <h2>Detalle para registrar en la Intranet</h2>
+  <div class="texto-registro">
+    Actualización integral del proceso de incorporación de nuevos socios. Incluye modificación del correo generado al crear la cuenta, aviso de matrícula y plazo de pago, expiración automática de perfiles pendientes después de siete días, correo de bienvenida al confirmar la matrícula, notificación a la Directiva, integración con pagos realizados mediante Flow y pagos registrados manualmente, prevención de notificaciones duplicadas, trazabilidad y pruebas en staging.<br><br>
+    <strong>Tiempo estimado:</strong> 7 horas.<br>
+    <strong>Valor estimado:</strong> $280.000 CLP netos.
+  </div>
+</body>
+</html>

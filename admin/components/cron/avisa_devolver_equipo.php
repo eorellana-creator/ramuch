@@ -4,24 +4,43 @@ include("../../includes/sql_inyection_salto_textarea.php");
 include("../../configuration.php");
 include("../../includes/conexionMysql.php");
 include("../../includes/funciones.php");
+require_once __DIR__ . "/../../includes/procesos_automaticos.php";
 
 
 
 $config 	= new Config;
  
 
+date_default_timezone_set($config->zona_horaria);
+
 $mysql 		= new mysql;
 $mysql->connect();
 $hoy 	= date("Y-m-d");
 
+$registroProceso = ramuchProcesoIniciar($mysql, 'avisa_devolver_equipo', 'Recordatorio de devolución de equipos');
+$prestamosVencidos = 0;
+$recordatoriosEnviados = 0;
+$erroresProceso = [];
+
 	$sql 	= $mysql->query("SELECT * FROM equipo_prestamo WHERE fecha_debe_devolver>='2022-01-01' AND fecha_debe_devolver<='$hoy' AND estado='prestado' ;");
+	if ($sql === false) {
+		ramuchProcesoFinalizar($registroProceso, false, 'No fue posible consultar los préstamos vencidos. La base de datos respondió: ' . mysqli_error($mysql->conexion));
+		exit(1);
+	}
 	while($result = $mysql->f_obj($sql)){
+		$prestamosVencidos++;
 
 
                           $id_equipo 				    = $result->id_equipo;
                           $id_usuario_prestamo 	= $result->id_usuario_prestamo;
-                          $fecha1 				      = $result->fecha_prestamo;
-                          $fecha2 				      = $result->fecha_debe_devolver;
+	                          $fecha1 				      = $result->fecha_prestamo;
+	                          $fecha2 				      = $result->fecha_debe_devolver;
+	                          $fecha_extension_pendiente = "";
+	                          if (@$result->estado_extension2 === 'pendiente' && !empty($result->fecha_propuesta_extension2)) {
+	                            $fecha_extension_pendiente = $result->fecha_propuesta_extension2;
+	                          } elseif (@$result->estado_extension === 'pendiente' && !empty($result->fecha_propuesta_extension)) {
+	                            $fecha_extension_pendiente = $result->fecha_propuesta_extension;
+	                          }
 
 
                           $sql55 	= $mysql->query("SELECT nombre FROM equipo WHERE id_equipo='$id_equipo' ;");
@@ -33,14 +52,18 @@ $hoy 	= date("Y-m-d");
                           $nombre_usuario = $result77->nombre_usuario;
                           $email_usuario = $result77->email;
 
-                          $fecha1 				= fecha_mysql_a_normal($fecha1);
-                          $fecha2 				= fecha_mysql_a_normal($fecha2);
+	                          $fecha1 				= fecha_mysql_a_normal($fecha1);
+	                          $fecha2 				= fecha_mysql_a_normal($fecha2);
+	                          $aviso_extension = "";
+	                          if ($fecha_extension_pendiente !== "") {
+	                            $fecha_extension_formateada = fecha_mysql_a_normal($fecha_extension_pendiente);
+	                            $aviso_extension = "<br><br><strong>Importante:</strong> Existe una solicitud de extensión hasta el <strong>$fecha_extension_formateada</strong>, pero todavía se encuentra <strong>pendiente de aprobación</strong> por la Comisión de Equipo. Mientras no sea aprobada, la fecha vigente de devolución continúa siendo el <strong>$fecha2</strong>.";
+	                          }
 
                         //Configuración de envío ***************************************************************
-                        $host 			= "mail.montanauchile.cl";
-                        $email_user 	= "no-responder@montanauchile.cl";
-                        $email_pass 	= "123ramuchchile2022";
-                        $email_from 	= "no-responder@montanauchile.cl";
+                        $host 			= "mail.ramuch.cl";
+                        $email_user 	= "no-responder@ramuch.cl";
+                        $email_from 	= "no-responder@ramuch.cl";
                         $email_to 		= "";
                         $email_name 	= "Ramuch";
                         $email_reply 	= "no-responder@montanauchile.cl";
@@ -79,7 +102,7 @@ $hoy 	= date("Y-m-d");
                           <strong>Devolución de equipo,</strong>
                           <br><br>
                           
-                          <strong>$nombre_usuario</strong> te recordamos que en nuestro sistema tienes pendiente la devolución del equipo: $nombre_equipo comprometida para su uso entre las fechas <strong>$fecha1</strong> y <strong>$fecha2</strong>. Te solicitamos recordarte de la devolución del equipo y en caso de ya haberlo devuelto u otra situación, por favor comunícate con la comisión o la directiva para solucionar el caso.<br><br><br>
+	                          <strong>$nombre_usuario</strong>, te recordamos que en nuestro sistema tienes pendiente la devolución del equipo <strong>$nombre_equipo</strong>, cuyo préstamo fue registrado desde el <strong>$fecha1</strong> y mantiene como fecha vigente de devolución el <strong>$fecha2</strong>.$aviso_extension<br><br>Si ya devolviste el equipo o necesitas aclarar esta situación, comunícate con la Comisión de Equipo o la Directiva.<br><br><br>
                           <strong>Sistema Ramuch</strong>
                           </p>
                           <br> 
@@ -96,31 +119,10 @@ $hoy 	= date("Y-m-d");
 
 
                           
-                        require_once("../../includes/PHPMailer2/PHPMailerAutoload.php");
+                        require_once __DIR__ . "/../../includes/RamuchMailer.php";
 
                         //Create a new PHPMailer instance
-                        $mail = new PHPMailer;
-                        //Tell PHPMailer to use SMTP
-                        $mail->isSMTP();
-                        //Enable SMTP debugging
-                        // 0 = off (for production use)
-                        // 1 = client messages
-                        // 2 = client and server messages
-                        $mail->SMTPDebug = 0;
-                        //Ask for HTML-friendly debug output
-                        $mail->Debugoutput = 'html';
-                        //Set the hostname of the mail server
-                        $mail->Host = $host;
-                        //Set the SMTP port number - likely to be 25, 465 or 587
-                        $mail->Port = 25;
-                        //Whether to use SMTP authentication
-                        $mail->SMTPAuth = true;
-                        //Username to use for SMTP authentication
-                        $mail->Username = $email_user;
-                        //Password to use for SMTP authentication
-                        $mail->Password = $email_pass;
-                        //Set who the message is to be sent from
-                        $mail->CharSet = 'UTF-8';
+                        $mail = crearMailerRamuch(false);
 
                         $mail->setFrom($email_from, "Sistema Ramuch");
                         //Set an alternative reply-to address
@@ -157,7 +159,7 @@ $hoy 	= date("Y-m-d");
 
 
                         //Set the subject line
-                        $mail->Subject = 'Respuesta solicitud de Préstamo';
+	                        $mail->Subject = 'Recordatorio de devolución de equipo';
                         //Read an HTML message body from an external file, convert referenced images to embedded,
                         //convert HTML into a basic plain-text alternative body
                         $mail->msgHTML($cuerpo);
@@ -166,24 +168,24 @@ $hoy 	= date("Y-m-d");
                         //Attach an image file
                         //$mail->addAttachment('images/phpmailer_mini.png');
 
-                        $mail->SMTPOptions = array(
-                          'ssl' => array(
-                            'verify_peer' => false,
-                            'verify_peer_name' => false,
-                            'allow_self_signed' => true
-                          )
-                        );
-
                         //send the message, check for errors
                         if (!$mail->send()) {
                           echo "Mailer Error: " . $mail->ErrorInfo;
-                          
+                          $erroresProceso[] = "No se pudo enviar el recordatorio de \"$nombre_equipo\" a $nombre_usuario: " . $mail->ErrorInfo;
                         } else {
                           echo "Message sent!";
-                          
+                          $recordatoriosEnviados++;
                         }
 
 }	//while($result = $mysql->f_obj($sql))
+
+$descripcionProceso = $prestamosVencidos === 0
+	? "No hay préstamos de equipo vencidos. No se enviaron recordatorios."
+	: "Préstamos vencidos: $prestamosVencidos. Recordatorios enviados al socio y a la Comisión de Equipos: $recordatoriosEnviados.";
+if ($erroresProceso) {
+	$descripcionProceso .= "\n\nErrores (" . count($erroresProceso) . "):\n- " . implode("\n- ", $erroresProceso);
+}
+ramuchProcesoFinalizar($registroProceso, !$erroresProceso, $descripcionProceso);
  
 
  

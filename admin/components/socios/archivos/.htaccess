@@ -1,0 +1,12 @@
+# Certificados de alumno regular: documentos personales.
+# Prohibido el acceso web directo; se entregan solo mediante
+# admin/components/socios/models/ver_certificado.php (sesión de administrador)
+# y socios/components/socios/models/ver_certificado.php (certificado propio).
+Options -Indexes
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+</IfModule>

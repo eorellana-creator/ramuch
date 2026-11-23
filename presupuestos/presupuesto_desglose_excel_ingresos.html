@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Presupuesto — Desglose de ingresos en Excel RAMUCH</title>
+<style>
+  @page { size: A4; margin: 1.8cm; }
+  body { font-family: Arial, sans-serif; color: #222; font-size: 10.5pt; line-height: 1.42; }
+  h1 { color: #17365d; font-size: 20pt; margin-bottom: 4px; }
+  h2 { color: #245b84; font-size: 14pt; margin-top: 21px; border-bottom: 1px solid #b8c8d8; padding-bottom: 4px; }
+  .subtitulo { color: #666; margin-top: 0; }
+  .resumen { background: #eef5fa; border-left: 5px solid #2a84b8; padding: 12px 15px; }
+  .advertencia { background: #fff8e6; border-left: 5px solid #e5a100; padding: 10px 15px; }
+  table { width: 100%; border-collapse: collapse; margin: 11px 0; }
+  th { background: #245b84; color: white; text-align: left; padding: 8px; }
+  td { border: 1px solid #c8d1da; padding: 8px; vertical-align: top; }
+  td.numero { text-align: right; white-space: nowrap; }
+  tr.total td { font-weight: bold; background: #eef5fa; }
+  .hecho { color: #16713a; font-weight: bold; }
+  .parcial { color: #a46700; font-weight: bold; }
+  .pendiente { color: #a22020; font-weight: bold; }
+  .valores { width: 67%; margin-left: auto; }
+  .valores td:first-child { font-weight: bold; }
+  .nota { font-size: 9pt; color: #555; }
+  .texto-registro { border: 1px solid #c8d1da; background: #fafafa; padding: 12px 15px; }
+</style>
+</head>
+<body>
+  <h1>Presupuesto de desarrollo</h1>
+  <p class="subtitulo">Mejora de archivos Excel de ingresos — RAMUCH</p>
+  <p><strong>Fecha:</strong> 12 de septiembre de 2026</p>
+
+  <div class="resumen">
+    <strong>Objetivo</strong><br>
+    Mejorar los informes Excel generados desde la sección de ingresos para que cada pago pueda identificarse por concepto, tipo de socio y periodo pagado, manteniendo conciliación con el monto total recibido.
+  </div>
+
+  <h2>Evaluación de lo existente</h2>
+  <table>
+    <thead><tr><th>Elemento</th><th style="width:16%">Estado</th><th>Resultado del análisis</th></tr></thead>
+    <tbody>
+      <tr><td>Exportación desde la sección Ingresos</td><td class="hecho">Existe</td><td>Se puede filtrar por fechas, tipo, subcuenta y medio antes de descargar el informe.</td></tr>
+      <tr><td>Registro del concepto contable</td><td class="parcial">Parcial</td><td>La tabla de movimientos dispone de los campos subcuenta y glosa, pero la exportación actual no incluye la subcuenta.</td></tr>
+      <tr><td>Pagos manuales</td><td class="parcial">Parcial</td><td>Herederan la subcuenta y descripción de la deuda, por lo que es posible obtener matrícula o cuota, pero no se presenta claramente el tipo de socio en el Excel.</td></tr>
+      <tr><td>Pagos realizados mediante Flow</td><td class="pendiente">Insuficiente</td><td>Un pago que cubre varias deudas se registra en la cuenta maestra como un monto general con la glosa “Pago vía Flow”.</td></tr>
+      <tr><td>Profesional versus estudiante</td><td class="parcial">Recuperable</td><td>El tipo de inscripción existe en el perfil y puede asociarse al movimiento mediante el usuario.</td></tr>
+      <tr><td>Periodo o mensualidad pagada</td><td class="parcial">Recuperable</td><td>La fecha y glosa se encuentran en las deudas individuales, pero no se incorporan al informe de ingresos.</td></tr>
+      <tr><td>Formato del archivo</td><td class="parcial">Básico</td><td>El archivo se genera como texto CSV con extensión .xls. Funciona para descarga, pero no es un libro Excel estructurado.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Desglose propuesto</h2>
+  <p>El informe incorporará, como mínimo, las siguientes columnas:</p>
+  <ul>
+    <li>ID del movimiento y fecha del pago.</li>
+    <li>Nombre del socio y medio de pago.</li>
+    <li>Concepto: matrícula, mensualidad u otro ingreso.</li>
+    <li>Tipo de socio: profesional o estudiante.</li>
+    <li>Periodo pagado: mes y año, cuando corresponda.</li>
+    <li>Monto correspondiente a cada concepto.</li>
+    <li>Total de la transacción e identificador de Flow o respaldo manual.</li>
+    <li>Estado, observación y documento de respaldo.</li>
+  </ul>
+  <p>Cuando una transacción cubra varias mensualidades, podrá representarse en varias filas de detalle relacionadas por el mismo identificador de pago. La suma de esas filas deberá coincidir con el total efectivamente recibido.</p>
+
+  <h2>Desarrollo considerado</h2>
+  <ol>
+    <li>Definir una clasificación única para matrícula, mensualidad profesional, mensualidad estudiante y otros ingresos.</li>
+    <li>Relacionar movimientos con usuario, perfil, deuda y transacción Flow.</li>
+    <li>Modificar la confirmación de Flow para registrar el detalle de los conceptos cubiertos por cada pago futuro.</li>
+    <li>Conservar correctamente el concepto en los pagos registrados manualmente.</li>
+    <li>Reconstruir los pagos históricos utilizando las relaciones disponibles.</li>
+    <li>Agregar las nuevas columnas, subtotales y total general al informe.</li>
+    <li>Permitir filtros por concepto y tipo de socio.</li>
+    <li>Validar que el detalle conciliado sea igual al monto del movimiento.</li>
+    <li>Probar pagos individuales, múltiples, semestrales, anuales, matrícula y pagos manuales en staging.</li>
+  </ol>
+
+  <div class="advertencia">
+    <strong>Consideración histórica:</strong> los movimientos antiguos podrán desglosarse cuando mantengan una relación válida con deudas, usuario o transacción Flow. Si algún registro histórico solo conserva el monto y una glosa general, se identificará como “sin detalle histórico disponible” para no inventar información contable.
+  </div>
+
+  <h2>Estimación integral</h2>
+  <table>
+    <thead><tr><th>Actividad</th><th style="width:20%; text-align:right">Horas</th></tr></thead>
+    <tbody>
+      <tr><td>Análisis y definición de conceptos contables</td><td class="numero">1,0</td></tr>
+      <tr><td>Modelo de detalle y relación con deudas, perfiles y Flow</td><td class="numero">1,5</td></tr>
+      <tr><td>Ajuste del registro de pagos futuros manuales y Flow</td><td class="numero">1,5</td></tr>
+      <tr><td>Reconstrucción segura de información histórica disponible</td><td class="numero">1,0</td></tr>
+      <tr><td>Mejora del Excel, columnas, filtros y totales</td><td class="numero">1,5</td></tr>
+      <tr><td>Pruebas de conciliación en staging y publicación</td><td class="numero">1,5</td></tr>
+      <tr class="total"><td>Total estimado de la solicitud completa</td><td class="numero">8,0 horas</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Valorización</h2>
+  <table class="valores">
+    <tbody>
+      <tr><td>Tarifa desarrollador senior</td><td class="numero">$40.000 CLP/hora</td></tr>
+      <tr><td>Valor neto</td><td class="numero">$320.000 CLP</td></tr>
+      <tr><td>IVA (19 %)</td><td class="numero">$60.800 CLP</td></tr>
+      <tr class="total"><td>Total con IVA</td><td class="numero">$380.800 CLP</td></tr>
+    </tbody>
+  </table>
+
+  <p class="nota">La valorización contempla la mejora completa del registro y del informe, no solamente agregar una columna al archivo. Considera desarrollo PHP/MySQL, migración no destructiva, validación en staging y publicación posterior a la aprobación.</p>
+
+  <h2>Detalle para registrar en la Intranet</h2>
+  <div class="texto-registro">
+    Mejora integral de los archivos Excel de ingresos para identificar el concepto de cada pago: matrícula, mensualidad profesional, mensualidad estudiante u otros ingresos; incluyendo socio, periodo, medio de pago, monto por concepto y total de transacción. Se actualizará el registro de pagos manuales y Flow, se recuperará el detalle histórico disponible, se incorporarán filtros y se validará la conciliación de los montos.<br><br>
+    <strong>Tiempo estimado total:</strong> 8 horas.<br>
+    <strong>Valor estimado total:</strong> $320.000 CLP netos.
+  </div>
+</body>
+</html>

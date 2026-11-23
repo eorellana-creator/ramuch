@@ -1,7 +1,7 @@
 <?php
 
-//ini_set('display_errors', "on");
-//ini_set('display_startup_errors', 1);
+//ini_set('display_errors', '0');
+//ini_set('display_startup_errors', '0');
 //error_reporting(E_ALL);
 
 session_start();
@@ -9,6 +9,7 @@ session_start();
 include("../../../configuration.php");
 include("../../../includes/conexionMysql.php");
 include("../../../includes/funciones.php");
+require_once __DIR__ . '/../../../includes/tipo_inscripcion.php';
 
 $draw			 = @$_POST["draw"];
 $inicio		 = @$_POST["start"];
@@ -50,6 +51,15 @@ $config 	= new Config;
 
 $mysql 		= new mysql;
 $mysql->connect(); 	
+
+$rol_administrador = isset($_SESSION['usuario_rol']) ? (int) $_SESSION['usuario_rol'] : 0;
+$puede_reenviar_verificacion = ($rol_administrador === 1);
+if (!$puede_reenviar_verificacion && $rol_administrador > 0) {
+  $sqlRolSesion = $mysql->query("SELECT nombre FROM rol WHERE id_rol='$rol_administrador' LIMIT 1;");
+  $rolSesion = $sqlRolSesion ? $mysql->f_obj($sqlRolSesion) : null;
+  $nombreRolSesion = $rolSesion ? strtolower(trim($rolSesion->nombre)) : '';
+  $puede_reenviar_verificacion = ($nombreRolSesion === 'administrador de socios');
+}
 
 
 //MARCAMOS LOS QUE SE REGISTRARON VÍA PÁGINA WEB Y NO HAN PAGADO LA MATRÍCULA*************************************************************************** */
@@ -196,8 +206,13 @@ while($result = $mysql->f_obj($sql)){
   $referencia = $result->referencia;
   $estado = $result->estado;
   $fecha_registro = $result->fecha_registro;
-  if($result->estado=='Por confirmar email')
-  $estado = "<span style='color:#ff0000;'>$result->estado</span>";
+  if($result->estado=='Por confirmar email') {
+    $estado = "<span style='color:#ff0000;'>$result->estado</span>";
+    $matricula_pendiente = ($result->web_matricula_pagada == '' || $result->web_matricula_pagada == 'No');
+    if ($puede_reenviar_verificacion && $matricula_pendiente) {
+      $estado .= "<br><button type='button' class='btn btn-sm btn-warning mt-1' onclick='reenviarVerificacion($result->id_usuario, this)'><i class='fas fa-paper-plane'></i> Reenviar verificación</button>";
+    }
+  }
 
   $web_matricula_pagada = $result->web_matricula_pagada;
   if($web_matricula_pagada == "" OR $web_matricula_pagada == 'No'){
@@ -213,31 +228,8 @@ while($result = $mysql->f_obj($sql)){
   $telefono = "<a href='tel:$result->fono'><i class='fas fa-mobile'></i> $result->fono</a>";
 
 
-  // Kop se debe eliminar y dejar la busqueda por la base de datos
-  $tipo_inscripcion = "";
-  switch($result->tipo_inscripcion){
-  case 1:
-    $tipo_inscripcion = "Profesional";
-    break;
-  case 3:
-    $tipo_inscripcion = "Estudiante";
-    break;
-  case 6:
-    $tipo_inscripcion = "Congelado";
-    break;
-  case 2:
-    $tipo_inscripcion = "Honorario";
-    break;
-  case 7:
-    $tipo_inscripcion = "Desvinculado";
-    break;
-
-//  case 8:
-//    $tipo_inscripcion = "Eliminado";
-//    break;
-
-
-}//switch
+  // Nombre desde plan_matricula; "Eliminado" (8) no se muestra en el listado.
+  $tipo_inscripcion = (int)$result->tipo_inscripcion === 8 ? "" : ramuchNombreTipoInscripcion($mysql, $result->tipo_inscripcion);
 
   /*
   // tipo de inscripcion
@@ -303,4 +295,3 @@ echo "
 
 
 ?>
-

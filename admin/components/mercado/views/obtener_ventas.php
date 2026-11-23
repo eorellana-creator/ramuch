@@ -5,11 +5,10 @@ include("../../../includes/conexionMysql.php");
 
 // Habilitar reporte de errores
 error_reporting(E_ALL);
-ini_set('display_errors', '1');
+ini_set('display_errors', '0');
 
 // Habilitar logs de errores en un archivo
 ini_set('log_errors', '1');
-ini_set('error_log', __DIR__ . '/error.log');
 
 $mysql = new mysql;
 $mysql->connect();
@@ -17,8 +16,6 @@ $mysql->connect();
 $sql = $mysql->query("SELECT id_venta, fecha_venta, nombre_usuario, total, orden_flow FROM ventas v, usuario u where v.id_usuario = u.id_usuario ORDER BY fecha_venta DESC");
 $ventas = array();
 
-error_log("sql de ventas: " . print_r($sql, true));
-error_log("las ventas: " . print_r($ventas, true));
 
 while($result = $mysql->f_obj($sql)) {
     $ventas[] = array(

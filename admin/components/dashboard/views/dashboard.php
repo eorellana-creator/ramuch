@@ -3,29 +3,24 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<?php 
-session_start();
-// Define los IDs permitidos
-$usuarios_permitidos = [1, 2143, 1978, 2150, 1752, 1794];
-$mostrar_botones = in_array($_SESSION['usuario_id'], $usuarios_permitidos);
-?>
-
-<script>
-// Debug en consola
-window.addEventListener('DOMContentLoaded', () => {
-    console.group('Debug de permisos');
-    console.log('ID Usuario:', <?= json_encode($usuario_id) ?>);
-    console.log('Usuarios permitidos:', <?= json_encode($usuarios_permitidos) ?>);
-    console.log('Mostrar botones:', <?= json_encode($mostrar_botones) ?>);
-    console.groupEnd();
-});
-console.log("Datos de Sesión:", <?= json_encode($_SESSION) ?>);
-
-</script>
-
-<div class="row">
+<style>
+    /* Tarjetas de resumen: todas del mismo ancho y alto (toman el de la más alta),
+       con el enlace siempre abajo. 1 columna en celular, 2 en tablet y 4 en escritorio. */
+    .fila-resumen > [class*="col-"] { display: flex; }
+    .fila-resumen .tarjeta-resumen { display: flex; flex-direction: column; width: 100%; }
+    .fila-resumen .tarjeta-resumen .card-body { flex: 1 1 auto; }
+    .fila-resumen .tarjeta-resumen .card-footer { margin-top: auto; }
+    @media (min-width: 576px) {
+        .fila-resumen { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 1fr; }
+        .fila-resumen > [class*="col-"] { max-width: none; }
+    }
+    @media (min-width: 992px) {
+        .fila-resumen { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    }
+</style>
+<div class="row fila-resumen">
     <div class="col-sm-6 col-lg-3">
-        <div class="card text-white bg-primary">
+        <div class="card text-white bg-primary tarjeta-resumen">
             <div class="card-body pb-0">
                 <button type="button" class="btn btn-transparent p-0 float-right">
                     <i class="fa fa-users fa-3x"></i>
@@ -45,7 +40,7 @@ console.log("Datos de Sesión:", <?= json_encode($_SESSION) ?>);
 
     <!-- Tarjeta Balance del Mes -->
     <div class="col-sm-6 col-lg-3">
-        <div class="card text-white bg-info">
+        <div class="card text-white bg-info tarjeta-resumen">
             <div class="card-body pb-0">
                 <button type="button" class="btn btn-transparent p-0 float-right">
                     <i class="fas fa-file-invoice-dollar fa-3x"></i>
@@ -86,7 +81,7 @@ console.log("Datos de Sesión:", <?= json_encode($_SESSION) ?>);
 
     <!-- Tarjeta Balance del Año (misma estructura) -->
     <div class="col-sm-6 col-lg-3">
-        <div class="card text-white bg-success">
+        <div class="card text-white bg-success tarjeta-resumen">
             <div class="card-body pb-0">
                 <button type="button" class="btn btn-transparent p-0 float-right">
                     <i class="fas fa-hand-holding-usd fa-3x"></i>
@@ -127,7 +122,7 @@ console.log("Datos de Sesión:", <?= json_encode($_SESSION) ?>);
 
 
     <div class="col-sm-6 col-lg-3">
-        <div class="card text-white bg-danger">
+        <div class="card text-white bg-danger tarjeta-resumen">
             <div class="card-body pb-0">
                 <button type="button" class="btn btn-transparent p-0 float-right">
                     <i class="fas fa-exclamation-triangle fa-3x fa-3x"></i>
@@ -146,7 +141,7 @@ console.log("Datos de Sesión:", <?= json_encode($_SESSION) ?>);
     </div>
 
     <div class="col-sm-6 col-lg-3">
-        <div class="card text-white bg-purple">
+        <div class="card text-white bg-purple tarjeta-resumen">
             <div class="card-body pb-0">
                 <button type="button" class="btn btn-transparent p-0 float-right">
                     <i class="fas fa-cash-register fa-3x fa-3x"></i>
@@ -165,7 +160,7 @@ console.log("Datos de Sesión:", <?= json_encode($_SESSION) ?>);
     </div>
 
     <div class="col-sm-6 col-lg-3">
-        <div class="card text-white bg-orange">
+        <div class="card text-white bg-orange tarjeta-resumen">
             <div class="card-body pb-0">
                 <button type="button" class="btn btn-transparent p-0 float-right">
                     <i class="fas fa-hiking fa-3x fa-3x"></i>
@@ -184,7 +179,7 @@ console.log("Datos de Sesión:", <?= json_encode($_SESSION) ?>);
     </div>
 
     <div class="col-sm-6 col-lg-3">
-        <div class="card text-white bg-success">
+        <div class="card text-white bg-dark tarjeta-resumen">
             <div class="card-body pb-0">
                 <button type="button" class="btn btn-transparent p-0 float-right">
                     <i class="fas fa-file-invoice fa-3x fa-3x"></i>
@@ -202,6 +197,170 @@ console.log("Datos de Sesión:", <?= json_encode($_SESSION) ?>);
         </div>
     </div>
 </div>
+
+<?php
+$mostrarGenero = !empty($distribucion_genero);
+$mostrarProcesos = !empty($ver_procesos_automaticos);
+if ($mostrarProcesos) {
+    $hayErrorReciente = false;
+    foreach ($procesos_estado as $estadoProceso) {
+        if ($estadoProceso->resultado !== 'ok') { $hayErrorReciente = true; }
+    }
+    $fechaProceso = function ($fecha) { return date('d-m-Y H:i', strtotime($fecha)); };
+}
+?>
+<?php if ($mostrarGenero || $mostrarProcesos): ?>
+<style>
+    .procesos-scroll { max-height: 420px; overflow-y: auto; }
+    .procesos-tabla td { vertical-align: top; }
+    @media (min-width: 992px) {
+        /* Ambos recuadros terminan en la misma línea: el de procesos toma la altura
+           del gráfico y hace scroll por dentro si tiene más contenido. */
+        .fila-par { margin-bottom: 1.5rem; }
+        .fila-par .dashboard-par-card { margin-bottom: 0; }
+        .procesos-junto-grafico { position: relative; min-height: 300px; }
+        .procesos-junto-grafico > .card { position: absolute; top: 0; left: 15px; right: 15px; bottom: 0; display: flex; flex-direction: column; }
+        .procesos-junto-grafico .procesos-scroll { max-height: none; flex: 1 1 auto; min-height: 0; }
+    }
+</style>
+<div class="row mt-2 fila-par">
+<?php if ($mostrarGenero): ?>
+    <div class="col-lg-6">
+        <div class="card dashboard-par-card">
+            <div class="card-header">
+                <h4 class="mb-0">Socios activos por sexo/género</h4>
+            </div>
+            <div class="card-body">
+                <div id="grafico-genero" style="width:100%; height:280px; overflow:hidden;"></div>
+                <table class="table table-sm mt-3 mb-0">
+                    <tbody>
+                    <?php $totalGenero = array_sum($distribucion_genero); ?>
+                    <?php foreach ($distribucion_genero as $etiquetaGenero => $cantidadGenero): ?>
+                        <tr>
+                            <td><?php echo htmlspecialchars($etiquetaGenero, ENT_QUOTES, 'UTF-8'); ?></td>
+                            <td class="text-right"><?php echo number_format($cantidadGenero, 0, ',', '.'); ?></td>
+                            <td class="text-right text-muted"><?php echo $totalGenero > 0 ? number_format($cantidadGenero * 100 / $totalGenero, 1, ',', '.') . '%' : '0%'; ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+                <small class="text-muted">"Sin información" corresponde a socios que no han indicado este dato (campo opcional).</small>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
+<?php if ($mostrarProcesos): ?>
+    <div class="col-lg-6<?php echo $mostrarGenero ? ' procesos-junto-grafico' : ''; ?>">
+        <div class="card dashboard-par-card">
+            <div class="card-header d-flex justify-content-between align-items-center flex-wrap">
+                <h4 class="mb-0"><i class="fa fa-cogs"></i> Procesos automáticos</h4>
+                <?php if (empty($procesos_estado)): ?>
+                    <span class="badge badge-secondary">Sin ejecuciones registradas</span>
+                <?php elseif ($hayErrorReciente): ?>
+                    <span class="badge badge-danger" style="font-size:90%;">Hay procesos con error</span>
+                <?php else: ?>
+                    <span class="badge badge-success" style="font-size:90%;">Todo funcionando</span>
+                <?php endif; ?>
+            </div>
+            <div class="card-body procesos-scroll">
+                <?php if (empty($procesos_automaticos)): ?>
+                    <p class="text-muted mb-0">Todavía no hay ejecuciones registradas. Aparecerán aquí cuando corra el primer cron o se confirme un pago con Flow.</p>
+                <?php else: ?>
+                    <div class="mb-2">
+                        <strong>Último resultado de cada proceso:</strong><br>
+                        <?php foreach ($procesos_estado as $estadoProceso): ?>
+                            <span class="badge <?php echo $estadoProceso->resultado === 'ok' ? 'badge-success' : 'badge-danger'; ?> mr-1 mb-1" style="font-size:85%; font-weight:normal; white-space:normal; text-align:left;">
+                                <?php echo htmlspecialchars($estadoProceso->titulo, ENT_QUOTES, 'UTF-8'); ?>:
+                                <?php echo $estadoProceso->resultado === 'ok' ? 'OK' : 'Error'; ?>,
+                                <?php echo $fechaProceso($estadoProceso->fecha_fin); ?>
+                            </span>
+                        <?php endforeach; ?>
+                    </div>
+                    <table class="table table-sm table-hover mb-1 procesos-tabla">
+                        <thead>
+                            <tr>
+                                <th style="width:115px;">Fecha</th>
+                                <th>Proceso y qué pasó</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <?php foreach ($procesos_automaticos as $ejecucion): ?>
+                            <tr class="<?php echo $ejecucion->resultado === 'ok' ? '' : 'table-danger'; ?>">
+                                <td class="text-nowrap">
+                                    <?php echo $fechaProceso($ejecucion->fecha_fin); ?><br>
+                                    <?php if ($ejecucion->resultado === 'ok'): ?>
+                                        <span class="badge badge-success">OK</span>
+                                    <?php else: ?>
+                                        <span class="badge badge-danger">Error</span>
+                                        <?php if ((int)$ejecucion->correo_enviado === 1): ?>
+                                            <br><small class="text-muted">aviso enviado</small>
+                                        <?php endif; ?>
+                                    <?php endif; ?>
+                                </td>
+                                <td>
+                                    <strong><?php echo htmlspecialchars($ejecucion->titulo, ENT_QUOTES, 'UTF-8'); ?></strong><br>
+                                    <small><?php echo nl2br(htmlspecialchars($ejecucion->descripcion, ENT_QUOTES, 'UTF-8')); ?></small>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                    <small class="text-muted">Últimas 10 ejecuciones. Si un proceso termina con error, se avisa por correo a directiva@ramuch.cl.</small>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
+</div>
+<?php if ($mostrarGenero): ?>
+<script>
+(function () {
+    var datosGenero = <?php echo json_encode(array_map(null, array_keys($distribucion_genero), array_values($distribucion_genero)), JSON_UNESCAPED_UNICODE); ?>;
+    var contenedor = document.getElementById('grafico-genero');
+    var grafico = null, tabla = null, ultimoAncho = 0, espera = null;
+    // Google Charts dibuja con el ancho que tiene el recuadro en ese momento:
+    // se vuelve a dibujar cuando cambia el ancho (zoom, ventana, menú lateral).
+    function dibujarGraficoGenero() {
+        var ancho = contenedor.clientWidth;
+        if (!ancho || ancho === ultimoAncho) { return; }
+        ultimoAncho = ancho;
+        if (!tabla) {
+            tabla = new google.visualization.DataTable();
+            tabla.addColumn('string', 'Sexo/Género');
+            tabla.addColumn('number', 'Socios');
+            tabla.addRows(datosGenero);
+            grafico = new google.visualization.PieChart(contenedor);
+        }
+        var angosto = ancho < 420;
+        grafico.draw(tabla, {
+            width: ancho,
+            height: 280,
+            pieHole: 0.45,
+            legend: { position: angosto ? 'bottom' : 'right', alignment: 'center' },
+            chartArea: angosto ? { left: 10, top: 10, width: '95%', height: '75%' } : { left: 10, top: 20, width: '95%', height: '85%' },
+            colors: ['#c2185b', '#1976d2', '#7b1fa2', '#9e9e9e'],
+            sliceVisibilityThreshold: 0
+        });
+    }
+    function redibujar() {
+        clearTimeout(espera);
+        espera = setTimeout(dibujarGraficoGenero, 150);
+    }
+    if (window.google && google.charts) {
+        google.charts.load('current', { packages: ['corechart'] });
+        google.charts.setOnLoadCallback(function () {
+            dibujarGraficoGenero();
+            if (window.ResizeObserver) {
+                new ResizeObserver(redibujar).observe(contenedor);
+            } else {
+                window.addEventListener('resize', redibujar);
+            }
+        });
+    }
+})();
+</script>
+<?php endif; ?>
+<?php endif; ?>
 
 <div class="clear:both;width:100%; font-size:10px !important;"></div>
 
