@@ -3,9 +3,24 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<div class="row">
+<style>
+    /* Tarjetas de resumen: todas del mismo ancho y alto (toman el de la más alta),
+       con el enlace siempre abajo. 1 columna en celular, 2 en tablet y 4 en escritorio. */
+    .fila-resumen > [class*="col-"] { display: flex; }
+    .fila-resumen .tarjeta-resumen { display: flex; flex-direction: column; width: 100%; }
+    .fila-resumen .tarjeta-resumen .card-body { flex: 1 1 auto; }
+    .fila-resumen .tarjeta-resumen .card-footer { margin-top: auto; }
+    @media (min-width: 576px) {
+        .fila-resumen { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 1fr; }
+        .fila-resumen > [class*="col-"] { max-width: none; }
+    }
+    @media (min-width: 992px) {
+        .fila-resumen { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    }
+</style>
+<div class="row fila-resumen">
     <div class="col-sm-6 col-lg-3">
-        <div class="card text-white bg-primary">
+        <div class="card text-white bg-primary tarjeta-resumen">
             <div class="card-body pb-0">
                 <button type="button" class="btn btn-transparent p-0 float-right">
                     <i class="fa fa-users fa-3x"></i>
@@ -25,7 +40,7 @@
 
     <!-- Tarjeta Balance del Mes -->
     <div class="col-sm-6 col-lg-3">
-        <div class="card text-white bg-info">
+        <div class="card text-white bg-info tarjeta-resumen">
             <div class="card-body pb-0">
                 <button type="button" class="btn btn-transparent p-0 float-right">
                     <i class="fas fa-file-invoice-dollar fa-3x"></i>
@@ -66,7 +81,7 @@
 
     <!-- Tarjeta Balance del Año (misma estructura) -->
     <div class="col-sm-6 col-lg-3">
-        <div class="card text-white bg-success">
+        <div class="card text-white bg-success tarjeta-resumen">
             <div class="card-body pb-0">
                 <button type="button" class="btn btn-transparent p-0 float-right">
                     <i class="fas fa-hand-holding-usd fa-3x"></i>
@@ -107,7 +122,7 @@
 
 
     <div class="col-sm-6 col-lg-3">
-        <div class="card text-white bg-danger">
+        <div class="card text-white bg-danger tarjeta-resumen">
             <div class="card-body pb-0">
                 <button type="button" class="btn btn-transparent p-0 float-right">
                     <i class="fas fa-exclamation-triangle fa-3x fa-3x"></i>
@@ -126,7 +141,7 @@
     </div>
 
     <div class="col-sm-6 col-lg-3">
-        <div class="card text-white bg-purple">
+        <div class="card text-white bg-purple tarjeta-resumen">
             <div class="card-body pb-0">
                 <button type="button" class="btn btn-transparent p-0 float-right">
                     <i class="fas fa-cash-register fa-3x fa-3x"></i>
@@ -145,7 +160,7 @@
     </div>
 
     <div class="col-sm-6 col-lg-3">
-        <div class="card text-white bg-orange">
+        <div class="card text-white bg-orange tarjeta-resumen">
             <div class="card-body pb-0">
                 <button type="button" class="btn btn-transparent p-0 float-right">
                     <i class="fas fa-hiking fa-3x fa-3x"></i>
@@ -164,7 +179,7 @@
     </div>
 
     <div class="col-sm-6 col-lg-3">
-        <div class="card text-white bg-success">
+        <div class="card text-white bg-dark tarjeta-resumen">
             <div class="card-body pb-0">
                 <button type="button" class="btn btn-transparent p-0 float-right">
                     <i class="fas fa-file-invoice fa-3x fa-3x"></i>
