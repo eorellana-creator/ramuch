@@ -16,3 +16,8 @@
 *.swp
 .DS_Store
 Thumbs.db
+
+# Certificados de alumno regular subidos por socios: documentos personales.
+# Nunca deben versionarse; solo se conserva la protección de la carpeta.
+admin/components/socios/archivos/*
+!admin/components/socios/archivos/.htaccess
